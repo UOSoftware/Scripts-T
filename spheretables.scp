@@ -44,6 +44,9 @@ dialogs/
 // Core
 //*****************************************
 
+sphere_functions.scp
+sphere_issets.scp
+sphere_msgs.scp
 sphere_name.scp
 sphere_serv_triggers.scp
 sphere_skills.scp
@@ -58,8 +61,9 @@ sphere_types.scp
 
 itemdefs/
 itemdefs/artifact/
-itemdefs/custom/
+
 itemdefs/building/
+itemdefs/custom/
 itemdefs/deco/
 itemdefs/holiday/
 itemdefs/misc/
@@ -126,6 +130,7 @@ sphere_region.scp
 events/chars/
 events/chars/bonuses/
 events/chars/classes/
+
 events/items/
 events/npcs/
 events/npcs/vendors/
@@ -148,35 +153,35 @@ packets/
 
 // map0 //
 maps/map0/sphere_map0.scp
-maps/map0/sphere_map0_ml.scp
-maps/map0/sphere_map0_sa.scp
-maps/map0/sphere_map0_hs.scp
+// maps/map0/sphere_map0_ml.scp
+// maps/map0/sphere_map0_sa.scp
+// maps/map0/sphere_map0_hs.scp
 maps/map0/sphere_map_points0.scp
-maps/map0/sphere_map_points0_ml.scp
-maps/map0/sphere_map_points0_hs.scp
-maps/map0/sphere_map_points0_tol.scp
+// maps/map0/sphere_map_points0_ml.scp
+// maps/map0/sphere_map_points0_hs.scp
+// maps/map0/sphere_map_points0_tol.scp
 
 // map1 //
-maps/map1/sphere_map1.scp
-maps/map1/sphere_map_points1.scp
+// maps/map1/sphere_map1.scp
+// maps/map1/sphere_map_points1.scp
 
 // map2 //
-maps/map2/sphere_map2.scp
-maps/map2/sphere_map2_ml.scp
-maps/map2/sphere_map_points2.scp
-maps/map2/sphere_map_points2_ml.scp
+// maps/map2/sphere_map2.scp
+// maps/map2/sphere_map2_ml.scp
+// maps/map2/sphere_map_points2.scp
+// maps/map2/sphere_map_points2_ml.scp
 
 // map3 //
-maps/map3/sphere_map3.scp
-maps/map3/sphere_map3_se.scp
-maps/map3/sphere_map3_ml.scp
-maps/map3/sphere_map_points3.scp
-maps/map3/sphere_map_points3_se.scp
-maps/map3/sphere_map_points3_ml.scp
+// maps/map3/sphere_map3.scp
+// maps/map3/sphere_map3_se.scp
+// maps/map3/sphere_map3_ml.scp
+// maps/map3/sphere_map_points3.scp
+// maps/map3/sphere_map_points3_se.scp
+// maps/map3/sphere_map_points3_ml.scp
 
 // map4 //
-maps/map4/sphere_map4.scp
-maps/map4/sphere_map_points4.scp
+// maps/map4/sphere_map4.scp
+// maps/map4/sphere_map_points4.scp
 
 // map5 //
 //maps/map5 /sphere_map5.scp
@@ -195,6 +200,14 @@ templates/sphere_template_misc.scp
 templates/sphere_template_vend.scp
 templates/sphere_template_weapons.scp
 
+
+
+/////////////////
+// sql Klasoru
+/////////////////
+sql/
+sql/mysql/
+sql/sqlite/
 
 
 [OBSCENE]
