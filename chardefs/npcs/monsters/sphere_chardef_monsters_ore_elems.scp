@@ -1,0 +1,302 @@
+
+
+[CHARDEF 06b]
+DEFNAME=c_elemental_ore_agapite
+NAME=Agapite Elemental
+ICON=i_pet_elem_earth
+SOUND=snd_elementl_erthel1
+CAN=MT_WALK|MT_USEHANDS
+DAM=59,69
+ARMOR=30
+FOODTYPE=t_arock,t_coin,t_ore,t_ingot
+MAXFOOD=45
+RESOURCES=10 i_ore_agapite
+BLOODCOLOR=-1
+TAG.Barding.Diff=72.9
+CATEGORY=Monsters
+SUBSECTION=Elementals
+DESCRIPTION=Ore Elemental (agapite)
+
+ON=@Create
+NPC=brain_monster
+FAME={2500 2999}
+KARMA={-2500 -2999}
+STR={226 255}
+DEX={126 145}
+INT={71 92}
+MAGICRESISTANCE={50.0 95.0}
+TACTICS={60.0 100.0}
+WRESTLING={60.0 100.0}
+
+ON=@NPCRestock
+// ITEM=loot_elem_ore_agapite
+
+
+
+[CHARDEF 06c]
+DEFNAME=c_elemental_ore_bronze
+NAME=Bronze Elemental
+ICON=i_pet_elem_earth
+SOUND=snd_elementl_erthel1
+CAN=MT_WALK|MT_USEHANDS
+DAM=20,37
+ARMOR=30
+FOODTYPE=t_arock,t_coin,t_ore,t_ingot
+MAXFOOD=45
+RESOURCES=10 i_ore_copper//bronze
+BLOODCOLOR=-1
+TAG.Barding.Diff=71.8
+CATEGORY=Monsters
+SUBSECTION=Elementals
+DESCRIPTION=Ore Elemental (bronze)
+
+ON=@Create
+NPC=brain_monster
+FAME={2500 2999}
+KARMA={-2500 -2999}
+STR={226 255}
+DEX={126 145}
+INT={71 92}
+MAGICRESISTANCE={50.0 95.0}
+TACTICS={60.0 100.0}
+WRESTLING={60.0 100.0}
+
+ON=@NPCRestock
+// ITEM=loot_elem_ore_bronze
+
+
+
+[CHARDEF 06d]
+DEFNAME=c_elemental_ore_copper
+NAME=Copper Elemental
+Icon=I_Pet_Elem_Earth
+SOUND=snd_elementl_erthel1
+CAN=MT_WALK|MT_USEHANDS
+DAM=20,37
+ARMOR=30
+FOODTYPE=t_arock,t_coin,t_ore,t_ingot
+MAXFOOD=45
+RESOURCES=10 i_ore_copper
+BLOODCOLOR=-1
+TAG.Barding.Diff=73.3
+CATEGORY=Monsters
+SUBSECTION=Elementals
+DESCRIPTION=Ore Elemental (copper)
+
+
+ON=@Create
+NPC=brain_monster
+FAME={2500 2999}
+KARMA={-2500 -2999}
+STR={226 255}
+DEX={126 145}
+INT={71 92}
+MAGICRESISTANCE={50.0 95.0}
+TACTICS={60.0 100.0}
+WRESTLING={60.0 100.0}
+
+ON=@NPCRestock
+// ITEM=loot_elem_ore_copper
+
+
+
+
+[CHARDEF 06e]
+DEFNAME=c_elemental_ore_copper_dull
+NAME=Dull Copper Elemental
+ICON=i_pet_elem_earth
+SOUND=snd_elementl_erthel1
+CAN=MT_WALK|MT_USEHANDS
+DAM=19,37
+ARMOR=30
+FOODTYPE=t_arock,t_coin,t_ore,t_ingot
+MAXFOOD=45
+RESOURCES=10 i_ore_copper//_dull
+BLOODCOLOR=-1
+TAG.Barding.Diff=73.8
+CATEGORY=Monsters
+SUBSECTION=Elementals
+DESCRIPTION=Ore Elemental (dull copper)
+
+ON=@Create
+NPC=brain_monster
+FAME={2500 2999}
+KARMA={-2500 -2999}
+STR={226 255}
+DEX={126 145}
+INT={71 92}
+MAGICRESISTANCE={50.0 95.0}
+TACTICS={60.0 100.0}
+WRESTLING={60.0 100.0}
+
+ON=@NPCRestock
+// ITEM=loot_elem_ore_copper_dull
+
+
+
+
+[CHARDEF 06f]
+DEFNAME=c_elemental_ore_shadow
+NAME=Shadow Iron Elemental
+ICON=i_pet_elem_earth
+SOUND=snd_elementl_erthel1
+CAN=MT_WALK|MT_USEHANDS
+DAM=20,37
+ARMOR=30
+FOODTYPE=t_arock,t_coin,t_ore,t_ingot
+MAXFOOD=45
+RESOURCES=10 i_ore_shadow
+BLOODCOLOR=-1
+TAG.Barding.Diff=72.3
+CATEGORY=Monsters
+SUBSECTION=Elementals
+DESCRIPTION=Ore Elemental (shadow)
+
+ON=@Create
+NPC=brain_monster
+FAME={2500 2999}
+KARMA={-2500 -2999}
+STR={226 255}
+DEX={126 145}
+INT={71 92}
+MAGICRESISTANCE={100.0 125.0}
+TACTICS={60.0 100.0}
+WRESTLING={60.0 100.0}
+ON=@NPCRestock
+// ITEM=loot_elem_ore_shadow
+
+
+
+[CHARDEF 070]
+DEFNAME=c_elemental_ore_valorite
+NAME=Valorite Elemental
+ICON=i_pet_elem_earth
+SOUND=snd_elementl_erthel1
+CAN=MT_WALK|MT_USEHANDS
+DAM=59,69
+ARMOR=65
+FOODTYPE=t_arock,t_coin,t_ore,t_ingot
+MAXFOOD=45
+RESOURCES=10 i_ore_valorite
+BLOODCOLOR=-1
+TAG.Barding.Diff=74.0
+CATEGORY=Monsters
+SUBSECTION=Elementals
+DESCRIPTION=Ore Elemental (valorite)
+
+ON=@Create
+NPC=brain_monster
+FAME={2500 2999}
+KARMA={-2500 -2999}
+STR={226 255}
+DEX={126 145}
+INT={71 92}
+MAGICRESISTANCE={100.0 125.0}
+TACTICS={60.0 100.0}
+WRESTLING={60.0 100.0}
+
+ON=@NPCRestock
+// ITEM=loot_elem_ore_valorite
+
+
+
+[CHARDEF 071]
+DEFNAME=c_elemental_ore_verite
+NAME=Verite Elemental
+ICON=i_pet_elem_earth
+SOUND=snd_elementl_erthel1
+CAN=MT_WALK|MT_USEHANDS
+DAM=20,37
+ARMOR=30
+FOODTYPE=t_arock,t_coin,t_ore,t_ingot
+MAXFOOD=45
+RESOURCES=10 i_ore_verite
+BLOODCOLOR=-1
+TAG.Barding.Diff=72.9
+TAG.HitCorrosive=10
+CATEGORY=Monsters
+SUBSECTION=Elementals
+DESCRIPTION=Ore Elemental (verite)
+
+ON=@Create
+NPC=brain_monster
+FAME={2500 2999}
+KARMA={-2500 -2999}
+STR={226 255}
+DEX={126 145}
+INT={71 92}
+MAGICRESISTANCE={50.0 95.0}
+TACTICS={60.0 100.0}
+WRESTLING={60.0 100.0}
+
+ON=@NPCRestock
+// ITEM=loot_elem_ore_verite
+
+
+
+[CHARDEF 0a6]
+DEFNAME=c_elemental_ore_gold
+NAME=Golden Elemental
+ICON=i_pet_elem_earth
+SOUND=snd_elementl_erthel1
+CAN=MT_WALK|MT_USEHANDS
+DAM=20,37
+ARMOR=60
+FOODTYPE=t_arock,t_coin,t_ore,t_ingot
+MAXFOOD=45
+RESOURCES=10 i_ore_gold
+BLOODCOLOR=-1
+TAG.Barding.Diff=73.9
+CATEGORY=Monsters
+SUBSECTION=Elementals
+DESCRIPTION=Ore Elemental (gold)
+
+ON=@Create
+NPC=brain_monster
+FAME={2500 2999}
+KARMA={-2500 -2999}
+STR={226 255}
+DEX={126 145}
+INT={71 92}
+MAGICRESISTANCE={50.0 95.0}
+TACTICS={60.0 100.0}
+WRESTLING={60.0 100.0}
+
+ON=@NPCRestock
+// ITEM=loot_elem_ore_gold
+
+
+
+[CHARDEF 06f]
+DEFNAME=c_elemental_ore_shadow
+NAME=Shadow Iron Elemental
+ICON=i_pet_elem_earth
+SOUND=snd_elementl_erthel1
+CAN=MT_WALK|MT_USEHANDS
+DAM=20,37
+ARMOR=30
+FOODTYPE=t_arock,t_coin,t_ore,t_ingot
+MAXFOOD=45
+RESOURCES=10 i_ore_shadow
+BLOODCOLOR=-1
+TAG.Barding.Diff=72.3
+CATEGORY=Monsters
+SUBSECTION=Elementals
+DESCRIPTION=Ore Elemental (shadow)
+
+ON=@Create
+NPC=brain_monster
+FAME={2500 2999}
+KARMA={-2500 -2999}
+STR={226 255}
+DEX={126 145}
+INT={71 92}
+MAGICRESISTANCE={100.0 125.0}
+TACTICS={60.0 100.0}
+WRESTLING={60.0 100.0}
+ON=@NPCRestock
+// ITEM=loot_elem_ore_shadow
+
+
+
+[eof]

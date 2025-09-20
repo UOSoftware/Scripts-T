@@ -1,0 +1,496 @@
+
+[PLEVEL 7]
+//*****************************************
+// OnAccount
+//*****************************************
+f_onaccount_connect
+f_onaccount_login
+f_onaccount_create
+f_onaccount_delete
+f_onaccount_pwchange
+f_onaccount_pinchange
+f_onaccount_block
+f_onaccount_unblock
+
+
+//*****************************************
+// OnChar
+//*****************************************
+f_onchar_create_player
+f_onchar_delete_player
+f_onchar_login_client
+f_onchar_logout_client
+f_onchar_disconnect_client
+f_onchar_armor_calculation
+f_onchar_create_npc
+
+
+//*****************************************
+// OnServer
+//*****************************************
+// Server
+f_onserver_start
+f_onserver_exit
+f_onserver_exit_later
+
+// Save
+f_onserver_save
+f_onserver_save_ok
+f_onserver_save_fail
+f_onserver_save_finished
+f_onserver_save_stage
+f_onserver_save_try
+f_onserver_save_force
+f_onserver_save_before
+
+// Resync
+f_onserver_resync_start
+f_onserver_resync_success
+f_onserver_resync_failed
+f_onserver_resync_restart
+
+// IP
+f_onserver_blockip
+f_onserver_unblockip
+
+// Misc
+f_onserver_timer
+f_onserver_broadcast
+f_onserver_restock
+f_onserver_mode
+
+// Window
+f_onserver_window_minimize
+f_onserver_window_restore
+f_onserver_onclose_query
+
+// DB
+f_onserver_db_query
+f_onserver_db_execute
+f_onserver_db_connect
+f_onserver_db_close
+f_onserver_db_tick
+
+
+//*****************************************
+// OnObj (Item and Char)
+//*****************************************
+f_onobj_delete
+
+//*****************************************
+// OnItem (Only Item)
+//*****************************************
+f_onitem_create
+
+
+//*****************************************
+// OnClient
+//*****************************************
+// Network
+f_onclient_exceed_network_quota
+f_onclient_unknown_client_data
+
+// Dialog
+f_onclient_dialog_onbutton
+f_onclient_dialog_onclose
+
+
+//*****************************************
+// OnMulti
+//*****************************************
+f_onmulti_delete
+f_onmulti_create
+
+
+
+//*****************************************
+// OnAccount
+//*****************************************
+
+[FUNCTION f_onaccount_connect]
+// This function is called when an client connect on server, before password checks.
+// Variables:
+//	LOCAL.Account  --> Account name given
+//	LOCAL.Password --> Password given
+// Return:
+//	0 --> Use internal password checks (default action)
+//	1 --> Disconnect client assuming the given password is wrong
+//	6 --> Skip internal password checks (password checks must be done manually on scripts)
+
+[FUNCTION f_onaccount_login]
+// This function is called after client entered correct password.
+// Variables:
+//	ARGS --> Account name connecting
+//	ARGO --> Client connecting
+// Return:
+//	0 --> Allow connection (default action)
+//	1 --> Deny connection
+
+[FUNCTION f_onaccount_create]
+// This function is called before an account get created.
+// Variables:
+//	ARGS --> Account name being created
+// Return:
+//	0 --> Allow account creation (default action)
+//	1 --> Deny account creation
+
+[FUNCTION f_onaccount_delete]
+// This function is called before an account get deleted.
+// Variables:
+//	ARGS --> Account name being deleted
+// RETURN
+//	0 --> Allow account deletion (default action)
+//	1 --> Deny account deletion
+
+[FUNCTION f_onaccount_pwchange]
+// This function is called when an account password is being changed.
+// Variables:
+//	ARGS           --> Account name
+//	LOCAL.Password --> New password
+// Return:
+//	0 --> Allow password change (default action)
+//	1 --> Deny password change
+
+
+[FUNCTION f_onaccount_pinchange]
+// This function is called when an account password is being changed.
+// Variables:
+//	ARGS 				--> Account name
+//	LOCAL.PIN  			--> New pin
+//	LOCAL.OLDPIN	--> Old pin (empty if creating a new account, or, you know, no previous password)
+// Return:
+//	0 --> Allow password change (default action)
+//	1 --> Deny password change
+
+
+[FUNCTION f_onaccount_block]
+// This function is called before an account get blocked.
+// Variables:
+//	ARGS           --> Account name
+
+[FUNCTION f_onaccount_unblock]
+// This function is called when an account password is being changed.
+// Variables:
+//	ARGS           --> Account name
+
+
+
+
+//*****************************************
+// OnChar
+//*****************************************
+
+[FUNCTION f_onchar_create_player_init]
+// f_onchar_create_init function in core/serv_triggers.scp; it's called after the client sent the character creation data, but before
+// the character is created server-side (f_onchar_create is called after the creation, so the function arguments are read-only).
+// Function parameters:
+ // Variables:
+   // Read-Write:
+	 // ARGN1 --> Feature flags sent by client
+	 // ARGN2 --> Character profession (0=Advanced, 1=Warrior, 2=Mage, 3=Blacksmith, 4=Necromancer, 5=Paladin, 6=Samurai, 7=Ninja)
+	 // ARGN3 --> Character race (1=Human, 2=Elf, 3=Gargoyle)
+   // Read-Only:
+	 // ARGS  --> Account name
+	 // ARGO  --> Client creating the character
+ // Return:
+	// 0 --> Allow character creation (default action)
+	// 1 --> Deny character creation
+
+
+[FUNCTION f_onchar_create_player]
+// This function is called before an account character got created.
+// Variables:
+//	SRC   --> Character being created
+//	ARGN1 --> Feature flags sent by client
+//	ARGN2 --> Character profession (0=Advanced, 1=Warrior, 2=Mage, 3=Blacksmith, 4=Necromancer, 5=Paladin, 6=Samurai, 7=Ninja)
+//	ARGN3 --> Character race (1=Human, 2=Elf, 3=Gargoyle)
+//	ARGS  --> Account name
+//	ARGO  --> Client creating the character
+// Return:
+//	0 --> Allow character creation (default action)
+//	1 --> Deny character creation
+
+
+[FUNCTION f_onchar_setup_player]
+// This function is called before an account character got setup.
+// Variables:
+//	SRC   --> Character being created
+IF (<SRC.ACCOUNT.PLEVEL> <= 1)
+	SRC.Char_Start_Player
+ENDIF
+
+
+
+[FUNCTION f_onchar_delete_player]
+// This function is called before an account character got deleted.
+// Variables:
+//	SRC  --> Char being deleted
+//	ARGO --> Client deleting the character (only available if the char is being deleted from client Character Selection menu)
+// Return:
+//	0 --> Allow character deletion (default action)
+//	1 --> Deny character deletion
+SERV.LOG <QVAL (<ARGO>)?<ARGO>:<src.name>/<SRC>> karakter silindi.
+
+
+[FUNCTION f_onchar_login_client]
+// Variables:
+//	SRC  --> Char
+
+[FUNCTION f_onchar_logout_client]
+// Variables:
+//	SRC  --> Char
+
+[FUNCTION f_onchar_disconnect_client]
+// Variables:
+//	SRC  --> Char
+
+[FUNCTION f_onchar_armor_calculation]
+
+
+[FUNCTION f_onchar_create_npc]
+// Variables:
+//	ARGN --> Npc UID
+// REF1=<argn>
+// serv.log f_onchar_create_npc: <REF1.NAME>
+
+
+
+
+
+
+//*****************************************
+// OnServer
+//*****************************************
+
+// Server
+[FUNCTION f_onserver_start]
+// This function is called on server startup.
+
+
+
+[FUNCTION f_onserver_exit]
+// This function is called on server shutdown.
+
+
+
+[FUNCTION f_onserver_exit_later]
+// This function is called on server f_onserver_exit later. 
+
+
+
+// Save
+[FUNCTION f_onserver_save]
+// This function is called before server worldsave start.
+// Variables:
+//	ARGN1 --> Save is forced (writable)
+//	ARGN2 --> Save stage (for backgroud save goes 1 to 6146 [sector count + 2])
+// Return:
+//	0 --> Allow save (default action)
+//	1 --> Deny save
+//SERV.SaveStatics	//Uncomment this line if you are building your server, so static items are saved also with normal saves, or comment it again in live servers to speed up the save proccess (if commented, you MUST type manually .serv.savestatics to save static items)
+
+
+[FUNCTION f_onserver_save_ok]
+// This function is called after server has saved correctly (once per stage with background save).
+
+
+[FUNCTION f_onserver_save_fail]
+// This function is called after server has failed to correctly save (once per stage with background save).
+
+
+[FUNCTION f_onserver_save_finished]
+// This function is called after server completely finished saving (also at end of background save).
+// Variables:
+//	ARGS --> Time it took to save (in seconds, 4 digit precision)
+
+// VAR0.SAVE_LAST_TIME <SERV.RTIME.FORMAT %H:%S>
+// VAR0.SAVE_LAST_DATE <SERV.RTIME.FORMAT %y.%m.%d>
+// VAR0.SAVE_LAST_DATETIME <SERV.RTIME>
+// VAR0.SAVE_PERIOD <SERV.SAVEPERIOD>
+// VAR0.SAVE_TIME_TOOK <STRSUB 0 3 <ARGS>>
+// SERV.B @044,3 Kayit islemi <STRSUB 0 3 <args>> saniyede tamamlandi.
+
+
+[FUNCTION f_onserver_save_stage]
+
+[FUNCTION f_onserver_save_try]
+
+[FUNCTION f_onserver_save_force]
+
+[FUNCTION f_onserver_save_before]
+
+
+
+// Resync
+[FUNCTION f_onserver_resync_start]
+
+[FUNCTION f_onserver_resync_success]
+
+[FUNCTION f_onserver_resync_failed]
+
+[FUNCTION f_onserver_resync_restart]
+
+
+
+// IP
+[FUNCTION f_onserver_blockip]
+// This function is called when an IP get blocked from the server.
+// Variables:
+//	ARGS  --> IP being blocked
+//	ARGN1 --> Time to block the IP, in tenths of second (writable)
+
+
+[FUNCTION f_onserver_unblockip]
+// This function is called when an Unblock IP get blocked from the server.
+// Variables:
+//	ARGS  --> IP being unblocked
+
+
+// Misc
+[FUNCTION f_onserver_timer]
+
+
+[FUNCTION f_onserver_broadcast]
+// args = Text
+// serv.log <args>
+// IF !(STRMATCH('','<ARGS>'))
+	// SERV.LOG <ARGS>
+// ENDIF
+
+
+[FUNCTION f_onserver_restock]
+
+[FUNCTION f_onserver_mode]
+
+
+[FUNCTION f_onserver_window_minimize]
+serv.log Window Minimized
+
+
+[FUNCTION f_onserver_window_restore]
+serv.log Window Restore
+
+
+[FUNCTION f_onserver_onclose_query]
+serv.log Window Close Query Dlg Open
+
+// DB
+[FUNCTION f_onserver_db_close]
+
+[FUNCTION f_onserver_db_connect]
+
+[FUNCTION f_onserver_db_execute]
+
+[FUNCTION f_onserver_db_query]
+
+[FUNCTION f_onserver_db_tick]
+
+
+
+//*****************************************
+// OnObj (Item and Char)
+//*****************************************
+
+[FUNCTION f_onobj_delete]
+// Variables:
+//	ARGN --> Object UID
+// REF1=<ARGN>
+// IF (<REF1.ISCHAR>) && (<SERV.CHARDEF.<REF1.BASEID>.TAG0.BINEK>)
+	// IF !(<REF1.DTAG0.BINEKINFO>)
+		// SERV.LOG [F_ONOBJ_DELETE] Binek silindi: <REF1.NAME>(<REF1> )
+	// ENDIF
+// ENDIF
+// SERV.LOG [Silindi]: <qval (<ref1.isitem>)?Item:Char>=<REF1.NAME>(<REF1> )
+
+
+//*****************************************
+// OnItem (Only Item)
+//*****************************************
+
+[FUNCTION f_onitem_create]
+// Variables:
+//	ARGN --> Item UID
+// IF (<ARGO>) && (<ARGO.ISITEM>)
+	// IF !(<ARGO.CAN>&can_i_pile)
+		// ARGO.TAG0.CREATED_AT <serv.rtimesql>
+	// ENDIF
+// ENDIF
+
+
+
+//*****************************************
+// OnClient
+//*****************************************
+
+// Network
+[FUNCTION f_onclient_exceed_network_quota]
+// This function is called after a client exceeded its in/out network traffic quota.
+// Variables:
+//	LOCAL.Account --> Account name connecting ("NA" if no account attached)
+//	LOCAL.IP      --> IP address connecting
+//      SRC --> Client Object
+//      ARGN1 --> (1: output quota; 2: input quota)
+//      ARGN2 --> bytes sent/received
+//      ARGN3 --> maximum bytes allowed to be sent/received (quota)
+// Return:
+//    0 --> Ignore this, stop hardcoded behavior but generate a log message
+//    1 --> Ignore this, stop hardcoded behavior and do not generate a log message
+//    2 --> Disconnect client and generate log message (default behavior)
+SERV.LOG 10 saniye icinde cok fazla paket geldi. <src.name> oyundan atiliyor.
+SRC.DISCONNECT 2
+RETURN 2
+
+
+[FUNCTION f_onclient_unknown_client_data]
+// This function is called after a client exceeded its in/out network traffic quota.
+// Variables:
+//	LOCAL.Account --> Account name connecting ("NA" if no account attached)
+//	LOCAL.IP      --> IP address connecting
+//      SRC --> Client Object
+//      ARGN1 --> uiOrigRemainingLength
+//      ARGN2 --> pOrigRemainingData
+// Return:
+//    0 --> log message
+//    1 --> not log message
+SERV.LOG (<LOCAL.ACCOUNT>,<LOCAL.IP>)Saldiri client ile giris denemesi. Buranin altinda istersneiz acc bloke edip isterseniz ip bloke edebilirsiniz.
+RETURN 0
+
+
+// Dialog
+[FUNCTION f_onclient_dialog_onclose]
+
+
+[FUNCTION f_onclient_dialog_onbutton]
+
+
+//*****************************************
+// OnMulti
+//*****************************************
+
+[FUNCTION f_onmulti_create]
+// Variables:
+//	SRC --> Char
+
+[FUNCTION f_onmulti_delete]
+// Variables:
+// 
+
+
+
+//*****************************************
+// Helper Functions
+//*****************************************
+
+[FUNCTION Char_Start_Player]
+// IF (<ACCOUNT.CHARS> <= 1)
+	// NEWGOLD <DDEF.FIRSTSTARTMONEY_GOLD>
+// ELSE
+	// NEWGOLD <DDEF.STARTMONEY_GOLD>
+// ENDIF
+NAME <STRARG <STRTOUPPER(<STRSUB 0 1 <NAME>>)><STRTOLOWER(<STRSUB 1 16 <NAME>>)>>
+ONAME = <NAME>
+
+
+
+
+[EOF]

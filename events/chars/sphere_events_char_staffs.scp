@@ -1,0 +1,9 @@
+VERSION=0.56T
+
+[events e_generic_char_staffs]
+ON=@CLICK
+IF (<ISGM>)
+	MESSAGE [Staff]
+ENDIF
+
+[eof]

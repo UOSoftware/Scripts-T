@@ -1,0 +1,270 @@
+
+
+[PLEVEL 1]
+STAT
+
+
+[FUNCTION STAT]
+FUNC_STAT
+
+[FUNCTION FUNC_STAT]
+LOCAL.HITS = <EVAL (30*<SRC.STR>)/100>
+IF (<SRC.FLAGS>&STATF_DEAD) 
+	SRC.SYSMESSAGELOC <def.tcolor_red>,600027 // "Ölü durumdayken bu işlemi yapamazsınız."
+	RETURN 1
+ELSEIF (<SRC.HITS> < <LOCAL.HITS>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu komutu kullanabilmek için Hitsiniz %30 dolu olması gerekiyor.
+	RETURN 1
+ELSEIF (<SRC.FLAGS>&STATF_WAR)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Savaş esnasında bu komutu kullanamazsınız.
+	RETURN 1
+ENDIF
+
+// SPELLEFFECT S_DISPEL,1000,0,<UID>
+// IF (<FINDTYPE.T_SPELL>)
+	// IF (<FINDTYPE.T_SPELL.BASEID> != I_HANDR_1)
+		// FINDTYPE.T_SPELL.REMOVE
+	// ENDIF
+// ENDIF
+
+// IF (<SRC.FINDLAYER(layer_spell_stats)>)
+	// SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Üzerinizde statları etkileyen büyü varken bu komutu kullanamazsınız.
+	// RETURN 1
+// ELSEIF (<SRC.FINDLAYER(layer_flag_potion)>)
+	// SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Üzerinizde statları etkileyen büyü varken bu komutu kullanamazsınız.
+	// RETURN 1
+// ENDIF
+
+IF (<STATTOTAL> > <SKILLCLASS.STATSUM>)
+	FUNC_STATFIX 50,50,50
+	SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Statlarınızın toplamı en fazla <SKILLCLASS.STATSUM> olmadığı için varsayılan hale getirildi!
+ENDIF
+DIALOGCLOSE D_STAT
+DIALOG D_STAT
+
+
+
+
+[DIALOG D_STAT]
+<DEF.DSP>
+RESIZE 0,0,375,220,Stat Menu
+
+// STATLOCK STR (0), DEX (2) or INT (1). [0 = up, 1 = down, 2 = locked]
+DORIGIN 20 50
+IF (<STATLOCK[0]> == 0) // up
+	BUTTON +4 +10 0983 0984 1 0 1 // up
+ELSEIF (<STATLOCK[0]> == 1) // down
+	BUTTON +4 +10 0985 0986 1 0 2 // down
+ELSEIF (<STATLOCK[0]> == 2) // locked
+	BUTTON +2 +10 082c 082c 1 0 3 // locked
+ENDIF
+DHTMLGUMP +20 +0 65 25 1 0 STR: 
+DHTMLGUMP +90 +0 90 25 1 0 <DEF.CENTER><SRC.OSTR> <QVAL (<SRC.MODSTR>)?[+<SRC.MODSTR>]:>
+
+
+DHTMLGUMP +20 +25 65 25 1 0 DEX: 
+IF (<STATLOCK[2]> == 0) // up
+	BUTTON +4 +30 0983 0984 1 0 11 // up
+ELSEIF (<STATLOCK[2]> == 1) // down
+	BUTTON +4 +30 0985 0986 1 0 12 // down
+ELSEIF (<STATLOCK[2]> == 2) // locked
+	BUTTON +2 +30 082c 082c 1 0 13 // locked
+ENDIF
+DHTMLGUMP +90 +25 90 25 1 0 <DEF.CENTER><SRC.ODEX> <QVAL (<SRC.MODDEX>)?[+<SRC.MODDEX>]:>
+
+
+DHTMLGUMP +20 +50 65 25 1 0 INT: 
+IF (<STATLOCK[1]> == 0) // up
+	BUTTON +4 +55 0983 0984 1 0 21 // up
+ELSEIF (<STATLOCK[1]> == 1) // down
+	BUTTON +4 +55 0985 0986 1 0 22 // down
+ELSEIF (<STATLOCK[1]> == 2) // locked
+	BUTTON +2 +55 082c 082c 1 0 23 // locked
+ENDIF
+DHTMLGUMP +90 +50 90 25 1 0 <DEF.CENTER><SRC.OINT> <QVAL (<SRC.MODINT>)?[+<SRC.MODINT>]:>
+
+DHTMLGUMP +185 +0 150 75 1 1 <def.center> Stat toplamı en fazla <SKILLCLASS.STATSUM> olmalıdır. Her stat en az 25 en fazla 100 olabilir. Stat düşürmek için düşürmek istenilen statı düşüşe almalısınız.
+DHTMLGUMP +185 +80 150 25 1 0 <DEF.CENTER>Toplam: <STATTOTAL>/<SKILLCLASS.STATSUM>
+
+BUTTON +0 +80 0845 0846 1 0 99
+DTEXT +20 +80 0 Hepsini kilitle
+
+BUTTON +0 +100 0845 0846 1 0 98
+DTEXT +20 +100 0 Hepsinin kilidini aç
+
+IF (<FINDLAYER.layer_flag_potion>)
+	DTEXT +0 +120 38 Statlarınızı etkileyen potion etkisi var.
+	DTEXT +30 +140 38 <FINDLAYER.layer_flag_potion.name>
+ENDIF
+
+IF (<FINDLAYER.layer_spell_stats>)
+	DTEXT +0 +120 38 Statlarınızı etkileyen büyü etkisi var.
+	DTEXT +30 +140 38 <FINDLAYER.layer_spell_stats.name>
+ENDIF
+
+
+[DIALOG D_STAT PREBUTTON]
+IF (<FINDLAYER(layer_spell_stats)>)
+	SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Üzerinizde statları etkileyen büyü varken bu işlemi yapamazsınız.
+	RETURN 1
+ELSEIF (<FINDLAYER(layer_flag_potion)>)
+	SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Üzerinizde statları etkileyen büyü varken bu işlemi yapamazsınız.
+	RETURN 1
+ELSEIF (<FLAGS>&STATF_DEAD) 
+	SYSMESSAGELOC <def.tcolor_red>,600027 // "Ölü durumdayken bu işlemi yapamazsınız."
+	RETURN 1
+ELSEIF (<FLAGS>&STATF_WAR)
+	SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Savaş esnasında bu komutu kullanamazsınız.
+	RETURN 1
+ENDIF
+
+
+[DIALOG D_STAT BUTTON]
+// STATLOCK STR (0), DEX (2) or INT (1). [0 = up, 1 = down, 2 = locked]
+// STATLOCK[1] 2 // int
+// STATLOCK[2] 2 // dex
+// STATLOCK[0] 2 // str
+
+// Hepsinin kilidini aç
+ON=98
+STATLOCK[0]=0
+STATLOCK[1]=0
+STATLOCK[2]=0
+DIALOGCLOSE D_STAT
+DIALOG D_STAT
+SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, Tüm statların kilidi açıldı.
+
+
+
+// Hepsini kilitle
+ON=99
+STATLOCK[0]=2
+STATLOCK[1]=2
+STATLOCK[2]=2
+DIALOGCLOSE D_STAT
+DIALOG D_STAT
+SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, Tüm statlar kilitlendi.
+
+
+// STR
+ON=1,3
+IF (<STATLOCK[0]> == 0) // up
+	STATLOCK[0]=1
+	SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, STR düşüşe alındı.
+ELSEIF (<STATLOCK[0]> == 1) // down
+	STATLOCK[0]=2
+	SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, STR kilitlendi.
+ELSEIF (<STATLOCK[0]> == 2) // locked
+	STATLOCK[0]=0
+	SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, STR artışa alındı.
+ENDIF
+DIALOGCLOSE D_STAT
+DIALOG D_STAT
+
+
+// DEX
+ON=11,13
+IF (<STATLOCK[2]> == 0) // up
+	STATLOCK[2]=1
+	SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, DEX düşüşe alındı.
+ELSEIF (<STATLOCK[2]> == 1) // down
+	STATLOCK[2]=2
+	SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, DEX kilitlendi.
+ELSEIF (<STATLOCK[2]> == 2) // locked
+	STATLOCK[2]=0
+	SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, DEX artışa alındı.
+ENDIF
+DIALOGCLOSE D_STAT
+DIALOG D_STAT
+
+
+// INT
+ON=21,23
+IF (<STATLOCK[1]> == 0) // up
+	STATLOCK[1]=1
+	SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, INT düşüşe alındı.
+ELSEIF (<STATLOCK[1]> == 1) // down
+	STATLOCK[1]=2
+	SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, INT kilitlendi.
+ELSEIF (<STATLOCK[1]> == 2) // locked
+	STATLOCK[1]=0
+	SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, INT artışa alındı.
+ENDIF
+DIALOGCLOSE D_STAT
+DIALOG D_STAT
+
+
+
+[FUNCTION Stat_SyncDialog]
+DIALOGCLOSE D_STAT
+DIALOG D_STAT
+
+
+[EVENTS e_generic_char_stat]
+ON=@STATCHANGE
+IF (<SRC.ISDIALOGOPEN.D_STAT>) && (<SRC.ISONLINE>)
+	SRC.TIMERFMS 1,Stat_SyncDialog
+ENDIF
+
+
+
+ON=@SPELLEFFECTADD
+IF (<SERV.SPELL.<ARGN1>.LAYER> == LAYER_SPELL_STATS || <SERV.SPELL.<ARGN1>.LAYER> == LAYER_FLAG_POTION || <SERV.SPELL.<ARGN1>.LAYER> == LAYER_FLAG_DRUNK)
+	IF (<SRC.ISDIALOGOPEN.D_STAT>) && (<SRC.ISONLINE>)
+		SRC.TIMERFMS 1,Stat_SyncDialog
+	ENDIF
+ENDIF
+IF !((<SRC.FINDLAYER.layer_spell_stats> || <SRC.FINDLAYER.layer_flag_potion> || <SRC.FINDLAYER.layer_flag_drunk>))
+	STR = <OSTR>
+	DEX = <ODEX>
+	INT = <OINT>
+ENDIF
+
+
+
+ON=@SPELLEFFECTREMOVE
+IF (<SERV.SPELL.<ARGN1>.LAYER> == LAYER_SPELL_STATS || <SERV.SPELL.<ARGN1>.LAYER> == LAYER_FLAG_POTION || <SERV.SPELL.<ARGN1>.LAYER> == LAYER_FLAG_DRUNK)
+	IF (<SRC.ISDIALOGOPEN.D_STAT>) && (<SRC.ISONLINE>)
+		SRC.TIMERFMS 1,Stat_SyncDialog
+	ENDIF
+ENDIF
+
+IF !((<SRC.FINDLAYER.layer_spell_stats> || <SRC.FINDLAYER.layer_flag_potion> || <SRC.FINDLAYER.layer_flag_drunk>))
+	STR = <OSTR>
+	DEX = <ODEX>
+	INT = <OINT>
+ENDIF
+
+
+
+ON=@SKILLSTART
+IF !((<FINDLAYER.layer_spell_stats> || <FINDLAYER.layer_flag_potion> || <FINDLAYER.layer_flag_drunk>))
+	STR = <OSTR>
+	DEX = <ODEX>
+	INT = <OINT>
+ENDIF
+
+ON=@ENVIRONCHANGE
+IF !((<FINDLAYER.layer_spell_stats> || <FINDLAYER.layer_flag_potion> || <FINDLAYER.layer_flag_drunk>))
+	STR = <OSTR>
+	DEX = <ODEX>
+	INT = <OINT>
+ENDIF
+
+ON=@USERWARMODE
+IF !((<FINDLAYER.layer_spell_stats> || <FINDLAYER.layer_flag_potion> || <FINDLAYER.layer_flag_drunk>))
+	STR = <OSTR>
+	DEX = <ODEX>
+	INT = <OINT>
+ENDIF
+
+ON=@SPELLCAST
+IF !((<FINDLAYER.layer_spell_stats> || <FINDLAYER.layer_flag_potion> || <FINDLAYER.layer_flag_drunk>))
+	STR = <OSTR>
+	DEX = <ODEX>
+	INT = <OINT>
+ENDIF
+
+
+
+[EOF]

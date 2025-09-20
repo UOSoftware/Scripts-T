@@ -1,0 +1,13 @@
+
+// DEFAULT DROPSTAM
+[EVENTS e_char_bonus_dropstam]
+On=@Hit
+IF (<SRC.FLAGS>&STATF_STONE) || (<SRC.REGION.SAFE>)
+	RETURN 1
+ENDIF
+IF (<SRC.STAM> > 10)
+	SRC.FUNC_TAKE_STAM_FIX <R6,10>
+ENDIF
+
+
+[eof]

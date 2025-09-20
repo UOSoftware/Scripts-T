@@ -1,0 +1,688 @@
+
+
+
+[CHARDEF 03c]
+DEFNAME=c_drake
+NAME=#NAMES_DRAGON the Drake
+ICON=i_pet_dragon
+SOUND=snd_monster_dragon1
+CAN=MT_WALK|MT_FLY|MT_NONHUM
+DAM=5,7
+ARMOR=20
+FOODTYPE=t_meat_raw
+MAXFOOD=60
+RESOURCES=10 i_ribs_raw,4 i_reag_dragon_blood
+TAG.Barding.Diff=80.6
+CATEGORY=Monsters
+SUBSECTION=Dragonkind
+DESCRIPTION=Drake (red)
+
+ON=@Create
+// TAG0.NAME.SUFFIX " the <JOB>"
+NPC=brain_monster
+FAME={3000 3499}
+KARMA={-3000 -3499}
+STR={200 260}
+DEX={55 70}
+INT={200 300}
+MAGICRESISTANCE={65.0 80.0}
+TACTICS={65.0 90.0}
+WRESTLING={65.0 80.0}
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+[CHARDEF 03d]
+DEFNAME=c_drake_red
+NAME=#NAMES_DRAGON Drake
+ICON=i_pet_dragon
+SOUND=snd_monster_dragon1
+CAN=MT_WALK|MT_FLY|MT_NONHUM|MT_FIRE_IMMUNE
+DAM=4,6
+ARMOR=30
+FOODTYPE=t_meat_raw
+MAXFOOD=60
+RESOURCES=10 i_ribs_raw,4 i_reag_dragon_blood
+TAG.Barding.Diff=80.6
+CATEGORY=Monsters
+SUBSECTION=Dragonkind
+DESCRIPTION=Drake (red)
+
+ON=@Create
+// TAG0.NAME.SUFFIX " the <JOB>"
+NPC=brain_monster
+FAME={3000 3499}
+KARMA={-3000 -3499}
+STR={200 260}
+DEX={55 70}
+INT={200 300}
+MAGICRESISTANCE={65.0 80.0}
+TACTICS={65.0 90.0}
+WRESTLING={65.0 80.0}
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+
+[CHARDEF 0589]
+DEFNAME=c_drake_platinum
+NAME=Platinum Drake
+ICON=i_pet_drake_platinum
+SOUND=snd_monster_dragon1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=11,17
+ARMOR=40
+//FOODTYPE=t_fish
+RESOURCES=10 i_ribs_raw,22 i_hide_horned,8 i_reag_dragon_blood
+CATEGORY=Monsters
+SUBSECTION=Dragonkind
+DESCRIPTION=Platinum Drake
+
+ON=@Create
+NPC=brain_monster
+FAME=5500
+KARMA=-5500
+STR={400 430}
+DEX={130 160}
+INT={100 140}
+WRESTLING={65.1 80.0}
+TACTICS={65.1 90.0}
+MAGICRESISTANCE={65.1 80.0}
+DETECTINGHIDDEN=50.6
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+
+[CHARDEF 058a]
+DEFNAME=c_drake_platinum_elemental
+NAME=Platinum Drake
+ICON=i_pet_drake_platinum_elemental
+SOUND=snd_monster_dragon1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=11,17
+ARMOR=40
+RESOURCES=10 i_ribs_raw,22 i_hide_horned,8 i_reag_dragon_blood
+CATEGORY=Monsters
+SUBSECTION=Dragonkind
+DESCRIPTION=Platinum Drake (elemental)
+
+ON=@Create
+NPC=brain_monster
+FAME=5500
+KARMA=-5500
+STR={400 430}
+DEX={130 160}
+INT={100 140}
+WRESTLING={65.1 80.0}
+TACTICS={65.1 90.0}
+MAGICRESISTANCE={65.1 80.0}
+DETECTINGHIDDEN=50.6
+SetRandomDrakeElementalDamage
+
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+
+
+[CHARDEF c_dragon_blackdrake]
+DEFNAME=c_dragon_blackdrake
+DEFNAME2=c_m_dragon_blackdrake
+ID=c_DRAGON_SMALL_BLACK
+NAME=#NAMES_DRAGON the Black Drake
+SOUND=snd_MONSTER_DRAGON1
+ICON=i_pet_dragon
+DAM=4,24
+ARMOR=23
+RESOURCES=50 i_ribs_raw,20 i_hide,8 i_reag_dragon_blood
+CAN=MT_WALK|MT_FLY|MT_FIRE_IMMUNE
+FOODTYPE=25 t_meat_raw
+CATEGORY=Monsters
+SUBSECTION=Dragons and Drakes
+DESCRIPTION=Drake, Black
+
+ON=@Create
+COLOR=0455
+STR={510 590}
+DEX={133 152}
+INT={210 275}
+PARRYING={65.0 80.0}
+MAGICRESISTANCE={65.0 80.0}
+TACTICS={65.0 90.0}
+WRESTLING={65.0 80.0}
+TAMING=100.0
+NPC=brain_dragon
+FAME={3000 7000}
+KARMA={-3000 -8000}
+
+
+[CHARDEF c_dragon_bluedrake]
+DEFNAME=c_dragon_bluedrake
+DEFNAME2=c_m_dragon_bluedrake
+ID=c_DRAGON_SMALL_BLACK
+NAME=#NAMES_DRAGON the Blue Drake
+SOUND=snd_MONSTER_DRAGON1
+ICON=i_pet_dragon
+DAM=4,24
+ARMOR=23
+RESOURCES=50 i_ribs_raw,20 i_hide,8 i_reag_dragon_blood
+CAN=MT_WALK|MT_FLY|MT_FIRE_IMMUNE
+FOODTYPE=25 t_meat_raw
+CATEGORY=Monsters
+SUBSECTION=Dragons and Drakes
+DESCRIPTION=Drake, Blue
+
+ON=@Create
+COLOR=05d
+STR={400 430}
+DEX={133 152}
+INT={100 140}
+PARRYING={65.0 80.0}
+MAGICRESISTANCE={65.0 80.0}
+TACTICS={65.0 90.0}
+WRESTLING={65.0 80.0}
+TAMING=100.0
+NPC=brain_dragon
+FAME={2000 6000}
+KARMA={-1000 -5000}
+
+
+[CHARDEF c_dragon_golddrake]
+DEFNAME=c_dragon_golddrake
+DEFNAME2=c_m_dragon_golddrake
+ID=c_DRAGON_SMALL_BLACK
+NAME=#NAMES_DRAGON the Gold Drake
+SOUND=snd_MONSTER_DRAGON1
+ICON=i_pet_dragon
+DAM=4,24
+ARMOR=23
+RESOURCES=50 i_ribs_raw,20 i_hide,8 i_reag_dragon_blood
+CAN=MT_WALK|MT_FLY|MT_FIRE_IMMUNE
+FOODTYPE=25 t_meat_raw
+CATEGORY=Monsters
+SUBSECTION=Dragons and Drakes
+DESCRIPTION=Drake, Gold
+
+ON=@Create
+COLOR=033
+STR={550 610}
+DEX={133 152}
+INT={220 300}
+PARRYING={65.0 80.0}
+MAGICRESISTANCE={65.0 80.0}
+TACTICS={65.0 90.0}
+WRESTLING={65.0 80.0}
+TAMING=100.0
+NPC=brain_dragon
+FAME={3000 7000}
+KARMA={2000 6000}
+
+
+[CHARDEF c_dragon_copperdrake]
+DEFNAME=c_dragon_copperdrake
+DEFNAME2=c_m_dragon_copperdrake
+ID=c_DRAGON_SMALL_BLACK
+NAME=#NAMES_DRAGON the Copper Drake
+DAM=4,24
+ARMOR=23
+RESOURCES=50 i_ribs_raw,20 i_hide,8 i_reag_dragon_blood
+CAN=MT_WALK|MT_FLY|MT_FIRE_IMMUNE
+FOODTYPE=25 t_meat_raw
+CATEGORY=Monsters
+SUBSECTION=Dragons and Drakes
+DESCRIPTION=Drake, Copper
+
+ON=@Create
+COLOR=091
+STR={500 530}
+DEX={133 152}
+INT={200 240}
+PARRYING={65.0 80.0}
+MAGICRESISTANCE={65.0 80.0}
+TACTICS={65.0 90.0}
+WRESTLING={65.0 80.0}
+TAMING=100.0
+NPC=brain_dragon
+FAME={3000 7000}
+KARMA=0
+
+
+[CHARDEF c_dragon_greendrake]
+DEFNAME=c_dragon_greendrake
+DEFNAME2=c_m_dragon_greendrake
+ID=c_DRAGON_SMALL_BLACK
+NAME=#NAMES_DRAGON the Green Drake
+SOUND=snd_MONSTER_DRAGON1
+ICON=i_pet_dragon
+DAM=4,24
+ARMOR=23
+RESOURCES=50 i_ribs_raw,20 i_hide,8 i_reag_dragon_blood
+CAN=MT_WALK|MT_FLY|MT_FIRE_IMMUNE
+FOODTYPE=25 t_meat_raw
+CATEGORY=Monsters
+SUBSECTION=Dragons and Drakes
+DESCRIPTION=Drake, Green
+
+ON=@Create
+COLOR=0175
+STR={400 430}
+DEX={133 152}
+INT={100 140}
+PARRYING={65.0 80.0}
+MAGICRESISTANCE={65.0 80.0}
+TACTICS={65.0 90.0}
+WRESTLING={65.0 80.0}
+TAMING=100.0
+NPC=brain_dragon
+FAME={2000 6000}
+KARMA=0
+
+
+
+
+[CHARDEF 058b]
+DEFNAME=c_drake_crimson
+NAME=Crimson Drake
+ICON=i_pet_drake_crimson
+SOUND=snd_monster_dragon1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=11,17
+ARMOR=40
+//FOODTYPE=t_fish
+RESOURCES=10 i_ribs_raw,22 i_hide_horned,8 i_reag_dragon_blood
+CATEGORY=Monsters
+SUBSECTION=Dragonkind
+DESCRIPTION=Crimson Drake
+
+ON=@Create
+NPC=brain_monster
+FAME=5500
+KARMA=-5500
+STR={400 430}
+DEX={130 160}
+INT={100 140}
+WRESTLING={65.1 80.0}
+TACTICS={65.1 90.0}
+MAGICRESISTANCE={65.1 80.0}
+DETECTINGHIDDEN=50.6
+
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+
+
+
+[CHARDEF 058c]
+DEFNAME=c_drake_crimson_elemental
+NAME=Crimson Drake
+ICON=i_pet_drake_crimson_elemental
+SOUND=snd_monster_dragon1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=11,17
+ARMOR=40
+RESOURCES=10 i_ribs_raw,22 i_hide_horned,8 i_reag_dragon_blood
+CATEGORY=Monsters
+SUBSECTION=Dragonkind
+DESCRIPTION=Crimson Drake (elemental)
+
+ON=@Create
+NPC=brain_monster
+FAME=5500
+KARMA=-5500
+STR={400 430}
+DEX={130 160}
+INT={100 140}
+WRESTLING={65.1 80.0}
+TACTICS={65.1 90.0}
+MAGICRESISTANCE={65.1 80.0}
+DETECTINGHIDDEN=50.6
+SetRandomDrakeElementalDamage
+
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+
+
+
+[FUNCTION SetRandomDrakeElementalDamage]
+DORAND 4
+BEGIN
+COLOR=08000|1260
+END
+BEGIN
+COLOR=08000|1366
+END
+BEGIN
+COLOR=08000|1268
+END
+BEGIN
+COLOR=08000|2620
+END
+ENDDO
+
+
+
+[CHARDEF 058d]
+DEFNAME=c_drake_stygian
+NAME=Stygian Drake
+ICON=i_pet_drake_stygian
+SOUND=snd_monster_dragon1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=11,17
+ARMOR=60
+RESOURCES=10 i_ribs_raw,22 i_hide_horned,8 i_reag_dragon_blood
+CATEGORY=Monsters
+SUBSECTION=Dragonkind
+DESCRIPTION=Stygian Drake
+
+ON=@Create
+NPC=brain_monster
+FAME=5500
+KARMA=-5500
+STR={800 830}
+DEX={85 125}
+INT={400 450}
+WRESTLING={90.1 100.0}
+TACTICS={90.1 105.0}
+MAGICRESISTANCE={90.1 105.0}
+DETECTINGHIDDEN=75.0
+MAGERY=100.0
+EVALUATINGINTEL={90.1 105.0}
+
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+
+
+
+[CHARDEF 058e]
+DEFNAME=c_drake_stygian_elemental
+NAME=Stygian Drake
+ICON=i_pet_drake_stygian_elemental
+SOUND=snd_monster_dragon1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=11,17
+ARMOR=60
+RESOURCES=10 i_ribs_raw,22 i_hide_horned,8 i_reag_dragon_blood
+CATEGORY=Monsters
+SUBSECTION=Dragonkind
+DESCRIPTION=Stygian Drake (elemental)
+
+
+ON=@Create
+COLOR={0 1 0482 1 048e 1}
+NPC=brain_monster
+FAME=5500
+KARMA=-5500
+STR={800 830}
+DEX={85 125}
+INT={400 450}
+WRESTLING={90.1 100.0}
+TACTICS={90.1 105.0}
+MAGICRESISTANCE={90.1 105.0}
+DETECTINGHIDDEN=75.0
+MAGERY=100.0
+EVALUATINGINTEL={90.1 105.0}
+
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+
+
+
+[CHARDEF c_dragon_greendrake]
+ID=c_drake
+NAME=Green Drake
+CAN=MT_WALK|MT_FLY|MT_FIRE_IMMUNE|MT_EQUIP|MT_USEHANDS
+DAM=42,64
+ARMOR=43
+CATEGORY=Monsters
+SUBSECTION=Dragons and Drakes
+DESCRIPTION=Drake (green)
+
+ON=@Create
+COLOR=colors_green
+NPC=brain_monster
+FAME={3000 3499}
+KARMA={-3000 -3499}
+STR={400 430}
+DEX={115 135}
+INT={100 140}
+ARCHERY={10.0 20.0}
+FENCING={10.0 20.0}
+MACEFIGHTING={10.0 20.0}
+MAGICRESISTANCE={65.0 80.0}
+PARRYING={65.0 80.0}
+TACTICS={65.0 90.0}
+WRESTLING={65.0 80.0}
+
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+// ON=@NPCRestock
+// ITEM=loot_drake
+
+
+
+[CHARDEF c_dragon_copperdrake]
+ID=c_drake
+NAME=Copper Drake
+CAN=MT_WALK|MT_FLY|MT_FIRE_IMMUNE|MT_EQUIP|MT_USEHANDS
+DAM=32,64
+ARMOR=43
+CATEGORY=Monsters
+SUBSECTION=Dragons and Drakes
+DESCRIPTION=Drake (copper)
+
+ON=@Create
+COLOR=091
+NPC=brain_monster
+FAME={3500 3999}
+KARMA={-3500 -3999}
+STR={500 530}
+DEX={105 125}
+INT={200 240}
+ARCHERY={60.0 90.0}
+FENCING={10.0 20.0}
+MACEFIGHTING={10.0 20.0}
+MAGICRESISTANCE={65.0 80.0}
+PARRYING={65.0 80.0}
+SWORDSMANSHIP={80.0 100.0}
+TACTICS={65.0 90.0}
+WRESTLING={65.0 80.0}
+
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+
+// ON=@NPCRestock
+// ITEM=loot_drake
+
+
+
+
+[CHARDEF c_dragon_bluedrake]
+ID=c_drake
+NAME=Blue Drake
+CAN=MT_WALK|MT_FLY|MT_FIRE_IMMUNE
+DAM=32,64
+ARMOR=43
+CATEGORY=Monsters
+SUBSECTION=Dragons and Drakes
+DESCRIPTION=Drake (blue)
+
+ON=@Create
+COLOR=05d
+NPC=brain_monster
+FAME={3000 3499}
+KARMA={-3000 -3499}
+STR={300 330}
+DEX={105 125}
+INT={100 140}
+ARCHERY={10.0 20.0}
+FENCING={10.0 20.0}
+MACEFIGHTING={10.0 20.0}
+MAGICRESISTANCE={65.0 80.0}
+PARRYING={65.0 80.0}
+SWORDSMANSHIP={80.0 100.0}
+TACTICS={65.0 90.0}
+WRESTLING={65.0 80.0}
+
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+
+// ON=@NPCRestock
+// ITEM=loot_drake
+
+
+
+
+[CHARDEF c_dragon_golddrake]
+ID=c_drake
+NAME=Gold Drake
+CAN=MT_WALK|MT_FLY|MT_FIRE_IMMUNE|MT_EQUIP|MT_USEHANDS
+DAM=32,64
+ARMOR=43
+CATEGORY=Monsters
+SUBSECTION=Dragons and Drakes
+DESCRIPTION=Drake (gold)
+
+ON=@Create
+COLOR=033
+NPC=brain_monster
+FAME={4000 4499}
+KARMA={-4000 -4499}
+STR={550 610}
+DEX={105 125}
+INT={220 300}
+ARCHERY={90.0 100.0}
+FENCING={40.0 60.0}
+MACEFIGHTING={40.0 60.0}
+MAGICRESISTANCE={65.0 80.0}
+PARRYING={65.0 80.0}
+SWORDSMANSHIP={120.0 150.0}
+TACTICS={65.0 90.0}
+WRESTLING={65.0 80.0}
+
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+// ON=@NPCRestock
+// ITEM=loot_ai_hard
+// ITEM=loot_drake
+
+
+
+
+[CHARDEF c_dragon_blackdrake]
+ID=c_drake
+NAME=Black Drake
+CAN=MT_WALK|MT_FLY|MT_FIRE_IMMUNE|MT_EQUIP|MT_USEHANDS
+DAM=35,65
+ARMOR=40
+CATEGORY=Monsters
+SUBSECTION=Dragons and Drakes
+DESCRIPTION=Drake (black)
+
+
+ON=@Create
+COLOR=0455
+NPC=brain_monster
+FAME={4000 4499}
+KARMA={-4000 -4499}
+STR={510 590}
+DEX={105 125}
+INT={210 275}
+ARCHERY={90.0 100.0}
+FENCING={40.0 50.0}
+MACEFIGHTING={30.0 40.0}
+MAGICRESISTANCE={75.0 80.0}
+PARRYING={65.0 80.0}
+SWORDSMANSHIP={110.0 140.0}
+TACTICS={65.0 90.0}
+WRESTLING={65.0 80.0}
+
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+// ON=@NPCRestock
+// ITEM=loot_ai_hard
+// ITEM=loot_drake
+
+
+
+
+[CHARDEF c_dragon_silverdrake]
+ID=c_drake_red
+NAME=Silver Drake
+CAN=MT_WALK|MT_FLY|MT_FIRE_IMMUNE
+DAM=32,64
+ARMOR=33
+CATEGORY=Monsters
+SUBSECTION=Dragons and Drakes
+DESCRIPTION=Drake (silver)
+
+ON=@Create
+COLOR=037a
+NPC=brain_monster
+FAME={3500 3999}
+KARMA={-3500 -3999}
+STR={500 530}
+DEX={105 125}
+INT={200 240}
+ARCHERY={90.0 100.0}
+FENCING={10.0 20.0}
+MACEFIGHTING={10.0 20.0}
+MAGICRESISTANCE={65.0 80.0}
+PARRYING={65.0 80.0}
+SWORDSMANSHIP={80.0 150.0}
+TACTICS={65.0 90.0}
+WRESTLING={65.0 80.0}
+
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+// ON=@NPCRestock
+// ITEM=loot_ai_hard
+// ITEM=loot_drake
+
+
+
+
+[CHARDEF c_dragon_crystaldrake]
+ID=c_drake_red
+NAME=Crystal Drake
+CAN=MT_WALK|MT_FLY|MT_FIRE_IMMUNE
+DAM=32,64
+ARMOR=53
+RESOURCES=
+CATEGORY=Monsters
+SUBSECTION=Dragons and Drakes
+DESCRIPTION=Drake (crystal)
+
+ON=@Create
+COLOR=07fff
+NPC=brain_monster
+FAME={3500 3999}
+KARMA={-3500 -3999}
+STR={500 530}
+DEX={105 125}
+INT={200 240}
+ARCHERY={90.0 100.0}
+FENCING={30.0 40.0}
+MACEFIGHTING={30.0 40.0}
+MAGICRESISTANCE={65.0 80.0}
+PARRYING={65.0 80.0}
+SWORDSMANSHIP={120.0 170.0}
+TACTICS={65.0 90.0}
+WRESTLING={85.0 90.0}
+
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+
+// ON=@NPCRestock
+// ITEM=loot_ai_hard
+// ITEM=loot_drake
+
+
+
+[eof]

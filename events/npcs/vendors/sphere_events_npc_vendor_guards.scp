@@ -1,0 +1,21 @@
+
+[events e_generic_npc_vendor_guards]
+ON=@CLICK
+MESSAGE @0,3 [Guards Agency]
+
+ON=@NPCRefuseItem
+SAY I cannot be bribed. be gone.
+return 1
+
+
+// Spazm 
+// On=@GetHit
+// IF (<SRC.ISPLAYER>)
+	// IF !(<SRC.FINDID.I_SpazmMemTimer>)
+		// SRC.NEWITEM I_SpazmMemTimer,1,<SRC>,1
+	// ENDIF
+	// RETURN 1
+// ENDIF
+
+
+[eof]

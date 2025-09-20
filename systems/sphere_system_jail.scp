@@ -1,0 +1,249 @@
+
+
+
+
+
+[PLEVEL 1]
+sicil
+
+[FUNCTION SICIL]
+IF (<ACCOUNT.PLEVEL> == 1)
+	DIALOGCLOSE D_JAIL_SICIL
+	DIALOG D_JAIL_SICIL
+ELSE
+	SRC.SYSMESSAGELOC <def.tcolor_grey>,<DEF.empty_cliloc2>, Hangi oyuncunun siciline bakacaksınız.
+	SRC.TARGETF FUNC_SICIL_TARGET
+ENDIF
+
+[FUNCTION FUNC_SICIL_TARGET]
+IF !(<ARGO>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,600101 // "Sadece oyuncular üzerinde işlem yapabilirsiniz."
+	RETURN 1
+ELSEIF !(<ARGO.ISCHAR>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,600101 // "Sadece oyuncular üzerinde işlem yapabilirsiniz."
+	RETURN 1
+ELSEIF !(<ARGO.ISPLAYER>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,600101 // "Sadece oyuncular üzerinde işlem yapabilirsiniz."
+	RETURN 1
+ELSEIF (<ARGO.ISGM>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<DEF.empty_cliloc2>, Yetkilileri seçemezsiniz.
+	RETURN 1
+ELSE
+	ARGO.DIALOG D_JAIL_SICIL
+ENDIF
+
+[DIALOG D_JAIL_SICIL]
+<DEF.DSP>
+RESIZE 0,0,280,290,Hapis Sicil (<NAME>)
+DTEXT 30 50 0 Zaman;
+
+DORIGIN 20 50
+FOR 1 7
+	LOCAL.NAME <def.JAIL_TYPE_<dlocal._for>_NAME>
+	LOCAL.TIME <def.JAIL_TYPE_<dlocal._for>_TIME>
+	DHTMLGUMP +0 <EVAL (<DLOCAL._FOR>*30)+30> 150 25 1 0 <LOCAL.NAME>
+	DHTMLGUMP +160 <EVAL (<DLOCAL._FOR>*30)+30> 80 25 1 0 <DEF.CENTER><DTAG0.JAIL_<DLOCAL._FOR>_COUNT> 
+ENDFOR
+	
+	
+	
+	
+	
+	
+[PLEVEL 2]
+hapis
+
+
+[FUNCTION HAPIS]
+SYSMESSAGELOC <def.tcolor_grey>,<DEF.empty_cliloc2>, Cezalandırmak istediğiniz kişiyi seçin.
+TARGETF func_target_hapis
+RETURN 1
+
+
+[FUNCTION func_target_hapis]
+IF !(<ARGO>)
+	SYSMESSAGELOC <def.tcolor_red>,600101 // "Sadece oyuncular üzerinde işlem yapabilirsiniz."
+	RETURN 1
+	
+ELSEIF !(<ARGO.ISCHAR>)
+	SYSMESSAGELOC <def.tcolor_red>,600101 // "Sadece oyuncular üzerinde işlem yapabilirsiniz."
+	RETURN 1
+	
+ELSEIF !(<ARGO.ISPLAYER>)
+	SYSMESSAGELOC <def.tcolor_red>,600101 // "Sadece oyuncular üzerinde işlem yapabilirsiniz."
+	RETURN 1
+	
+// ELSEIF (<ARGO.ACCOUNT.PLEVEL> > 1)
+	// SYSMESSAGELOC <def.tcolor_red>,<DEF.empty_cliloc2>, Yetkilileri seçemezsiniz.
+	// RETURN 1
+	
+// ELSEIF (<ARGO> == <SRC>)
+	// SYSMESSAGELOC <def.tcolor_red>,<DEF.empty_cliloc2>, Kendinizi seçemezsiniz.
+	// RETURN 1
+ENDIF
+DIALOGCLOSE D_JAIL_MENU_STAFF
+ARGO.DIALOG D_JAIL_MENU_STAFF
+
+
+[DIALOG D_JAIL_MENU_STAFF]
+<DEF.DSP>
+
+IF !(<ACCOUNT.PRIV>&PRIV_JAILED)
+	RESIZE 0,0,300,340,Jail [<NAME>]
+	DORIGIN 20 50
+	FOR 1 7
+		LOCAL.NAME <def.JAIL_TYPE_<dlocal._for>_NAME>
+		LOCAL.TIME <def.JAIL_TYPE_<dlocal._for>_TIME>
+		BUTTON +0 <EVAL (<DLOCAL._FOR>*30)+30> 4006 4007 1 0 <DLOCAL._FOR>
+		DHTMLGUMP +30 <EVAL (<DLOCAL._FOR>*30)+30> 150 25 1 0 <LOCAL.NAME> <QVAL (<DTAG0.JAIL_<DLOCAL._FOR>_COUNT>)?(<DTAG0.JAIL_<DLOCAL._FOR>_COUNT>):>
+		DHTMLGUMP +180 <EVAL (<DLOCAL._FOR>*30)+30> 80 25 1 0 <DEF.CENTER>[<KalanSure <dlocal.time>>]
+	ENDFOR
+	
+	BUTTON +0 +240 4006 4007 1 0 100 
+	DHTMLGUMP +30 +240 150 25 1 0 Manuel zaman (Saat)
+	RESIZEPIC +180 +240 3000 80 25 
+	DTEXTENTRYLIMITED +185 +245 80 25 0 1 10 
+ELSE
+	RESIZE 0,0,390,200,Jail [<NAME>]
+	DORIGIN 20 50
+	BUTTON +0 +0 4006 4007 1 0 101
+	DTEXT +30 +0 0 Cezasını affet
+	
+	REF1=<FINDID.I_JAIL_MEMORY>
+	IF (<REF1.ISVALIDE>)
+		REF2=<REF1.OWNEDBY>
+		IF (<REF2.ISVALIDE>)
+			DHTMLGUMP +0 +40 350 25 1 0 Hapise atan: <REF2.NAME>
+		ENDIF
+		DHTMLGUMP +0 +70 350 25 1 0 Hapise girdiği yer: <SERV.MAP(<REF1.MOREX>,<REF1.MOREY>,<REF1.MOREZ>,<REF1.MOREM>).REGION.NAME> (<REF1.MOREX>,<REF1.MOREY>,<REF1.MOREZ>,<REF1.MOREM>)
+		DHTMLGUMP +0 +100 350 25 1 0 Hapise girdiği tarih: <REF1.TAG0.CREATED_AT>
+	ENDIF
+ENDIF
+
+[DIALOG D_JAIL_MENU_STAFF PREBUTTON]
+
+
+[DIALOG D_JAIL_MENU_STAFF BUTTON]
+ON=0
+SYSMESSAGELOC <def.tcolor_red>,<DEF.empty_cliloc2>, Hapis cezasından son anda kurtuldunuz.
+
+// sabit süre
+ON=1 7
+IF (<ACCOUNT.PRIV>&PRIV_JAILED)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<DEF.empty_cliloc2>, <NAME> isimli oyuncu zaten cezalandırılmış.
+	RETURN 1
+ENDIF
+JAIL <DARGN1>
+
+
+// ccustom süre
+ON=100
+IF (<ACCOUNT.PRIV>&PRIV_JAILED)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<DEF.empty_cliloc2>, <NAME> isimli oyuncu zaten cezalandırılmış.
+	RETURN 1
+ENDIF
+IF (<ISBLANK <ARGTXT[1]>>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<DEF.empty_cliloc2>, Jail saatini boş giremezsiniz.
+
+ELSEIF (<ARGTXT[1]> == 0)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<DEF.empty_cliloc2>, Jail saatini 0 olamaz.
+
+ELSEIF (<STRSUB 0 1 <ARGTXT[1]>> == 0)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<DEF.empty_cliloc2>, İlk rakam 0 olamaz.
+ELSE
+	SRC.CTAG0.JAIL_TIME <EVAL <ARGTXT[1]>*60*60>
+	JAIL 0
+ENDIF
+// DIALOGCLOSE D_JAIL_MENU_STAFF
+// DIALOG D_JAIL_MENU_STAFF
+
+// affet
+ON=101
+IF !(<ACCOUNT.PRIV>&PRIV_JAILED)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<DEF.empty_cliloc2>, <NAME> isimli oyuncu cezalı değil.
+	RETURN 1
+ENDIF
+FORGIVE
+
+
+
+
+
+
+
+
+
+[ITEMDEF I_JAIL_MEMORY]
+DEFNAME=I_JAIL_MEMORY
+ID=I_MEMORY
+TYPE=T_EQ_SCRIPT
+VALUE=0
+WEIGHT=0
+LAYER=30
+NAME=Cezali
+
+ON=@CREATE
+ATTR=ATTR_INVIS|ATTR_DECAY|ATTR_DECAY
+
+ON=@EQUIP
+SRC.EVENTS +e_jailed
+SRC.DIALOGCLOSEALL
+
+SRC.CONSUME 9999 i_memory_helppage_stuck
+
+IF (<DMORE1> 0) // SABİT SÜRELİ
+	LOCAL.TIME = <DEF.JAIL_TYPE_<DMORE1>_TIME>
+	IF (<SRC.TAG0.JAIL_<ARGN1>_COUNT> > 1)
+		TIMER <EVAL <DLOCAL.TIME> * <SRC.TAG0.JAIL_<DMORE1>_COUNT>>
+		SRC.SYSMESSAGELOC <def.tcolor_red>,<DEF.empty_cliloc2>, Cezanız <SRC.DTAG0.JAIL_<DMORE1>_COUNT> katına çıktı!
+	ELSE
+		TIMER = <LOCAL.TIME>
+	ENDIF
+ELSE // CUSTOM SÜRE
+	REF1=<MORE2> // JAİLA ATAN
+	IF (<REF1.ISVALIDE>)
+		TIMER=<REF1.DCTAG0.JAIL_TIME>
+		REF1.CTAG0.JAIL_TIME=
+	ELSE
+		TIMER=86400
+	ENDIF
+ENDIF
+SRC.TAG0.JAIL_<DMORE1>_COUNT +=1
+
+
+ON=@UNEQUIP
+// buraya sakın src.forgive koymayin
+SRC.GO BRITAIN MOONGATE
+SRC.Logger Suresi doldugu icin hapisten cikti
+SRC.EVENTS -e_jailed
+
+
+ON=@TIMER
+REMOVE
+RETURN 1
+
+
+
+
+[events e_jailed]
+ON=@CLICK
+IF (<FINDID.I_JAIL_MEMORY>)
+	MESSAGE @38,,1,1 [<FormatSeconds <DTAG0.JailTime>>]
+	MESSAGE @38,,1,1 [<KalanSure <FINDID.I_JAIL_MEMORY.TIMER>>]
+ENDIF
+
+ON=@ITEMDCLICK
+SRC.SYSMESSAGELOC <def.tcolor_red>,<DEF.empty_cliloc2>, Hapiste <act.name> kullanamazsınız.
+RETURN 1
+
+ON=@SKILLSTART
+SRC.SYSMESSAGELOC <def.tcolor_red>,<DEF.empty_cliloc2>, Bu alanda becerilerinizi kullanamazsınız.
+RETURN 1
+
+ON=@ITEMDROPON_GROUND
+SRC.SYSMESSAGELOC <def.tcolor_red>,<DEF.empty_cliloc2>, Bu alanda yere eşya atamazsınız.
+RETURN 1
+
+
+
+[eof]

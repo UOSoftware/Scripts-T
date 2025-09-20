@@ -1,0 +1,142 @@
+
+
+[ITEMDEF I_GM_ROBE]
+DEFNAME=I_GM_ROBE
+TYPE=T_CLOTHING
+ID=i_Deathshroud
+NAME=Staff Robe
+ARMOR=0
+WEIGHT=0.0
+RESDISPDNHUE=0
+
+ON=@EQUIP
+ID=i_Deathshroud
+DISPID=i_Deathshroud
+UPDATE
+
+ON=@UNEQUIP
+ID=i_Deathshroud
+DISPID=i_Deathshroud
+UPDATE
+
+
+
+
+
+[TYPEDEF ei_robe_gm]
+ON=@Create
+COLOR=0
+HITPOINTS=65000
+ATTR=attr_newbie
+
+ON=@DAMAGE
+RETURN 1
+
+on=@click
+IF (<LINK.ISVALIDE> && <LINK.ISGM>)
+	MESSAGE @,,1 (<link.name>)
+ENDIF
+// MESSAGE <QVAL (<TOPOBJ.ISPLAYER>)?<DEF0.PlevelName.<TOPOBJ.ACCOUNT.PLEVEL>>:Staff> Robe
+MESSAGE Staff Robe
+return 1 
+
+On=@Equip
+IF (0<SRC.ACCOUNT.PLEVEL> <= 1)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu eşya yetkililere aittir.
+	REMOVE
+	RETURN 1
+ENDIF
+COLOR=0
+LINK=<SRC.UID>
+
+ON=@DCLICK 
+IF (0<SRC.ACCOUNT.PLEVEL> <= 1)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu yetkililere ait bir eşyadır.
+	REMOVE
+	RETURN 1
+ENDIF
+SRC.INVIS
+
+
+
+
+
+
+[ITEMDEF I_FLASH_ROBE]
+DEFNAME=I_FLASH_ROBE
+// ID=I_ELVEN_MALE_ROBE1
+ID=i_robe
+NAME=Flash Robe
+TYPE=T_CLOTHING
+
+ON=@CREATE
+ATTR 04
+COLOR=0
+attr=attr_decay
+
+
+ON=@EQUIP
+attr=attr_decay
+TIMER 1
+
+ON=@DCLICK
+attr=attr_decay
+IF (<TIMER> == -1)
+TIMER 1
+SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, Renk geçişleri devam ediyor.
+ELSE
+TIMER -1
+SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, Renk geçişleri durdu!
+ENDIF
+
+ON=@TIMER
+DORAND 14
+	COLOR <R1059,1101>
+	COLOR <R1150,1200>
+	COLOR <R1255,1306>
+	COLOR <R1355,1400>
+	COLOR <R1455,1500>
+	COLOR <R1555,1600>
+	COLOR <R1655,1701>
+	COLOR <R1755,1800>
+	COLOR <R1910,1999>
+	COLOR <R2020,2099>
+	COLOR <R2123,2199>
+	COLOR <R2226,2299>
+	COLOR <R2320,2398>
+	COLOR <R2432,3000>
+ENDDO
+
+
+// OLD-HUES
+// DORAND 6
+// COLOR <R2971,2997>
+// COLOR <R2430,2515>
+// COLOR <R2129,2168>
+// COLOR <R2017,2098>
+// COLOR <R1907,1996>
+// COLOR <R1150,1171>
+// ENDDO
+
+
+NAME <COLOR>
+
+IF (<CONT>)
+TOPOBJ.FINDLAYER(25).COLOR <COLOR>
+TOPOBJ.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, <COLOR>
+	FOR 1 20
+		IF (<CONT.FINDLAYER(<DLOCAL._FOR>)>)
+		TOPOBJ.FINDLAYER(<DLOCAL._FOR>).COLOR <COLOR>
+		ENDIF
+	ENDFOR
+ELSE
+SAYU <COLOR>
+ENDIF
+
+topobj.sound 041,0,2
+
+// TIMERMS 1
+TIMER 1
+RETURN 1
+
+[EOF]

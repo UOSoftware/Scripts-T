@@ -1,0 +1,35 @@
+
+
+[EVENTS e_char_bonus_axe]							
+On=@Hit
+IF (<SRC.FLAGS>&STATF_STONE) || (<SRC.REGION.SAFE>)
+	RETURN 1
+//ELSEIF ((<LUMBERJACKING> < 99.9) && (<TACTICS> < 99.9))
+//	SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Axe bonus icin 100.0 Lumberjacking ve Tactics becerilerine ihtiyaciniz var.
+//	EVENTS -e_char_bonus_axe
+ENDIF
+REF1=<WEAPON>
+IF (<REF1.ISVALIDE>) && (<REF1.TYPE> == t_weapon_axe) && (<LUMBERJACKING> > 0)
+	IF (<ARGN1> > 0)
+		IF (RAND(120) <= <EVAL (<ANATOMY> / 40)>)
+			LOCAL.BASEDAM <ARGN1>
+			LOCAL.DAM = <EVAL ((<DLOCAL.BASEDAM> * (<LUMBERJACKING> / 40)) / 100)>
+			IF (<LUMBERJACKING> >= 98.0) // Lj yüksekse hasari arttir.
+				LOCAL.DAM += <EVAL ((<DLOCAL.BASEDAM> * 10) / 100)>
+			ENDIF
+			IF (<DLOCAL.DAM> >= 15) // Hasari sinirla
+				LOCAL.DAM=15
+			ENDIF	
+			IF (<DLOCAL.DAM> > 0)
+				ARGN1 +=<DLOCAL.DAM>
+				SYSMESSAGE +<DLOCAL.DAM> axe damage
+				//SRC.DAMAGE <DLOCAL.DAM>,(<def.dam_physical>|<def.dam_god>),<UID> // zaten argn1 ile dmgyi arttirdik.
+				// SRC.SAYUA 30,6,0,0 * zıngıldanır *
+			ENDIF
+		ENDIF
+	ENDIF
+ENDIF
+
+
+[eof]
+

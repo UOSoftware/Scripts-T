@@ -1,0 +1,785 @@
+
+
+[CHARDEF 0c]
+DEFNAME=c_dragon
+NAME=#NAMES_DRAGON the Dragon
+ICON=i_pet_dragon
+SOUND=snd_monster_dragon1
+CAN=MT_WALK|MT_FLY|MT_NONHUM
+DAM=8,12
+ARMOR=40
+FOODTYPE=t_meat_raw
+MAXFOOD=80
+RESOURCES=19 i_ribs_raw,8 i_reag_dragon_blood
+TAG.Barding.Diff=105.0
+CATEGORY=Monsters
+SUBSECTION=Dragonkind
+DESCRIPTION=Dragon
+
+ON=@Create
+// TAG0.NAME.SUFFIX " the <JOB>"
+NPC=brain_monster
+FAME={5000 5999}
+KARMA={-5000 -5999}
+STR={450 625}
+DEX={55 70}
+INT={535 775}
+EVALUATINGINTEL={30.0 40.0}
+MAGERY={30.0 40.0}
+MAGICRESISTANCE={99.0 100.0}
+TACTICS={97.0 100.0}
+WRESTLING={90.0 92.0}
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+
+
+
+
+[CHARDEF c_wyrm_elder]
+DEFNAME=c_wyrm_elder
+NAME=Elder Wyrm
+ID=c_dragon
+SOUND=snd_MONSTER_DRAGON1
+ICON=i_pet_DRAGON
+ANIM=03f9c7f
+CAN=MT_WALK|MT_RUN|MT_FLY|MT_USEHANDS|MT_FIRE_IMMUNE
+DAM=30,55
+ARMOR=35,40
+RESOURCES=50 I_RIBS_RAW,8 I_REAG_DRAGON_BLOOD, 20 I_HIDE, 1 I_REAG_WYRM_HEART
+FOODTYPE=80 t_meat_raw,t_gem
+CATEGORY=Monsters
+SUBSECTION=Dragons and Drakes
+DESCRIPTION=Wyrm Elder
+
+ON=@Create
+COLOR=0482
+NPC=brain_monster
+FAME={7000 8000}
+KARMA={-5000 -5999}
+
+STR={850 950}
+DEX={125 175}
+INT={435 475}
+
+MAGERY=2500.0
+PARRYING={70.0 90.0}
+MAGICRESISTANCE={70.0 80.0}
+TACTICS={75.0 85.0}
+WRESTLING={70.0 90.0}
+TAMING=199.0
+
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+// ITEM=loot_DRAGON
+
+
+
+
+
+[CHARDEF c_wyvern_aos]
+DEFNAME=c_wyvern_aos
+NAME=Wyvern
+ID=C_DRAKE_RED
+CAN=MT_RUN|MT_WALK|MT_FIRE_IMMUNE|MT_FLY
+DAM=15,20
+ARMOR=20
+MAXFOOD=50
+RESOURCES=10 i_ribs_raw
+TAG.Barding.Diff=78.2
+CATEGORY=Monsters
+SUBSECTION=Drakes
+DESCRIPTION=Wyvern
+// RESLEVEL=
+// EXPANSION=
+
+ON=@Create
+NPC=brain_monster
+
+COLOR=0760
+
+FAME={2000 5000}
+KARMA={-3000 -3999}
+
+STR={800 930}
+DEX={170 190}
+INT={51 90}
+
+MAGERY={350.0 380.0}
+PARRYING={80.0 85.0}
+MAGICRESISTANCE={65.0 80.0}
+TACTICS={75.0 85.0}
+WRESTLING={80.0 95.0}
+
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+// ON=@NPCRestock
+
+
+
+[CHARDEF 03b]
+DEFNAME=c_dragon_red
+NAME=#NAMES_DRAGON the Dragon
+ICON=i_pet_dragon
+SOUND=snd_monster_dragon1
+CAN=MT_WALK|MT_FLY|MT_NONHUM|MT_FIRE_IMMUNE
+DAM=8,12
+ARMOR=40
+FOODTYPE=t_meat_raw
+MAXFOOD=80
+RESOURCES=19 i_ribs_raw,8 i_reag_dragon_blood
+TAG.Barding.Diff=105.0
+CATEGORY=Monsters
+SUBSECTION=Dragonkind
+DESCRIPTION=Dragon
+
+ON=@Create
+// TAG0.NAME.SUFFIX " the <JOB>"
+NPC=brain_monster
+FAME={5000 5999}
+KARMA={-5000 -5999}
+STR={450 625}
+DEX={55 70}
+INT={535 775}
+EVALUATINGINTEL={30.0 40.0}
+MAGERY={30.0 40.0}
+MAGICRESISTANCE={99.0 100.0}
+TACTICS={97.0 100.0}
+WRESTLING={90.0 92.0}
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+
+[CHARDEF 03e]
+DEFNAME=c_wyvern
+NAME=Wyvern
+ICON=i_pet_wyvern
+SOUND=snd_monster_dragon1
+CAN=MT_WALK|MT_FLY|MT_NONHUM
+DAM=8,19
+ARMOR=40
+FOODTYPE=t_meat_raw
+MAXFOOD=50
+RESOURCES=10 i_ribs_raw,20 i_hide_horned
+TAG.Barding.Diff=78.2
+CATEGORY=Monsters
+SUBSECTION=Dragonkind
+DESCRIPTION=Wyvern
+
+ON=@Create
+NPC=brain_monster
+FAME=4000
+KARMA=-4000
+STR={200 240}
+DEX={150 175}
+INT={50 90}
+WRESTLING={65.1 80.0}
+TACTICS={65.1 90.0}
+POISONING={60.1 80.0}
+MAGICRESISTANCE={65.1 80.0}
+
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+// ON=@NpcRestock
+// ITEM=loot_wyvern
+
+
+
+
+
+[CHARDEF 067]
+DEFNAME=c_serpentine_dragon
+NAME=Serpentine Dragon
+ICON=i_pet_dragon
+SOUND=snd_dragon_serpentine1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=9,20
+ARMOR=35
+FOODTYPE=t_meat_raw
+MAXFOOD=50
+RESOURCES=19 i_ribs_raw,20 i_hide
+TAG.Barding.Diff=128.8
+CATEGORY=Monsters
+SUBSECTION=Dragonkind
+DESCRIPTION=Serpentine Dragon
+
+ON=@Create
+NPC=brain_monster
+FAME={2000 2499}
+KARMA={-2000 -2499}
+STR={111 140}
+DEX={201 220}
+INT={1000 1040}
+EVALUATINGINTEL={100.0 110.0}
+MAGERY={110.0 120.0}
+MAGICRESISTANCE={95.0 105.0}
+MEDITATION={95.0 105.0}
+POISONING={85.0 95.0}
+TACTICS={50.0 60.0}
+WRESTLING={30.0 100.0}
+
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+// ON=@NpcRestock
+// ITEM=loot_dragon_serpentine
+
+
+
+
+[CHARDEF 068]
+DEFNAME=c_skeletal_dragon
+NAME=Skeletal Dragon
+ICON=i_pet_dragon
+// SOUND=snd_monster_skeldragon
+SOUND=0
+CAN=MT_WALK|MT_FLY|MT_NONHUM
+DAM=127,166
+ARMOR=75
+RESOURCES=19 i_ribs_raw,20 i_hide
+BLOODCOLOR=-1
+TAG.Barding.Diff=118.3
+CATEGORY=Monsters
+SUBSECTION=Undead
+DESCRIPTION=Skeletal Dragon
+
+ON=@Create
+NPC=brain_monster
+FAME={6000 6999}
+KARMA={-6000 -6999}
+STR={898 1030}
+DEX={168 200}
+INT={488 620}
+EVALUATINGINTEL={80.0 100.0}
+MAGERY={80.0 100.0}
+MAGICRESISTANCE={100.0 130.0}
+NECROMANCY={100.0 110.0}
+TACTICS={97.0 100.0}
+WRESTLING={97.0 100.0}
+
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+// ON=@NpcRestock
+// ITEM=loot_dragon_skeletal
+// ITEM=loot_ai_hard
+
+
+
+
+
+[CHARDEF 069]
+DEFNAME=c_dragon_greater
+NAME=Greater Dragon
+ICON=i_pet_dragon
+SOUND=snd_monster_dragon1
+CAN=MT_WALK|MT_FLY|MT_NONHUM
+DAM=24,33
+ARMOR=60
+FOODTYPE=t_meat_raw
+MAXFOOD=80
+RESOURCES=19 i_ribs_raw,30 i_hide,6 i_reag_dragon_blood
+TAG.Barding.Diff=128.3
+CATEGORY=Monsters
+SUBSECTION=Dragonkind
+DESCRIPTION=Greater Dragon
+
+ON=@Create
+NPC=brain_monster
+FAME={5000 5999}
+KARMA={-5000 -5999}
+STR={1025 1425}
+DEX={80 150}
+INT={475 675}
+EVALUATINGINTEL={90.0 100.0}
+MAGERY={110.0 140.0}
+MAGICRESISTANCE={110.0 140.0}
+POISONING={100.0 125.0}
+TACTICS={110.0 140.0}
+WRESTLING={115.0 145.0}
+
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+// ON=@NPCRestock
+// ITEM=loot_dragon
+
+
+
+
+
+[CHARDEF 06a]
+DEFNAME=c_wyrm_shadow
+NAME=Shadow Wyrm
+ICON=i_pet_dragon
+SOUND=snd_monster_dragon1
+CAN=MT_WALK|MT_FLY|MT_NONHUM
+DAM=130,165
+ARMOR=65
+FOODTYPE=t_meat_raw
+MAXFOOD=50
+RESOURCES=19 i_ribs_raw,20 i_hide,6 i_reag_dragon_blood
+TAG.Barding.Diff=124.9
+CATEGORY=Monsters
+SUBSECTION=Dragonkind
+DESCRIPTION=Shadow Wyrm
+
+ON=@Create
+NPC=brain_monster
+FAME={6000 6999}
+KARMA={-6000 -6999}
+STR={898 1030}
+DEX={68 200}
+INT={488 620}
+EVALUATINGINTEL={80.0 100.0}
+MAGERY={80.0 100.0}
+MAGICRESISTANCE={100.0 130.0}
+MEDITATION={52.0 75.0}
+TACTICS={97.0 100.0}
+WRESTLING={97.0 100.0}
+
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+// ON=@NpcRestock
+// ITEM=loot_wyrm_shadow
+
+
+
+
+
+[CHARDEF 0c5]
+DEFNAME=c_dragon_crimson
+NAME=Crimson Dragon
+ICON=i_pet_dragon_crimson
+SOUND=snd_monster_stygian_dragon1
+CAN=MT_WALK|MT_NONHUM
+DAM=30,50
+ARMOR=75
+FOODTYPE=t_meat_raw
+MAXFOOD=90
+RESOURCES=20 i_ribs_raw,60 i_hide,15 i_reag_dragon_blood
+TAG.Barding.Diff=130.0
+CATEGORY=Monsters
+SUBSECTION=Dragonkind
+DESCRIPTION=Crimson Dragon
+
+ON=@Create
+NPC=brain_monster
+FAME={8500 8999}
+KARMA={-8500 -8999}
+STR={675 725}
+DEX={125 150}
+INT={175 185}
+ANATOMY={95.0 105.0}
+MAGICRESISTANCE={145.0 155.0}
+TACTICS={115.0 125.0}
+WRESTLING={115.0 125.0}
+
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+// ON=@NPCRestock
+// ITEM=loot_dragon_stygian
+// ITEM=loot_ai_hard
+
+
+
+
+[CHARDEF 0c6]
+DEFNAME=c_dragon_platinum
+NAME=Platinum Dragon
+ICON=i_pet_dragon_platinum
+SOUND=snd_monster_stygian_dragon1
+CAN=MT_WALK|MT_NONHUM
+DAM=30,50
+ARMOR=75
+FOODTYPE=t_meat_raw
+MAXFOOD=90
+RESOURCES=20 i_ribs_raw,60 i_hide,15 i_reag_dragon_blood
+TAG.Barding.Diff=130.0
+CATEGORY=Monsters
+SUBSECTION=Dragonkind
+DESCRIPTION=Platinum Dragon
+
+ON=@Create
+NPC=brain_monster
+FAME={8500 8999}
+KARMA={-8500 -8999}
+STR={675 725}
+DEX={125 150}
+INT={175 185}
+ANATOMY={95.0 105.0}
+MAGICRESISTANCE={145.0 155.0}
+TACTICS={115.0 125.0}
+WRESTLING={115.0 125.0}
+
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+
+// ON=@NPCRestock
+// ITEM=loot_dragon_stygian
+// ITEM=loot_ai_hard
+
+
+
+
+[CHARDEF 031d]
+DEFNAME=c_reptile_lord
+NAME=Reptile Lord
+ICON=i_pet_dragon
+SOUND=snd_monster_dragon1
+DAM=150,163
+ARMOR=75
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+FOODTYPE=t_meat_raw
+MAXFOOD=80
+RESOURCES=19 i_ribs_raw,40 i_hide,6 i_reag_dragon_blood
+TAG.Barding.Diff=128.4
+CATEGORY=Monsters
+SUBSECTION=Dragonkind
+DESCRIPTION=Reptile Lord
+RESLEVEL=2
+RESDISPDNID=c_dragon_red
+RESDISPDNHUE=38
+
+ON=@Create
+NPC=brain_monster
+FAME={6000 6999}
+KARMA={-6000 -6999}
+STR={900 1000}
+DEX={90 120}
+INT={500 600}
+ANATOMY={75.0 100.0}
+EVALUATINGINTEL={80.0 100.0}
+MAGERY={80.0 100.0}
+MAGICRESISTANCE={110.0 125.0}
+MEDITATION={52.0 75.0}
+TACTICS={80.0 90.0}
+WRESTLING={80.0 100.0}
+
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+
+// ON=@NpcRestock
+// ITEM=loot_wyrm_white
+
+
+
+
+[CHARDEF 033a]
+DEFNAME=c_dragon_stygian
+NAME=Stygian Dragon
+ICON=i_pet_dragon_stygian
+SOUND=snd_monster_stygian_dragon1
+CAN=MT_WALK|MT_NONHUM
+DAM=33,55
+ARMOR=85
+FOODTYPE=t_meat_raw
+MAXFOOD=100
+RESOURCES=25 i_ribs_raw,80 i_hide,20 i_reag_dragon_blood
+TAG.Barding.Diff=160.0
+CATEGORY=Monsters
+SUBSECTION=Dragonkind
+DESCRIPTION=Stygian Dragon
+
+ON=@Create
+NPC=brain_monster
+FAME={9500 9999}
+KARMA={-9500 -9999}
+STR={675 725}
+DEX={225 250}
+INT={175 185}
+ANATOMY={95.0 105.0}
+MAGICRESISTANCE={145.0 155.0}
+TACTICS={115.0 125.0}
+WRESTLING={115.0 125.0}
+
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+
+
+[CHARDEF c_dragon_ice]
+ID=c_dragon_red
+NAME=Ice Dragon
+CAN=MT_WALK|MT_FLY|MT_FIRE_IMMUNE|MT_EQUIP|MT_USEHANDS
+DAM=74,98
+ARMOR=55
+RESOURCES=19 i_ribs_raw, 8 i_reag_dragon_blood
+CATEGORY=Monsters
+SUBSECTION=Dragons and Drakes
+DESCRIPTION=Ice Dragon
+
+ON=@Create
+COLOR=color_ice
+NPC=brain_monster
+FAME={5500 5999}
+KARMA={-5500 -5999}
+STR={795 825}
+DEX={105 125}
+INT={385 425}
+ARCHERY={90.0 100.0}
+EVALUATINGINTEL={70.0 80.0}
+FENCING={70.0 90.0}
+MACEFIGHTING={80.0 90.0}
+MAGERY={99.0 100.0}
+MAGICRESISTANCE={99.0 100.0}
+MEDITATION={85.0 115.0}
+PARRYING={55.0 95.0}
+SWORDSMANSHIP={120.0 140.0}
+TACTICS={99.0 100.0}
+WRESTLING={90.0 93.0}
+
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+
+// ON=@NPCRestock
+// ITEM=loot_ai_hard
+// ITEM=loot_dragon
+
+
+
+[CHARDEF c_dragon_fire]
+ID=c_dragon_red
+NAME=Fire Dragon
+CAN=MT_WALK|MT_FLY|MT_FIRE_IMMUNE|MT_EQUIP|MT_USEHANDS
+DAM=74,98
+RESOURCES=19 i_ribs_raw,8 i_reag_dragon_blood
+ARMOR=55
+CATEGORY=Monsters
+SUBSECTION=Dragons and Drakes
+DESCRIPTION=Ice Dragon
+
+ON=@Create
+COLOR=080a
+NPC=brain_monster
+FAME={5500 5999}
+KARMA={-5500 -5999}
+STR={795 825}
+DEX={105 125}
+INT={385 425}
+ARCHERY={90.0 100.0}
+EVALUATINGINTEL={70.0 80.0}
+FENCING={70.0 90.0}
+MACEFIGHTING={80.0 90.0}
+MAGERY={99.0 100.0}
+MAGICRESISTANCE={99.0 100.0}
+MEDITATION={85.0 115.0}
+PARRYING={55.0 95.0}
+SWORDSMANSHIP={120.0 140.0}
+TACTICS={99.0 100.0}
+WRESTLING={90.0 93.0}
+
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+
+
+
+
+
+[CHARDEF c_dragon_wyrm]
+ID=c_dragon
+NAME=Wyrm
+CAN=MT_WALK|MT_FLY|MT_EQUIP|MT_USEHANDS|MT_HOVER
+DAM=75,115
+RESOURCES=19 i_ribs_raw, 10 i_reag_dragon_blood
+ARMOR=59
+CATEGORY=Monsters
+SUBSECTION=Dragons and Drakes
+DESCRIPTION=Wyrm
+
+ON=@Create
+COLOR=colors_wyrm
+NPC=brain_monster
+FAME={6000 6999}
+KARMA={-6000 -6999}
+STR={1095 1185}
+DEX={125 155}
+INT={685 775}
+ARCHERY={110.0 130.0}
+EVALUATINGINTEL={70.0 80.0}
+FENCING={10.0 20.0}
+MACEFIGHTING={10.0 20.0}
+MAGERY={99.0 110.0}
+MAGICRESISTANCE={99.0 100.0}
+MEDITATION={85.0 115.0}
+PARRYING={55.0 95.0}
+SWORDSMANSHIP={140.0 180.0}
+TACTICS={98.0 100.0}
+WRESTLING={90.0 103.0}
+
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+// ON=@NPCRestock
+// ITEM=loot_ai_hard
+// ITEM=loot_dragon
+
+
+
+
+[CHARDEF c_dragon_crystal]
+ID=c_dragon_red
+NAME=Crystal Dragon
+CAN=MT_WALK|MT_FLY|MT_FIRE_IMMUNE|MT_EQUIP|MT_USEHANDS
+DAM=79,95
+ARMOR=58
+RESOURCES=
+CATEGORY=Monsters
+SUBSECTION=Dragons and Drakes
+DESCRIPTION=Dragon (crystal)
+
+ON=@Create
+COLOR=07fff
+NPC=brain_monster
+FAME={6000 6999}
+KARMA={-6000 -6999}
+STR={825 940}
+DEX={105 140}
+INT={435 475}
+ARCHERY={120.0 130.0}
+FENCING={10.0 20.0}
+MACEFIGHTING={10.0 20.0}
+MAGICRESISTANCE={99.0 100.0}
+PARRYING={85.0 95.0}
+SWORDSMANSHIP={130.0 160.0}
+TACTICS={98.0 100.0}
+WRESTLING={90.0 93.0}
+
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+
+// ON=@NPCRestock
+// ITEM=loot_ai_hard
+// ITEM=loot_dragon
+
+
+
+
+[CHARDEF 02e]
+DEFNAME=c_wyrm_ancient
+NAME=Ancient Wyrm
+ICON=i_pet_dragon
+SOUND=snd_monster_dragon1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=146,182
+ARMOR=65
+FOODTYPE=t_meat_raw
+MAXFOOD=80
+RESOURCES=19 i_ribs_raw,40 i_hide,6 i_reag_dragon_blood
+TAG.Barding.Diff=160.0
+CATEGORY=Monsters
+SUBSECTION=Dragonkind
+DESCRIPTION=Wyrm (ancient)
+
+ON=@Create
+NPC=brain_monster
+FAME={8500 8999}
+KARMA={-8500 -8999}
+STR={1096 1185}
+DEX={86 175}
+INT={686 775}
+ANATOMY={75.0 100.0}
+EVALUATINGINTEL={80.0 100.0}
+MAGERY={80.0 100.0}
+MAGICRESISTANCE={100.0 150.0}
+MEDITATION={52.0 75.0}
+TACTICS={98.0 100.0}
+WRESTLING={98.0 100.0}
+
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+// ON=@NpcRestock
+// ITEM=loot_wyrm_ancient
+// ITEM=loot_ai_hard
+
+
+
+[CHARDEF 0b4]
+DEFNAME=c_wyrm_white_unk
+NAME=Unknown White Wyrm
+ICON=i_pet_dragon
+SOUND=snd_monster_dragon1
+CAN=MT_WALK|MT_FLY|MT_NONHUM
+DAM=67,98
+ARMOR=55
+FOODTYPE=t_meat_raw
+MAXFOOD=80
+RESOURCES=19 i_ribs_raw,10 i_reag_dragon_blood
+TAG.Barding.Diff=100.3
+CATEGORY=Monsters
+SUBSECTION=Duplicates
+DESCRIPTION=Unknown Wyrm (white)
+
+
+ON=@Create
+NPC=brain_monster
+FAME={6000 6999}
+KARMA={-6000 -6999}
+STR={721 760}
+DEX={101 130}
+INT={386 425}
+EVALUATINGINTEL={99.0 100.0}
+MAGICRESISTANCE={99.0 100.0}
+MAGERY={99.0 100.0}
+TACTICS={95.0 100.0}
+TAMING={95.0 100.0}
+WRESTLING={98.0 100.0}
+
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+
+// ON=@NPCRestock
+// ITEM=loot_wyrm_white
+
+
+[CHARDEF 031]
+DEFNAME=c_wyrm_white
+NAME=White Wyrm
+ICON=i_pet_dragon
+SOUND=snd_monster_dragon1
+CAN=MT_WALK|MT_FLY|MT_NONHUM
+DAM=17,25
+ARMOR=60
+FOODTYPE=t_meat_raw
+MAXFOOD=80
+RESOURCES=19 i_ribs_raw,10 i_reag_dragon_blood
+TAG.Barding.Diff=100.3
+TAG.TamingSlot=3
+CATEGORY=Monsters
+SUBSECTION=Dragonkind
+DESCRIPTION=White Wyrm
+
+ON=@Create
+NPC=brain_monster
+FAME=18000
+KARMA=-18000
+STR={721 760}
+DEX={101 130}
+INT={386 425}
+WRESTLING={90.1 100.0}
+TACTICS={97.6 100.0}
+MAGICRESISTANCE={99.1 100.0}
+MAGERY={99.1 100.0}
+EVALUATINGINTEL={99.1 100.0}
+TAMING=96.3
+
+ITEMNEWBIE=i_spellbook
+ADDSPELL=s_explosion
+
+
+// ON=@NPCRestock
+// ITEM=loot_wyrm_white
+
+[eof]

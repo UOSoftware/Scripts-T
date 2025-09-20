@@ -1,0 +1,176 @@
+
+
+
+[CHARDEF 01a8]
+//Use this as our invis man id.
+DEFNAME=c_man_invisible
+NAME=Man Invisible
+CAN=mt_walk|mt_run|mt_usehands
+ICON=i_pet_man
+HEIGHT=16
+RESOURCES=4 i_ribs_raw
+FOODTYPE=15 t_food,t_fruit
+CATEGORY=Humanoids
+SUBSECTION=Human
+DESCRIPTION=Human, Invisible
+
+ON=@Create
+NPC=brain_human
+STR=1
+
+
+[CHARDEF 0312]
+//partial animation - dont use
+NAME=Unknown Spider 0312
+CAN=MT_NONMOVER|MT_NONHUM
+
+//[CHARDEF 031b]
+////Equipment animation - dont use
+//DEFNAME=c_demon_horde_medium
+//NAME=horde demon
+//CAN=MT_WALK|MT_RUN|MT_USEHANDS
+
+[CHARDEF 02ef]
+NAME=02ef
+CAN=MT_NONMOVER|MT_NONHUM
+
+//[CHARDEF 054]
+//Duplicated from chardef 053
+
+[CHARDEF 05f]
+//On very old clients this was a sea monster
+//On somewhat old clients, this creature crash the client
+//On very new clients this is a turkey
+//Anyway, this chardef is not really used
+NAME=05f
+CAN=MT_NONMOVER|MT_NONHUM
+
+//Missing: 
+//[CHARDEF 020] (crashes client)
+
+[CHARDEF 02e6]
+DEFNAME=c_tunnel_spirit
+NAME=Tunnel Spirit
+CAN=MT_NONMOVER|MT_NONHUM
+
+[CHARDEF 02e7]
+DEFNAME=c_tunnel_spirit_tentacle
+NAME=Tunnel Spirit Tentacle
+CAN=MT_NONMOVER|MT_NONHUM
+
+[CHARDEF 027d]
+//Spectral Armor
+NAME=Spectral Armor
+CAN=MT_WALK|MT_RUN|MT_USEHANDS|MT_EQUIP
+
+[CHARDEF 033b]
+//No animation - dont use
+NAME=033b
+CAN=MT_NONMOVER|MT_NONHUM
+
+[CHARDEF 033c]
+//No animation - dont use
+NAME=033c
+CAN=MT_NONMOVER|MT_NONHUM
+
+[CHARDEF 02db]
+//No animation - dont use
+NAME=02db
+CAN=MT_NONMOVER|MT_NONHUM
+
+[CHARDEF 0126]
+////No animation - dont use
+NAME=0126
+CAN=MT_NONMOVER|MT_NONHUM
+
+[CHARDEF 0127]
+////Partial animation - Dolphin - no corpse - dont use
+NAME=Dolphin 0127
+CAN=MT_NONMOVER|MT_NONHUM
+
+[CHARDEF 0128]
+////No animation - dont use
+NAME=0128
+CAN=MT_NONMOVER|MT_NONHUM
+
+[CHARDEF 0129]
+////No animation - dont use
+NAME=0129
+CAN=MT_NONMOVER|MT_NONHUM
+
+[CHARDEF 012a]
+////No animation - dont use
+NAME=012a
+CAN=MT_NONMOVER|MT_NONHUM
+
+[CHARDEF 012b]
+////No animation - dont use
+NAME=012b
+CAN=MT_NONMOVER|MT_NONHUM
+
+[CHARDEF 011e]
+////No animation - dont use
+NAME=011e
+CAN=MT_NONMOVER|MT_NONHUM
+
+[CHARDEF 0112]
+////No animation - dont use
+NAME=0122
+CAN=MT_NONMOVER|MT_NONHUM
+
+[CHARDEF 0113]
+////No animation - dont use
+NAME=0113
+CAN=MT_NONMOVER|MT_NONHUM
+
+[CHARDEF 010c]
+////no animation - dont use
+NAME=010c
+CAN=MT_NONMOVER|MT_NONHUM
+
+[CHARDEF 010d]
+////partial animation - looks like satyr - no death animation - dont use
+NAME=010d
+CAN=MT_NONMOVER|MT_NONHUM
+
+[CHARDEF 0de]
+////Partial animation - lizardman with spear - no corpse - dont use
+NAME=0de
+CAN=MT_NONMOVER|MT_NONHUM
+
+[CHARDEF 0e0]
+////No animation - imp/mongbat - no corpse - dont use
+NAME=0e0
+CAN=MT_NONMOVER|MT_NONHUM
+
+[CHARDEF 0e3]
+////No animation - no corpse - dont use
+NAME=0e3
+CAN=MT_NONMOVER|MT_NONHUM
+
+[CHARDEF 0e5]
+////No animation - reaper - no corpse - dont use
+NAME=0e5
+CAN=MT_NONMOVER|MT_NONHUM
+
+[CHARDEF 0eb]
+////Partial animation - troll with club - no corpse - dont use
+NAME=0eb
+CAN=MT_NONMOVER|MT_NONHUM
+
+[CHARDEF 0ef]
+////No animation - no corpse - dont use
+NAME=0ef
+CAN=MT_NONMOVER|MT_NONHUM
+
+[CHARDEF 0120]
+////No animation - dont use
+NAME=0120
+CAN=MT_NONMOVER|MT_NONHUM
+
+[CHARDEF 0121]
+////No animation - dont use
+NAME=0121
+CAN=MT_NONMOVER|MT_NONHUM
+
+[EOF]

@@ -1,0 +1,86 @@
+
+
+[EVENTS e_char_bonus_paradarbe]							
+On=@Hit
+IF (<SRC.FLAGS>&STATF_STONE) || (<SRC.REGION.SAFE>)
+	RETURN 1
+ELSEIF ((<FENCING> < 99.9) && (<TACTICS> < 99.9))
+	SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Paradarbe yapabilmek icin 100.0 Fencing ve Tactics becerilerine ihtiyaciniz var.
+	EVENTS -e_char_bonus_paradarbe
+ENDIF
+REF1=<WEAPON>
+IF (<REF1.ISVALIDE>) && (<REF1.TYPE> == t_weapon_fence)
+	IF (<ARGN1> > 0)
+		IF (RAND(120) <= <EVAL (<ANATOMY> / 40)>) && !(<SRC.FINDID.i_bonus_paradarbe_equiped_mem>)
+			SERV.NEWITEM i_bonus_paradarbe_equiped_mem
+			NEW.LINK=<UID>
+			SRC.EQUIP <NEW.UID>
+			RETURN 1
+		ENDIF
+	ENDIF
+ENDIF
+
+
+[EVENTS e_bonus_paradarbe_equiped]
+ON=@GETHIT
+IF (<FINDID.i_bonus_paradarbe_equiped_mem>)
+	FINDID.i_bonus_paradarbe_equiped_mem.REMOVE
+ENDIF
+
+ON=@DEATH
+IF (<FINDID.i_bonus_paradarbe_equiped_mem>)
+	FINDID.i_bonus_paradarbe_equiped_mem.REMOVE
+ENDIF
+
+
+[ITEMDEF i_bonus_paradarbe_equiped_mem]
+DEFNAME=i_bonus_paradarbe_equiped_mem
+// ID=I_MEMORY
+ID=i_rune_counter_attack
+TYPE=T_EQ_SCRIPT
+VALUE=0
+WEIGHT=0
+LAYER=30
+NAME=Paradarbe
+
+ON=@CREATE
+ATTR=ATTR_INVIS|ATTR_NEWBIE|ATTR_DECAY
+COLOR=38
+IF (<src> && <SRC.ISGM>)
+	SRC.EQUIP <NEW>
+ENDIF
+
+ON=@EQUIP
+TIMER=3
+IF (<LINK.ISVALIDE>)
+	SRC.FUNC_EMOTE_BONUS <SRC.NAME> parablows <LINK.NAME>
+	SRC.DAMAGE <R25,35>,<DEF.dam_physical>,<LINK>
+ELSE
+	SRC.FUNC_EMOTE_BONUS <SRC.NAME> parablows
+	SRC.DAMAGE <R25,35>,<DEF.dam_physical>,<UID>
+ENDIF
+SRC.FlagEkle STATF_FREEZE
+SRC.EVENTS +e_bonus_paradarbe_equiped
+SRC.SKILL FAIL
+IF (<SRC.ISPLAYER>)
+	SRC.ADDBUFF <ddef.debufficon_SpellFocusing>,<DEF.buffcliloc_Empty>,<def.buffcliloc_Empty>,<TIMER>,Paradarbe,0,1
+ENDIF
+
+
+ON=@UNEQUIP
+SRC.EVENTS -e_bonus_paradarbe_equiped
+SRC.ATTACK <LINK>
+IF !(<SRC.FLAGS>&STATF_DEAD)
+	SRC.FlagSil STATF_FREEZE
+ENDIF
+IF (<SRC.ISPLAYER>)
+	SRC.REMOVEBUFF <ddef.debufficon_SpellFocusing>
+ENDIF
+
+ON=@TIMER
+REMOVE
+RETURN 1
+
+
+[eof]
+

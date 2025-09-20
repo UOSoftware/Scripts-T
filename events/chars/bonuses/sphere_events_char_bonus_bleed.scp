@@ -1,0 +1,86 @@
+
+
+[EVENTS e_char_bonus_bleeding]			
+On=@Hit
+IF (<SRC.FLAGS>&STATF_STONE) || (<SRC.REGION.SAFE>)
+	RETURN 1
+ELSEIF ((<SWORDSMANSHIP> < 99.9) && (<TACTICS> < 99.9))
+	SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bleeding yapabilmek icin 100.0 Swordsmanship ve Tactics becerilerine ihtiyaciniz var.
+	EVENTS -e_char_bonus_bleeding
+ENDIF
+REF1=<WEAPON>
+IF (<REF1.ISVALIDE>) && (<REF1.TYPE> == t_weapon_sword) && !(<REF1.MOREZ>)
+	IF (<ARGN1> > 0)
+		IF (RAND(420) <= <EVAL (<ANATOMY> / 40)>) && !(<SRC.FINDID.i_bonus_bleed_equiped_mem>)
+			SERV.NEWITEM i_bonus_bleed_equiped_mem
+			NEW.LINK=<UID>
+			SRC.EQUIP <NEW.UID>
+		ENDIF
+	ENDIF
+ENDIF
+	
+
+
+
+[EVENTS e_bonus_bleeding_equiped]
+ON=@DEATH
+IF (<FINDID.i_bonus_bleed_equiped_mem>)
+	FINDID.i_bonus_bleed_equiped_mem.REMOVE
+ENDIF
+
+[ITEMDEF i_bonus_bleed_equiped_mem]
+DEFNAME=i_bonus_bleed_equiped_mem
+// ID=I_MEMORY
+ID=i_rune_counter_attack
+TYPE=T_EQ_SCRIPT
+VALUE=0
+WEIGHT=0
+LAYER=30
+NAME=Bleeding
+
+ON=@CREATE
+COLOR=38
+ATTR=ATTR_INVIS|ATTR_NEWBIE|ATTR_DECAY
+IF (<src> && <SRC.ISGM>)
+	SRC.EQUIP <NEW>
+ENDIF
+
+on=@Equip
+TIMER=5
+IF (<LINK.ISVALIDE>)
+	SRC.DAMAGE <R3,5>,<DEF.dam_physical>,<LINK>
+	LINK.SOUND 051E
+ELSE
+	SRC.DAMAGE <R3,5>,<DEF.dam_physical>,<UID>
+ENDIF
+SRC.HITS -=6
+SRC.FUNC_EMOTE_BONUS yara alır
+SRC.EVENTS +e_bonus_bleeding_equiped
+IF (<SRC.ISPLAYER>)
+	SRC.SOUND 051E
+	SRC.ADDBUFF <DDEF.debufficon_Bleed>,<DEF.buffcliloc_Empty>,<def.buffcliloc_Empty>,<TIMER>,Bleeding,0,1
+ENDIF
+
+ON=@UNEQUIP
+SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, Yaranız kapandı.
+SRC.EVENTS -e_bonus_bleeding_equiped
+IF (<SRC.ISPLAYER>)
+	SRC.REMOVEBUFF <DDEF.debufficon_Bleed>
+ENDIF
+
+ON=@TIMER
+IF (<MORE1> >= 5)
+	REMOVE
+ELSE
+	TOPOBJ.FUNC_EMOTE_BONUS kan kaybeder
+	// TOPOBJ.DAMAGE 4 <DEF.DAM_GOD> <LINK>
+	TOPOBJ.HITS -=4
+	MORE1 ++
+	TIMER=6
+	IF (<TOPOBJ.ISPLAYER>)
+		TOPOBJ.ADDBUFF <DDEF.debufficon_Bleed>,<DEF.buffcliloc_Empty>,<def.buffcliloc_Empty>,<TIMER>,Bleeding,0,1
+	ENDIF
+ENDIF
+RETURN 1
+
+[EOF]

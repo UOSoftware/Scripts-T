@@ -1,0 +1,47 @@
+
+
+[PLEVEL 1]
+DISARM
+
+[FUNCTION DISARM]
+IF (<ISEVENT.e_char_bonus_disarm>)
+	SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Disarm: Kapalı
+	EVENTS -e_char_bonus_disarm
+	
+ELSEIF ((<WRESTLING> > 84.9) && (<ARMSLORE> > 84.9))
+	SYSMESSAGELOC <def.tcolor_green>,<def.empty_cliloc2>, Disarm: Açık
+	EVENTS +e_char_bonus_disarm
+ELSE
+	SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Disarm yapabilmek icin 85.0 Wrestling ve Arms Lore becerilerine ihtiyaciniz var.
+ENDIF
+
+[EVENTS e_char_bonus_disarm] 
+On=@Hit
+IF (<SRC.FLAGS>&STATF_STONE) || (<SRC.REGION.SAFE>)
+	RETURN 1
+ELSEIF ((<WRESTLING> < 84.9) && (<ARMSLORE> < 84.9))
+	SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Disarm yapabilmek icin 85.0 Wrestling ve Arms Lore becerilerine ihtiyaciniz var.
+	EVENTS -e_char_bonus_disarm
+ENDIF
+
+IF !((<FINDLAYER.layer_hand1>) || (<FINDLAYER.layer_hand2>))
+	IF (RAND(9) == 1)
+		IF (<SRC.FINDLAYER.layer_hand1> || <SRC.FINDLAYER.layer_hand2>)
+			IF (<SRC.FINDLAYER.layer_hand1>)
+				SRC.FINDLAYER.layer_hand1.UNEQUIP
+			ENDIF
+			IF (<SRC.FINDLAYER.layer_hand2>)
+				SRC.FINDLAYER.layer_hand2.UNEQUIP
+			ENDIF
+			IF (<SRC.ISPLAYER>)
+				SRC.ADDBUFF <ddef.debufficon_Disarm>,<DEF.buffcliloc_Empty>,<def.buffcliloc_Empty>,1,Disarm,0,1
+				SRC.TIMERF 1,REMOVEBUFF <ddef.debufficon_Disarm>
+			ENDIF
+			SRC.FUNC_EMOTE_BONUS <NAME> disarms <SRC.NAME>
+			// SRC.FUNC_EMOTE_BONUS silahsızlandırılır
+		ENDIF
+	ENDIF 
+ENDIF
+
+
+[EOF]

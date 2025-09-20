@@ -1,0 +1,8 @@
+
+[SPEECH spk_generic_npc_vendor_teachers]
+ON=teach*
+ON=train*
+SRC.DCLICK <UID>
+RETURN 1
+
+[EOF]

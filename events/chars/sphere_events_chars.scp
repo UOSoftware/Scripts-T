@@ -1,0 +1,35 @@
+VERSION=0.56T
+
+[events e_generic_chars]
+ON=@SKILLMENU
+SRC.CRAFTSKILL <ARGS>,<SERV.SKILL.<ARGN1>.NAME>
+RETURN 1
+
+// I = Karakterin hapse gönderilmesi veya hapishaneden serbest bırakılması .
+// SRC = Hapis cezasından veya serbest bırakılmadan sorumlu karakter .
+// ARGN1 = Karakterin hapse gönderilip gönderilmediğini gösterir (1 = hapse gönderildi, 0 = hapisten serbest bırakıldı)
+// ARGN2 = 	Karakterin gönderileceği hücre numarası.
+// Argn3= Süre
+ON=@JAILED
+IF (<ARGN1>)
+	IF (<FINDID.I_JAIL_MEMORY>)
+		FINDID.I_JAIL_MEMORY.TIMER=1
+	ENDIF
+ELSE
+	CONSUME 9999 I_JAIL_MEMORY
+	IF !(<FINDID.I_JAIL_MEMORY>)
+		SERV.NEWITEM I_JAIL_MEMORY
+		NEW.MOREP=<P>
+		NEW.MORE1=<ARGN2> // CELL
+		NEW.MORE2=<SRC> // JAILE ATAN
+		NEW.TIMER=<ARGN3> // TIME
+		EQUIP <NEW>
+	ENDIF
+ENDIF
+
+
+// SERV.B ARGN1 <ARGN1>
+// SERV.B ARGN3 <ARGN2>
+// SERV.B ARGN2 <ARGN3>
+
+[eof]

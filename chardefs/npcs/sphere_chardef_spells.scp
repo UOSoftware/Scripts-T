@@ -1,0 +1,142 @@
+
+
+[CHARDEF 023d]
+DEFNAME=C_Vortex
+NAME=Energy Vortex
+SOUND=Snd_Monster_Gispidr1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=14,17
+ARMOR=40
+DESIRES=I_Gold,C_Man,C_Woman
+MOVERATE=150
+RESDISPDNHUE=0
+BLOODCOLOR=0
+Reslevel=4
+RESOURCES=5 I_Ribs_Raw
+Resdispdnid=c_energy_vortex
+FOODTYPE=
+CATEGORY=Spells
+SUBSECTION=Magery
+DESCRIPTION=Energy Vortex (AoS)
+// TEVENTS=e_generic_npc_summons
+
+On=@Create
+Npc=Brain_Berserk
+Flags=Statf_Conjured
+FAME=2000
+KARMA=-3000
+STR=300
+DEX=300
+INT=1
+MAGICRESISTANCE=100.0
+TACTICS=100.0
+WRESTLING=120.0
+
+ITEMNEWBIE=I_LIGHT_SOURCE
+ATTR=ATTR_MAGIC|ATTR_NEWBIE
+
+
+
+
+
+[CHARDEF c_horse_brown_lt_summon]
+DEFNAME=c_horse_brown_lt_summon
+ID=c_horse_brown_lt
+NAME=Horse
+ICON=i_pet_horse_brown_lt_summon
+TEVENTS=e_generic_npc_summons
+
+ON=@Create
+Flags=Statf_Conjured
+NPC=brain_animal
+STR={44 120}
+DEX={36 55}
+INT={6 10}
+PARRYING={35.0 45.0}
+MAGICRESISTANCE={25.0 30.0}
+TACTICS={29.0 44.0}
+WRESTLING={29.0 44.0}
+TAMING=45.0
+FAME=0
+KARMA=0
+
+
+
+
+[CHARDEF c_horse_gray_summon]
+DEFNAME=c_horse_gray_summon
+ID=c_horse_gray
+NAME=Horse
+ICON=i_pet_horse_gray_summon
+TEVENTS=e_generic_npc_summons
+
+ON=@Create
+Flags=Statf_Conjured
+NPC=brain_animal
+STR={44 120}
+DEX={36 55}
+INT={6 10}
+PARRYING={35.0 45.0}
+MAGICRESISTANCE={25.0 30.0}
+TACTICS={29.0 44.0}
+WRESTLING={29.0 44.0}
+TAMING=45.0
+FAME=0
+KARMA=0
+
+
+
+
+[CHARDEF c_chicken_summon]
+DEFNAME=c_chicken_summon
+ID=c_chicken
+NAME=Chicken
+TEVENTS=e_generic_npc_summons
+
+ON=@Create
+Flags=Statf_Conjured
+NPC=brain_animal
+STR=5
+DEX=15
+INT=5
+PARRYING=2.0
+MAGICRESISTANCE=4.0
+TACTICS=5.0
+WRESTLING=5.0
+TAMING=20.0
+FAME=10
+KARMA={-1 -99}
+
+
+
+[CHARDEF C_SCORPION_GIANT_SUMMON]
+DEFNAME=C_SCORPION_GIANT_SUMMON
+ID=c_scorpion_giant
+NAME=Giant Scorpion
+TAG.Barding.Diff=65.1
+TAG.HitPoison=3
+CATEGORY=Monsters
+SUBSECTION=Spells
+DESCRIPTION=Giant Scorpion
+TEVENTS=e_generic_npc_summons
+
+ON=@Create
+Flags=Statf_Conjured
+NPC=brain_monster
+
+FAME={1000 1499}
+KARMA={-1000 -1499}
+
+STR={73 115}
+DEX={76 95}
+INT={16 30}
+
+MAGICRESISTANCE={30.0 35.0}
+POISONING={50.0 75.0}
+TACTICS={45.0 50.0}
+TAMING=47.1
+WRESTLING={50.0 65.0}
+
+
+
+[EOF]

@@ -1,0 +1,104 @@
+
+
+[PLEVEL 1] 
+STUN
+
+[FUNCTION STUN] 
+IF (<ISEVENT.e_char_bonus_stun>) 
+	SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Stun: Kapalı
+	EVENTS -e_char_bonus_stun 
+
+ELSEIF ((<WRESTLING> > 99.9) && (<ANATOMY> > 99.9) && !(<ISEVENT.e_char_bonus_stun>))  
+	SYSMESSAGELOC <def.tcolor_green>,<def.empty_cliloc2>, Stun: Açık
+	EVENTS +e_char_bonus_stun 
+ELSE 
+	SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>,Stun kullanabilmek icin 100.0 Wrestling ve Anatomy becerilerine ihtiyaciniz var.
+ENDIF 
+
+[EVENTS e_char_bonus_stun] 
+ON=@HIT
+IF (<SRC.FLAGS>&STATF_STONE) || (<SRC.REGION.SAFE>)
+	RETURN 1
+
+ELSEIF ((<WRESTLING> < 99.9) || (<ANATOMY> < 99.9))
+	SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>,Stun kullanabilmek icin 100.0 Wrestling ve Anatomy becerilerine ihtiyaciniz var.
+	EVENTS -e_char_bonus_stun
+ENDIF
+
+IF !((<FINDLAYER.1>) || (<FINDLAYER.2>))
+	IF (RAND(260) <= <EVAL (<ANATOMY> / 40)>) && !(<SRC.FINDID.i_bonus_stun_equiped_mem>)
+		SERV.NEWITEM i_bonus_stun_equiped_mem
+		NEW.LINK=<UID>
+		SRC.EQUIP <NEW.UID>
+		RETURN 1
+	ENDIF
+ENDIF
+
+
+[EVENTS e_bonus_stun_equiped]
+ON=@GETHIT
+IF (<FINDID.i_bonus_stun_equiped_mem>)
+	FINDID.i_bonus_stun_equiped_mem.REMOVE
+ENDIF
+
+ON=@DEATH
+IF (<FINDID.i_bonus_stun_equiped_mem>)
+	FINDID.i_bonus_stun_equiped_mem.REMOVE
+ENDIF
+
+
+[ITEMDEF i_bonus_stun_equiped_mem]
+DEFNAME=i_bonus_stun_equiped_mem
+// ID=I_MEMORY
+ID=i_rune_counter_attack
+TYPE=T_EQ_SCRIPT
+VALUE=0
+WEIGHT=0
+LAYER=30
+NAME=Stun
+
+ON=@CREATE
+ATTR=ATTR_INVIS|ATTR_NEWBIE|ATTR_DECAY
+COLOR=38
+
+
+ON=@DCLICK
+IF (<SRC.ISGM>)
+	SRC.EQUIP <NEW>
+ENDIF
+
+ON=@EQUIP
+TIMER=3
+IF (<LINK.ISVALIDE>)
+	SRC.FUNC_EMOTE_BONUS <SRC.NAME> stuns <LINK.NAME>
+	SRC.DAMAGE <R5,12>,<DEF.dam_physical>,<LINK>
+ELSE
+	SRC.FUNC_EMOTE_BONUS <SRC.NAME> stuns
+	SRC.DAMAGE <R5,12>,<DEF.dam_physical>,<UID>
+ENDIF
+SRC.SKILL FAIL
+SRC.FlagEkle statf_freeze
+SRC.EVENTS +e_bonus_stun_equiped
+IF (<SRC.ISPLAYER>)
+	SRC.ADDBUFF <ddef.debufficon_SpellFocusing>,<DEF.buffcliloc_Empty>,<def.buffcliloc_Empty>,<TIMER>,Stun,0,1
+ENDIF
+
+
+
+ON=@UNEQUIP
+SRC.EVENTS -e_bonus_stun_equiped
+SRC.ATTACK <LINK>
+IF !(<SRC.FLAGS>&STATF_DEAD)
+	SRC.FlagSil statf_freeze
+ENDIF
+IF (<SRC.ISPLAYER>)
+	SRC.REMOVEBUFF <ddef.debufficon_SpellFocusing>
+ENDIF
+
+ON=@TIMER
+REMOVE
+RETURN 1
+
+
+
+[EOF]

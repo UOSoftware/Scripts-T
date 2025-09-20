@@ -1,0 +1,77 @@
+
+
+
+[CHARDEF c_teacher]
+ID=c_man
+NAME=#NAMES_HUMANMALE the Teacher
+CATEGORY=Civilized
+SUBSECTION=Tradesmen
+DESCRIPTION=Blacksmith (human male)
+
+ON=@Create
+COLOR=colors_skin
+
+NPC=Brain_NONE
+
+NEED=i_gold
+STR={85 95}
+DEX={45 55}
+INT={45 55}
+
+ALLSKILLS=300
+THROWING=0
+NECROMANCY=0
+
+ITEMNEWBIE=random_light
+ITEMNEWBIE=random_male_hair
+COLOR=colors_hair
+ITEMNEWBIE=random_facial_hair,1,R5
+COLOR=match_hair
+ITEM=random_shirts_human
+COLOR=colors_all
+ITEM=random_pants_human
+COLOR=colors_all
+ITEM=random_boots_human
+COLOR=colors_neutral
+ITEM=i_apron_full
+COLOR=colors_red
+ITEM={ i_cap 1 i_bandana 1 i_skull_cap 1 }
+COLOR=colors_red
+
+ 
+[CHARDEF c_teacher_f]
+ID=c_woman
+NAME=#NAMES_HUMANFEMALE the Teacher
+CATEGORY=Civilized
+SUBSECTION=Tradesmen
+DESCRIPTION=Teacher (human female)
+
+ON=@Create
+COLOR=colors_skin
+
+NPC=Brain_NONE
+
+NEED=i_gold
+STR={85 95}
+DEX={45 55}
+INT={45 55}
+
+ALLSKILLS=300
+THROWING=0
+NECROMANCY=0
+
+ITEMNEWBIE=random_light
+ITEMNEWBIE=random_female_hair
+COLOR=colors_hair
+ITEM=random_shirts_human
+COLOR=colors_all
+ITEM=random_skirts_human
+COLOR=colors_all
+ITEM=i_boots_calf
+COLOR=colors_neutral
+ITEM=i_apron_full
+COLOR=colors_red
+ITEM={ i_cap 1 i_bandana 1 i_skull_cap 1 }
+COLOR=colors_red
+
+[EOF]

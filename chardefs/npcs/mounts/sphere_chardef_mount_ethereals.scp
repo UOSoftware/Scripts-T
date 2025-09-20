@@ -1,0 +1,173 @@
+
+
+[CHARDEF 073]
+DEFNAME=c_horse_ethereal
+NAME=Ethereal Horse
+ICON=i_pet_horse_brown_dk
+CAN=MT_WALK
+FOODTYPE=
+MAXFOOD=0
+RESOURCES=
+BLOODCOLOR=-1
+DAM=0
+ARMOR=0
+CATEGORY=Mounts
+SUBSECTION=Ethereal
+DESCRIPTION=Horse
+
+ON=@Create
+NPC=brain_animal
+STR=1
+DEX=0
+INT=0
+
+
+[CHARDEF 0aa]
+DEFNAME=c_llama_ethereal
+NAME=Ethereal Llama
+ICON=i_pet_llama
+CAN=MT_WALK
+FOODTYPE=
+MAXFOOD=0
+RESOURCES=
+BLOODCOLOR=-1
+DAM=0
+ARMOR=0
+CATEGORY=Mounts
+SUBSECTION=Ethereal
+DESCRIPTION=Llama
+
+ON=@Create
+NPC=brain_animal
+STR=1
+DEX=0
+INT=0
+
+
+
+[CHARDEF 0ab]
+DEFNAME=c_ostard_frenzied_ethereal
+NAME=Ethereal Frenzied Ostard
+ICON=i_pet_ostard_frenzied
+CAN=MT_WALK
+FOODTYPE=
+MAXFOOD=0
+RESOURCES=
+BLOODCOLOR=-1
+DAM=0
+ARMOR=0
+CATEGORY=Mounts
+SUBSECTION=Ethereal
+DESCRIPTION=Frenzied Ostard
+
+ON=@Create
+NPC=brain_animal
+STR=1
+DEX=0
+INT=0
+
+
+
+
+[CHARDEF 059a]
+DEFNAME=c_serpentine_dragon_ethereal
+NAME=Ethereal Serpentine Dragon
+ICON=i_pet_serpentine_dragon_ethereal
+CAN=MT_WALK
+CATEGORY=Mounts
+SUBSECTION=Ethereal
+DESCRIPTION=Serpentine Dragon
+
+ON=@Create
+NPC=brain_animal
+STR=1
+
+
+
+[CHARDEF 0bf]
+DEFNAME=c_kirin_ethereal
+NAME=Ethereal Ki-Rin
+ICON=i_pet_kirin
+CAN=MT_WALK
+CATEGORY=Mounts
+SUBSECTION=Ethereal
+DESCRIPTION=Ki-Rin
+
+ON=@Create
+COLOR=04fff
+NPC=brain_animal
+STR=1
+
+
+[CHARDEF 0c0]
+DEFNAME=c_unicorn_ethereal
+NAME=Ethereal Unicorn
+ICON=i_pet_unicorn
+CAN=MT_WALK
+CATEGORY=Mounts
+SUBSECTION=Ethereal
+DESCRIPTION=Unicorn
+
+ON=@Create
+COLOR=04fff
+NPC=brain_animal
+STR=1
+
+[CHARDEF 0c1]
+DEFNAME=c_ridgeback_ethereal
+NAME=Ethereal Ridgeback
+Icon=I_Pet_Ridgeback
+CAN=MT_WALK
+CATEGORY=Mounts
+SUBSECTION=Ethereal
+DESCRIPTION=Ridgeback
+
+ON=@Create
+COLOR=04fff
+NPC=brain_animal
+STR=1
+
+[CHARDEF 0c2]
+DEFNAME=c_swamp_dragon_ethereal
+NAME=Ethereal Swamp Dragon
+ICON=i_pet_dragon_swamp
+CAN=MT_WALK
+CATEGORY=Mounts
+SUBSECTION=Ethereal
+DESCRIPTION=Swamp Dragon
+
+ON=@Create
+COLOR=04fff
+NPC=brain_animal
+STR=1
+
+[CHARDEF 0c3]
+DEFNAME=c_giant_beetle_ethereal
+NAME=Ethereal Giant Beetle
+ICON=i_pet_beetle_giant
+CAN=MT_WALK
+CATEGORY=Mounts
+SUBSECTION=Ethereal
+DESCRIPTION=Giant Beetle
+
+ON=@Create
+COLOR=04fff
+NPC=brain_animal
+STR=1
+
+[CHARDEF 04e7]
+DEFNAME=c_tiger_ethereal
+NAME=Ethereal Tiger
+ICON=i_pet_tiger
+CAN=MT_WALK|MT_RUN
+CATEGORY=Mounts
+SUBSECTION=Ethereal
+DESCRIPTION=Tiger
+
+ON=@Create
+NPC=brain_monster
+STR=1
+
+
+
+[eof]

@@ -1,0 +1,13 @@
+
+
+
+
+// FILE LAST UPDATED: 26.10.2023
+//
+VERSION=0.56T
+
+[SPEECH spk_house_cmds]
+//All house commands goes here. Empty by default.
+
+
+[EOF]

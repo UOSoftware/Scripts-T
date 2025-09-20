@@ -1,0 +1,31 @@
+
+[events e_char_bonus_dismount]
+On=@Hit
+IF (<SRC.FLAGS>&STATF_STONE) || (<SRC.REGION.SAFE>)
+	RETURN 1
+ENDIF
+REF1=<WEAPON>
+IF (<REF1.ISVALIDE>)
+	LOCAL.RAND=200
+	IF (<REF1.TYPE> == T_WEAPON_BOW || <REF1.TYPE> == T_WEAPON_XBOW)
+		LOCAL.RAND 10
+	ENDIF
+	IF (<ISPLAYER> && <SRC.ISPLAYER> && <SRC.IsOnRide>)
+		IF (RAND(<DLOCAL.RAND>) <= <EVAL (<ANATOMY> / 40)>)
+			SRC.DISMOUNT
+			SRC.SKILL FAIL
+			SRC.FUNC_WARMODE 1
+			SRC.DAMAGE <R25,35>,<DEF.DAM_FIXED>,<UID> 
+			SRC.FUNC_EMOTE_BONUS binekten düşer	
+			
+			IF (<SRC.ISPLAYER>)
+				SRC.ADDBUFF <ddef.debufficon_NoRemount>,<DEF.buffcliloc_Empty>,<def.buffcliloc_Empty>,1,Dismount,0,1
+				SRC.TIMERF 1,REMOVEBUFF <ddef.debufficon_NoRemount>
+			ENDIF
+			
+			RETURN 1
+		ENDIF
+	ENDIF
+ENDIF
+
+[eof]

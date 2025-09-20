@@ -1,0 +1,947 @@
+
+
+[SPAWN SPAWN_MonstMisc_Magic]
+DEFNAME=SPAWN_MonstMisc_Magic
+CATEGORY=Spawn Groups
+SUBSECTION=Monsters
+DESCRIPTION=Misc Monsters - Magic
+ID=c_gazer
+ID=c_m_gazer_elder
+ID=c_m_imp
+
+[SPAWN spawn_IceIsle]
+CATEGORY=Spawn Groups
+SUBSECTION=Monsters
+DESCRIPTION=Ice Isle
+ID=c_bear_polar
+ID=c_wolf_white
+ID=c_walrus
+ID=c_leopard_snow
+
+[SPAWN spawn_Bandits]
+CATEGORY=Spawn Groups
+SUBSECTION=Evil NPC
+DESCRIPTION=Bandits
+ID=c_bandit_m
+ID=c_bandit_f
+
+[SPAWN spawn_Barbarians]
+CATEGORY=Spawn Groups
+SUBSECTION=Evil NPC
+DESCRIPTION=Barbarians
+ID=c_barbarian_warrioress  300
+ID=c_barbarian_warrior     300
+ID=c_barbarian_shaman      200
+ID=c_barbarian_chieftain   100
+
+[SPAWN spawn_Brigands]
+CATEGORY=Spawn Groups
+SUBSECTION=Evil NPC
+DESCRIPTION=Brigands
+ID=c_brigand_f
+ID=c_brigand
+
+[SPAWN spawn_EvilMages]
+CATEGORY=Spawn Groups
+SUBSECTION=Evil NPC
+DESCRIPTION=Evil Mages
+ID=c_evilmage              200
+ID=c_evilmage_lord         100
+
+[SPAWN spawn_Pirates]
+CATEGORY=Spawn Groups
+SUBSECTION=Evil NPC
+DESCRIPTION=Pirates
+ID=c_pirate_f
+ID=c_pirate_m
+
+[SPAWN spawn_Demons]
+CATEGORY=Spawn Groups
+SUBSECTION=Monsters
+DESCRIPTION=Demons
+ID=c_imp                  2200
+ID=c_demon                2100
+ID=c_gargoyle             1900
+ID=c_gargoyle_enforcer    1800
+ID=c_gibberling           1700
+ID=c_gargoyle_enslaved    1600
+ID=c_demon_chaos          1500
+ID=c_maddening_horror     1400
+ID=c_ravager              1300
+ID=c_demon_horde_large    1200
+ID=c_gargoyle_undead      1100
+ID=c_demon_ice            1000
+ID=c_gargoyle_fire         900
+ID=c_gargoyle_stone        800
+ID=c_demon_moloch          700
+ID=c_succubus              600
+ID=c_fan_dancer            500
+ID=c_tsuki_wolf            400
+ID=c_gargoyle_destroyer    300
+ID=c_devourer_souls        200
+ID=c_demon_balron          100
+
+[SPAWN spawn_Dragons]
+CATEGORY=Spawn Groups
+SUBSECTION=Monsters
+DESCRIPTION=Dragons
+ID=c_wyvern               1300
+ID=c_serpentine_dragon    1200
+ID=c_kepetch              1100
+ID=c_dragon_wolf          1000
+ID=c_drake                 900
+ID=c_drake_red             900
+ID=c_dragon_greendrake     900
+ID=c_dragon_bluedrake      900
+ID=c_dragon_crystaldrake   800
+ID=c_dragon_copperdrake    800
+ID=c_dragon_silverdrake    800
+ID=c_dragon_blackdrake     700
+ID=c_dragon_fairy          700
+ID=c_dragon_golddrake      600
+ID=c_dragon                400
+ID=c_dragon_red            400
+ID=c_dragon_ice            400
+ID=c_skeletal_dragon       400
+ID=c_dragon_greater        400
+ID=c_wyrm_shadow           400
+ID=c_hydra                 400
+ID=c_reptalon
+ID=c_dragon_crystal        200
+ID=c_dragon_wyrm           100
+ID=c_wyrm_white            100
+ID=c_wyrm_ancient          100
+ID=c_reptile_lord          100
+
+[SPAWN spawn_DreadLords]
+CATEGORY=Spawn Groups
+SUBSECTION=Evil NPC
+DESCRIPTION=Dreadlords
+ID=c_dreadlord             500
+ID=c_dreadhorse            400
+ID=c_dreadranger           400
+ID=c_dreadlord_captain     300
+ID=c_warhorse_dread        100
+ID=c_dreadlord_general     100
+
+[SPAWN spawn_EvilJapanese]
+CATEGORY=Spawn Groups
+SUBSECTION=Evil NPC
+DESCRIPTION=Evil Japanese
+ID=c_ninja
+ID=c_ninja_f
+ID=c_ronin
+ID=c_ronin_f
+
+[SPAWN spawn_Elems]
+CATEGORY=Spawn Groups
+SUBSECTION=Monsters
+DESCRIPTION=Elementals
+ID=c_elemental_sand_vortex  1500
+ID=c_elemental_air          1000
+ID=c_elemental_earth        1000
+ID=c_elemental_fire         1000
+ID=c_elemental_water        1000
+ID=c_elemental_ice           900
+ID=c_rai_ju                  800
+ID=c_kaze_kemono             700
+ID=c_crystal_elemental       700
+ID=c_efreet                  600
+ID=c_elemental_acid          500
+ID=c_elemental_snow          400
+ID=c_elemental_poison        300
+ID=c_elemental_lava          200
+ID=c_elemental_blood         100
+
+[SPAWN spawn_MonsterHumanoids]
+ID=C_NINJA
+ID=C_NINJA_F
+ID=C_RONIN
+ID=C_RONIN_F
+ID=C_SPRITE_SPRITE
+ID=C_SPRITE_MAGE
+ID=C_SPRITE_SORC
+ID=C_SPRITE_ARCHER
+ID=C_SPRITE_ASSASSIN
+ID=C_SPRITE_WITCH
+ID=C_SPRITE_NECRO
+ID=C_SPRITE_PALADIN
+ID=C_FROSTELF_ARCHER
+ID=C_FROSTELF_WARRIOR
+ID=C_FROSTELF_CHIEF
+ID=C_FROSTELF_SHAMAN
+ID=C_FROSTELF_WARRIORESS
+ID=C_FROSTELF_RANGER
+ID=C_FROSTELF_MERC
+ID=C_DARKELF_WARRIOR
+ID=C_DARKELF_FIGHT_MACE
+ID=C_DARKELF_GRUNT
+ID=C_DARKELF_FIGHT_SWORD
+ID=C_DARKELF_WAR_AXE
+ID=C_WOODELF_ELITE_RANGER
+ID=C_WOODELF_ELITE_WARRIOR
+ID=C_WOODELF_HUNTER
+ID=C_WOODELF_SPEARMAN
+ID=C_WOODELF_FIGHTER
+ID=C_WOODELF_ARCHER
+ID=C_BARBARIAN_WARRIOR
+ID=C_BARBARIAN_CHIEFTAIN
+ID=C_BARBARIAN_SHAMAN
+ID=C_BARBARIAN_WARRIORESS
+ID=C_WARLOCK
+ID=C_WITCH
+ID=C_WITCH_HIGH
+ID=C_BANDIT_M
+ID=C_BANDIT_F
+ID=C_BRIGAND
+ID=C_BRIGAND_F
+ID=C_PRISONER
+ID=C_PRISONER_F
+ID=C_PIRATE_M
+ID=C_PIRATE_F
+ID=C_DREADLORD
+ID=C_DREADLORD_CAPTAIN
+ID=C_DREADRANGER
+ID=C_DREADLORD_GENERAL
+ID=C_DREADHORSE
+
+[SPAWN spawn_Gargoyles]
+CATEGORY=Spawn Groups
+SUBSECTION=Monsters
+DESCRIPTION=Gargoyles
+ID=c_gargoyle              600
+ID=c_gargoyle_enslaved     500
+ID=c_gargoyle_enforcer     400
+ID=c_gargoyle_undead       300
+ID=c_gargoyle_fire         200
+ID=c_gargoyle_stone        200
+ID=c_gargoyle_destroyer    100
+
+[SPAWN spawn_Gazers]
+CATEGORY=Spawn Groups
+SUBSECTION=Monsters
+DESCRIPTION=Gazers
+ID=c_gazer_larva           300
+ID=c_gazer                 200
+ID=c_gazer_elder           100
+
+[SPAWN spawn_Giants]
+CATEGORY=Spawn Groups
+SUBSECTION=Monsters
+DESCRIPTION=Giants
+ID=c_ogre                 1000
+ID=c_ettin                1000
+ID=c_ettin_w_hammer       1000
+ID=c_ettin_lord           1000
+ID=c_frost_ettin          1000
+ID=c_frost_troll          1000
+ID=c_troll                 800
+ID=c_troll_w_axe           800
+ID=c_frost_troll           800
+ID=c_cyclops               500
+ID=c_cyclops_king          400
+ID=c_ogre_lord             700
+
+[SPAWN spawn_Goblins]
+CATEGORY=Spawn Groups
+SUBSECTION=Monsters
+DESCRIPTION=Goblins
+ID=c_goblin_shaman         600
+ID=c_goblin_gray_mage      600
+ID=c_goblin_gray           400
+ID=c_goblin_lord           400
+ID=c_goblin_chief          200
+
+[SPAWN spawn_Insects]
+CATEGORY=Spawn Groups
+SUBSECTION=Monsters
+DESCRIPTION=Insects
+ID=c_scorpion_clockwork    900
+ID=c_scorpion_giant        900
+ID=c_deathwatch_beetle     800
+ID=c_solen_worker          700
+ID=c_giant_beetle
+ID=c_beetle_fire
+ID=c_fire_ant              500
+ID=c_solen_warrior         400
+ID=c_solen_queen           300
+ID=c_rune_beetle           200
+ID=c_ant_lion              200
+ID=c_beetle_iron           100
+
+[SPAWN spawn_Juka]
+CATEGORY=Spawn Groups
+SUBSECTION=Monsters
+DESCRIPTION=Juka
+ID=c_juka_mage             300
+ID=c_juka_warrior          200
+ID=c_juka_lord             100
+
+[SPAWN spawn_Lizardmen]
+CATEGORY=Spawn Groups
+SUBSECTION=Monsters
+DESCRIPTION=Lizard Men
+ID=c_lizardman             100
+ID=c_lizardman_mace        100
+ID=c_lizardman_spear       100
+
+[SPAWN spawn_Meer]
+CATEGORY=Spawn Groups
+SUBSECTION=Monsters
+DESCRIPTION=Meer
+ID=c_meer_warrior          400
+ID=c_meer_captain          300
+ID=c_meer_mage             200
+ID=c_meer_eternal          100
+
+[SPAWN spawn_Ophidians]
+CATEGORY=Spawn Groups
+SUBSECTION=Monsters
+DESCRIPTION=Ophidians
+ID=c_ophidian_justicar     500
+ID=c_ophidian_shaman       400
+ID=c_ophidian_warrior      300
+ID=c_ophidian_avenger      200
+ID=c_ophidian_queen        100
+
+[SPAWN spawn_Orcs]
+CATEGORY=Spawn Groups
+SUBSECTION=Monsters
+DESCRIPTION=Orcs
+ID=c_orc                   100
+ID=c_orc_w_club            100
+ID=C_ORC_SCOUT_AOS             100
+ID=c_orc_mage              100
+ID=c_orc_chopper           100
+ID=c_orc_lord              100
+ID=c_orc_captain           100
+ID=c_orc_bomber_aos        100
+ID=c_orc_brute_aos         700
+
+[SPAWN spawn_RatMen]
+CATEGORY=Spawn Groups
+SUBSECTION=Monsters
+DESCRIPTION=RatMen
+ID=c_rat
+ID=c_rat_giant
+ID=c_ratman                200
+ID=c_ratman_w_mace         200
+ID=c_ratman_w_sword        200
+ID=c_ratman_archer         100
+ID=c_ratman_mage           100
+
+[SPAWN spawn_Savages]
+CATEGORY=Spawn Groups
+SUBSECTION=Monsters
+DESCRIPTION=Savages
+ID=c_savage_ridgeback      100
+ID=c_savage_warrior_male   500
+ID=c_savage_warrior_female 500
+ID=c_savage_shaman         500
+ID=c_savage_rider          500
+
+[SPAWN spawn_Scorpion]
+CATEGORY=Spawn Groups
+SUBSECTION=Monsters
+DESCRIPTION=Scorpions
+ID=c_scorpion_giant        500
+ID=c_scorpion_thrall       400
+ID=c_scorpion_prince       300
+ID=c_scorpion_king         200
+ID=c_scorpion_queen        100
+
+[SPAWN spawn_Slimes]
+CATEGORY=Spawn Groups
+SUBSECTION=Monsters
+DESCRIPTION=Slimes
+ID=c_slime                 200
+ID=c_slime_corrosive       100
+
+[SPAWN spawn_Solen]
+CATEGORY=Spawn Groups
+SUBSECTION=Monsters
+DESCRIPTION=Solen
+ID=c_solen_worker          700
+ID=c_solen_warrior         500
+ID=c_solen_queen           300
+
+[SPAWN spawn_Spiders]
+CATEGORY=Spawn Groups
+SUBSECTION=Monsters
+DESCRIPTION=Spiders
+ID=c_spider_giant          600
+ID=c_spider_frost          500
+ID=c_spider_trapdoor       400
+ID=c_spider_dread          300
+ID=c_spider_wolf           200
+
+[SPAWN spawn_Sprites]
+CATEGORY=Spawn Groups
+SUBSECTION=Monsters
+DESCRIPTION=Sprites
+ID=c_sprite_sprite         800
+ID=c_sprite_mage           800
+ID=c_sprite_sorc           800
+ID=c_sprite_archer         800
+ID=c_sprite_assassin       600
+ID=c_sprite_witch          400
+ID=c_sprite_necro          200
+ID=c_sprite_paladin        100
+
+[SPAWN spawn_Terathans]
+CATEGORY=Spawn Groups
+SUBSECTION=Monsters
+DESCRIPTION=Terathans
+ID=c_terathan_drone        500
+ID=c_terathan_warrior      400
+ID=c_terathan_matriarch    300
+ID=c_terathan_assassin     200
+ID=c_terathan_avenger      100
+
+[SPAWN spawn_Ore_Elementals]
+CATEGORY=Spawn Groups
+SUBSECTION=Monsters
+DESCRIPTION=Ore Elementals
+ID=c_elemental_ore_copper      800
+ID=c_elemental_ore_copper_dull 700
+ID=c_elemental_ore_gold        600
+ID=c_elemental_ore_agapite     500
+ID=c_elemental_ore_bronze      400
+ID=c_elemental_ore_shadow      300
+ID=c_elemental_ore_valorite    200
+ID=c_elemental_ore_verite      100
+
+[SPAWN spawn_Undead_All]
+CATEGORY=Spawn Groups
+SUBSECTION=Undead
+DESCRIPTION=All Undead
+ID=c_zombie               1700
+ID=c_skeleton             1600
+ID=c_skeleton_w_axe       1600
+ID=c_skeleton_w_sword     1600
+ID=c_skeletonarcher       1400
+ID=c_spectre              1300
+ID=c_bogle                1300
+ID=c_skeleton_mage        1300
+ID=c_ghoul                1300
+ID=c_gore_fiend           1100
+ID=c_ghost                1000
+ID=c_wraith               1000
+ID=c_phantom              1000
+ID=c_flesh_golem          1000
+ID=c_wailing_banshee      1000
+ID=c_patchwork_skeleton   1400
+ID=c_skeleton_knight       700
+ID=c_revenant_lion         700
+ID=c_lady_of_snow          600
+ID=c_mummy                 600
+ID=c_lich                  600
+ID=c_dream_wraith          900
+ID=c_gargoyle_undead       800
+ID=c_vampire               400
+ID=c_rotting_corpse        50
+ID=c_lich_lord             200
+ID=c_lich_ancient          200
+ID=c_lich_primeval         100
+ID=c_skeletal_dragon       100
+
+[SPAWN spawn_Void]
+CATEGORY=Spawn Groups
+SUBSECTION=Monsters
+DESCRIPTION=Void Monsters
+ID=c_wanderer_void         100
+
+[SPAWN spawn_Worms]
+CATEGORY=Spawn Groups
+SUBSECTION=Monsters
+DESCRIPTION=Worms
+ID=c_rotworm               200
+ID=c_bloodworm             100
+
+[SPAWN spawn_Witches]
+CATEGORY=Spawn Groups
+SUBSECTION=Evil NPC
+DESCRIPTION=Witches
+ID=c_black_cat             300
+ID=c_witch                 200
+ID=c_warlock               100
+ID=c_witch_high            100
+
+[SPAWN spawn_Woodelves]
+CATEGORY=Spawn Groups
+SUBSECTION=Evil NPC
+DESCRIPTION=Wood Elves
+ID=c_woodelf_hunter        200
+ID=c_woodelf_spearman      200
+ID=c_woodelf_archer        200
+ID=c_woodelf_fighter       100
+ID=c_woodelf_elite_ranger  100
+ID=c_woodelf_elite_warrior 100
+
+[SPAWN spawn_Yomotsu]
+CATEGORY=Spawn Groups
+SUBSECTION=Monsters
+DESCRIPTION=Yomotsu
+ID=c_yomotsu_warrior       400
+ID=c_yomotsu_priest        400
+ID=c_yomotsu_elder         100
+
+[SPAWN spawn_Minotaurs]
+CATEGORY=Spawn Groups
+SUBSECTION=Monsters
+DESCRIPTION=Minotaurs
+ID=c_tormented_minotaur    400
+ID=c_minotaur              300
+ID=c_minotaur_scout        200
+ID=c_minotaur_captain      100
+
+[SPAWN spawn_Snakes]
+CATEGORY=Spawn Groups
+SUBSECTION=Monsters
+DESCRIPTION=Snakes
+ID=c_snake                 800
+ID=c_lava_snake            700
+ID=c_snake_giant           400
+ID=c_serpent_silver        300
+ID=c_maddening_horror      300
+ID=c_kepetch               200
+ID=c_kepetch_shorn         200
+ID=c_serpent_lava          100
+
+//////////////////////////////
+// Monster Spawns (Habitat) //
+//////////////////////////////
+
+[SPAWN spawn_PlainsMonsters]
+CATEGORY=Spawn Groups
+SUBSECTION=Monster Habitat
+DESCRIPTION=Plains Monsters
+ID=c_gazer_larva            1100
+ID=c_gazer                   900
+ID=c_elemental_air           800
+ID=c_snake_giant             600
+
+[SPAWN spawn_IceMonsters]
+CATEGORY=Spawn Groups
+SUBSECTION=Monster Habitat
+DESCRIPTION=Ice Monsters
+ID=c_frostooze              1600
+ID=c_frostelf_archer        1200
+ID=c_frostelf_warrior       1100
+ID=c_frostelf_shaman        1100
+ID=c_frostelf_warrioress    1100
+ID=c_frostelf_merc          1100
+ID=c_frostelf_ranger        1100
+ID=c_spider_frost           1100
+ID=c_frostelf_chief         1000
+ID=c_frost_ettin            1000
+ID=c_frost_troll            1000
+ID=c_elemental_ice          1000
+ID=c_serpent_ice             900
+ID=c_lady_of_snow            600
+ID=c_demon_ice               400
+ID=c_elemental_snow          200
+ID=c_ogre_lord_arctic        100
+ID=c_dragon_ice              100
+
+[SPAWN spawn_DesertMonsters]
+CATEGORY=Spawn Groups
+SUBSECTION=Monster Habitat
+DESCRIPTION=Desert Monsters
+ID=c_lava_snake             1900
+ID=c_imp                    1700
+ID=c_scorpion_giant         1600
+ID=c_elemental_sand_vortex  1500
+ID=c_hellhound              1500
+ID=c_elemental_fire         1400
+ID=c_elemental_earth        1400
+ID=c_lava_lizard            1400
+ID=c_scorpion_thrall        1400
+ID=c_hellhound_leader       1300
+ID=c_scorpion_prince        1200
+ID=c_scorpion_king           900
+ID=c_efreet                  900
+ID=c_mummy                   700
+ID=c_gargoyle_fire           700
+ID=c_serpent_lava            600
+ID=c_scorpion_queen          500
+ID=c_hellhound_ancient       500
+ID=c_phoenix                 200
+
+
+[SPAWN spawn_SwampMonsters]
+CATEGORY=Spawn Groups
+SUBSECTION=Monster Habitat
+DESCRIPTION=Swamp Monsters
+ID=c_slime                  1600
+ID=c_alligator_small        1400
+ID=c_swamp_tentacles        1200
+ID=c_lizardman              1100
+ID=c_lizardman_spear        1100
+ID=c_lizardman_mace         1100
+ID=c_toad_giant             1100
+ID=c_plague_beast            400
+ID=c_elemental_poison        300
+ID=c_plague_beast_lord       200
+ID=c_bog_thing               100
+
+[SPAWN spawn_ForestMonsters]
+CATEGORY=Spawn Groups
+SUBSECTION=Monster Habitat
+DESCRIPTION=Forest Monsters
+ID=c_vampire_bat            1700
+ID=c_gazer_larva            1600
+ID=c_spider_giant           1400
+ID=c_harpy                  1400
+ID=c_wolf_dire              1400
+ID=c_ogre                   1100
+ID=c_corpser                1100
+ID=c_reaper                 1000
+ID=c_ogre_lord               100
+
+[SPAWN spawn_JungleMonsters]
+CATEGORY=Spawn Groups
+SUBSECTION=Monster Habitat
+DESCRIPTION=Jungle Monsters
+ID=c_headless               1900
+ID=c_vampire_bat            1700
+ID=c_panther                1700
+ID=c_gazer_larva            1600
+ID=c_meer_warrior           1500
+ID=c_ratman                 1400
+ID=c_ratman_w_mace          1400
+ID=c_ratman_w_sword         1400
+ID=c_harpy                  1400
+ID=c_wolf_dire              1400
+ID=c_spider_giant           1400
+ID=c_savage_warrior_male    1300
+ID=c_savage_warrior_female  1300
+ID=c_savage_shaman          1300
+ID=c_gazer                  1200
+ID=c_hellcat                1200
+ID=c_meer_captain           1200
+ID=c_elemental_water        1100
+ID=c_corpser                 900
+ID=c_ratman_archer           800
+ID=c_ratman_mage             800
+ID=c_snake_giant             700
+ID=c_reaper                  700
+ID=c_serpent_silver          600
+ID=c_gazer_elder             400
+ID=c_meer_mage               300
+ID=c_rotting_corpse          100
+ID=c_meer_eternal            100
+
+[SPAWN spawn_MountainMonsters]
+CATEGORY=Spawn Groups
+SUBSECTION=Monster Habitat
+DESCRIPTION=Mountain Monsters
+ID=c_elemental_air          1100
+ID=c_ettin                  1000
+ID=c_ettin_w_hammer         1000
+ID=c_troll                   800
+ID=c_troll_w_axe             800
+ID=c_frost_troll             800
+ID=c_harpy_stone             700
+ID=c_cyclops                 600
+ID=c_cyclops_king            600
+ID=c_gargoyle_stone          500
+ID=c_drake                   400
+ID=c_drake_red               400
+ID=c_titan                   300
+
+[SPAWN spawn_VolcanicMonsters]
+CATEGORY=Spawn Groups
+SUBSECTION=Monster Habitat
+DESCRIPTION=Volcanic Monsters
+ID=c_lava_snake             1400
+ID=c_imp                    1300
+ID=c_hellhound              1200
+ID=c_hellcat                1100
+ID=c_elemental_fire         1000
+ID=c_lava_lizard            1000
+ID=c_gargoyle_fire           400
+ID=c_serpent_lava            300
+ID=c_drake                   400
+ID=c_drake_red               400
+
+[SPAWN spawn_CaveMonsters]
+CATEGORY=Spawn Groups
+SUBSECTION=Monster Habitat
+DESCRIPTION=Cave Monsters
+ID=c_mongbat                1900
+ID=c_headless               1800
+ID=c_terathan_drone         1700
+ID=c_spider_giant           1400
+ID=c_harpy                  1400
+ID=c_scorpion_giant         1400
+ID=c_troglodyte             1300
+ID=c_elemental_earth        1200
+ID=c_ophidian_justicar      1100
+ID=c_terathan_warrior       1000
+ID=c_ophidian_shaman        1000
+ID=c_ophidian_warrior        900
+ID=c_elemental_ore_agapite   700
+ID=c_elemental_ore_bronze    700
+ID=c_elemental_ore_copper       700
+ID=c_elemental_ore_copper_dull  700
+ID=c_elemental_ore_shadow       700
+ID=c_elemental_ore_valorite  700
+ID=c_elemental_ore_verite    700
+ID=c_elemental_ore_gold      700
+ID=c_terathan_matriarch      500
+ID=c_ophidian_avenger        400
+ID=c_ophidian_queen          200
+ID=c_terathan_avenger        100
+
+[SPAWN spawn_OceanMonsters]
+CATEGORY=Spawn Groups
+SUBSECTION=Monster Habitat
+DESCRIPTION=Ocean Monsters
+ID=c_dolphin                 300
+ID=c_elemental_water         400
+ID=c_sea_serpent             300
+ID=c_sea_serpent_deep        200
+ID=c_kraken                  100
+
+//////////////////////////////
+// Monster Spawns (Generic) //
+//////////////////////////////
+
+[SPAWN spawn_AllMonsters]
+CATEGORY=Spawn Groups
+SUBSECTION=Monsters
+DESCRIPTION=All Monsters
+ID=c_mongbat
+ID=c_headless
+ID=c_slime
+ID=c_snake
+ID=c_frostooze
+ID=c_turkey
+ID=c_bullfrog
+ID=c_grubber
+ID=c_zombie
+ID=c_skittering_hopper
+ID=c_demon_horde_minion
+ID=c_terathan_drone
+ID=c_vampire_bat
+ID=c_wolf_grey
+ID=c_gorilla
+ID=c_rat_giant
+ID=c_skeleton
+ID=c_skeleton_w_axe
+ID=c_skeleton_w_sword
+ID=c_wolf_silver
+ID=c_mound_maggots
+ID=c_gazer_larva
+ID=c_alligator_small
+ID=c_chicken_lizard
+ID=c_alligator
+ID=c_dragon_komodo
+ID=c_meer_warrior
+ID=c_bogling
+ID=c_turkey_giant
+ID=c_swamp_tentacles
+ID=c_doppleganger
+ID=c_imp
+ID=c_shadow_fiend
+ID=c_spider_giant
+ID=c_spectre
+ID=c_harpy
+ID=c_lizardman
+ID=c_lizardman_mace
+ID=c_lizardman_spear
+ID=c_wolf_dire
+ID=c_scorpion_giant
+ID=c_orc
+ID=c_orc_w_club
+ID=c_ratman
+ID=c_ratman_w_mace
+ID=c_ratman_w_sword
+ID=c_toad_giant
+ID=c_ghoul
+ID=c_scorpion_clockwork
+ID=c_hellhound
+ID=c_wolf_dark
+ID=c_evilmage
+ID=c_orc_scout
+ID=c_savage_warrior_male
+ID=c_savage_warrior_female
+ID=c_savage_shaman
+ID=c_changeling
+ID=c_elemental_sand_vortex
+ID=c_evilmage_lord
+ID=c_hellcat
+ID=c_spider_frost
+ID=c_skeleton_mage
+ID=c_gore_fiend
+ID=c_gazer
+ID=c_troglodyte
+ID=c_wolf_leather
+ID=c_meer_captain
+ID=c_demon
+ID=c_lava_lizard
+ID=c_deathwatch_beetle
+ID=c_flesh_golem
+ID=c_wailing_banshee
+ID=c_homunculus
+ID=c_solen_worker
+ID=c_quagmire
+ID=c_elemental_air
+ID=c_elemental_earth
+ID=c_elemental_fire
+ID=c_elemental_water
+ID=c_demon_arcane
+ID=c_hellhound_leader
+ID=c_bake_kitsune
+ID=c_slith
+ID=c_skeletal_mount
+ID=c_minotaur
+ID=c_wanderer_void
+ID=c_patchwork_skeleton
+ID=c_gargoyle
+ID=c_ogre
+ID=c_ettin
+ID=c_ettin_w_hammer
+ID=c_corpser
+ID=c_ophidian_justicar
+ID=c_elemental_ice
+ID=c_beetle_fire
+ID=c_minotaur_scout
+ID=c_giant_beetle
+ID=c_orc_chopper
+ID=c_ratman_archer
+ID=c_ratman_mage
+ID=c_bloodworm
+ID=c_rai_ju
+ID=c_gibberling
+ID=c_rotworm
+ID=c_reaper
+ID=c_snake_giant
+ID=c_wyvern
+ID=c_troll
+ID=c_troll_w_axe
+ID=c_frost_troll
+ID=c_demon_chaos
+ID=c_terathan_warrior
+ID=c_ophidian_shaman
+ID=c_serpent_ice
+ID=c_pixie
+ID=c_dryad
+ID=c_treefellow
+ID=c_fetid_essence
+ID=c_gargoyle_enforcer
+ID=c_serpentine_dragon
+ID=c_wisp
+ID=c_orc_bomber
+ID=c_ophidian_warrior
+ID=c_serpent_silver
+ID=c_skeleton_knight
+ID=c_orc_lord
+ID=c_maddening_horror
+ID=c_swamp_dragon
+ID=c_harpy_stone
+ID=c_wisp_dark
+ID=c_kaze_kemono
+ID=c_gaman
+ID=c_minotaur_captain
+ID=c_ravager
+ID=c_kepetch
+ID=c_spider_trapdoor
+ID=c_fire_ant
+ID=c_juka_mage
+ID=c_revenant_lion
+ID=c_crystal_elemental
+ID=c_goblin_gray_mage
+ID=c_juka_warrior
+ID=c_gazer_elder
+ID=c_spider_dread
+ID=c_lich
+ID=c_efreet
+ID=c_kappa
+ID=c_lady_of_snow
+ID=c_satyr
+ID=c_boura
+ID=c_dream_wraith
+ID=c_juggernaut
+ID=c_solen_queen
+ID=c_demon_horde_large
+ID=c_elemental_ore_copper
+ID=c_elemental_ore_copper_dull
+ID=c_elemental_ore_gold
+ID=c_elemental_ore_agapite
+ID=c_elemental_ore_bronze
+ID=c_elemental_ore_shadow
+ID=c_elemental_ore_valorite
+ID=c_elemental_ore_verite
+ID=c_cyclops
+ID=c_skree
+ID=c_slith_toxic
+ID=c_solen_warrior
+ID=c_terathan_matriarch
+ID=c_elemental_acid
+ID=c_reaper_redux
+ID=c_goblin_gray
+ID=c_gargoyle_undead
+ID=c_gargoyle_fire
+ID=c_demon_ice
+ID=c_gargoyle_stone
+ID=c_succubus
+ID=c_mummy
+ID=c_steed_fire
+ID=c_meer_mage
+ID=c_demon_moloch
+ID=c_serpent_lava
+ID=c_warhorse_dread
+ID=c_vollem
+ID=c_goblin_green
+ID=c_mimic
+ID=c_ophidian_avenger
+ID=c_fan_dancer
+ID=c_tsuki_wolf
+ID=c_dragon_wolf
+ID=c_spider_wolf
+ID=c_vampire
+ID=c_vampire_f
+ID=c_juka_lord
+ID=c_drake
+ID=c_drake_red
+ID=c_elemental_snow
+ID=c_hiryu
+ID=c_cu_sidhe
+ID=c_raptor
+ID=c_plague_beast
+ID=c_centaur
+ID=c_rune_beetle
+ID=c_ant_lion
+ID=c_rotting_corpse
+ID=c_meer_eternal
+ID=c_lich_lord
+ID=c_ophidian_queen
+ID=c_elemental_poison
+ID=c_hellhound_ancient
+ID=c_betrayer
+ID=c_elemental_lava
+ID=c_plague_beast_lord
+ID=c_titan
+ID=c_elemental_blood
+ID=c_oni
+ID=c_yomotsu_warrior
+ID=c_yomotsu_priest
+ID=c_lich_ancient
+ID=c_dragon_fairy
+ID=c_frost_troll
+ID=c_dragon_wyrm
+ID=c_terathan_avenger
+ID=c_yomotsu_elder
+ID=c_exodus_overseer
+ID=c_beetle_iron
+ID=c_orc_brute
+ID=c_bog_thing
+ID=c_lich_primeval
+ID=c_gargoyle_destroyer
+ID=c_ogre_lord
+ID=c_ogre_lord_arctic
+
+
+[eof]

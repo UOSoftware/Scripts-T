@@ -1,0 +1,582 @@
+////////////////////
+// Quest Monsters //
+////////////////////
+
+[CHARDEF c_resolve]
+ID=c_skeletal_mount
+NAME=Red Death
+ICON=i_pet_skeletalmount
+SOUND=snd_monster_skletn1
+CAN=MT_WALK|MT_RUN
+DAM=45,75
+ARMOR=45
+FOODTYPE=t_meat_raw
+MAXFOOD=40
+RESOURCES=5 i_ribs_raw,1 i_hide
+CATEGORY=Quest
+SUBSECTION=Bedlam
+DESCRIPTION=Resolve (Skeletal Mount)
+
+
+ON=@Create
+NPC=brain_monster
+KARMA={-2500 -2999}
+FAME={2500 2999}
+STR={317 325}
+DEX={241 252}
+INT={241 255}
+ANATOMY={120.0 142.0}
+MAGICRESISTANCE={123.0 143.0}
+TACTICS={120.0 142.0}
+WRESTLING={122.0 144.0}
+
+ON=@NPCRestock
+// ITEM=random_jewel
+
+
+
+[CHARDEF c_saliva]
+ID=c_harpy
+NAME=Saliva the harpy
+ICON=i_pet_harpy
+SOUND=snd_monster_harpy1
+CAN=MT_WALK|MT_FLY|MT_FEMALE
+DAM=25,35
+ARMOR=48
+FOODTYPE=t_meat_raw
+MAXFOOD=45
+RESOURCES=3 i_ribs_raw,40 i_feather
+CATEGORY=Quest
+SUBSECTION=Blighted Grove
+DESCRIPTION=Saliva the Harpy
+
+
+ON=@Create
+NPC=brain_monster
+COLOR=colors_red
+OSTR={150 160}
+ODEX={150 160}
+OINT={100 120}
+FAME={1500 2500}
+KARMA={-4000 -4999}
+MAGICRESISTANCE={75.0 95.0}
+TACTICS={140.0 150.0}
+WRESTLING={110.0 120.0}
+
+ON=@NPCRestock
+// ITEM=loot_harpy_stone
+
+
+
+
+[CHARDEF c_abscess]
+ID=c_hydra
+NAME=Abscess the hydra
+ICON=i_pet_hydra
+//SOUND=
+CAN=MT_WALK|MT_RUN|MT_EQUIP|MT_USEHANDS
+DAM=120,135
+ARMOR=80
+CATEGORY=Quest
+SUBSECTION=Blighted Grove
+DESCRIPTION=Abscess the Hydra
+
+ON=@Create
+NPC=brain_monster
+FAME={8000 9000}
+KARMA={-8000 -9000}
+STR={950 1050}
+INT={150 300}
+DEX={150 200}
+ARCHERY={90.0 110.0}
+DETECTINGHIDDEN={99.0 100.0}
+FENCING={90.0 110.0}
+MACEFIGHTING={90.0 110.0}
+MAGICRESISTANCE={90.0 110.0}
+PARRYING={90.0 115.0}
+POISONING={99.0 100.0}
+SWORDSMANSHIP={99.0 120.0}
+TACTICS={100.0 120.0}
+WRESTLING={60.0 90.0}
+
+// ON=@NpcRestock
+// ITEM=loot_ai_hard
+// ITEM=loot_demon_elder
+
+
+
+[CHARDEF c_coil]
+ID=c_snake_giant
+NAME=Coil the giant serpent
+ICON=i_pet_snake_giant
+SOUND=snd_monster_seaserp1
+CAN=MT_WALK|MT_RUN|MT_SWIM
+DAM=25,39
+ARMOR=46
+FOODTYPE=t_meat_raw
+MAXFOOD=40
+CATEGORY=Quest
+SUBSECTION=Blighted Grove
+DESCRIPTION=Coil the Giant Serpent
+RESLEVEL=RDS_ML
+
+ON=@Create
+COLOR=colors_green
+NPC=brain_monster
+FAME={3000 3999}
+KARMA={-3000 -3999}
+OSTR={330 340}
+ODEX={360 380}
+OINT={120 130}
+ANATOMY={100.0 110.0}
+MAGICRESISTANCE={100.0 110.0}
+POISONING={110.0 120.0}
+TACTICS={110.0 120.0}
+WRESTLING={110.0 120.0}
+ON=@NPCRestock
+// ITEM=random_jewel
+
+
+[CHARDEF c_lurg]
+ID=c_troglodyte
+NAME=Lurg the troglodyte
+ICON=i_pet_troglodyte
+//SOUND=snd_monster_daemon1
+CAN=MT_WALK|MT_RUN|MT_USEHANDS|MT_EQUIP
+DAM=24,30
+ARMOR=45
+FOODTYPE=t_meat_raw
+MAXFOOD=45
+RESOURCES=3 i_ribs_raw
+CATEGORY=Quest
+SUBSECTION=Painted Caves
+DESCRIPTION=Lurg the troglodyte
+
+ON=@Create
+NPC=brain_monster
+FAME={1000 3000}
+KARMA={-5000 -6999}
+STR={550 650}
+INT={140 180}
+DEX={80 110}
+ANATOMY={60.0 95.0}
+MAGICRESISTANCE={70.0 90.0}
+TACTICS={105.0 130.0}
+WRESTLING={105.0 140.0}
+
+ON=@NpcRestock
+// ITEM=loot_ogre
+
+
+[CHARDEF c_pet_dragon_paroxysmus]
+ID=c_armored_swamp_dragon
+NAME=Swamp Dragon of Paroxysmus
+// ICON=i_pet_dragon_paroxysmus
+ICON=i_deed
+SOUND=snd_monster_dragon1
+CAN=MT_WALK|MT_RUN
+DAM=10,12
+ARMOR=45
+FOODTYPE=t_meat_raw
+MAXFOOD=55
+RESOURCES=19 i_ribs_raw,20 i_hide
+CATEGORY=Quest
+SUBSECTION=Palace of Paroxysmus
+DESCRIPTION=Swamp Dragon of Paroxysmus
+
+ON=@Create
+COLOR=0488
+NPC=brain_animal
+FAME={2000 2499}
+KARMA={-2000 -2499}
+STR={221 300}
+DEX={66 85}
+INT={61 100}
+ANATOMY={45.0 55.0}
+MAGICRESISTANCE={45.0 55.0}
+POISONING={45.0 55.0}
+TACTICS={45.0 55.0}
+TAMING={90.0 95.0}
+WRESTLING={45.0 55.0}
+
+
+[CHARDEF c_crystal_lattice_seeker]
+ID=c_champ_lord_oaks
+NAME=Crystal Lattice Seeker
+ICON=i_pet_forestlord
+SOUND=snd_monster_pixie
+CAN=MT_WALK|MT_RUN|MT_USEHANDS|MT_EQUIP
+DAM=67,84
+ARMOR=80
+FOODTYPE=t_meat_raw
+MAXFOOD=45
+RESOURCES=100 i_feather
+CATEGORY=Quest
+SUBSECTION=Prism of Light
+DESCRIPTION=Crystal Lattice Seeker
+RESLEVEL=RDS_ML
+
+ON=@Create
+COLOR=08182 //fixme
+NPC=brain_monster
+FAME={9000 9999}
+KARMA={-9000 -9999}
+STR={600 850}
+INT={351 450}
+DEX={200 255}
+ANATOMY={50.0 75.0}
+ARCHERY={60.0 80.0}
+EVALUATINGINTEL={90.0 100.0}
+MAGERY={99.0 100.0}
+MAGICRESISTANCE={95.0 100.0}
+MEDITATION={90.0 100.0}
+PARRYING={50.0 75.0}
+SWORDSMANSHIP={50.0 75.0}
+TACTICS={95.0 100.0}
+WRESTLING={95.0 100.0}
+ON=@NpcRestock
+// ITEM=loot_ai_hard
+// ITEM=loot_lich
+
+
+[CHARDEF c_hydra_crystal]
+ID=c_hydra
+NAME=Crystal Hydra
+ICON=i_pet_hydra
+CAN=MT_WALK|MT_RUN
+DAM=120,135
+ARMOR=80
+FOODTYPE=t_meat_raw
+MAXFOOD=55
+CATEGORY=Quest
+SUBSECTION=Prism of Light
+DESCRIPTION=Crystal Hydra
+RESLEVEL=RDS_ML
+
+ON=@Create
+COLOR=0481
+NPC=brain_monster
+FAME={8000 9000}
+KARMA={-8000 -9000}
+STR={800 850}
+INT={100 110}
+DEX={100 120}
+DETECTINGHIDDEN={99.0 100.0}
+MAGICRESISTANCE={90.0 110.0}
+POISONING={99.0 100.0}
+TACTICS={100.0 120.0}
+WRESTLING={100.0 120.0}
+
+// ON=@NpcRestock
+// ITEM=loot_demon_elder
+
+
+[CHARDEF c_lady_sabrix]
+DEFNAME=c_lady_sabrix
+ID=09d
+NAME=Sabrix
+ICON=i_pet_spider_dread
+SOUND=snd_monster_gispidr1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=15,22
+ARMOR=40
+FOODTYPE=t_meat_raw
+MAXFOOD=35
+RESOURCES=1 i_ribs_raw
+TAG.Barding.Diff=92.2
+TAG.HitPoison=5
+CATEGORY=Quest
+SUBSECTION=Twisted Weald
+DESCRIPTION=Dread Spider (Lady Sabrix)
+RESLEVEL=RDS_ML
+TAG0.OVERRIDE.SPIDERWEB=0
+
+ON=@Create
+NPC=brain_monster
+FAME={3500 3999}
+KARMA={-3500 -3999}
+STR={80 120}
+DEX={126 145}
+INT={45 100}
+ANATOMY={75.0 95.0}
+MAGICRESISTANCE={75.0 95.0}
+TACTICS={100.0 115.0}
+WRESTLING={105.0 125.0}
+
+ON=@NpcRestock
+// ITEM=loot_spider_dread
+
+
+[CHARDEF c_gnaw]
+ID=c_wolf_dire
+NAME=Gnaw
+ICON=i_pet_wolf_dire
+SOUND=snd_animals_wolf1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=16,22
+ARMOR=60
+FOODTYPE=t_meat_raw
+MAXFOOD=15
+RESOURCES=4 i_ribs_raw,13 i_hide_spined
+TAG.Barding.Diff=109.1
+CATEGORY=Quest
+SUBSECTION=Twisted Weald
+DESCRIPTION=Wolf (Gnaw)
+
+
+ON=@Create
+NPC=brain_animal
+COLOR=0498
+FAME={3500 3999}
+KARMA={-3500 -3999}
+STR={140 170}
+DEX={120 135}
+INT={40 60}
+MAGICRESISTANCE={95.0 115.0}
+TACTICS={100.0 110.0}
+WRESTLING={95.0 120.0}
+
+
+[CHARDEF c_guile]
+ID=c_changeling
+NAME=Guile
+ICON=i_pet_changeling
+//SOUND=snd_monster_daemon1
+CAN=MT_WALK|MT_RUN|MT_USEHANDS|MT_EQUIP
+DAM=14,20
+ARMOR=80
+FOODTYPE=t_meat_raw
+MAXFOOD=35
+RESOURCES=3 i_ribs_raw
+TAG.Barding.Diff=145.0
+CATEGORY=Quest
+SUBSECTION=Twisted Weald
+DESCRIPTION=Changeling (Guile)
+
+ON=@Create
+NPC=brain_monster
+COLOR=048c
+FAME={5500 5999}
+KARMA={-5500 -5999}
+STR={65 225}
+DEX={250 350}
+INT={500 600}
+EVALUATINGINTEL={115.0 120.0}
+MAGICRESISTANCE={150.0 160.0}
+MAGERY={105.0 120.0}
+MEDITATION={105.0 120.0}
+TACTICS={10.0 15.0}
+WRESTLING={10.0 15.0}
+
+ON=@NpcRestock
+// ITEM=random_jewel,{1 4}
+// ITEM=i_gold,{2800 3200}
+
+
+
+[CHARDEF c_irk]
+ID=c_changeling
+NAME=Irk
+ICON=i_pet_changeling
+//SOUND=snd_monster_daemon1
+CAN=MT_WALK|MT_RUN|MT_USEHANDS|MT_EQUIP
+DAM=14,20
+ARMOR=80
+FOODTYPE=t_meat_raw
+MAXFOOD=40
+RESOURCES=3 i_ribs_raw
+TAG.Barding.Diff=150.5
+CATEGORY=Quest
+SUBSECTION=Twisted Weald
+DESCRIPTION=Changeling (Irk)
+
+
+ON=@Create
+NPC=brain_monster
+COLOR=0496
+FAME={5500 5999}
+KARMA={-5500 -5999}
+STR={55 165}
+DEX={280 350}
+INT={440 555}
+EVALUATINGINTEL={115.0 120.0}
+MAGICRESISTANCE={130.0 160.0}
+MAGERY={105.0 115.0}
+MEDITATION={110.0 115.0}
+TACTICS={120.0 130.0}
+WRESTLING={120.0 125.0}
+
+ON=@NpcRestock
+// ITEM=random_jewel,{1 4}
+// ITEM=i_gold,{2800 3200}
+
+
+
+
+[CHARDEF c_spite]
+ID=c_changeling
+NAME=Spite
+ICON=i_pet_changeling
+//SOUND=snd_monster_daemon1
+CAN=MT_WALK|MT_RUN|MT_USEHANDS|MT_EQUIP
+DAM=14,20
+ARMOR=80
+FOODTYPE=t_meat_raw
+MAXFOOD=40
+RESOURCES=3 i_ribs_raw
+TAG.Barding.Diff=160.0
+CATEGORY=Quest
+SUBSECTION=Twisted Weald
+DESCRIPTION=Changeling (Spite)
+
+
+ON=@Create
+NPC=brain_monster
+COLOR=0494
+FAME={5500 5999}
+KARMA={-5500 -5999}
+STR={40 210}
+DEX={275 330}
+INT={375 550}
+EVALUATINGINTEL={110.0 120.0}
+MAGICRESISTANCE={140.0 160.0}
+MAGERY={110.0 115.0}
+MEDITATION={110.0 120.0}
+TACTICS={120.0 130.0}
+WRESTLING={10.0 15.0}
+ON=@NpcRestock
+// ITEM=random_jewel,{1 4}
+// ITEM=i_gold,{2800 3200}
+
+
+
+
+[CHARDEF c_spider_silk]
+ID=c_spider_dread
+NAME=Silk
+ICON=i_pet_spider_dread
+SOUND=snd_monster_gispidr1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=12,20
+ARMOR=50
+FOODTYPE=t_meat_raw
+MAXFOOD=35
+RESOURCES=1 i_ribs_raw
+TAG.Barding.Diff=96.8
+TAG.HitPoison=4//Deadly
+CATEGORY=Quest
+SUBSECTION=Twisted Weald
+DESCRIPTION=Dread Spider (Silk)
+
+ON=@Create
+NPC=brain_monster
+COLOR=047e
+FAME={2500 2999}
+KARMA={-2500 -2999}
+STR={110 120}
+DEX={110 120}
+INT={60 70}
+ANATOMY={50.0 75.0}
+MAGICRESISTANCE={90.0 95.0}
+TACTICS={100.0 105.0}
+WRESTLING={120.0 125.0}
+
+ON=@NpcRestock
+// ITEM=loot_spider_dread
+// ITEM=random_jewel,{1 4}
+// ITEM=i_gold,{800 1200}
+
+
+
+[CHARDEF c_spider_virulent]
+ID=c_spider_dread
+NAME=Virulent
+ICON=i_pet_spider_dread
+SOUND=snd_monster_gispidr1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=15,22
+ARMOR=60
+FOODTYPE=t_meat_raw
+MAXFOOD=35
+RESOURCES=1 i_ribs_raw
+TAG.Barding.Diff=131.0
+TAG.HitPoison=5//Lethal
+TAG.OVERRIDE.SPIDERWEB=0
+CATEGORY=Quest
+SUBSECTION=Twisted Weald
+DESCRIPTION=Dread Spider (Virulent)
+
+ON=@Create
+NPC=brain_monster
+COLOR=05b4
+FAME={2500 2999}
+KARMA={-2500 -2999}
+STR={215 245}
+DEX={160 200}
+INT={325 375}
+MAGICRESISTANCE={80.0 95.0}
+TACTICS={95.0 105.0}
+WRESTLING={100.0 110.0}
+
+ON=@NpcRestock
+// ITEM=loot_spider_dread
+// ITEM=random_jewel,{1 4}
+// ITEM=i_gold,{2800 3200}
+
+
+
+[CHARDEF c_swoop]
+ID=c_eagle
+NAME=Swoop
+ICON=i_pet_eagle
+SOUND=snd_animals_eagle1
+CAN=MT_WALK|MT_FLY|MT_NONHUM
+DAM=2,3
+ARMOR=5
+FOODTYPE=t_meat_raw
+MAXFOOD=15
+RESOURCES=72 i_feather,2 i_bird_raw
+TAG.Barding.Diff=145.0
+CATEGORY=Quest
+SUBSECTION=Twisted Weald
+DESCRIPTION=Eagle (Swoop)
+
+ON=@Create
+NPC=brain_animal
+COLOR=colors_pink
+FAME={35 39}
+STR={35 55}
+DEX={12 40}
+INT={2 5}
+MAGICRESISTANCE={95.0 125.0}
+TACTICS={115.0 140.0}
+WRESTLING={120.0 140.0}
+TAMING=40.0
+
+
+
+[CHARDEF c_squirrel_albino]
+ID=c_squirrel
+NAME=Albino Squirrel
+ICON=i_deed
+CAN=MT_WALK|MT_RUN
+DAM=5,6
+ARMOR=10
+FOODTYPE=t_fruit
+MAXFOOD=10
+RESOURCES=1 i_ribs_raw
+CATEGORY=Quest
+SUBSECTION=Blighted Grove
+DESCRIPTION=Albino Squirrel
+
+
+ON=@Create
+COLOR=047e
+NPC=brain_animal
+STR={20 30}
+DEX={20 30}
+INT={20 30}
+TAMING=30.0
+ANIMALLORE=30.0
+
+[eof]

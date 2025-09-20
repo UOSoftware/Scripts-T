@@ -1,0 +1,78 @@
+
+
+
+
+// FILE LAST UPDATED: 26.10.2023
+//
+VERSION=0.56T
+
+[speech spk_ship_cmds]
+on=set name *
+// changes ship name, where *=name.
+// name=<strmid(<args>,8,64)>
+
+on=furl sail// stop
+on=stop// stops current ship movement.
+SHIPSTOP
+
+on=turn left
+on=port// turn left
+SHIPTURNLEFT
+
+on=turn right
+on=starboard// turn right
+SHIPTURNRIGHT
+
+on=left// move ship in desired direction.
+on=drift left
+SHIPDRIFTLEFT
+
+on=right// move ship in desired direction.
+on=drift right
+SHIPDRIFTRIGHT
+
+on=back// move ship backwards
+on=backward// move ship backwards
+on=backwards// move ship backwards
+SHIPBACK
+
+on=forward
+on=foreward// moves ship forward.
+on=unfurl sail// moves ship forward.
+SHIPFORE
+
+on=forward left
+SHIPFORELEFT
+
+on=forward right
+SHIPFORERIGHT
+
+on=backward left
+on=back left
+SHIPBACKLEFT
+
+on=backward right
+on=back right
+SHIPBACKRIGHT
+
+on=raise anchor
+SHIPANCHORRAISE
+
+on=drop anchor
+SHIPANCHORDROP
+
+// gemiyi çevirir ve yoluna devam eder.
+on=turn around
+on=come about
+SHIPTURN
+
+on=up
+SHIPUP
+
+on=down
+SHIPDOWN
+
+on=land
+SHIPLAND
+
+[eof]

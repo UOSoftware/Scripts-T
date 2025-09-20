@@ -1,0 +1,242 @@
+
+[ITEMDEF i_golem_tinker_repair]
+DEFNAME=i_golem_tinker_repair
+DEFNAME2=i_golem_repair
+NAME=golem repairing tool
+ID=i_tinker_tools
+WEIGHT=1.0
+RESDISPDNHUE=0454
+
+On=@Create
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+ON=@DCLICK
+IF (<SRC.STAMINA> < 10)
+	SRC.SYSMESSAGE Golem tamir edemeyecek kadar yorgunsunuz.
+	RETURN 1
+ELSEIF (<SRC.TINKERING> < 70.0)
+	SRC.Sysmessage Golem tamir edebilmek icin Tinkering becerinizin 70.0 veya ustu olmasi gerekiyor.
+	RETURN 1
+ELSEIF !(<SRC.RESTEST 10 I_INGOT_IRON>) || !(<SRC.RESTEST 10 I_INGOT_BRONZE>)
+	SRC.SYSMESSAGE Golem tamir edebilmek icin icin 10 bronze ingot, 10 iron ingot'a ihtiyaciniz var.
+	RETURN 1
+ENDIF
+TARGET Tamir edeceginiz golemi seciniz.
+RETURN 1
+
+On=@TargOn_Item
+RETURN 1
+
+ON=@TARGON_CHAR
+IF (<SRC.TARG.DISTANCE> > 3)
+	SRC.SYSMESSAGE Goleme cok uzaksiniz
+	RETURN 1
+ELSEIF !((<SRC.TARG.BASEID> == C_M_GOLEM_TINKER1) || (<SRC.TARG.BASEID> == C_M_GOLEM_TINKER2))
+	SRC.SYSMESSAGE Bu uretilmis bir golem degil.
+	RETURN 1
+ELSEIF (<SRC.TARG.HITS> >= <SRC.TARG.STR>)
+	SRC.SYSMESSAGE Golemin tamire ihtiyaci yok.
+	SRC.TARG.HITS=<SRC.TARG.STR>
+	RETURN 1
+ENDIF
+SRC.TARG.HITS +=80
+SRC.SYSMESSAGE Golemi tamir ettiniz.
+SRC.CONSUME 10 I_INGOT_IRON
+SRC.CONSUME 10 I_INGOT_BRONZE
+SRC.STAMINA -=10
+RETURN 1
+
+
+
+// i_power_crystal itemi zaten var oldugu i�in bu sekilde bir defname verildi.
+[ITEMDEF i_golem_tinker_power_crystal]
+DEFNAME=i_golem_tinker_power_crystal
+NAME=power crystal
+// ID=01f1c == i_crystal_purple 
+// ID=i_power_crystal
+ID=i_crystal_purple
+WEIGHT=3.0
+RESDISPDNHUE=0454
+
+On=@Create
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+ON=@DCLICK
+RETURN 1
+
+
+
+
+[ITEMDEF i_clockwork_assembly]
+DEFNAME=i_clockwork_assembly
+NAME=clockwork assembly
+ID=01ea9
+WEIGHT=15.0
+RESDISPDNHUE=0454
+
+On=@Create
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+	
+ON=@DCLICK
+RETURN 1
+
+
+
+
+
+[ITEMDEF i_pet_golem_tinker1]
+DEFNAME=i_pet_golem_tinker1
+DEFNAME2=i_pet_golem1
+ID=I_PET_ELEM_EARTH
+TYPE=t_figurine
+NAME=Golem
+WEIGHT=20.0
+TDATA3=c_golem_tinker1
+SKILLMAKE=TINKERING 90.0,t_tinker_tools
+RESOURCES=1 I_GOLEM_TINKER_POWER_CRYSTAL,1 I_CLOCKWORK_ASSEMBLY,5 I_AXEL_AND_GEARS,50 I_INGOT_IRON,10 I_INGOT_MYTHERIL
+RESDISPDNHUE=0837
+CATEGORY=Miscellaneous
+SUBSECTION=
+DESCRIPTION=
+
+On=@Create
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+MORE=c_golem_tinker1
+
+
+
+
+
+[ITEMDEF i_pet_golem_tinker2]
+DEFNAME=i_pet_golem_tinker2
+DEFNAME2=i_pet_golem2
+ID=I_PET_ELEM_EARTH
+TYPE=t_figurine
+NAME=Golem
+TDATA3=c_golem_tinker2
+WEIGHT=20.0
+SKILLMAKE=TINKERING 98.0,t_tinker_tools
+RESOURCES=1 I_GOLEM_TINKER_POWER_CRYSTAL,1 I_CLOCKWORK_ASSEMBLY,5 I_AXEL_AND_GEARS,50 I_INGOT_IRON,10 I_INGOT_MYTHERIL
+RESDISPDNHUE=0839
+CATEGORY=Miscellaneous
+SUBSECTION=
+DESCRIPTION=
+
+On=@Create
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+MORE=c_golem_tinker2
+
+
+
+
+
+
+[CHARDEF c_golem_tinker1]
+DEFNAME=c_golem_tinker1
+DEFNAME2=c_m_golem_tinker1
+NAME=Golem
+ID=c_elemental_earth_summoned
+SOUND=snd_ELEMENTL_ERTHEL1
+ICON=i_pet_golem_tinker1
+DAM=15,40
+ARMOR=10
+CAN=MT_WALK|MT_USEHANDS
+// BLOODCOLOR=0515
+BLOODCOLOR=-1
+CATEGORY=Monsters
+SUBSECTION=Golems
+DESCRIPTION=Tinker Low
+RESDISPDNHUE=0837
+
+ON=@Create
+COLOR=<SERV.CHARDEF.<BASEID>.RESDISPDNHUE>
+STR=450
+DEX=250
+INT=300
+
+PARRYING={90.0 100.0}
+MAGERY=0
+MAGICRESISTANCE={290.0 900.0}
+TACTICS={90.0 100.0}
+WRESTLING={90.0 100.0}
+
+NPC=brain_monster
+
+FAME=1000
+KARMA=1200
+
+
+
+
+
+[CHARDEF c_golem_tinker2]
+DEFNAME=c_golem_tinker2
+DEFNAME2=c_m_golem_tinker2
+NAME=Golem
+ID=c_elemental_earth_summoned
+SOUND=snd_ELEMENTL_ERTHEL1
+ICON=i_pet_golem_tinker2
+DAM=25,50
+ARMOR=20
+CAN=MT_WALK|MT_USEHANDS
+// BLOODCOLOR=0525
+BLOODCOLOR=-1
+CATEGORY=Monsters
+SUBSECTION=Golems
+DESCRIPTION=Tinker High
+RESDISPDNHUE=0839
+
+ON=@Create
+NPC=brain_monster
+COLOR=<SERV.CHARDEF.<BASEID>.RESDISPDNHUE>
+
+STR=550
+DEX=350
+INT=400
+
+PARRYING={90.0 100.0}
+MAGERY=0
+MAGICRESISTANCE={290.0 900.0}
+TACTICS={90.0 100.0}
+WRESTLING={90.0 100.0}
+
+FAME=1000
+KARMA=1200
+
+
+
+[events e_golem_tinker]
+ON=@GETHIT
+IF (<MEMORYFINDTYPE.MEMORY_IPET>)
+	REF1=<MEMORYFINDTYPE.MEMORY_IPET.LINK>
+	IF (<REF1.CANSEELOS>) && (<ARGN> > 5)
+		IF (<REF1.MANA> > 5)
+			REF1.MANA -=<R3,5>
+		ELSEIF (<REF1.HITS> > 5)
+			REF1.DAMAGE <R10,20>
+		ENDIF
+	ENDIF
+ENDIF
+
+ON=@SPELLEFFECT
+IF ((<ARGN> == 4) || (<ARGN> == 29))
+	SRC.SYSMESSAGE Golemleri buyu ile iyilestiremezsiniz.
+	RETURN 1
+ENDIF
+
+ON=@RECEIVEITEM
+RETURN 1
+
+ON=@ENVIRONCHANGE
+FOOD=<MAXFOOD>
+
+ON=@CLICK
+IF (<MEMORYFINDTYPE.MEMORY_IPET>)
+	MESSAGE * <MEMORYFINDTYPE.MEMORY_IPET.LINK.NAME> *
+ENDIF
+
+
+
+
+[eof]
+

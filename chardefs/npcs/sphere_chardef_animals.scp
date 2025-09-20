@@ -1,0 +1,1959 @@
+
+
+
+[CHARDEF 0123]
+DEFNAME=c_horse_pack
+NAME=Pack Horse
+ICON=i_pet_horse_pack
+SOUND=snd_animals_horse1
+CAN=MT_WALK
+DAM=7,16
+ARMOR=20
+FOODTYPE=t_fruit,t_grain,t_grass
+MAXFOOD=35
+RESOURCES=3 i_ribs_raw,10 i_hide
+TAG.Barding.Diff=32.9
+CATEGORY=Animals
+SUBSECTION=Tame
+DESCRIPTION=Pack Horse
+
+ON=@Create
+NPC=brain_animal
+FAME={500 999}
+KARMA={-1 -499}
+STR={130 150}
+DEX={26 35}
+INT={6 10}
+MAGICRESISTANCE={25.0 30.0}
+TACTICS={29.0 44.0}
+TAMING={25.0 30.0}
+WRESTLING={29.0 44.0}
+MODMAXWEIGHT=1600
+
+[CHARDEF 0124]
+DEFNAME=c_llama_pack
+NAME=Pack Llama
+ICON=i_pet_llama_pack
+SOUND=snd_animal_llama1
+CAN=MT_WALK
+DAM=2,8
+ARMOR=5
+FOODTYPE=t_fruit,t_grain,t_grass
+MAXFOOD=35
+RESOURCES=1 i_ribs_raw
+TAG.Barding.Diff=24.2
+CATEGORY=Animals
+SUBSECTION=Tame
+DESCRIPTION=Pack Llama
+
+ON=@Create
+NPC=brain_animal
+FAME={500 999}
+KARMA={-1 -499}
+STR={100 110}
+DEX={32 38}
+INT={6 10}
+MAGICRESISTANCE={25.0 30.0}
+TACTICS={29.0 44.0}
+TAMING={25.0 30.0}
+WRESTLING={29.0 44.0}
+MODMAXWEIGHT=1200
+
+
+[CHARDEF 0c9]
+DEFNAME=c_cat
+NAME=Cat
+ICON=i_pet_cat
+SOUND=snd_animals_cat1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=1,2
+ARMOR=5
+FOODTYPE=t_fish
+MAXFOOD=5
+RESOURCES=1 i_ribs_raw
+TAG.Barding.Diff=5.0
+CATEGORY=Animals
+SUBSECTION=Tame
+DESCRIPTION=Cat
+
+ON=@Create
+COLOR=colors_animal
+NPC=brain_animal
+FAME={1 499}
+KARMA={-1 -499}
+STR={5 15}
+DEX={30 40}
+INT={1 10}
+MAGICRESISTANCE={1.0 10.0}
+TACTICS={1.0 10.0}
+WRESTLING={1.0 10.0}
+TAMING=30.0
+ANIMALLORE=30.0
+
+
+[CHARDEF 0ca]
+DEFNAME=c_alligator
+NAME=Alligator
+ICON=i_pet_croc
+SOUND=snd_animals_aligatr1
+CAN=MT_WALK|MT_RUN|MT_SWIM|MT_NONHUM
+DAM=7,24
+ARMOR=25
+FOODTYPE=t_fish
+MAXFOOD=25
+RESOURCES=1 i_ribs_raw,12 i_hide_spined
+TAG.Barding.Diff=32.2
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Alligator
+
+ON=@Create
+NPC=brain_animal
+FAME={1000 1499}
+KARMA={-1000 -1499}
+STR={76 100}
+DEX={6 25}
+INT={11 20}
+MAGICRESISTANCE={25.0 40.0}
+TACTICS={40.0 60.0}
+WRESTLING={40.0 60.0}
+TAMING=50.0
+ANIMALLORE=50.0
+
+[CHARDEF 0cb]
+DEFNAME=c_pig
+NAME=Pig
+ICON=i_pet_pig
+SOUND=snd_animals_pig1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=2,4
+ARMOR=10
+RESOURCES=1 i_ham,1 i_bacon_slab
+FOODTYPE=t_fruit,t_grain,t_grass
+MAXFOOD=15
+TAG.Barding.Diff=5.9
+CATEGORY=Animals
+SUBSECTION=Tame
+DESCRIPTION=Pig (Small)
+
+ON=@Create
+NPC=brain_animal
+FAME={1 499}
+KARMA={-1 -499}
+STR={15 25}
+DEX={15 25}
+INT={1 10}
+MAGICRESISTANCE={1.0 10.0}
+TACTICS={1.0 10.0}
+WRESTLING={1.0 10.0}
+TAMING=40.0
+ANIMALLORE=40.0
+
+
+[CHARDEF 05]
+DEFNAME=c_eagle
+NAME=Eagle
+ICON=i_pet_eagle
+SOUND=snd_animals_eagle1
+CAN=MT_WALK|MT_FLY|MT_NONHUM
+DAM=6,13
+ARMOR=20
+FOODTYPE=t_meat_raw
+MAXFOOD=5
+RESOURCES=36 i_feather,1 i_bird_raw
+TAG.Barding.Diff=22.0
+CATEGORY=Animals
+SUBSECTION=Tame
+DESCRIPTION=Eagle
+
+ON=@Create
+NPC=brain_animal
+FAME={1 499}
+KARMA={-1 -499}
+STR={31 47}
+DEX={36 60}
+INT={8 20}
+MAGICRESISTANCE={15.0 30.0}
+TACTICS={18.0 37.0}
+WRESTLING={20.0 30.0}
+TAMING=40.0
+ANIMALLORE=40.0
+
+
+[CHARDEF 06]
+DEFNAME=c_bird
+NAME=#NAMES_BIRDS the Bird
+ICON=i_pet_bird
+SOUND=snd_animals_frstbrd1
+CAN=MT_WALK|MT_FLY|MT_NONHUM
+DAM=1,2
+ARMOR=1
+FOODTYPE=t_grain
+MAXFOOD=5
+RESOURCES=25 i_feather,1 i_bird_raw
+TAG.Barding.Diff=4.6
+CATEGORY=Animals
+SUBSECTION=Tame
+DESCRIPTION=Bird
+
+ON=@Create
+COLOR=colors_bird
+NPC=brain_animal
+FAME={1 499}
+KARMA={-1 -499}
+STR={1 5}
+DEX={20 30}
+INT={1 5}
+
+MAGICRESISTANCE={1.0 10.0}
+TACTICS={1.0 10.0}
+WRESTLING={1.0 10.0}
+
+TAMING=10.0
+ANIMALLORE=10.0
+
+
+[CHARDEF 017]
+DEFNAME=c_wolf_dire
+NAME=Dire Wolf
+ICON=i_pet_wolf_dire
+SOUND=snd_animals_wolf1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=20,32
+ARMOR=20
+FOODTYPE=t_meat_raw
+MAXFOOD=15
+RESOURCES=1 i_ribs_raw,7 i_hide_spined
+TAG.Barding.Diff=50.3
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Wolf (dire)
+
+ON=@Create
+NPC=brain_animal
+FAME={500 999}
+KARMA={-1 -499}
+STR={96 120}
+DEX={81 105}
+INT={36 60}
+MAGICRESISTANCE={57.0 75.0}
+TACTICS={50.0 70.0}
+TAMING={80.0 85.0}
+WRESTLING={60.0 80.0}
+
+
+[CHARDEF 019]
+DEFNAME=c_wolf_grey
+NAME=Grey Wolf
+ICON=i_pet_wolf_grey
+SOUND=snd_animals_wolf1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=4,10
+ARMOR=15
+FOODTYPE=t_meat_raw
+MAXFOOD=15
+RESOURCES=1 i_ribs_raw,6 i_hide
+TAG.Barding.Diff=30.2
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Wolf (grey)
+
+ON=@Create
+NPC=brain_animal
+FAME={500 999}
+KARMA={-1 -499}
+STR={56 80}
+DEX={55 75}
+INT={31 55}
+MAGICRESISTANCE={20.0 35.0}
+TACTICS={45.0 60.0}
+TAMING={50.0 55.0}
+WRESTLING={45.0 60.0}
+
+
+[CHARDEF 01b]
+DEFNAME=c_familiar_dark_wolf
+NAME=Dark Wolf Familiar
+ICON=i_pet_wolf_grey
+SOUND=snd_animals_wolf1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=15,33
+ARMOR=40
+TAG.Barding.Diff=10000
+CATEGORY=Spells
+SUBSECTION=Necromancy
+DESCRIPTION=Summoned Dark Wolf Familiar
+
+ON=@Create
+NPC=brain_animal
+FAME={500 999}
+KARMA={-1 -499}
+STR={95 105}
+DEX={85 95}
+INT={85 95}
+TACTICS={45.0 55.0}
+WRESTLING={85.0 90.0}
+
+
+[CHARDEF 01d]
+DEFNAME=c_gorilla
+NAME=Gorilla
+ICON=i_pet_gorilla
+SOUND=snd_animals_gorilla1
+CAN=MT_WALK|MT_USEHANDS
+DAM=6,16
+ARMOR=20
+FOODTYPE=t_fruit,t_grain,t_grass
+MAXFOOD=20
+RESOURCES=1 i_ribs_raw,6 i_hide
+TAG.Barding.Diff=31.1
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Gorilla
+
+ON=@Create
+NPC=brain_animal
+FAME={500 999}
+KARMA={-500 -999}
+STR={53 95}
+DEX={36 55}
+INT={36 60}
+MAGICRESISTANCE={45.0 60.0}
+TACTICS={43.0 58.0}
+TAMING={15.0 20.0}
+WRESTLING={43.0 58.0}
+
+
+[CHARDEF 022]
+NAME=White Wolf
+ICON=i_pet_wolf_timber
+SOUND=snd_animals_wolf1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=4,10
+ARMOR=15
+FOODTYPE=t_meat_raw
+MAXFOOD=15
+RESOURCES=1 i_ribs_raw,2 i_fur_light,4 i_hide
+TAG.Barding.Diff=32.3
+CATEGORY=Animals
+SUBSECTION=Duplicates
+DESCRIPTION=Unknown Wolf
+
+ON=@Create
+NPC=brain_animal
+FAME={500 999}
+KARMA={-1 -499}
+STR={56 80}
+DEX={56 75}
+INT={31 55}
+MAGICRESISTANCE={20.0 35.0}
+TACTICS={45.0 60.0}
+TAMING={65.0 70.0}
+WRESTLING={45.0 60.0}
+
+
+
+[CHARDEF 025]
+DEFNAME=c_wolf_white
+NAME=White Wolf
+ICON=i_pet_wolf_silver
+SOUND=snd_animals_wolf1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=4,10
+ARMOR=15
+FOODTYPE=t_meat_raw
+MAXFOOD=15
+RESOURCES=1 i_ribs_raw,6 i_hide
+TAG.Barding.Diff=32.3
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Wolf (white)
+
+ON=@Create
+NPC=brain_animal
+FAME={500 999}
+KARMA={-1 -499}
+STR={56 80}
+DEX={56 75}
+INT={31 55}
+MAGICRESISTANCE={20.0 35.0}
+TACTICS={45.0 60.0}
+TAMING={65.0 70.0}
+WRESTLING={45.0 60.0}
+
+
+
+[CHARDEF 034]
+DEFNAME=c_snake
+NAME=Snake
+ICON=i_pet_snake
+SOUND=snd_animals_snake1
+CAN=MT_WALK|MT_NONHUM
+DAM=1,5
+ARMOR=15
+FOODTYPE=t_meat_raw
+MAXFOOD=5
+RESOURCES=1 i_ribs_raw
+TAG.Barding.Diff=30.3
+TAG.HitPoison=1//Lesser
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Snake
+
+ON=@Create
+COLOR=colors_snake
+NPC=brain_animal
+FAME={1 499}
+KARMA={-500 -999}
+STR={22 34}
+DEX={16 25}
+INT={6 10}
+MAGICRESISTANCE={15.0 20.0}
+POISONING={0.1 25.0}
+TACTICS={19.0 34.0}
+WRESTLING={19.0 34.0}
+TAMING=50.0
+ANIMALLORE=50.0
+
+
+
+[CHARDEF 03a]
+DEFNAME=c_wisp
+NAME=Wisp
+ICON=i_pet_wisp
+SOUND=snd_monster_wisp1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=36,40
+ARMOR=35
+BLOODCOLOR=-1
+TAG.Barding.Diff=82.0
+CATEGORY=Monsters
+SUBSECTION=Miscellaneous
+DESCRIPTION=Wisp
+
+ON=@Create
+NPC=brain_animal
+FAME={500 1000}
+KARMA=0
+STR={196 225}
+DEX={196 225}
+INT={196 225}
+EVALUATINGINTEL={75.0 85.0}
+MAGERY={75.0 85.0}
+MAGICRESISTANCE={75.0 85.0}
+TACTICS={75.0 85.0}
+WRESTLING={75.0 85.0}
+ITEMNEWBIE=i_light_source
+
+
+[CHARDEF 033f]
+DEFNAME=c_parrot_2
+NAME=Parrot
+ICON=i_pet_parrot
+SOUND=snd_animals_parrot1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=1,2
+ARMOR=5
+FOODTYPE=i_wafer
+MAXFOOD=5
+RESOURCES=1 i_bird_raw,25 i_feather
+TAG.Barding.Diff=21.0
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Parrot 2
+RESLEVEL=7
+RESDISPDNID=c_bird
+RESDISPDNHUE=33
+
+ON=@Create
+NPC=brain_animal
+FAME={1 499}
+KARMA={-1 -499}
+STR={5 10}
+DEX={20 30}
+INT={20 30}
+MAGICRESISTANCE={5.0 10.0}
+TACTICS={5.0 10.0}
+TAMING={10.0 15.0}
+WRESTLING={5.0 10.0}
+
+ON=@DeathCorpse
+DORAND 22
+ARGO.SAY 'E's dead...
+ARGO.SAY He's resting...
+ARGO.SAY It's stone dead
+ARGO.SAY 'e's stunned!
+ARGO.SAY definitely deceased...
+ARGO.SAY ...tired and shagged out following a prolonged squawk
+ARGO.SAY ...pining for the fjords
+ARGO.SAY 'E's bleedin' demised!
+ARGO.SAY 'E's passed on!
+ARGO.SAY This parrot is no more!
+ARGO.SAY He has ceased to be!
+ARGO.SAY 'E's expired and gone to meet 'is maker!
+ARGO.SAY 'E's a stiff!
+ARGO.SAY Bereft of life
+ARGO.SAY 'e rests in peace!
+ARGO.SAY ...pushing up the daisies!
+ARGO.SAY 'Is metabolic processes are now 'istory!
+ARGO.SAY 'E's off the twig!
+ARGO.SAY 'E's kicked the bucket...
+ARGO.SAY 'e's shuffled off 'is mortal coil...
+ARGO.SAY run down the curtain and joined the bleedin' choir invisibile!!
+ARGO.SAY THIS IS AN EX-PARROT!!'
+ENDDO
+
+
+
+
+[CHARDEF c_bird_magpie]
+ID=c_bird
+NAME=Magpie
+CAN=MT_WALK|MT_FLY
+DAM=1,2
+ARMOR=2
+DESCRIPTION=Magpie
+SUBSECTION=Air
+CATEGORY=Animals
+
+ON=@Create
+COLOR=colors_black
+NPC=brain_animal
+FAME={1 499}
+KARMA={-1 -499}
+STR={9 19}
+DEX={25 45}
+INT={5 15}
+MAGICRESISTANCE=5.0
+PARRYING=5.0
+TACTICS=4.0
+WRESTLING=5.0
+
+TAMING=10.0
+ANIMALLORE=10.0
+
+
+
+
+
+[CHARDEF c_bird_tropical]
+ID=c_bird
+NAME=Bird
+CAN=MT_WALK|MT_FLY
+DAM=1,2
+ARMOR=1
+CATEGORY=Animals
+SUBSECTION=Air
+DESCRIPTION=Tropical Bird
+
+
+ON=@Create
+NAME=#NAMES_BIRDS
+COLOR=colors_bird
+NPC=brain_animal
+FAME={1 499}
+KARMA={-1 -499}
+STR={1 4}
+DEX={26 35}
+INT={1 4}
+MAGICRESISTANCE=4.0
+PARRYING=4.0
+TACTICS=4.0
+TAMING=10.0
+WRESTLING=4.0
+
+
+
+
+[CHARDEF c_bird_raven]
+ID=c_bird
+NAME=Raven Bird
+CAN=MT_WALK|MT_FLY
+DAM=1,2
+ARMOR=3
+CATEGORY=Animals
+SUBSECTION=Air
+DESCRIPTION=Raven
+
+ON=@Create
+COLOR=colors_black
+NPC=brain_animal
+FAME={1 499}
+KARMA={-1 -499}
+STR={9 19}
+DEX={25 36}
+INT={5 15}
+
+MAGICRESISTANCE=5.0
+PARRYING=5.0
+TACTICS=6.0
+WRESTLING=6.0
+
+TAMING=10.0
+ANIMALLORE=10.0
+
+
+[CHARDEF c_bird_jungle]
+ID=c_bird
+NAME=Jungle Bird
+CAN=MT_WALK|MT_FLY
+DAM=1,2
+ARMOR=1
+DESCRIPTION=Jungle Bird
+SUBSECTION=Air
+CATEGORY=Animals
+
+
+ON=@Create
+COLOR=colors_bird
+NPC=brain_animal
+FAME={1 499}
+KARMA={-1 -499}
+STR={1 4}
+DEX={26 35}
+INT={1 4}
+
+MAGICRESISTANCE=4.0
+PARRYING=4.0
+TACTICS=4.0
+WRESTLING=4.0
+
+TAMING=10.0
+ANIMALLORE=10.0
+
+
+[CHARDEF c_jackrabbit]
+ID=c_rabbit
+NAME=Jackrabbit
+CAN=MT_WALK
+DAM=1,2
+ARMOR=2
+DESCRIPTION=Jackrabbit
+SUBSECTION=Land
+CATEGORY=Animals
+
+ON=@Create
+COLOR=colors_brown
+NPC=brain_animal
+FAME={1 499}
+KARMA={-1 -499}
+STR={5 12}
+DEX={23 30}
+INT={15 20}
+MAGICRESISTANCE=5.0
+PARRYING=5.0
+TACTICS=5.0
+WRESTLING=5.0
+TAMING=30.0
+ANIMALLORE=30.0
+
+
+
+[CHARDEF c_grobu]
+ID=c_bear_brown
+NAME=Cave Bear
+ICON=i_pet_bear_black
+SOUND=snd_animals_bear1
+CAN=MT_WALK|MT_RUN
+DAM=20,30
+ARMOR=38
+FOODTYPE=t_fish
+MAXFOOD=45
+RESOURCES=1 i_ribs_raw,1 i_fur_dark
+CATEGORY=Quest
+SUBSECTION=Painted Caves
+DESCRIPTION=Cave Bear
+
+ON=@Create
+COLOR=colors_black
+NPC=brain_animal
+FAME={1000 1999}
+KARMA={-1000 -1999}
+OSTR={180 210}
+ODEX={130 210}
+OINT={45 55}
+ANATOMY={100.0 120.0}
+MAGICRESISTANCE={60.0 90.0}
+TACTICS={95.0 120.0}
+WRESTLING={95.0 120.0}
+
+
+[CHARDEF c_black_cat]
+ID=c_cat
+NAME=Black Cat
+CAN=MT_WALK|MT_RUN
+DAM=2,10
+ARMOR=4
+CATEGORY=Evil NPC
+SUBSECTION=Witches (Evil)
+DESCRIPTION=Black Cat
+
+ON=@Create
+COLOR=01
+NPC=brain_animal
+FAME={500 999}
+KARMA={-1 -499}
+STR={25 40}
+DEX={35 55}
+INT={5 10}
+MAGICRESISTANCE=20.0
+PARRYING=10.0
+TACTICS=25.0
+WRESTLING=25.0
+TAMING=30.0
+ANIMALLORE=30.0
+
+
+[CHARDEF 03f]
+DEFNAME=c_cougar
+NAME=Cougar
+ICON=i_pet_panther
+SOUND=snd_animals_cougar1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=6,16
+ARMOR=20
+FOODTYPE=t_meat_raw
+MAXFOOD=15
+RESOURCES=1 i_ribs_raw,10 i_hide
+TAG.Barding.Diff=33.3
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Cougar
+
+
+ON=@Create
+NPC=brain_animal
+FAME={500 999}
+STR={56 80}
+DEX={66 85}
+INT={26 50}
+MAGICRESISTANCE={15.0 30.0}
+TACTICS={45.0 60.0}
+TAMING=55.0
+WRESTLING={45.0 60.0}
+
+[CHARDEF 040]
+DEFNAME=c_leopard
+NAME=Leopard
+ICON=i_pet_panther
+SOUND=snd_animals_cougar1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=4,14
+ARMOR=20
+FOODTYPE=t_meat_raw
+MAXFOOD=15
+RESOURCES=1 i_ribs_raw,8 i_hide
+TAG.Barding.Diff=33.3
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Leopard
+
+ON=@Create
+NPC=brain_animal
+FAME={500 999}
+KARMA={-1 -499}
+STR={56 80}
+DEX={66 85}
+INT={26 50}
+MAGICRESISTANCE={25.0 35.0}
+TACTICS={43.0 60.0}
+TAMING={50.0 55.0}
+WRESTLING={40.0 50.0}
+
+[CHARDEF 041]
+DEFNAME=c_leopard_snow
+NAME=Snow Leopard
+ICON=i_pet_panther
+SOUND=snd_animals_cougar1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=4,14
+ARMOR=20
+FOODTYPE=t_meat_raw
+MAXFOOD=15
+RESOURCES=1 i_ribs_raw,8 i_hide
+TAG.Barding.Diff=34.3
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Leopard (snow)
+
+
+ON=@Create
+COLOR=0481
+NPC=brain_animal
+FAME={500 999}
+KARMA={-1 -499}
+STR={56 80}
+DEX={66 85}
+INT={26 50}
+MAGICRESISTANCE={25.0 35.0}
+TACTICS={43.0 60.0}
+TAMING={50.0 55.0}
+WRESTLING={40.0 50.0}
+
+
+
+[CHARDEF 051]
+DEFNAME=c_bullfrog
+NAME=Bullfrog
+ICON=i_pet_bullfrog
+SOUND=snd_monster_bullfrog1
+CAN=MT_WALK|MT_NONHUM
+DAM=1,3
+ARMOR=5
+FOODTYPE=t_fish
+MAXFOOD=15
+RESOURCES=1 i_ribs_raw,4 i_hide
+BLOODCOLOR=-1
+TAG.Barding.Diff=29.2
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Bullfrog
+RESLEVEL=1
+RESDISPDNID=c_rat_giant
+RESDISPDNHUE=01a2
+
+ON=@Create
+NPC=brain_animal
+FAME={500 999}
+KARMA={-500 -999}
+STR={46 70}
+DEX={6 25}
+INT={11 20}
+MAGICRESISTANCE={25.0 40.0}
+TACTICS={40.0 60.0}
+WRESTLING={40.0 60.0}
+TAMING=40.0
+ANIMALLORE=40.0
+
+
+[CHARDEF 058]
+DEFNAME=c_goat
+NAME=Goat
+ICON=i_pet_goat_billy
+SOUND=snd_animals_goat1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=3,4
+ARMOR=5
+RESOURCES=2 i_ribs_raw,8 i_hide
+FOODTYPE=t_fruit,t_grain,t_grass
+MAXFOOD=15
+TAG.Barding.Diff=5.4
+CATEGORY=Animals
+SUBSECTION=Tame
+DESCRIPTION=Goat
+
+ON=@Create
+NPC=brain_animal
+FAME={1 499}
+KARMA={-1 -499}
+STR={15 20}
+DEX={15 20}
+INT={5 10}
+MAGICRESISTANCE={5.0 10.0}
+TACTICS={5.0 10.0}
+WRESTLING={5.0 10.0}
+TAMING=50.0
+ANIMALLORE=50.0
+
+
+
+
+[CHARDEF 063]
+DEFNAME=c_wolf_dark
+NAME=Dark Wolf
+ICON=i_pet_wolf_dire
+SOUND=snd_animals_wolf1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=22,34
+ARMOR=25
+FOODTYPE=t_meat_raw
+MAXFOOD=15
+RESOURCES=1 i_ribs_raw,7 i_hide_spined
+TAG.Barding.Diff=55.3
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Wolf (dark)
+
+ON=@Create
+NPC=brain_animal
+FAME={500 999}
+KARMA={-1 -499}
+STR={110 130}
+DEX={85 115}
+INT={36 60}
+MAGICRESISTANCE={59.0 79.0}
+TACTICS={60.0 80.0}
+TAMING={85.0 95.0}
+WRESTLING={70.0 90.0}
+
+
+[CHARDEF 064]
+DEFNAME=c_wolf_silver
+NAME=Silver Wolf
+ICON=i_pet_wolf_silver
+SOUND=snd_animals_wolf1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=22,34
+ARMOR=25
+FOODTYPE=t_meat_raw
+MAXFOOD=15
+RESOURCES=1 i_ribs_raw,7 i_hide_spined
+TAG.Barding.Diff=55.3
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Wolf (silver)
+
+ON=@Create
+NPC=brain_animal
+FAME={500 999}
+KARMA={-1 -499}
+STR={110 130}
+DEX={85 115}
+INT={36 60}
+MAGICRESISTANCE={59.0 79.0}
+TACTICS={60.0 80.0}
+TAMING={85.0 95.0}
+WRESTLING={70.0 90.0}
+
+
+[CHARDEF 085]
+DEFNAME=c_alligator_small
+NAME=Alligator
+ICON=i_pet_croc
+SOUND=snd_animals_aligatr1
+CAN=MT_WALK|MT_NONHUM
+DAM=7,14
+ARMOR=25
+FOODTYPE=t_fish
+MAXFOOD=20
+RESOURCES=1 i_ribs_raw,12 i_hide_spined
+TAG.Barding.Diff=32.2
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Alligator (small)
+
+
+ON=@Create
+NPC=brain_animal
+FAME={500 999}
+KARMA={-1 -499}
+STR={76 100}
+DEX={6 25}
+INT={11 20}
+MAGICRESISTANCE={15.0 30.0}
+TACTICS={30.0 50.0}
+TAMING={35.0 40.0}
+WRESTLING={30.0 50.0}
+
+
+[CHARDEF 086]
+DEFNAME=c_dragon_komodo
+NAME=Komodo Dragon
+ICON=i_pet_dragon_komodo
+SOUND=snd_animal_kirin1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=9,18
+ARMOR=25
+FOODTYPE=t_fruit,t_grain,t_grass
+MAXFOOD=25
+RESOURCES=3 i_ribs_raw,8 i_hide_spined
+TAG.Barding.Diff=52.2
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Komodo Dragon
+
+
+ON=@Create
+NPC=brain_animal
+FAME={1000 1499}
+KARMA={-1000 -1499}
+STR={76 100}
+DEX={16 25}
+INT={11 20}
+MAGICRESISTANCE={25.0 40.0}
+POISONING={50.0 75.0}
+TACTICS={40.0 60.0}
+TAMING={45.0 50.0}
+WRESTLING={40.0 60.0}
+
+[CHARDEF 097]
+DEFNAME=c_dolphin
+NAME=Dolphin
+ICON=i_pet_dolphin
+SOUND=snd_animals_dolphin1
+CAN=MT_SWIM|MT_NONHUM
+DAM=3,8
+ARMOR=15
+FOODTYPE=t_fish
+MAXFOOD=15
+RESOURCES=1 i_fish_cut_raw
+TAG.Barding.Diff=35.6
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Dolphin
+
+
+ON=@Create
+NPC=brain_animal
+FAME={1 499}
+KARMA={-1 -499}
+STR={21 49}
+DEX={66 85}
+INT={96 110}
+MAGICRESISTANCE={15.0 20.0}
+TACTICS={19.0 29.0}
+WRESTLING={19.0 29.0}
+
+
+[CHARDEF 0a5]
+DEFNAME=c_wisp_dark
+NAME=Dark Wisp
+ICON=i_pet_wisp
+SOUND=snd_monster_wisp1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=40,46
+ARMOR=35
+//FOODTYPE=
+//MAXFOOD=
+//RESOURCES=
+BLOODCOLOR=-1
+TAG.Barding.Diff=60.6
+CATEGORY=Monsters
+SUBSECTION=Miscellaneous
+DESCRIPTION=Wisp (dark)
+
+ON=@Create
+NPC=brain_animal
+FAME={2000 2499}
+KARMA={-2000 -2499}
+STR={196 225}
+DEX={196 225}
+INT={196 225}
+EVALUATINGINTEL={80.0 90.0}
+MAGERY={80.0 90.0}
+MAGICRESISTANCE={80.0 90.0}
+MEDITATION={15.0 25.0}
+TACTICS={75.0 85.0}
+WRESTLING={75.0 85.0}
+ITEMNEWBIE=i_light_source
+
+
+[CHARDEF 0a7]
+DEFNAME=c_bear_brown
+NAME=Brown Bear
+ICON=i_pet_bear_black
+SOUND=snd_animals_bear1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=9,19
+ARMOR=20
+FOODTYPE=t_fish
+MAXFOOD=35
+RESOURCES=10 i_hide,1 i_ribs_raw,1 i_fur_light
+TAG.Barding.Diff=29.6
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Bear (brown)
+
+ON=@Create
+NPC=brain_animal
+FAME={1000 1499}
+STR={76 100}
+DEX={26 46}
+INT={23 47}
+MAGICRESISTANCE={20.0 35.0}
+TACTICS={40.0 60.0}
+TAMING=45.0
+WRESTLING={40.0 60.0}
+
+
+
+
+[CHARDEF 0cd]
+DEFNAME=c_rabbit
+NAME=Rabbit
+ICON=i_pet_rabbit_2
+//SOUND=0 //snd_animals_rabbit3
+// SOUNDIDLE=-1
+// SOUNDNOTICE=-1
+// SOUNDHIT=201
+// SOUNDGETHIT=202
+// SOUNDDIE=203
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=1,2
+ARMOR=5
+FOODTYPE=t_fruit,t_grain,t_grass
+MAXFOOD=10
+RESOURCES=1 i_ribs_raw,1 i_hide
+TAG.Barding.Diff=6.0
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Rabbit
+
+ON=@Create
+COLOR={ colors_animal 1 color_none 1 }
+NPC=brain_animal
+FAME={1 499}
+KARMA={-1 -499}
+STR={5 10}
+DEX={25 40}
+INT={5 15}
+MAGICRESISTANCE={1.0 10.0}
+TACTICS={1.0 10.0}
+WRESTLING={1.0 10.0}
+TAMING=20.0
+ANIMALLORE=20.0
+
+
+[CHARDEF 0cf]
+DEFNAME=c_sheep_woolly
+NAME=Sheep
+ICON=i_pet_sheep_wooly
+SOUND=snd_animals_sheep1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=1,2
+ARMOR=3
+FOODTYPE=5 T_CROPS, 5 T_GRAIN, 64 T_GRASS
+MAXFOOD=15
+RESOURCES=5 I_RIBS_RAW, 2 I_WOOL
+TAG.Barding.Diff=6.5
+CATEGORY=Animals
+SUBSECTION=Tame
+DESCRIPTION=Sheep (Wooly)
+
+ON=@Create
+COLOR={ colors_white 9 color_gray_lt 1 }
+NPC=brain_animal
+
+FAME={1 499}
+KARMA={-1 -499}
+
+STR={15 20}
+DEX={20 30}
+INT={1 10}
+
+MAGICRESISTANCE={1.0 10.0}
+TACTICS={1.0 10.0}
+TAMING={10.0 15.0}
+WRESTLING={1.0 10.0}
+
+// ON=@Death
+// IF !(<FINDID.i_wool>)
+// SERV.NEWITEM=i_wool,{2 4},<UID>
+// NEW.MORE2=c_sheep_shorn
+// ENDIF
+
+
+[CHARDEF 0d0]
+DEFNAME=c_chicken
+NAME=Chicken
+ICON=i_pet_chicken
+SOUND=snd_animals_chicken1
+CAN=MT_WALK|MT_NONHUM
+DAM=1,2
+ARMOR=1
+FOODTYPE=t_grain
+MAXFOOD=5
+RESOURCES=25 i_feather,i_bird_raw,1 i_eggs_fresh
+TAG.Barding.Diff=3.4
+CATEGORY=Animals
+SUBSECTION=Tame
+DESCRIPTION=Chicken
+
+ON=@Create
+NPC=brain_animal
+FAME={1 499}
+KARMA={-1 -499}
+STR={1 10}
+DEX={10 20}
+INT={1 10}
+MAGICRESISTANCE={1.0 10.0}
+TACTICS={1.0 5.0}
+WRESTLING={1.0 5.0}
+TAMING=20.0
+ANIMALLORE=20.0
+
+
+[CHARDEF 0d1]
+DEFNAME=c_goat_mountain
+NAME=Mountain Goat
+ICON=i_pet_goat_billy
+SOUND=snd_animals_goat1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=4,9
+ARMOR=10
+FOODTYPE=t_fruit,t_grain,t_grass
+MAXFOOD=15
+RESOURCES=3 i_ribs_raw,12 i_hide
+TAG.Barding.Diff=26.0
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Mountain Goat
+
+
+ON=@Create
+NPC=brain_animal
+FAME={1 499}
+KARMA={-1 -499}
+STR={22 64}
+DEX={56 75}
+INT={16 30}
+MAGICRESISTANCE={25.0 30.0}
+TACTICS={29.0 44.0}
+TAMING={0.1 5.0}
+WRESTLING={29.0 44.0}
+
+
+
+
+[CHARDEF 0d3]
+DEFNAME=c_bear_black
+NAME=Black Bear
+ICON=i_pet_bear_black
+SOUND=snd_animals_bear1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=6,16
+ARMOR=20
+FOODTYPE=t_fish
+MAXFOOD=35
+RESOURCES=12 i_hide,1 i_ribs_raw
+TAG.Barding.Diff=31.0
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Bear (black)
+
+
+ON=@Create
+NPC=brain_animal
+FAME={1000 1499}
+
+STR={76 100}
+DEX={56 75}
+INT={11 14}
+MAGICRESISTANCE={20.0 40.0}
+TACTICS={40.0 60.0}
+TAMING=50.0
+WRESTLING={40.0 60.0}
+
+
+
+[CHARDEF 0d4]
+DEFNAME=c_bear_grizzly
+NAME=Grizzly Bear
+ICON=i_pet_grizzly
+SOUND=snd_animals_grizzly1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=4,10
+ARMOR=25
+FOODTYPE=t_fish
+MAXFOOD=40
+RESOURCES=14 i_hide,2 i_ribs_raw,1 i_fur_light
+TAG.Barding.Diff=47.4
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Grizzly Bear
+
+
+ON=@Create
+NPC=brain_animal
+FAME={1000 1499}
+STR={126 155}
+DEX={81 105}
+INT={16 40}
+MAGICRESISTANCE={25.0 40.0}
+TACTICS={70.0 100.0}
+TAMING=65.0
+WRESTLING={45.0 70.0}
+
+
+
+[CHARDEF 0d5]
+DEFNAME=c_bear_polar
+NAME=Polar Bear
+ICON=i_pet_bear_polar
+SOUND=snd_animals_bear1
+CAN=MT_WALK|MT_RUN|MT_SWIM|MT_NONHUM
+DAM=6,10
+ARMOR=20
+FOODTYPE=t_fish
+MAXFOOD=40
+RESOURCES=16 i_hide,2 i_ribs_raw
+TAG.Barding.Diff=38.9
+CATEGORY=Mounts
+SUBSECTION=Wild
+DESCRIPTION=Bear (polar)
+
+
+ON=@Create
+NPC=brain_animal
+FAME={500 999}
+KARMA={-1 -499}
+STR={116 140}
+DEX={81 105}
+INT={26 50}
+MAGICRESISTANCE={45.0 60.0}
+TACTICS={60.0 90.0}
+TAMING=75.0
+WRESTLING={45.0 70.0}
+
+on=@dclick
+return 1
+
+
+
+
+[CHARDEF 0d6]
+DEFNAME=c_panther
+NAME=Panther
+ICON=i_pet_panther
+SOUND=snd_animals_panther2_1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=6,19
+ARMOR=20
+FOODTYPE=t_meat_raw
+MAXFOOD=15
+RESOURCES=1 i_ribs_raw,6 i_hide,3 i_fur_dark
+TAG.Barding.Diff=36.5
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Panther
+
+
+ON=@Create
+COLOR=0901
+NPC=brain_animal
+FAME={500 999}
+KARMA={-1 -499}
+STR={61 85}
+DEX={86 105}
+INT={26 50}
+MAGICRESISTANCE={15.0 30.0}
+TACTICS={50.0 65.0}
+WRESTLING={50.0 65.0}
+TAMING=50.0
+ANIMALLORE=50.0
+
+
+[CHARDEF 0d7]
+DEFNAME=c_rat_giant
+NAME=Giant Rat
+ICON=i_pet_rat_2
+SOUND=snd_monster_grat1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=2,4
+ARMOR=10
+FOODTYPE=t_fish
+MAXFOOD=10
+RESOURCES=1 i_ribs_raw,6 i_hide
+TAG.Barding.Diff=25.8
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Giant Rat
+
+
+ON=@Create
+NPC=brain_animal
+STR={42 64}
+DEX={41 55}
+INT={3 6}
+MAGICRESISTANCE={25.0 30.0}
+TACTICS={29.0 44.0}
+WRESTLING={29.0 44.0}
+TAMING=30.0
+ANIMALLORE=30.0
+
+
+
+
+[CHARDEF 0d8]
+DEFNAME=c_cow_bw
+NAME=Cow
+ICON=i_pet_cow
+SOUND=snd_animals_cow1
+CAN=MT_WALK|MT_FEMALE|MT_NONHUM
+DAM=1,4
+ARMOR=5
+RESOURCES=8 i_ribs_raw,12 i_hide
+FOODTYPE=t_grain,t_grass
+MAXFOOD=35
+TAG.Barding.Diff=6.6
+CATEGORY=Animals
+SUBSECTION=Tame
+DESCRIPTION=Cow (black and white)
+
+ON=@Create
+NPC=brain_animal
+FAME={1 499}
+KARMA={-1 -499}
+STR={25 35}
+DEX={10 20}
+INT={1 10}
+MAGICRESISTANCE={1.0 10.0}
+TACTICS={1.0 10.0}
+WRESTLING={1.0 10.0}
+TAMING=40.0
+ANIMALLORE=40.0
+
+
+IF !(<R999>)
+NAME=mad cow
+KARMA=-1500
+TAMING=0
+ENDIF
+
+[CHARDEF 0d9]
+DEFNAME=c_dog
+NAME=Dog
+ICON=i_pet_dog
+SOUND=snd_animals_dog1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=5,9
+ARMOR=10
+FOODTYPE=t_meat_raw
+MAXFOOD=5
+RESOURCES=1 i_ribs_raw
+TAG.Barding.Diff=18.7
+CATEGORY=Animals
+SUBSECTION=Tame
+DESCRIPTION=Dog
+
+
+ON=@Create
+NPC=brain_animal
+COLOR=colors_animal
+FAME={1 499}
+KARMA={-1 -499}
+STR={27 37}
+DEX={28 43}
+INT={29 37}
+MAGICRESISTANCE={22.0 47.0}
+TACTICS={19.0 31.0}
+WRESTLING={19.0 31.0}
+TAMING=30.0
+ANIMALLORE=30.0
+
+
+
+
+[CHARDEF 0dd]
+DEFNAME=c_walrus
+NAME=Walrus
+ICON=i_pet_walrus
+SOUND=snd_animals_walrus1
+CAN=MT_WALK|MT_SWIM|MT_NONHUM
+DAM=5,12
+ARMOR=20
+FOODTYPE=t_fish
+MAXFOOD=25
+RESOURCES=12 i_hide,1 i_fish_cut_raw
+TAG.Barding.Diff=18.2
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Walrus
+
+
+ON=@Create
+NPC=brain_animal
+FAME={500 999}
+KARMA={-1 -499}
+STR={21 29}
+DEX={46 55}
+INT={16 20}
+MAGICRESISTANCE={15.0 20.0}
+TACTICS={19.0 29.0}
+TAMING={35.0 40.0}
+WRESTLING={19.0 29.0}
+
+
+[CHARDEF 0df]
+DEFNAME=c_sheep_shorn
+NAME=Lamb
+ICON=i_pet_sheep
+SOUND=snd_animals_sheep1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=1,2
+ARMOR=3
+FOODTYPE=5 T_CROPS, 5 T_GRAIN, 64 T_GRASS
+MAXFOOD=15
+RESOURCES=15 I_RIBS_RAW, 2 I_WOOL
+TAG.Barding.Diff=6.5
+CATEGORY=Animals
+SUBSECTION=Tame
+DESCRIPTION=Lamb
+
+ON=@Create
+COLOR={ colors_white 4 colors_gray 1 }
+NPC=brain_animal
+
+FAME={1 499}
+KARMA={-1 -499}
+
+STR={15 20}
+DEX={20 30}
+INT={1 10}
+
+MAGICRESISTANCE={1.0 10.0}
+TACTICS={1.0 10.0}
+TAMING={10.0 15.0}
+WRESTLING={1.0 10.0}
+
+
+[CHARDEF 0e1]
+DEFNAME=c_wolf_timber
+NAME=Timber Wolf
+ICON=i_pet_wolf_timber
+SOUND=snd_animals_wolf1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=6,13
+ARMOR=15
+FOODTYPE=t_meat_raw
+MAXFOOD=15
+RESOURCES=1 i_ribs_raw,3 i_hide
+TAG.Barding.Diff=29.4
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Wolf (timber)
+
+ON=@Create
+NPC=brain_animal
+FAME={500 999}
+KARMA={-1 -499}
+STR={56 80}
+DEX={56 75}
+INT={11 25}
+MAGICRESISTANCE={27.0 45.0}
+TACTICS={30.0 50.0}
+TAMING={20.0 25.0}
+WRESTLING={40.0 60.0}
+
+
+[CHARDEF 0e7]
+DEFNAME=c_cow_brown
+NAME=Cow
+ICON=i_pet_cow
+SOUND=snd_animals_cow1
+CAN=MT_WALK|MT_FEMALE|MT_NONHUM
+DAM=1,4
+ARMOR=5
+RESOURCES=8 i_ribs_raw,12 i_hide
+FOODTYPE=t_fruit,t_grain,t_grass
+MAXFOOD=35
+TAG.Barding.Diff=6.6
+CATEGORY=Animals
+SUBSECTION=Tame
+DESCRIPTION=Cow (black and white)
+
+
+ON=@Create
+NPC=brain_animal
+FAME={1 499}
+KARMA={-1 -499}
+STR={25 35}
+DEX={10 20}
+INT={1 10}
+MAGICRESISTANCE={1.0 10.0}
+TACTICS={1.0 10.0}
+WRESTLING={1.0 10.0}
+TAMING=40.0
+ANIMALLORE=40.0
+
+// IF !(<R999>)
+// NAME=mad cow
+// KARMA=-1500
+// TAMING=0
+// ENDIF
+
+
+
+
+[CHARDEF 0e8]
+DEFNAME=c_bull_brown_lt
+NAME=Bull
+ICON=i_pet_bull
+SOUND=snd_animals_bull1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=7,17
+ARMOR=25
+FOODTYPE=t_fruit,t_grain,t_grass
+MAXFOOD=35
+RESOURCES=10 i_ribs_raw,15 i_hide
+TAG.Barding.Diff=35.8
+CATEGORY=Animals
+SUBSECTION=Tame
+DESCRIPTION=Bull (light brown)
+
+ON=@Create
+COLOR={ colors_brown 1 color_none 1 }
+NPC=brain_animal
+FAME={1000 1499}
+KARMA={-1 -499}
+STR={77 111}
+DEX={56 75}
+INT={47 75}
+MAGICRESISTANCE={17.0 25.0}
+TACTICS={67.0 85.0}
+WRESTLING={40.0 58.0}
+TAMING=50.0
+ANIMALLORE=50.0
+
+
+
+
+[CHARDEF 0e9]
+DEFNAME=c_bull_brown_dk
+NAME=Bull
+ICON=i_pet_bull
+SOUND=snd_animals_bull1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=7,17
+ARMOR=25
+FOODTYPE=t_fruit,t_grain,t_grass
+MAXFOOD=35
+RESOURCES=10 i_ribs_raw,15 i_hide
+TAG.Barding.Diff=35.8
+CATEGORY=Animals
+SUBSECTION=Tame
+DESCRIPTION=Bull (dark brown)
+
+ON=@Create
+COLOR={ colors_brown 1 color_none 1 }
+NPC=brain_animal
+FAME={1000 1499}
+KARMA={-1 -499}
+STR={77 111}
+DEX={56 75}
+INT={47 75}
+MAGICRESISTANCE={17.0 25.0}
+TACTICS={67.0 85.0}
+WRESTLING={40.0 58.0}
+TAMING=50.0
+ANIMALLORE=50.0
+
+
+
+[CHARDEF 0ea]
+DEFNAME=c_stag
+NAME=Great Hart
+ICON=i_pet_deer
+//SOUND=0 //snd_animals_deer3
+// SOUNDIDLE=-1
+// SOUNDNOTICE=-1
+// SOUNDHIT=130
+// SOUNDGETHIT=131
+// SOUNDDIE=132
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=7,13
+ARMOR=20
+FOODTYPE=t_fruit,t_grain,t_grass
+MAXFOOD=25
+RESOURCES=6 i_ribs_raw,15 i_hide
+TAG.Barding.Diff=27.3
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Great Hart
+
+
+ON=@Create
+NPC=brain_animal
+FAME={1 499}
+KARMA={-1 -499}
+STR={41 71}
+DEX={47 77}
+INT={27 57}
+MAGICRESISTANCE={26.0 45.0}
+TACTICS={29.0 48.0}
+TAMING={55.0 60.0}
+WRESTLING={29.0 48.0}
+
+
+[CHARDEF 0ed]
+DEFNAME=c_doe
+NAME=Hind
+ICON=i_pet_deer
+//SOUND=0 //snd_animals_deer3
+// SOUNDIDLE=-1
+// SOUNDNOTICE=-1
+// SOUNDHIT=130
+// SOUNDGETHIT=131
+// SOUNDDIE=132
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=4,5
+ARMOR=5
+FOODTYPE=t_fruit,t_grain,t_grass
+MAXFOOD=25
+RESOURCES=5 i_ribs_raw,8 i_hide
+TAG.Barding.Diff=18.2
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Hind
+
+ON=@Create
+NPC=brain_animal
+FAME={1 499}
+KARMA={-1 -499}
+STR={21 51}
+DEX={47 77}
+INT={17 47}
+MAGICRESISTANCE={15.0 20.0}
+TACTICS={19.0 25.0}
+WRESTLING={26.0 30.0}
+TAMING=40.0
+ANIMALLORE=40.0
+
+
+[CHARDEF 0ee]
+DEFNAME=c_rat
+NAME=Rat
+ICON=i_pet_rat
+SOUND=snd_animals_rat1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=1,2
+ARMOR=5
+FOODTYPE=t_food,t_food_raw
+MAXFOOD=5
+RESOURCES=1 i_ribs_raw
+TAG.Barding.Diff=6.0
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Rat
+
+ON=@Create
+//COLOR=colors_brown
+NPC=brain_animal
+FAME={1 499}
+KARMA={-1 -499}
+STR={20 35}
+DEX={15 25}
+INT={5 10}
+MAGICRESISTANCE={1.0 5.0}
+TACTICS={1.0 5.0}
+WRESTLING={1.0 5.0}
+TAMING=20.0
+ANIMALLORE=20.0
+
+[CHARDEF 0fe]
+DEFNAME=c_crane
+NAME=Crane
+ICON=i_pet_crane
+SOUND=snd_animal_crane1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=1,2
+ARMOR=5
+FOODTYPE=t_fish
+MAXFOOD=10
+RESOURCES=1 i_bird_raw,25 i_feather
+TAG.Barding.Diff=9.2
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Crane
+RESLEVEL=3
+RESDISPDNID=c_man
+RESDISPDNHUE=33
+
+ON=@Create
+NPC=brain_animal
+FAME={1 499}
+KARMA={-1 -499}
+STR={25 35}
+DEX={15 25}
+INT={10 15}
+MAGICRESISTANCE={4.0 5.0}
+TACTICS={10.0 11.0}
+WRESTLING={10.0 11.0}
+TAMING=20.0
+ANIMALLORE=20.0
+
+[CHARDEF 0116]
+DEFNAME=c_squirrel
+NAME=Squirrel
+ICON=i_pet_squirrel
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=2,5
+ARMOR=5
+FOODTYPE=t_fruit,t_grain
+MAXFOOD=10
+RESOURCES=1 i_ribs_raw
+TAG.Barding.Diff=29.0
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Squirrel
+RESLEVEL=5
+RESDISPDNID=c_rabbit
+RESDISPDNHUE=33
+
+ON=@Create
+NPC=brain_animal
+FAME=150
+KARMA=0
+STR={10 20}
+DEX={10 20}
+INT={10 20}
+TAMING=20.0
+ANIMALLORE=20.0
+
+
+[CHARDEF 0117]
+NAME=Ferret
+DEFNAME=c_ferret
+ICON=i_pet_ferret
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=2,3
+ARMOR=10
+FOODTYPE=t_fruit,t_grain
+MAXFOOD=10
+RESOURCES=1 i_ribs_raw
+TAG.Barding.Diff=29.0
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Ferret
+RESLEVEL=5
+RESDISPDNID=c_rabbit
+RESDISPDNHUE=33
+
+ON=@Create
+NPC=brain_animal
+
+FAME=150
+KARMA=0
+
+STR={10 20}
+DEX={50 70}
+INT={30 50}
+MAGICRESISTANCE={5.0 10.0}
+TACTICS={5.0 10.0}
+WRESTLING={5.0 10.0}
+TAMING=10.0
+ANIMALLORE=10.0
+
+
+
+[CHARDEF 011a]
+DEFNAME=c_parrot
+NAME=Parrot
+ICON=i_pet_parrot
+SOUND=snd_animals_parrot1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=1,2
+ARMOR=5
+FOODTYPE=i_wafer
+MAXFOOD=5
+RESOURCES=1 i_bird_raw,25 i_feather
+TAG.Barding.Diff=21.0
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Parrot
+RESLEVEL=5
+RESDISPDNID=c_bird
+RESDISPDNHUE=33
+
+ON=@Create
+NPC=brain_animal
+FAME={1 499}
+KARMA={-1 -499}
+STR={5 10}
+DEX={20 30}
+INT={20 30}
+MAGICRESISTANCE={5.0 10.0}
+TACTICS={5.0 10.0}
+WRESTLING={5.0 10.0}
+
+TAMING=10.0
+ANIMALLORE=10.0
+
+[CHARDEF 011b]
+DEFNAME=c_bird_crow
+NAME=Crow
+ICON=i_pet_bird
+SOUND=snd_animals_crow1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=1,2
+ARMOR=5
+FOODTYPE=t_grain
+MAXFOOD=5
+RESOURCES=1 i_bird_raw,25 i_feather
+TAG.Barding.Diff=21.0
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Crow
+RESLEVEL=5
+RESDISPDNID=c_bird
+RESDISPDNHUE=33
+
+ON=@Create
+NPC=brain_animal
+FAME={1 499}
+KARMA={-1 -499}
+STR={1 4}
+DEX={35 48}
+INT={1 4}
+MAGICRESISTANCE={5.0 10.0}
+TACTICS={5.0 10.0}
+WRESTLING={5.0 10.0}
+TAMING=10.0
+ANIMALLORE=10.0
+
+
+[CHARDEF 0122]
+DEFNAME=c_pig_big
+NAME=Boar
+ICON=i_pet_pig
+SOUND=snd_animals_pig1
+CAN=MT_WALK|MT_RUN
+DAM=3,7
+ARMOR=10
+FOODTYPE=t_fruit,t_grain,t_grass
+MAXFOOD=25
+RESOURCES=1 i_ham,1 i_bacon_slab
+TAG.Barding.Diff=7.5
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Boar
+
+ON=@Create
+NPC=brain_animal
+FAME={1 499}
+KARMA={-1 -499}
+STR={20 30}
+DEX={10 20}
+INT={10 20}
+MAGICRESISTANCE={5.0 10.0}
+TACTICS={5.0 10.0}
+WRESTLING={5.0 10.0}
+TAMING=50.0
+ANIMALLORE=50.0
+
+
+
+
+
+[CHARDEF 0f8]
+DEFNAME=c_gaman
+NAME=Gaman
+ICON=i_pet_gaman
+SOUND=snd_monster_gaman1
+CAN=MT_WALK|MT_RUN|MT_NONHUM
+DAM=13,23
+ARMOR=50
+RESOURCES=i_horn_bull,15 i_hide,10 i_ribs_raw
+FOODTYPE=t_fruit,t_grain,t_grass
+MAXFOOD=40
+TAG.Barding.Diff=59.1
+CATEGORY=Animals
+SUBSECTION=Wild
+DESCRIPTION=Gaman
+RESLEVEL=3
+RESDISPDNID=c_dog
+RESDISPDNHUE=33
+
+ON=@Create
+NPC=brain_animal
+FAME={2000 2500}
+KARMA={-2000 -2499}
+STR={145 175}
+DEX={115 145}
+INT={45 60}
+MAGICRESISTANCE={35.0 45.0}
+TACTICS={70.0 85.0}
+TAMING={65.0 70.0}
+WRESTLING={50.0 60.0}
+
+[eof]

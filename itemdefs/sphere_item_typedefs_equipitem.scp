@@ -1,0 +1,528 @@
+
+
+[COMMENT sphere_item_typedef_equipitem]
+The t_equipitem TYPEDEF is typically applied on every equipable item.
+For example:
+  t_clothing
+  t_armor*
+  t_weapon*
+  t_wand
+  t_jewelry
+  t_container (just quivers)
+  t_light_lit (just lights that could be equipped like candles, lanterns)
+  t_spellbook
+  t_fishing_pole
+
+When an item with t_equipitem is equipped by a char, the item properties are
+usually added to the char wearing it.  That way multiple items with the same
+properties can be equipped at the same time, stacking the effect.
+
+Properties being handled inside this TYPEDEF currently include:
+
+CANUSE
+ - Purpose: flag to control what race/gender can equip the item
+ - Values:  can_u_human
+            can_u_elf
+            can_u_gargoyle
+            can_u_female
+            can_u_all
+            can_u_none
+
+BONUSSKILL1[AMT]
+BONUSSKILL2[AMT]
+BONUSSKILL3[AMT]
+BONUSSKILL4[AMT]
+BONUSSKILL5[AMT]
+ - Purpose: increase/decrease up to 5 char skills when equipped
+ - Values:  BONUSSKILL[x]:     skill name (eg: Alchemy, Fencing, ...)
+            BONUSSKILL[x]AMT:  decimal value to increase/decrease (eg: 100 = +10.0)
+
+TAG.SlayerGroup (NOT IMPLEMENTED YET)
+ - Purpose: weapons with slayer property set will deal double damage when hit monsters of the opposite slayer group
+
+
+[TYPEDEF t_equipitem]
+ON=@CLICK
+IF (<TYPE> == T_CLOTHING || <ISARMOR> || <ISWEAPON>)
+	// LOCAL.DURABILITY = <EVAL 100 - <EVAL <HITS>*100>/<MAXHITS>>
+	LOCAL.DURABILITY = <EVAL 100 - <EVAL <HITPOINTS>*100>/<MAXHITS>>
+	// LOCAL.DURABILITY = <EVAL 100 - ((<MORE1L>*100)/<MORE1H>)> 
+	IF (<DLOCAL.DURABILITY>)
+		MESSAGE @0,3 [%<DLOCAL.Durability> hasarli]
+	ENDIF
+ENDIF
+
+// ON=@EQUIP
+// IF (<SRC.STR> < <REQSTR>)
+	// SRC.SYSMESSAGE @38,,1,1 Bunu giyebilecek güçte değilsiniz. (Gerekli Str: <REQSTR>, Str:<SRC.STR>)
+	// UNEQUIP
+	// RETURN 1
+// ENDIF
+
+ON=@DCLICK
+IF (<REQSTR>) && (<SRC.STR> < <REQSTR>)
+	SRC.SYSMESSAGE @38,,1,1 <defmsg.equip_not_strong_enough> <name> (Gerekli Str: <REQSTR>, Str: <SRC.STR>)
+	UNEQUIP
+	RETURN 1
+ENDIF
+
+
+
+
+
+// t_shield de click triggeri tetiklenmiyor, anlamadim
+[TYPEDEF t_shield]
+ON=@CLICK
+IF (<MOREY> > <ddef.MOREY_MAGIC_ARMOR_0>)
+	IF (<ATTR>&ATTR_IDENTIFIED)
+		MESSAGE [<MagicValueBaseIdByName>]
+	ENDIF
+	MESSAGE a magical <SERV.ITEMDEF.<ID>.NAME>
+	RETURN 1
+ENDIF
+
+ON=@EQUIPTEST
+IF (<BASEID> == I_SHIELD_ORDER)
+	LOCAL.SPELLREMOVE=0
+ELSEIF (<BASEID> == I_SHIELD_CHAOS)
+	LOCAL.SPELLREMOVE=0
+ELSE
+	LOCAL.SPELLREMOVE=1
+ENDIF
+IF (<LOCAL.SPELLREMOVE>)
+	IF (<SRC.FINDID.I_RUNE_PROTECTION>)
+		SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, Protection etkisi silindi.
+		SRC.FINDID.I_RUNE_PROTECTION.REMOVE
+	ENDIF
+	IF (<SRC.FINDID.I_RUNE_REACTIVE_ARMOR>)
+		SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, Reactive Armor etkisi silindi.
+		SRC.FINDID.I_RUNE_REACTIVE_ARMOR.REMOVE
+	ENDIF
+ENDIF
+
+
+
+
+
+
+[TYPEDEF t_fish_pole]
+ON=@TARGON_ITEM
+IF (<SRC.TARG.UID> == <UID>)
+	IF !(<SRC.IsInShip>)
+		SRC.SYSMESSAGE @38,,1,1 Bunu sadece gemide kullanabilirsiniz.
+		RETURN 1
+	ENDIF
+	REF1=<SRC.REGION.UID>
+	IF !(<REF1.ISVALIDE>)
+		SRC.SYSMESSAGE @38,,1,1 Gemi bulunamadi!
+		RETURN 1
+	ELSEIF !(<REF1.TYPE> == T_SHIP)
+		SRC.SYSMESSAGE @38,,1,1 Gemi bulunamadi!
+		RETURN 1
+	ENDIF
+	REF2=<REF1.HATCH>
+	IF !(<REF2.ISVALIDE>)
+		SRC.SYSMESSAGE @38,,1,1 Gemi Hatchi bulunamadi!
+		RETURN 1
+	ENDIF
+	IF (<SRC.FINDID.I_GATHER_AUTO_STROKE_FISHING>)
+		SRC.FINDID.I_GATHER_AUTO_STROKE_FISHING.REMOVE
+	ENDIF
+	IF !(<SRC.FINDID.I_GATHER_AUTO_STROKE_FISHING>)
+		SRC.GOUID <REF2>
+		REF1.SHIPFORE
+		SRC.DIR <REF1.DIRMOVE>
+		SRC.NUDGEUP 3
+		SRC.UPDATE
+		SERV.NEWITEM I_GATHER_AUTO_STROKE_FISHING
+		NEW.TIMERD=2.0
+		SRC.EQUIP <NEW>
+	ENDIF
+	RETURN 1
+ENDIF
+
+
+
+[ITEMDEF I_GATHER_AUTO_STROKE_FISHING]
+DEFNAME=I_GATHER_AUTO_STROKE_FISHING
+ID=I_MEMORY
+TYPE=T_EQ_SCRIPT
+VALUE=0
+WEIGHT=0
+LAYER=30
+NAME=Auto Gather Memory (Fishing)
+
+ON=@CREATE
+COLOR=0790
+ATTR=ATTR_INVIS|ATTR_NEWBIE|ATTR_DECAY
+
+on=@Equip
+TIMERD=2.0
+// SRC.SYSMESSAGE @044 Auto Gather: On
+SRC.SYSMESSAGE @044 Fishing start
+
+ON=@UNEQUIP
+SRC.SYSMESSAGE @38 Fishing Stop
+// SRC.SYSMESSAGE @38 Auto Gather: Off
+REF1=<SRC.REGION.UID>
+IF (<REF1.ISVALIDE> && <REF1.TYPE> == T_SHIP)
+	REF1.SHIPSTOP
+ENDIF
+
+ON=@Timer
+IF !(<TOPOBJ>)
+	REMOVE
+	RETURN 1
+ElSEIF (<TOPOBJ.FLAGS>&STATF_WAR)
+	TOPOBJ.SYSMESSAGE @38,,1,1 Warmoda geçtiginiz için oto gather durduruldu!
+	REMOVE
+	RETURN 1
+ElSEIF (<TOPOBJ.FLAGS>&STATF_DEAD)
+	TOPOBJ.SYSMESSAGE @38,,1,1 Öldüğünüz için oto gather durduruldu!
+	REMOVE
+	RETURN 1
+ElSEIF !(<TOPOBJ.ISONLINE>)
+	REMOVE
+	RETURN 1
+ENDIF
+IF !(<TOPOBJ.IsInShip>)
+	TOPOBJ.SYSMESSAGE @38,,1,1 Bunu sadece gemide kullanabilirsiniz.
+	REMOVE
+	RETURN 1
+ENDIF
+REF1=<TOPOBJ.REGION.UID>
+IF !(<REF1.ISVALIDE>)
+	TOPOBJ.SYSMESSAGE @38,,1,1 Gemi bulunamadi!
+	REMOVE
+	RETURN 1
+ELSEIF !(<REF1.TYPE> == T_SHIP)
+	TOPOBJ.SYSMESSAGE @38,,1,1 Gemi bulunamadi!
+	REMOVE
+	RETURN 1
+ENDIF
+IF (<REF1.MORE2> == 0) // GEMİ DURMUŞ MU ?
+	TOPOBJ.SYSMESSAGE @38,,1,1 Gemi durduğu için otomatik fishing durduruldu.
+	REMOVE
+	RETURN 1
+ENDIF
+REF2=<REF1.HATCH>
+IF !(<REF2.ISVALIDE>)
+	TOPOBJ.SYSMESSAGE @38,,1,1 Gemi Hatchi bulunamadi!
+	REMOVE
+	RETURN 1
+ENDIF
+IF (<TOPOBJ.ACTION> == -1)
+	LOCAL.TARGP.X <TOPOBJ.P.X>
+	LOCAL.TARGP.Y <TOPOBJ.P.Y>
+	
+	REF1.SHIPFORE // GEMİYİ SÜREKLİ İLERLET
+	
+	IF (<TOPOBJ.DIR> == 4)
+		LOCAL.TARGP.Y +=6
+		LOCAL.TARGP.X -=3  // AZCIK SAĞINA/SOLUNA, WORLDGEM BIT GEMİ İÇİNDE KALMASIN
+		
+	ELSEIF (<TOPOBJ.DIR> == 0)
+		LOCAL.TARGP.Y -=6
+		LOCAL.TARGP.X +=3 // AZCIK SAĞINA/SOLUNA, WORLDGEM BIT GEMİ İÇİNDE KALMASIN
+		
+	ELSEIF (<TOPOBJ.DIR> == 2)
+		LOCAL.TARGP.X +=6
+		LOCAL.TARGP.Y -=3 // AZCIK SAĞINA/SOLUNA, WORLDGEM BIT GEMİ İÇİNDE KALMASIN
+		
+	ELSEIF (<TOPOBJ.DIR> == 6)
+		LOCAL.TARGP.X -=6
+		LOCAL.TARGP.Y +=3 // AZCIK SAĞINA/SOLUNA, WORLDGEM BIT GEMİ İÇİNDE KALMASIN
+	ENDIF
+	TOPOBJ.ACTP = <DLOCAL.TARGP.X>,<DLOCAL.TARGP.Y>,<TOPOBJ.P.Z>,<TOPOBJ.P.M>
+	TOPOBJ.ACTPRV = 04fffffff
+	TOPOBJ.ACTION = 18 // Fishing
+	TOPOBJ.DIR <REF1.DIRMOVE>
+ENDIF
+TIMERD=2.0
+RETURN 1
+
+
+
+
+
+
+
+
+[TYPEDEF t_armor]
+ON=@CLICK
+IF (<MOREY> > <ddef.MOREY_MAGIC_ARMOR_0>)
+	IF (<ATTR>&ATTR_IDENTIFIED)
+		MESSAGE [<MagicValueBaseIdByName>]
+	ENDIF
+	MESSAGE a magical <SERV.ITEMDEF.<ID>.NAME>
+	RETURN 1
+ENDIF
+
+
+ON=@EQUIPTEST
+IF (<SRC.FINDID.I_RUNE_PROTECTION>)
+	SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, Protection etkisi silindi.
+	SRC.FINDID.I_RUNE_PROTECTION.REMOVE
+ENDIF
+IF (<SRC.FINDID.I_RUNE_REACTIVE_ARMOR>)
+	SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, Reactive Armor etkisi silindi.
+	SRC.FINDID.I_RUNE_REACTIVE_ARMOR.REMOVE
+ENDIF
+
+
+[TYPEDEF t_clothing]
+ON=@CLICK
+IF (<MOREY> > <ddef.MOREY_MAGIC_CLOTH_0>)
+	IF (<ATTR>&ATTR_IDENTIFIED)
+		MESSAGE [<MagicValueBaseIdByName>]
+	ENDIF
+	// MESSAGE a magical <SERV.ITEMDEF.<ID>.NAME>
+	MESSAGE a magical <NAME>
+	RETURN 1
+ENDIF
+
+
+
+[TYPEDEF t_armor_leather]
+ON=@CLICK
+IF (<MOREY> > <ddef.MOREY_MAGIC_ARMOR_0>)
+	IF (<ATTR>&ATTR_IDENTIFIED)
+		MESSAGE [<MagicValueBaseIdByName>]
+	ENDIF
+	MESSAGE a magical <SERV.ITEMDEF.<ID>.NAME>
+	RETURN 1
+ENDIF
+
+
+
+
+
+
+[TYPEDEF T_ROBE_GM]
+ON=@DCLICK
+IF (<SRC.ISINVIS>)
+	SRC.INVIS=0
+ELSE
+	SRC.INVIS=1
+ENDIF
+
+
+
+[TYPEDEF T_SPELLBOOK]
+ON=@CLICK
+// FOR 1 64
+	// LOCAL.ACTIVESPELL ++
+// ENDFOR
+// IF (<SPELLCOUNT> >= <LOCAL.ACTIVESPELL>)
+	// MESSAGE @0 [<SPELLCOUNT>/<DLOCAL.ACTIVESPELL>]
+	// MESSAGE Full Spellbook
+// ELSEIF (<SPELLCOUNT> <= 0)
+	// MESSAGE @0 [<SPELLCOUNT>/<DLOCAL.ACTIVESPELL>]
+	// MESSAGE Empty Spellbook
+// ELSE
+	// MESSAGE @0 [<SPELLCOUNT>/<DLOCAL.ACTIVESPELL>]
+	// MESSAGE Spellbook
+// ENDIF
+IF (<SPELLCOUNT> <= 0)
+	MESSAGE a spellbook
+ELSE
+	MESSAGE a spellbook[<spellcount>]
+ENDIF
+RETURN 1
+
+
+
+
+[TYPEDEF T_SPELLBOOK_NECRO]
+ON=@CLICK
+FOR 101 117
+	LOCAL.ACTIVESPELL ++
+ENDFOR
+IF (<SPELLCOUNT> >= <LOCAL.ACTIVESPELL>)
+	MESSAGE @044,,1 [<SPELLCOUNT>/<DLOCAL.ACTIVESPELL> Büyü]
+	MESSAGE Full Spellbook
+ELSEIF (<SPELLCOUNT> <= 0)
+	MESSAGE @38,,1 [<SPELLCOUNT>/<DLOCAL.ACTIVESPELL> Büyü]
+	MESSAGE Empty Spellbook
+ELSE
+	MESSAGE @,,1 [<SPELLCOUNT>/<DLOCAL.ACTIVESPELL> Büyü]
+	MESSAGE Spellbook
+ENDIF
+RETURN 1
+
+
+
+
+[TYPEDEF T_HAIR]
+ON=@TIMER
+RETURN 1
+
+
+[TYPEDEF T_BEARD]
+ON=@TIMER
+RETURN 1
+
+
+
+
+
+
+[TYPEDEF T_WEAPON_THROWING]
+
+[TYPEDEF T_WEAPON_THROWN]
+
+
+
+[TYPEDEF T_WEAPON_FENCE]
+ON=@EQUIP
+IF (<dispid> == i_pitchfork || <ID> == i_spear_short)
+	IF !(<SRC.ISEVENT.e_char_bonus_paradarbe>)
+		SRC.EVENTS +e_char_bonus_paradarbe
+	ENDIF
+ENDIF
+IF (<dispid> == i_spear)
+	IF !(<SRC.ISEVENT.e_char_bonus_dismount>)
+		SRC.EVENTS +e_char_bonus_dismount
+	ENDIF
+ENDIF
+
+ON=@UNEQUIP
+IF (<SRC.ISEVENT.e_char_bonus_paradarbe>)
+	SRC.EVENTS -e_char_bonus_paradarbe
+ENDIF
+IF (<SRC.ISEVENT.e_char_bonus_dismount>)
+	SRC.EVENTS -e_char_bonus_dismount
+ENDIF
+
+
+
+
+[TYPEDEF T_WEAPON_SWORD]
+ON=@EQUIP
+IF (<dispid> == i_halberd || <dispid> == i_bardiche)
+	IF !(<SRC.ISEVENT.e_char_bonus_dismount>)
+		SRC.EVENTS +e_char_bonus_dismount
+	ENDIF
+ENDIF
+IF (<dispid> == i_sword_broad || <dispid> == i_cutlass || <dispid> == i_katana || <dispid> == i_sword_viking || <dispid> == i_sword_long || <dispid> == i_scimitar)
+	IF !(<SRC.ISEVENT.e_char_bonus_bleeding>)
+		SRC.EVENTS +e_char_bonus_bleeding
+	ENDIF
+ENDIF
+
+
+ON=@UNEQUIP
+IF (<SRC.ISEVENT.e_char_bonus_dismount>)
+	SRC.EVENTS -e_char_bonus_dismount
+ENDIF
+IF (<SRC.ISEVENT.e_char_bonus_bleeding>)
+	SRC.EVENTS -e_char_bonus_bleeding
+ENDIF
+
+
+
+
+[TYPEDEF T_WEAPON_BOW]
+ON=@CLICK
+IF (<TOPOBJ> == <SRC>)
+	MESSAGE [Arrows: <EVAL <TOPOBJ.RESCOUNT <TDATA3>>>]
+ENDIF
+
+[TYPEDEF T_WEAPON_XBOW]
+ON=@CLICK
+IF (<TOPOBJ> == <SRC>)
+	MESSAGE [Bolts: <EVAL <TOPOBJ.RESCOUNT <TDATA3>>>]
+ENDIF
+
+
+[TYPEDEF T_WEAPON_MACE_SMITH]
+ON=@EQUIP
+IF (<dispid> == i_mace || <dispid> == i_mace_war || <dispid> == i_hammer_pick || <dispid> == i_maul || <dispid> == i_hammer_war)
+	IF !(<SRC.ISEVENT.e_char_bonus_dropstam>)
+		SRC.EVENTS +e_char_bonus_dropstam
+	ENDIF
+ENDIF
+IF (<dispid> == i_club && <ATTR>&ATTR_MAGIC)
+	IF !(<SRC.ISEVENT.e_char_bonus_dropstam>)
+		SRC.EVENTS +e_char_bonus_dropstam
+	ENDIF
+ENDIF
+
+
+ON=@UNEQUIP
+IF (<SRC.ISEVENT.e_char_bonus_dropstam>)
+	SRC.EVENTS -e_char_bonus_dropstam
+ENDIF
+
+
+[TYPEDEF T_WEAPON_MACE_SHARP]
+
+
+
+[TYPEDEF T_WEAPON_MACE_STAFF]
+ON=@EQUIP
+IF (<dispid> == i_staff_black)
+	IF !(<SRC.ISEVENT.e_char_bonus_dropstam>)
+		SRC.EVENTS +e_char_bonus_dropstam
+	ENDIF
+ENDIF
+
+ON=@UNEQUIP
+IF (<SRC.ISEVENT.e_char_bonus_dropstam>)
+	SRC.EVENTS -e_char_bonus_dropstam
+ENDIF
+
+
+
+
+
+[TYPEDEF T_WEAPON_MACE_PICK]
+
+
+
+
+[TYPEDEF T_WEAPON_MACE_CROOK]
+ON=@CLICK
+REF1=<TAG0.NPC>
+IF (<REF1.ISVALIDE>) && (<REF1.ISCHAR>)
+MESSAGE (<REF1.NAME>)
+ENDIF
+
+IF (<TAG0.TARGP>)
+MESSAGE (<TAG0.TARGP>)
+ENDIF
+
+ON=@TARGON_ITEM
+RETURN 1
+
+ON=@TARGON_CHAR
+IF !(<SRC.TARG.NPC> == brain_animal)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Sadece hayvanları sürebilirsiniz.
+	RETURN 1
+ELSEIF (<SRC.ISDISS 5,<SRC.TARG.UID>>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,600018,<SRC.TARG.NAME>
+	RETURN 1
+ELSEIF (<SRC.TARG.OWNER>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Sahipli hayvanları süremezsiniz.
+	RETURN 1
+ENDIF
+TAG0.NPC=<SRC.TARG.UID>
+
+
+
+
+[TYPEDEF T_WEAPON_AXE]
+
+ON=@EQUIP
+IF !(<SRC.ISEVENT.e_char_bonus_axe>)
+	SRC.EVENTS +e_char_bonus_axe
+ENDIF
+
+ON=@UNEQUIP
+IF (<SRC.ISEVENT.e_char_bonus_axe>)
+	SRC.EVENTS -e_char_bonus_axe
+ENDIF
+
+
+
+[EOF]

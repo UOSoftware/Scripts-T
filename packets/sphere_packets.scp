@@ -1,0 +1,250 @@
+
+[defname def_sphere_packets]
+PACKET_RECEIVE.0 00,PacketCreate
+PACKET_RECEIVE.2 02,PacketMovementReq
+PACKET_RECEIVE.3 03,PacketSpeakReq
+PACKET_RECEIVE.5 05,PacketAttackReq
+PACKET_RECEIVE.6 06,PacketDoubleClick
+PACKET_RECEIVE.7 07,PacketItemPickupReq
+PACKET_RECEIVE.8 08,PacketItemDropReq
+PACKET_RECEIVE.9 09,PacketSingleClick
+PACKET_RECEIVE.18 12,PacketTextCommand
+PACKET_RECEIVE.19 13,PacketItemEquipReq
+PACKET_RECEIVE.34 22,PacketResynchronize
+PACKET_RECEIVE.44 2C,PacketDeathStatus
+PACKET_RECEIVE.52 34,PacketObjStatusReq
+PACKET_RECEIVE.58 3A,PacketSkillLockChange
+PACKET_RECEIVE.59 3B,PacketVendorBuyReq
+PACKET_RECEIVE.63 3F,PacketStaticUpdate
+PACKET_RECEIVE.86 56,PacketMapEdit
+PACKET_RECEIVE.93 5D,PacketCharPlay
+PACKET_RECEIVE.102 66,PacketBookPageEdit
+PACKET_RECEIVE.108 6C,PacketTarget
+PACKET_RECEIVE.111 6F,PacketSecureTradeReq
+PACKET_RECEIVE.113 71,PacketBulletinBoardReq
+PACKET_RECEIVE.114 72,PacketWarModeReq
+PACKET_RECEIVE.115 73,PacketPingReq
+PACKET_RECEIVE.117 75,PacketCharRename
+PACKET_RECEIVE.125 7D,PacketMenuChoice
+PACKET_RECEIVE.128 80,PacketServersReq
+PACKET_RECEIVE.131 83,PacketCharDelete
+PACKET_RECEIVE.141 8D,PacketCreateNew
+PACKET_RECEIVE.145 91,PacketCharListReq
+PACKET_RECEIVE.147 93,PacketBookHeaderEdit
+PACKET_RECEIVE.149 95,PacketDyeObject
+PACKET_RECEIVE.152 98,PacketAllNamesReq
+PACKET_RECEIVE.154 9A,PacketPromptResponse
+PACKET_RECEIVE.155 9B,PacketHelpPageReq
+PACKET_RECEIVE.159 9F,PacketVendorSellReq
+PACKET_RECEIVE.160 A0,PacketServerSelect
+PACKET_RECEIVE.164 A4,PacketSystemInfo
+PACKET_RECEIVE.167 A7,PacketTipReq
+PACKET_RECEIVE.172 AC,PacketGumpValueInputResponse
+PACKET_RECEIVE.173 AD,PacketSpeakReqUNICODE
+PACKET_RECEIVE.177 B1,PacketGumpDialogRet
+PACKET_RECEIVE.179 B3,PacketChatCommand
+PACKET_RECEIVE.181 B5,PacketChatButton
+PACKET_RECEIVE.182 B6,PacketToolTipReq
+PACKET_RECEIVE.184 B8,PacketProfileReq
+PACKET_RECEIVE.187 BB,PacketMailMessage
+PACKET_RECEIVE.189 BD,PacketClientVersion
+PACKET_RECEIVE.190 BE,PacketAssistVersion
+PACKET_RECEIVE.191 BF,PacketExtendedCommand
+PACKET_RECEIVE.194 C2,PacketPromptResponseUnicode
+PACKET_RECEIVE.200 C8,PacketViewRange
+PACKET_RECEIVE.209 D1,PacketLogout
+PACKET_RECEIVE.212 D4,PacketBookHeaderEditNew
+PACKET_RECEIVE.214 D6,PacketAOSTooltipReq
+PACKET_RECEIVE.215 D7,PacketEncodedCommand
+PACKET_RECEIVE.217 D9,PacketHardwareInfo
+PACKET_RECEIVE.224 E0,PacketBugReport
+PACKET_RECEIVE.225 E1,PacketClientType
+PACKET_RECEIVE.232 E8,PacketRemoveUIHighlight
+PACKET_RECEIVE.235 EB,PacketUseHotbar
+PACKET_RECEIVE.236 EC,PacketEquipItemMacro
+PACKET_RECEIVE.237 ED,PacketUnEquipItemMacro
+PACKET_RECEIVE.240 F0,PacketMovementReqNew
+PACKET_RECEIVE.241 F1,PacketTimeSyncRequest
+PACKET_RECEIVE.244 F4,PacketCrashReport
+PACKET_RECEIVE.248 F8,PacketCreateHS
+PACKET_RECEIVE.249 F9,PacketGlobalChatReq
+PACKET_RECEIVE.250 FA,PacketUltimaStoreButton
+PACKET_RECEIVE.251 FB,PacketPublicHouseContent
+
+PACKET_SEND.11 0B,PacketCombatDamage
+PACKET_SEND.17 11,PacketObjectStatus
+PACKET_SEND.22 16,PacketHealthBarUpdateNew
+PACKET_SEND.23 17,PacketHealthBarUpdate
+PACKET_SEND.26 1A,PacketItemWorld
+PACKET_SEND.27 1B,PacketPlayerStart
+PACKET_SEND.28 1C,PacketMessageASCII
+PACKET_SEND.29 1D,PacketRemoveObject
+PACKET_SEND.32 20,PacketPlayerUpdate
+PACKET_SEND.33 21,PacketMovementRej
+PACKET_SEND.34 22,PacketMovementAck
+PACKET_SEND.35 23,PacketDragAnimation
+PACKET_SEND.36 24,PacketContainerOpen
+PACKET_SEND.37 25,PacketItemContainer
+PACKET_SEND.38 26,PacketKick
+PACKET_SEND.39 27,PacketDragCancel
+PACKET_SEND.41 29,PacketDropAccepted
+PACKET_SEND.44 2C,PacketDeathMenu
+PACKET_SEND.45 2D,PacketMobileAttributes
+PACKET_SEND.46 2E,PacketItemEquipped
+PACKET_SEND.47 2F,PacketSwing
+PACKET_SEND.58 3A,PacketSkills
+PACKET_SEND.59 3B,PacketCloseVendor
+PACKET_SEND.60 3C,PacketItemContents
+PACKET_SEND.63 3F,PacketQueryClient
+PACKET_SEND.79 4F,PacketGlobalLight
+PACKET_SEND.83 53,PacketWarningMessage
+PACKET_SEND.84 54,PacketPlaySound
+PACKET_SEND.85 55,PacketLoginComplete
+PACKET_SEND.86 56,PacketMapPlot
+PACKET_SEND.91 5B,PacketGameTime
+PACKET_SEND.101 65,PacketWeather
+PACKET_SEND.102 66,PacketBookPageContent
+PACKET_SEND.108 6C,PacketAddTarget
+PACKET_SEND.153 99,PacketAddTarget
+PACKET_SEND.109 6D,PacketPlayMusic
+PACKET_SEND.110 6E,PacketAction
+PACKET_SEND.226 E2,PacketActionBasic
+PACKET_SEND.111 6F,PacketTradeAction
+PACKET_SEND.112 70,PacketEffect
+PACKET_SEND.192 C0,PacketEffect
+PACKET_SEND.113 71,PacketBulletinBoard
+PACKET_SEND.114 72,PacketWarMode
+PACKET_SEND.115 73,PacketPingAck
+PACKET_SEND.116 74,PacketVendorBuyList
+PACKET_SEND.118 76,PacketZoneChange
+PACKET_SEND.119 77,PacketCharacterMove
+PACKET_SEND.120 78,PacketCharacter
+PACKET_SEND.124 7C,PacketDisplayMenu
+PACKET_SEND.129 81,PacketChangeCharacter
+PACKET_SEND.130 82,PacketLoginError
+PACKET_SEND.133 85,PacketDeleteError
+PACKET_SEND.134 86,PacketCharacterListUpdate
+PACKET_SEND.136 88,PacketPaperdoll
+PACKET_SEND.137 89,PacketCorpseEquipment
+PACKET_SEND.139 8B,PacketSignGump
+PACKET_SEND.140 8C,PacketServerRelay
+PACKET_SEND.144 90,PacketDisplayMap
+PACKET_SEND.147 93,PacketDisplayBook
+PACKET_SEND.149 95,PacketShowDyeWindow
+PACKET_SEND.152 98,PacketAllNamesResponse
+PACKET_SEND.154 9A,PacketAddPrompt
+PACKET_SEND.194 C2,PacketAddPrompt
+PACKET_SEND.158 9E,PacketVendorSellList
+PACKET_SEND.161 A1,PacketHealthUpdate
+PACKET_SEND.162 A2,PacketManaUpdate
+PACKET_SEND.163 A3,PacketStaminaUpdate
+PACKET_SEND.165 A5,PacketWebPage
+PACKET_SEND.166 A6,PacketOpenScroll
+PACKET_SEND.168 A8,PacketServerList
+PACKET_SEND.169 A9,PacketCharacterList
+PACKET_SEND.170 AA,PacketAttack
+PACKET_SEND.171 AB,PacketGumpValueInput
+PACKET_SEND.174 AE,PacketMessageUNICODE
+PACKET_SEND.175 AF,PacketDeath
+PACKET_SEND.176 B0,PacketGumpDialog
+PACKET_SEND.221 DD,PacketGumpDialog
+PACKET_SEND.178 B2,PacketChatMessage
+PACKET_SEND.183 B7,PacketTooltip
+PACKET_SEND.184 B8,PacketProfile
+PACKET_SEND.185 B9,PacketEnableFeatures
+PACKET_SEND.186 BA,PacketArrowQuest
+PACKET_SEND.188 BC,PacketSeason
+PACKET_SEND.189 BD,PacketClientVersionReq
+PACKET_SEND.191 BF,PacketExtended
+PACKET_SEND.193 C1,PacketMessageLocalised
+PACKET_SEND.200 C8,PacketVisualRange
+PACKET_SEND.204 CC,PacketMessageLocalisedEx
+PACKET_SEND.209 D1,PacketLogoutAck
+PACKET_SEND.212 D4,PacketDisplayBookNew
+PACKET_SEND.214 D6,PacketPropertyList
+PACKET_SEND.216 D8,PacketHouseDesign
+PACKET_SEND.220 DC,PacketPropertyListVersion
+PACKET_SEND.223 DF,PacketBuff
+PACKET_SEND.227 E3,PacketKREncryption
+PACKET_SEND.229 E5,PacketWaypointAdd
+PACKET_SEND.230 E6,PacketWaypointRemove
+PACKET_SEND.234 EA,PacketToggleHotbar
+PACKET_SEND.242 F2,PacketTimeSyncResponse
+PACKET_SEND.243 F3,PacketItemWorldNew
+PACKET_SEND.245 F5,PacketDisplayMapNew
+PACKET_SEND.246 F6,PacketMoveShip
+PACKET_SEND.247 F7,PacketContainer
+PACKET_SEND.249 F9,PacketGlobalChat
+
+
+
+
+[function paketleriyazdir]
+serv.deletefile receives.txt
+serv.deletefile send.txt
+
+for 0 255
+	if !(<isblank <def.PACKET_RECEIVE.<dlocal._for>>>)
+		args= <def.PACKET_RECEIVE.<dlocal._for>>
+		serv.writefile receives.txt PACKET<dlocal._for>=F_PACKET_RECEIVE_0x<argv0> / <argv1>
+	endif
+
+	if !(<isblank <def.PACKET_SEND.<dlocal._for>>>)
+		args= <def.PACKET_SEND.<dlocal._for>>
+		serv.writefile send.txt OUTPACKET<dlocal._for>=F_PACKET_SEND_0x<argv0> / <argv1>
+	endif
+ENDFOR
+
+
+for 0 255
+	if !(<isblank <def.PACKET_RECEIVE.<dlocal._for>>>)
+	args= <def.PACKET_RECEIVE.<dlocal._for>>
+		serv.writefile receives.txt [FUNCTION F_PACKET_RECEIVE_0x<argv0>]
+		serv.writefile receives.txt LOCAL.DESC <argv1>
+		serv.writefile receives.txt LOCAL.ID <argv0>
+		serv.writefile receives.txt LOCAL.Type Receive
+		serv.writefile receives.txt LOCAL.DETAIL=0
+		serv.writefile receives.txt REF1=<def.L1>UID.<def.L1>LOCAL.CHAR<def.R1>.UID<def.R1>
+		serv.writefile receives.txt IF (<def.L1>DLOCAL.DETAIL<def.R1>)
+		serv.writefile receives.txt 	FOR <def.L1>DLOCAL.NUM<def.R1>
+		serv.writefile receives.txt 		IF (<def.L1>DLOCAL.<def.L1>DLOCAL._FOR<def.R1><def.R1>)
+		serv.writefile receives.txt 			IF (STRMATCH('0','<def.L1>local.message<def.R1>'))
+		serv.writefile receives.txt 				local.message = <def.L1>serv.chr <def.L1>LOCAL.<def.L1>DLOCAL._FOR<def.R1><def.R1><def.R1>
+		serv.writefile receives.txt 			ELSE
+		serv.writefile receives.txt 				local.message .= <def.L1>serv.chr <def.L1>LOCAL.<def.L1>DLOCAL._FOR<def.R1><def.R1><def.R1>
+		serv.writefile receives.txt 			ENDIF
+		serv.writefile receives.txt 		ENDIF
+		serv.writefile receives.txt 	ENDFOR
+		serv.writefile receives.txt ENDIF
+		serv.writefile receives.txt SERV.LOG [ID=<def.L1>LOCAL.ID<def.R1>, Desc=<def.L1>LOCAL.DESC<def.R1>, Type=<def.L1>LOCAL.TYPE<def.R1>]: NUM:<def.L1>DLOCAL.NUM<def.R1>, STR:<def.L1>LOCAL.STR<def.R1>, STRLEN:<def.L1>EVAL STRLEN(<def.L1>LOCAL.STR<def.R1>)<def.R1> - <def.L1>QVAL (<def.L1>REF1.ISVALIDE<def.R1>)?CHAR:<def.L1>REF1.NAME<def.R1>/<def.L1>REF1<def.R1>:<def.R1>, IP: <def.L1>ARGS<def.R1>, <def.L1>QVAL (<def.L1>ISEMPTY <def.L1>LOCAL.ACCOUNT<def.R1><def.R1>)?:ACCOUNT: <def.L1>LOCAL.ACCOUNT<def.R1><def.R1> <def.L1>qval (<def.L1>DLOCAL.DETAIL<def.R1>)?[Detail: <def.L1>LOCAL.MESSAGE<def.R1>]:<def.R1> Detail: <def.L1>LOCAL.MESSAGE<def.R1>
+		serv.writefile receives.txt ------------
+		serv.writefile receives.txt ------------
+	endif
+
+	if !(<isblank <def.PACKET_SEND.<dlocal._for>>>)
+	args= <def.PACKET_SEND.<dlocal._for>>
+		serv.writefile send.txt [FUNCTION F_PACKET_SEND_0x<argv0>]
+		serv.writefile send.txt LOCAL.DESC <argv1>
+		serv.writefile send.txt LOCAL.ID <argv0>
+		serv.writefile send.txt LOCAL.Type Send
+		serv.writefile send.txt LOCAL.DETAIL=0
+		serv.writefile send.txt REF1=<def.L1>UID.<def.L1>LOCAL.CHAR<def.R1>.UID<def.R1>
+		serv.writefile send.txt IF (<def.L1>DLOCAL.DETAIL<def.R1>)
+		serv.writefile send.txt 	FOR <def.L1>DLOCAL.NUM<def.R1>
+		serv.writefile send.txt 		IF (<def.L1>DLOCAL.<def.L1>DLOCAL._FOR<def.R1><def.R1>)
+		serv.writefile send.txt 			IF (STRMATCH('0','<def.L1>local.message<def.R1>'))
+		serv.writefile send.txt 				local.message = <def.L1>serv.chr <def.L1>LOCAL.<def.L1>DLOCAL._FOR<def.R1><def.R1><def.R1>
+		serv.writefile send.txt 			ELSE
+		serv.writefile send.txt 				local.message .= <def.L1>serv.chr <def.L1>LOCAL.<def.L1>DLOCAL._FOR<def.R1><def.R1><def.R1>
+		serv.writefile send.txt 			ENDIF
+		serv.writefile send.txt 		ENDIF
+		serv.writefile send.txt 	ENDFOR
+		serv.writefile send.txt ENDIF
+		serv.writefile send.txt SERV.LOG [ID=<def.L1>LOCAL.ID<def.R1>, Desc=<def.L1>LOCAL.DESC<def.R1>, Type=<def.L1>LOCAL.TYPE<def.R1>]: NUM:<def.L1>DLOCAL.NUM<def.R1>, STR:<def.L1>LOCAL.STR<def.R1>, STRLEN:<def.L1>EVAL STRLEN(<def.L1>LOCAL.STR<def.R1>)<def.R1> - <def.L1>QVAL (<def.L1>REF1.ISVALIDE<def.R1>)?CHAR:<def.L1>REF1.NAME<def.R1>/<def.L1>REF1<def.R1>:<def.R1>, IP: <def.L1>ARGS<def.R1>, <def.L1>QVAL (<def.L1>ISEMPTY <def.L1>LOCAL.ACCOUNT<def.R1><def.R1>)?:ACCOUNT: <def.L1>LOCAL.ACCOUNT<def.R1><def.R1> <def.L1>qval (<def.L1>DLOCAL.DETAIL<def.R1>)?[Detail: <def.L1>LOCAL.MESSAGE<def.R1>]:<def.R1> Detail: <def.L1>LOCAL.MESSAGE<def.R1>
+		serv.writefile send.txt ------------
+		serv.writefile send.txt ------------
+	endif
+ENDFOR
+
+
+[EOF]

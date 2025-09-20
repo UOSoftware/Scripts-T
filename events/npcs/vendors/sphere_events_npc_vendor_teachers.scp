@@ -1,0 +1,9 @@
+
+[events e_generic_npc_vendor_teachers]
+ON=@DCLICK
+DIALOGCLOSE D_NPC_VENDOR_TEACHER
+DIALOG D_NPC_VENDOR_TEACHER
+RETURN 1
+
+
+[eof]

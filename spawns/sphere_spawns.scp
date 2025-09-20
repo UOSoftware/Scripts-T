@@ -1,0 +1,110 @@
+
+
+[SPAWN SPAWN_Undead_Weak]
+DEFNAME=SPAWN_Undead_Weak
+CATEGORY=Spawn Groups
+SUBSECTION=Undead
+DESCRIPTION=Weak Undead
+id=c_spectre 2
+id=c_skeleton_w_axe
+id=c_skeleton_w_sword
+id=c_skeleton 5
+id=c_zombie 10
+
+
+[SPAWN SPAWN_MaginciaTownMembers]
+DEFNAME=SPAWN_MaginciaTownMembers
+CATEGORY=Spawn Groups
+SUBSECTION=Humans
+DESCRIPTION=Magincia Town Members
+id=c_h_magincia_council_f 3
+id=c_h_magincia_council 3
+id=c_h_magincia_servant_f
+id=c_h_magincia_servant
+
+
+[SPAWN SPAWN_Undead_Strong]
+DEFNAME=SPAWN_Undead_Strong
+CATEGORY=Spawn Groups
+SUBSECTION=Undead
+DESCRIPTION=Strong Undead
+id=c_m_skeleton_mage 3
+id=c_liche 4
+id=c_m_liche_lord
+id=c_skeleton_w_sword
+
+
+[SPAWN spawn_WaterCreatures]
+CATEGORY=Spawn Groups
+SUBSECTION=Animals
+DESCRIPTION=Water Creatures
+ID=c_kappa
+ID=c_dolphin
+ID=c_elemental_water
+ID=c_kraken
+ID=c_sea_serpent
+ID=c_sea_serpent_deep
+
+[SPAWN spawn_JungleCreatures]
+CATEGORY=Spawn Groups
+SUBSECTION=Animals
+DESCRIPTION=Jungle Creatures
+ID=c_bear_black
+ID=c_bird
+ID=c_crane
+ID=c_ferret
+ID=c_gorilla
+ID=c_horse_gray
+ID=c_leopard
+ID=c_panther
+//ID=c_parrot
+ID=c_pig_big
+ID=c_slime
+ID=c_snake
+ID=c_wolf_dark
+ID=c_wolf_grey
+ID=c_wolf_silver
+
+[SPAWN spawn_SwampCreatures]
+CATEGORY=Spawn Groups
+SUBSECTION=Animals
+DESCRIPTION=Swamp Creatures
+ID=c_alligator
+ID=c_alligator_small
+ID=c_bird
+ID=c_bullfrog
+ID=c_chicken_lizard
+ID=c_crane
+ID=c_kappa
+ID=c_rat
+ID=c_rat_giant
+ID=c_slime
+ID=c_snake
+ID=c_swamp_tentacles
+ID=c_toad_giant
+
+/////////////////
+// City Spawns //
+/////////////////
+
+[SPAWN spawn_Villagers]
+CATEGORY=Spawn Groups
+SUBSECTION=Humans
+DESCRIPTION=Villagers
+ID=c_noble_f
+ID=c_noble
+ID=c_peasant_f
+ID=c_peasant
+ID=c_priest
+ID=c_priestess_f
+ID=c_actor_f
+ID=c_actor
+ID=c_artist
+ID=c_artist_f
+ID=c_bard_f
+ID=c_bard
+ID=c_sculptor_f
+ID=c_sculptor
+
+
+[EOF]
