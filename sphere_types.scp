@@ -7,7 +7,7 @@ dirt, grass, lava, snow, swamp, jungle, forest, acid,...)
 NOTE: The TERRAIN numbers below (if there are two of them, its a range of
 numbers) are not item tiles.
 
-For more information on how these special TYPEDEFs are used in the harvesting
+Formore information on how these special TYPEDEFs are used in the harvesting
 of resources, check the COMMENT section of the sphere_region.scp file.
 
 

@@ -2,7 +2,7 @@
 
 [COMMENT sphere_item_typedef_equipitem]
 The t_equipitem TYPEDEF is typically applied on every equipable item.
-For example:
+eg:
   t_clothing
   t_armor*
   t_weapon*

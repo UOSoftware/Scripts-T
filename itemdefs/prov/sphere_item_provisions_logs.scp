@@ -1,14 +1,3 @@
-
-// SPHERE by : Menasoft �1997-2015
-
-// All SPHERE script files and formats are copyright Menasoft & Partners.
-// This file may be freely edited for personal use, but may not be distributed
-// in whole or in part, in any format without express written permission from
-// Menasoft & Partners.  All donations and contributions
-// become the property of Menasoft & Partners.
-
-// FILE LAST UPDATED: Wednesday, April 1, 2015
-//
 VERSION=0.56c
 
 
@@ -17,7 +6,7 @@ In order to actually chop logs, a REGIONRESOURCE needs to exist for it, and a
 REGIONTYPE needs a REGION= entry to that REGIONRESOURCE... also that same
 REGIONTYPE must be associated to the t_tree Terrain TYPEDEF.
 
-For more information on how wood is choped, check the COMMENT section of the
+Formore information on how wood is choped, check the COMMENT section of the
 sphere_region.scp file.
 
 
