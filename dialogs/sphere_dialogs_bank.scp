@@ -1,5 +1,4 @@
-
-
+VERSION=0.56T
 
 [dialog d_bank]
 <DEF.DlgStartPos>

@@ -16,6 +16,9 @@ ENDIF
 
 
 [DIALOG d_where]
+30,30
+RESIZEPIC 0 0 9200 395 <QVAL (<ROOM>)?545:335>
+
 
 
 [DIALOG d_where_staff]

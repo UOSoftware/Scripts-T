@@ -1,3 +1,5 @@
+VERSION=0.56T
+
 [COMMENT sphere_msgs]
 // These lines are commented out for a reason.
 // If you want to change a message, uncomment the appropriate line and change it.
