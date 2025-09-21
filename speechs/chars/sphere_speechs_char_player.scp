@@ -2,6 +2,8 @@ VERSION=0.56T
 
 [SPEECH spk_generic_chars_players]
 ON=*
+// SERV.B spk_generic_chars_players: <args> / <name>
+
 IF (<SRC.ACTION> == ID(SKILL_MAGERY)) || (<SRC.ACTION> == SKILL_MAGERY)
 	SRC.SYSMESSAGE @38,,1,1 Büyü yaparken konuşamazsınız.
 	RETURN 1

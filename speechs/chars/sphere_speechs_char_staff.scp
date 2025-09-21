@@ -2,6 +2,8 @@ VERSION=0.56T
 
 [SPEECH spk_generic_chars_staffs]
 ON=*
+// SERV.B spk_generic_chars_staffs: <args> / <name>
+
 IF (<SRC.ISGM> && <SRC.FLAGS>&STATF_INSUBSTANTIAL)
 	SERV.ALLCLIENTS Func_Staff_To_Staff_Chat [Yetkili] <SRC.NAME> : <ARGS>
 	RETURN 

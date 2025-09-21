@@ -12,9 +12,6 @@ ARMOR=100
 CATEGORY=Civilized
 SUBSECTION=Guards & Law
 DESCRIPTION=Guard (male)
-TSPEECH=spk_generic_npc_vendor_guards
-
-
 
 ON=@Create
 NPC=brain_guard
@@ -59,8 +56,6 @@ ARMOR=100
 CATEGORY=Civilized
 SUBSECTION=Guards & Law
 DESCRIPTION=Guard (female)
-TSPEECH=spk_generic_npc_vendor_guards
-
 
 ON=@Create
 NPC=brain_guard

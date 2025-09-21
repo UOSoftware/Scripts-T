@@ -8,20 +8,15 @@ IF (<SRC.FLAGS>&STATF_DEAD)
 ELSEIF (<SRC.ISDIFF 2,<UID>>)
 	SRC.SYSMESSAGELOC <def.tcolor_red>,600018,<JOB> <NAME>
 	RETURN 1
-ELSEIF (<SRC.ACTION> != -1 && <SERV.SKILL.<SRC.ACTION>.FLAGS>&SKF_CRAFT)
+ELSEIF ((<SRC.ACTION> != -1) && (<SERV.SKILL.<SRC.ACTION>.FLAGS>&SKF_CRAFT))
 	SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>,Eşya üretimi yapıyorken eşya satışı yapamazsınız.
 	RETURN 1
 ENDIF
-// SELL
-// FACE <SRC>
-// SRC.TARGETF Func_Generic_Npc_Vendor_Shopkeeper_Sell <UID>
-// SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Hangi eşyayı satmak istiyorsun?
-// RETURN 1
-
+SELL
+FACE <SRC>
 
 on=*teach*
 sayu Ben bir eğitmen değilim.
-
 
 ON=*buy*
 IF (<SRC.FLAGS>&STATF_DEAD) 
@@ -32,168 +27,6 @@ ELSEIF (<SRC.ISDIFF 2,<UID>>)
 	RETURN 1
 ENDIF
 BUY
-
-
-
-
-
-[FUNCTION IsSalableItem]
-IF (<TYPE> == T_GOLD) || (<BASEID> == I_BACKPACK) || (<TYPE> == T_FIGURINE) || (<TYPE> == T_CONTAINER)
-	RETURN 0
-ELSEIF (<ATTR>&ATTR_NEWBIE)
-	RETURN 0
-ELSEIF (<ATTR>&ATTR_MOVE_NEVER)
-	RETURN 0
-ELSEIF !(<VALUE>)
-	RETURN 0
-ELSEIF (<AMOUNT> <= 0)
-	RETURN 0
-ENDIF
-RETURN 1
-
-
-// targetli satış
-[FUNCTION Func_Generic_Npc_Vendor_Shopkeeper_Sell]
-REF1=<ARGS> // VENDOR
-IF !(<REF1.ISVALIDE>)
-	SRC.SYSMESSAGELOC <def.tcolor_red>,600072 // Varlık bulunamadı.
-	RETURN 1
-ELSEIF !(<ARGO>)
-	SRC.SYSMESSAGELOC <def.tcolor_red>,600022 // Bir hata oluştu!
-	RETURN 1
-ELSEIF !(<ARGO.ISITEM>)
-	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bir eşya değil.
-	RETURN 1
-ELSEIF !(<SRC.ISINPACK <ARGO>>)
-	SRC.SYSMESSAGELOC <def.tcolor_red>,600036,<ARGO.NAME>	// Bunu (~1_val~) kullanabilmek için çantanızda veya üzerinizde olmalıdır.
-	RETURN 1
-ELSEIF (<EVAL <ARGO.VALUE>*<ARGO.AMOUNT>> > 2000000)
-	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Sattığınız eşyanın değeri 2.000.000 gpyi geçmemelidir.
-	RETURN 1
-ELSEIF !(<ARGO.IsSalableItem>)
-	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu eşyayı satamazsınız.
-	RETURN 1
-ELSEIF (<SRC.ISDIFF 2,<ARGO>>)
-	SRC.SYSMESSAGELOC <def.tcolor_red>,600018,<JOB> <NAME>
-	RETURN 1
-ELSEIF (<SRC.FLAGS>&STATF_DEAD) 
-	SRC.SYSMESSAGELOC <def.tcolor_red>,600027 // "Ölü durumdayken bu işlemi yapamazsınız."
-	RETURN 1
-ENDIF
-IF (<ARGO.BASEID> == I_FISH_CUT_COOKED)
-	IF (<ARGO.AMOUNT> > 50000)
-		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bir seferde satabileceğiniz pişmiş balık miktarı 50.000 adetten fazla olamaz.
-		RETURN 1
-	ENDIF
-ELSEIF (<ARGO.TYPE> == T_SCROLL)
-	IF (<ARGO.AMOUNT> > 500) 
-		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bir seferde satabileceğiniz scroll miktarı 500 adetten fazla olamaz.
-		RETURN 1
-	ENDIF
-ELSE
-	IF (<ARGO.AMOUNT> > 10000) 
-		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bir seferde satabileceğiniz eşya miktarı 10.000 adetten fazla olamaz.
-		RETURN 1
-	ENDIF
-ENDIF
-LOCAL.ESYADEGER <EVAL <ARGO.VALUE>*<ARGO.AMOUNT>>
-IF (<DLOCAL.ESYADEGER> <= 0)
-	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Eşyanın bir değeri yok.
-	RETURN 1
-ENDIF
-REF2=<REF1.FINDLAYER.LAYER_VENDOR_BUYS>
-// layer_vendor_stock   26 // Satıcının yeniden stoklayıp oyunculara satacağı şeyler
-// layer_vendor_extra   27 // Satıcının oyunculara yeniden satacağı ancak stokları yenilenmeyen şeyler. (Oyunculardan satın alınan)
-// layer_vendor_buys    28 // Satıcının oyunculardan satın alabileceği ancak stokta bulundurmadığı şeyler.
-
-IF (<REF2.ISVALID> && <REF2.RESCOUNT>)
-	REF1.CLEARTAGS BuyList
-	FOR 0 <EVAL <REF2.RESCOUNT>-1>
-		REF3=<REF2.FINDCONT.<DLOCAL._FOR>>
-		IF (<REF3.ISVALID>)
-			REF1.TAG0.BuyList.Count ++
-			REF1.TAG0.BuyList.<REF1.dTAG0.BuyList.Count> <REF3.BASEID>
-		ENDIF
-	ENDFOR
-	REF2.EMPTY
-ENDIF
-IF (<REF1.DTAG0.BuyList.Count>)
-	FOR 1 <REF1.DTAG0.BuyList.Count>
-		LOCAL.BuyItem=<REF1.TAG0.BuyList.<dlocal._for>>
-		IF (<LOCAL.BuyItem> && <ARGO.BASEID> == <LOCAL.BuyItem>)
-			LOCAL.BUYALLOW ++
-		ENDIF
-	ENDFOR
-	IF !(<DLOCAL.BUYALLOW>)
-		SRC.SYSMESSAGE @38,,1,1 Bu eşya vendorun satın alabileceği bir eşya değil.
-		REF1.SAYU Bu tür eşyaları almıyorum.
-		
-		SRC.CTAG.Dialog.Generic_Npc_Vendor_Shopkeepers_Buylist.Page=1
-		SRC.CTAG.Dialog.Generic_Npc_Vendor_Shopkeepers_Buylist.MaxPage=<eval (((<REF1.dTAG0.BuyList.Count>-1)/15)+1)>
-		DIALOGCLOSE d_generic_npc_vendor_shopkeepers_buylist
-		REF1.DIALOG d_generic_npc_vendor_shopkeepers_buylist
-		RETURN 1
-	ENDIF
-ENDIF
-
-SRC.NEWGOLD <DLOCAL.ESYADEGER>
-SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, Satış bedeli: <Bolukayir <DLOCAL.ESYADEGER>> gp
-SRC.Logger <ARGO.NAME> isimli esyayi <Bolukayir <DLOCAL.ESYADEGER>> gpe satti. 
-TARGETF Func_Generic_Npc_Vendor_Shopkeeper_Sell <REF1>
-SOUND 032
-ARGO.REMOVE
-RETURN 1
-
-
-
-
-
-[DIALOG d_generic_npc_vendor_shopkeepers_buylist]
-<DEF.DSP>
-
-RESIZE 0,0,320,470,<job> <name> Satın Alabileceği Eşyalar Listesi
-
-DTEXT 20 35 38 Bu eşya satın alma listesinde yok.
-
-LOCAL.Y=55
-
-FOR <eval ((<SRC.CTAG0.Dialog.Generic_Npc_Vendor_Shopkeepers_Buylist.Page> - 1) * 15) + 1> <eval (<SRC.CTAG0.Dialog.Generic_Npc_Vendor_Shopkeepers_Buylist.Page> * 15)>
-	LOCAL.BuyItem=<TAG0.BuyList.<dlocal._for>>
-	IF (<LOCAL.BuyItem>)
-		TILEPICHUE +30 <EVAL (<DLOCAL.Y>)> <SERV.ITEMDEF.<LOCAL.BuyItem>.ID> 0
-		DCROPPEDTEXT +70 <EVAL (<DLOCAL.Y>)> 80 25 1000 <SERV.ITEMDEF.<LOCAL.BuyItem>.NAME>
-		DCROPPEDTEXT +170 <EVAL (<DLOCAL.Y>)> 150 25 1000 <BOLUKAYIR <SERV.ITEMDEF.<LOCAL.BuyItem>.VALUE>> gp
-		LOCAL.Y += 25
-	ENDIF
-ENDFOR
-
-DORIGIN 20 430
-IF (<SRC.DCTAG0.Dialog.Generic_Npc_Vendor_Shopkeepers_Buylist.Page> > 1)
-	BUTTON +5 +0 015a1 015a3 1 0 1
-ENDIF
-IF (<SRC.DCTAG0.Dialog.Generic_Npc_Vendor_Shopkeepers_Buylist.Page> < <SRC.DCTAG0.Dialog.Generic_Npc_Vendor_Shopkeepers_Buylist.MaxPage>)
-	BUTTON +270 +0 015a4 015a6 1 0 2
-ENDIF
-DHTMLGUMP +100 +0 125 25 1 0 <DEF.CENTER><def.bfont_white><SRC.dCTAG0.Dialog.Generic_Npc_Vendor_Shopkeepers_Buylist.Page> / <SRC.dCTAG0.Dialog.Generic_Npc_Vendor_Shopkeepers_Buylist.MaxPage><DEF.CENTERE><DEF.BFONTE>
-
-
-[DIALOG d_generic_npc_vendor_shopkeepers_buylist button]
-ON=0
-CLEARCTAGS Dialog.Generic_Npc_Vendor_Shopkeepers_Buylist
-
-ON=1
-IF (<SRC.dCTAG0.Dialog.Generic_Npc_Vendor_Shopkeepers_Buylist.Page> > 1)
-	SRC.CTAG0.Dialog.Generic_Npc_Vendor_Shopkeepers_Buylist.Page --
-ENDIF
-DIALOG d_generic_npc_vendor_shopkeepers_buylist
-
-ON=2
-IF (<SRC.dCTAG0.Dialog.Generic_Npc_Vendor_Shopkeepers_Buylist.Page> < <SRC.DCTAG0.Dialog.Generic_Npc_Vendor_Shopkeepers_Buylist.MaxPage>)
-	SRC.CTAG0.Dialog.Generic_Npc_Vendor_Shopkeepers_Buylist.Page ++
-ENDIF
-DIALOG d_generic_npc_vendor_shopkeepers_buylist
-
-
-
+FACE <SRC>
 
 [EOF]

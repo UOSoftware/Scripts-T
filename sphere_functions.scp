@@ -1,5 +1,12 @@
 VERSION=0.56T
 
+[COMMENT sphere_functions]
+Komutlar;
+Logger = Herhangi bir nesne için veya bağımsız olarak özelleştirilmiş log komutu.
+FUNC_GIVE_HITS_FIX = Hitsi direkt olarak + yapıldığında bazen bug olabiliyor, bu komutla verilebilir.
+
+
+
 [FUNCTION Logger]
 // TREF_SERV          000001
 // TREF_FILE          000002
