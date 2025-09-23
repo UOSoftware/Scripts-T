@@ -148,15 +148,17 @@ packets/
 // maps
 //*****************************************
 
-// map0 //
-maps/map0/sphere_map0.scp
-// maps/map0/sphere_map0_ml.scp
-// maps/map0/sphere_map0_sa.scp
-// maps/map0/sphere_map0_hs.scp
-maps/map0/sphere_map_points0.scp
-// maps/map0/sphere_map_points0_ml.scp
-// maps/map0/sphere_map_points0_hs.scp
-// maps/map0/sphere_map_points0_tol.scp
+// Map0
+maps/map0/sphere_map0_areadefs.scp
+maps/map0/sphere_map0_dungeons.scp
+maps/map0/sphere_map0_graveyards.scp
+maps/map0/sphere_map0_jails.scp
+maps/map0/sphere_map0_moongates.scp
+maps/map0/sphere_map0_roomdefs.scp
+maps/map0/sphere_map0_shrines.scp
+maps/map0/sphere_map0_towns.scp
+maps/map0/points/
+maps/map0/points/teleporters/
 
 // map1 //
 // maps/map1/sphere_map1.scp

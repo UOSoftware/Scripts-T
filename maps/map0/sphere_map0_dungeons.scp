@@ -1,0 +1,723 @@
+
+// Covetous
+
+// [AREADEF a_covetous_7] // ?? a_covetous_level_1_1 ile ayni
+// EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+// NAME=Covetous
+// GROUP=Covetous
+// FLAGS=REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND|REGION_ANTIMAGIC_RECALL_IN
+// P=5456,1862,0,0
+// RECT=5376,1793,5577,2048,0
+// RECT=5576,1791,5633,2048,0
+
+[AREADEF a_covetous_entrance_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+NAME=Covetous Entrance
+GROUP=Covetous
+FLAGS=REGION_FLAG_NOBUILDING
+P=2499,918,0,0
+RECT=2495,914,2503,919,0
+
+[AREADEF a_covetous_level_1_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Covetous Level 1
+GROUP=Covetous
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5456,1862,0,0
+RECT=5380,1848,5421,1963,0
+RECT=5421,1848,5510,1943,0
+
+[AREADEF a_covetous_level_2_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Covetous Level 2
+GROUP=Covetous
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5613,1998,0,0
+RECT=5425,1948,5624,2044,0
+RECT=5384,1964,5425,2030,0
+
+[AREADEF a_covetous_level_3_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Covetous Level 3
+GROUP=Covetous
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5579,1925,0,0
+RECT=5532,1821,5630,1930,0
+
+[AREADEF a_covetous_level_4_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Covetous Level 4
+GROUP=Covetous
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5539,1808,0,0
+RECT=5498,1797,5565,1821,0
+
+[AREADEF a_covetous_level_5_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Covetous Level 5
+GROUP=Covetous
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5467,1809,0,0
+RECT=5400,1794,5489,1834,0
+
+// Wrong
+
+[AREADEF a_wrong_entrance_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+NAME=Wrong Entrance
+GROUP=Wrong
+FLAGS=REGION_FLAG_NOBUILDING
+P=2041,217,14,0
+RECT=2038,213,2047,221,0
+RECT=2030,221,2055,234,0
+
+// [AREADEF a_wrong_6] // ?? a_wrong_level_1_1 ile ayni
+// EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+// NAME=Wrong
+// GROUP=Wrong
+// FLAGS=REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+// P=5825,599,0,0
+// RECT=5633,511,5886,1021,0
+
+[AREADEF a_wrong_level_1_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Wrong Level 1
+GROUP=Wrong
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5825,630,0,0
+RECT=5773,513,5884,636,0
+
+[AREADEF a_wrong_level_2_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Wrong Level 2
+GROUP=Wrong
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5690,568,25,0
+RECT=5641,516,5742,586,0
+
+[AREADEF a_wrong_level_3_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Wrong Level 3
+GROUP=Wrong
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5703,639,0,0
+RECT=5685,623,5722,668,0
+
+[AREADEF a_wrong_level_4_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Wrong Level 4
+GROUP=Wrong
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5734,869,0,0
+RECT=5665,785,5873,1017,0
+
+// Shame
+
+// [AREADEF a_shame_7] // ?? a_shame_level_1_1 ile ayni
+// EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+// NAME=Shame
+// GROUP=Shame
+// FLAGS=REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+// P=5395,126,0,0
+// RECT=5377,2,5634,262,0
+// RECT=5635,2,5895,126,0
+
+[AREADEF a_shame_entrance_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+NAME=Shame Entrance
+GROUP=Shame
+FLAGS=REGION_FLAG_NOBUILDING
+P=513,1561,0,0
+RECT=510,1557,517,1562,0
+
+[AREADEF a_shame_level_1_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Shame Level 1
+GROUP=Shame
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5395,126,0,0
+RECT=5379,5,5498,131,0
+
+[AREADEF a_shame_level_2_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Shame Level 2
+GROUP=Shame
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5515,15,5,0
+RECT=5507,3,5632,126,0
+
+[AREADEF a_shame_level_3_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Shame Level 3
+GROUP=Shame
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5516,142,25,0
+RECT=5379,133,5626,261,0
+
+[AREADEF a_shame_level_4_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Shame Level 4
+GROUP=Shame
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5876,22,-10,0
+RECT=5638,2,5889,122,0
+
+[AREADEF a_shame_level_4_entryway_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Shame Level 4 Entryway
+GROUP=Shame
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5506,180,0,0
+RECT=5495,157,5520,194,0
+
+// Hythloth
+
+[AREADEF a_hythloth_entrance_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+NAME=Hythloth Entrance
+GROUP=Hythloth
+FLAGS=REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=4722,3815,0,0
+RECT=4717,3814,4727,3816,0
+
+// [AREADEF a_hythloth_6] // ?? a_hythloth_level_1_1 ile ayn�
+// EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+// NAME=Hythloth
+// GROUP=Hythloth
+// FLAGS=REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+// P=5905,22,44,0
+// RECT=5898,2,6136,246,0
+
+[AREADEF a_hythloth_level_1_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Hythloth Level 1
+GROUP=Hythloth
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5906,22,44,0
+RECT=5902,15,6001,114,0
+
+[AREADEF a_hythloth_level_2_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Hythloth Level 2
+GROUP=Hythloth
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5978,171,0,0
+RECT=5911,143,6002,243,0
+
+[AREADEF a_hythloth_level_3_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Hythloth Level 3
+GROUP=Hythloth
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=6083,148,-22,0
+RECT=6021,141,6130,235,0
+
+[AREADEF a_hythloth_level_4_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Hythloth Level 4
+GROUP=Hythloth
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=6059,92,22,0
+RECT=6047,28,6122,107,0
+
+// Destard
+
+[AREADEF a_destard_entrance_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+NAME=Destard Entrance
+GROUP=Destard
+FLAGS=REGION_FLAG_NOBUILDING
+P=1176,2636,0,0
+RECT=1173,2633,1181,2638,0
+
+// [AREADEF a_destard_5] // a_destard_level_1_1 ile ayni
+// EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+// NAME=Destard
+// GROUP=Destard
+// FLAGS=REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+// P=5243,1004,0,0
+// RECT=5120,770,5371,1028,0
+
+[AREADEF a_destard_level_1_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Destard Level 1
+GROUP=Destard
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5243,1004,0,0
+RECT=5121,771,5366,1025,0
+
+[AREADEF a_destard_level_2_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Destard Level 2
+GROUP=Destard
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5144,802,5,0
+RECT=5123,794,5186,885,0
+
+[AREADEF a_destard_level_3_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Destard Level 3
+GROUP=Destard
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5136,985,10,0
+RECT=5125,954,5154,1020,0
+RECT=5153,982,5198,1020,0
+
+// Despise
+
+
+[AREADEF a_despise_entrance_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+NAME=Despise Entrance
+GROUP=Despise
+FLAGS=REGION_FLAG_NOBUILDING
+P=1297,1081,0,0
+RECT=1294,1078,1299,1084,0
+
+// [AREADEF a_despise_6] // a_despise_level_1_1 ile ayni
+// EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+// NAME=Despise
+// GROUP=Despise
+// FLAGS=REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+// P=5501,570,59,0
+// RECT=5377,516,5631,1022,0
+
+[AREADEF a_despise_level_1_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Despise Level 1
+GROUP=Despise
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5501,570,59,0
+RECT=5378,517,5515,637,0
+
+[AREADEF a_despise_level_2_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Despise Level 2
+GROUP=Despise
+FLAGS=REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5583,632,30,0
+RECT=5566,622,5591,643,0
+
+[AREADEF a_despise_level_3_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Despise Level 3
+GROUP=Despise
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5518,673,20,0
+RECT=5378,644,5530,767,0
+
+[AREADEF a_despise_level_4_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Despise Level 4
+GROUP=Despise
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5405,860,45,0
+RECT=5381,774,5627,1020,0
+
+
+// Deceit
+
+[AREADEF a_deceit_entrance_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+NAME=Deceit Entrance
+GROUP=Deceit
+FLAGS=REGION_FLAG_NOBUILDING
+P=4111,432,5,0
+RECT=4108,428,4116,432,0
+
+
+// [AREADEF a_deceit_6] // a_deceit_level_1_1 ile ayni
+// EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+// NAME=Deceit
+// GROUP=Deceit
+// FLAGS=REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+// P=5187,635,0,0
+// RECT=5122,518,5370,770,0
+
+[AREADEF a_deceit_level_1_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Deceit Level 1
+GROUP=Deceit
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5187,635,0,0
+RECT=5135,526,5235,642,0
+
+[AREADEF a_deceit_level_2_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Deceit Level 2
+GROUP=Deceit
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5307,536,0,0
+RECT=5275,525,5355,634,0
+
+[AREADEF a_deceit_level_3_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Deceit Level 3
+GROUP=Deceit
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5138,653,0,0
+RECT=5124,644,5234,769,0
+
+[AREADEF a_deceit_level_4_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Deceit Level 4
+GROUP=Deceit
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5307,655,0,0
+RECT=5252,644,5339,765,0
+
+// Ice Dungeon
+
+[AREADEF a_ice_dungeon_entrance_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+NAME=Ice Dungeon Entrance
+GROUP=T2A Dungeons
+FLAGS=REGION_FLAG_NOBUILDING
+P=5208,2322,32,0
+RECT=5203,2320,5209,2325,0
+
+[AREADEF a_ice_dungeon_orc_fort_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Ice Dungeon Orc Fort
+GROUP=T2A Dungeons
+FLAGS=REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5833,328,19,0
+RECT=5799,316,5870,381,0
+
+// [AREADEF a_ice_dungeon_5] // a_ice_dungeon_level_1_1 ile ayni
+// EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+// NAME=Ice Dungeon
+// GROUP=T2A
+// FLAGS=REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+// P=5876,148,25,0
+// RECT=5638,128,5896,310,0
+// RECT=5638,288,5724,372,0
+// RECT=5784,287,5896,387,0
+
+[AREADEF a_ice_dungeon_level_1_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Ice Dungeon Level 1
+GROUP=T2A Dungeons
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5874,242,-4,0
+RECT=5663,130,5891,274,0
+
+[AREADEF a_ice_dungeon_lair_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Ice Dungeon Lair
+GROUP=T2A Dungeons
+FLAGS=REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5702,305,0,0
+RECT=5649,294,5713,350,0
+
+// Fire Dungeon
+
+// [AREADEF a_fire_dungeon_4] // a_fire_dungeon_level_1_1 ile ayni yer
+// EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+// NAME=Fire Dungeon
+// GROUP=T2A
+// FLAGS=REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+// P=5790,1416,40,0
+// RECT=5627,1282,5887,1491,0
+// RECT=5726,1489,5887,1521,0
+// EVENTS=r_dungeon
+
+[AREADEF a_fire_dungeon_entrance_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+NAME=Fire Dungeon Entrance
+GROUP=T2A Dungeons
+FLAGS=REGION_FLAG_NOBUILDING
+P=5758,2908,0,0
+RECT=5756,2906,5760,2911,0
+
+[AREADEF a_fire_dungeon_level_1_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Fire Dungeon Level 1
+GROUP=T2A Dungeons
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5787,1415,40,0
+RECT=5663,1402,5884,1488,0
+RECT=5727,1480,5884,1519,0
+RECT=5764,1284,5884,1408,0
+
+[AREADEF a_fire_dungeon_level_2_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Fire Dungeon Level 2
+GROUP=T2A Dungeons
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5702,1315,1,0
+RECT=5630,1284,5763,1401,0
+RECT=5630,1397,5662,1456,0
+
+// [AREADEF a_fire_dungeon_exit_1] // zaten dungeon icinde bir yer ekstra alan cizmeye gerek yok.
+// EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+// NAME=Fire Dungeon Exit
+// GROUP=T2A Entrances & Exits
+// FLAGS=REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+// P=5687,1422,0,0
+// RECT=5682,1419,5692,1425,0
+
+// Other Dungeons
+
+
+// [AREADEF a_dungeons] // cok genel bir yeri kapsiyor. alan aslinda despise
+// EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+// NAME=Dungeons
+// GROUP=ALLMAP
+// FLAGS=REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+// P=5554,887,30,0
+// RECT=5120,1,6144,2303,0
+// RECT=5170,1917,5190,1944,0
+// RECT=5290,1955,5328,1987,0
+// RECT=5197,1984,5210,1997,0
+// RECT=6039,1327,6129,1385,0
+// RECT=6039,1385,6081,1411,0
+
+[AREADEF a_dungeon_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Dungeon
+GROUP=Other Dungeons
+P=6091,1313,15,0
+RECT=6057,1285,6137,1327,0
+
+[AREADEF a_dungeon_2]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Dungeon
+GROUP=Other Dungeons
+P=5477,1410,0,0
+RECT=5377,1284,5624,1507,0
+
+[AREADEF a_dungeon_3]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Dungeon
+GROUP=Other Dungeons
+P=5248,1462,0,0
+RECT=5125,1409,5372,1516,0
+
+[AREADEF a_dungeon_4]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Orc Cave Level 2
+GROUP=Other Dungeons
+P=5354,1307,0,0
+RECT=5284,1284,5371,1388,0
+
+[AREADEF a_dungeon_5]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Dungeon
+GROUP=Other Dungeons
+P=5132,1324,0,0
+RECT=5124,1284,5230,1390,0
+
+[AREADEF a_dungeon_6]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Dungeon
+GROUP=Other Dungeons
+P=5296,1905,0,0
+RECT=5259,1873,5333,1937,0
+
+[AREADEF a_dungeon_7]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Dungeon
+GROUP=Other Dungeons
+P=5230,1963,0,0
+RECT=5194,1942,5266,1984,0
+
+[AREADEF a_dungeon_8]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Orc Cave Level 3
+GROUP=Other Dungeons
+P=5304,2012,0,0
+RECT=5265,1987,5363,2045,0
+
+[AREADEF a_dungeon_9]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Dungeon
+GROUP=Other Dungeons
+P=5217,2024,0,0
+RECT=5185,2006,5249,2042,0
+
+[AREADEF a_dungeon_10]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Orc Cave Level 1
+GROUP=Other Dungeons
+P=5144,1982,0,0
+RECT=5131,1945,5162,2021,0
+
+[AREADEF a_dungeon_11]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Dungeon
+GROUP=Other Dungeons
+P=5185,1940,0,0
+RECT=5172,1876,5222,1919,0
+
+[AREADEF a_dungeon_12]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Dungeon
+GROUP=Other Dungeons
+P=5144,1879,0,0
+RECT=5126,1863,5171,1917,0
+
+[AREADEF a_dungeon_13]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Dungeon
+GROUP=Other Dungeons
+P=5305,1857,0,0
+RECT=5297,1805,5345,1863,0
+
+[AREADEF a_dungeon_14]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Dungeon
+GROUP=Other Dungeons
+P=5221,1862,0,0
+RECT=5200,1813,5271,1865,0
+
+[AREADEF a_dungeon_15]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Dungeon
+GROUP=Other Dungeons
+P=5164,1829,0,0
+RECT=5130,1810,5169,1847,0
+
+[AREADEF a_dungeon_16]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Dungeon
+GROUP=Other Dungeons
+P=5268,1755,0,0
+RECT=5244,1748,5276,1780,0
+
+[AREADEF a_dungeon_17]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Dungeon
+GROUP=Other Dungeons
+P=5212,1748,0,0
+RECT=5197,1725,5227,1763,0
+
+[AREADEF a_dungeon_18]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Dungeon
+GROUP=Other Dungeons
+P=5187,1777,0,0
+RECT=5179,1765,5228,1788,0
+
+[AREADEF a_dungeon_19]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Dungeon
+GROUP=Other Dungeons
+P=5954,318,0,0
+RECT=5902,263,6007,374,0
+
+[AREADEF a_dungeon_20]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Dungeon
+GROUP=Other Dungeons
+P=5951,447,22,0
+RECT=5895,392,6008,502,0
+
+[AREADEF a_dungeon_21]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Dungeon
+GROUP=Other Dungeons
+P=6079,447,0,0
+RECT=6027,391,6132,504,0
+
+[AREADEF a_dungeon_22]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Dungeon
+GROUP=Other Dungeons
+P=6078,317,0,0
+RECT=6020,260,6137,374,0
+
+[AREADEF a_dungeon_23]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Dungeon
+GROUP=Other Dungeons
+P=5505,446,0,0
+RECT=5380,384,5631,509,0
+
+[AREADEF a_dungeon_24]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_dungeons
+NAME=Dungeon
+GROUP=Other Dungeons
+P=5504,322,0,0
+RECT=5381,262,5628,382,0
+
+[AREADEF a_dungeon_solen]
+NAME=Solen hive
+FLAGS=region_antimagic_recall_in|region_antimagic_gate|region_flag_nobuilding|region_flag_underground
+RECT=5640,1777,5935,2039,0
+P=5803,1920,0,0
+GROUP=Other Dungeons
+
+// ML
+
+[AREADEF a_ml_dungeon_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+NAME=Sanctuary
+GROUP=ML Dungeons
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=6170,195,-10,0
+RECT=6141,0,6401,257,0
+
+[AREADEF a_ml_dungeon_2]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+NAME=Prism of Light
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+GROUP=ML Dungeons
+P=6475,188,-2,0
+RECT=6448,17,6656,256,0
+
+[AREADEF a_ml_dungeon_3]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+NAME=Palace of Paroxysmus
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+GROUP=ML Dungeons
+P=6306,403,60,0
+RECT=6198,316,6563,676,0
+
+[AREADEF a_ml_dungeon_4]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+NAME=The Heartwood
+GROUP=ML Dungeons
+FLAGS=REGION_FLAG_NO_PVP
+P=7035,409,12,0
+RECT=6907,253,7166,512,0
+
+[AREADEF a_ml_dungeon_5]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+NAME=Painted Caves
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+GROUP=ML Dungeons
+P=6308,892,0,0
+RECT=6243,846,6315,919,0
+
+[AREADEF a_ml_dungeon_6]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+NAME=Blighted Grove
+FLAGS=REGION_ANTIMAGIC_RECALL_IN|REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+GROUP=ML Dungeons
+P=6500,890,2,0
+RECT=6446,814,6596,974,0
+
+
+[AREADEF a_entrance_to_below_terathan_keep_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+NAME=Terathan Keep Entrance Inside
+GROUP=T2A Dungeons
+FLAGS=REGION_FLAG_NOBUILDING|REGION_FLAG_UNDERGROUND
+P=5342,1601,0,0
+RECT=5339,1597,5346,1605,0
+
+
+[AREADEF a_terathan_keep_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+NAME=Terathan Keep Entrance Outside
+GROUP=T2A
+FLAGS=REGION_FLAG_NOBUILDING
+P=5451,3140,-60,0
+RECT=5124,1532,5371,1725,0
+RECT=5251,1725,5371,1748,0
+RECT=5276,1747,5371,1792,0
+RECT=5397,3083,5496,3176,0
+
+
+[eof]

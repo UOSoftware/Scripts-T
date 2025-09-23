@@ -92,6 +92,10 @@ f_onitem_create
 f_onclient_exceed_network_quota
 f_onclient_unknown_client_data
 
+// Commands
+f_onclient_helppage
+f_onclient_add
+
 // Dialog
 f_onclient_dialog_onbutton
 f_onclient_dialog_onclose
@@ -456,6 +460,22 @@ RETURN 2
 //    1 --> not log message
 SERV.LOG (<LOCAL.ACCOUNT>,<LOCAL.IP>)Saldiri client ile giris denemesi. Buranin altinda istersneiz acc bloke edip isterseniz ip bloke edebilirsiniz.
 RETURN 0
+
+
+// Commands
+// [FUNCTION f_onclient_helppage] // Bu helppage scripti içinde
+
+
+[FUNCTION f_onclient_add]
+IF (<ISBLANK <SRC.TAG0.RESTYPE_DLG.TYPE>>)
+	SRC.TAG0.RESTYPE_DLG.TYPE=ITEMDEF
+	SRC.TAG0.RESTYPE_DLG.WHERE="restype='<SRC.TAG0.RESTYPE_DLG.TYPE>'"
+ENDIF
+
+SRC.TAG0.RESTYPE_DLG.ORDER="name ASC"
+SRC.TAG0.RESTYPE_DLG.INDEX=0
+DIALOGCLOSE D_RESTYPES_DEED
+DIALOG D_RESTYPES_DEED
 
 
 // Dialog

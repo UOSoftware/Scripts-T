@@ -432,43 +432,44 @@ midi_TheVesperMist		102
 // need to be defined. needs and aversions
 // none 0
 // area types.
-r_guardpost           t_junk
-r_docks               t_junk
-r_foliage             r_jungle
-r_desert              t_junk
-r_plains              t_junk
-r_civilization        t_junk
-r_caves               t_junk
-r_stables             t_junk
-r_house               t_junk
-r_snow                t_junk
-r_magical             t_junk
-r_mountains           t_junk
-r_mountains_volcanic  t_junk
-r_darkness            t_junk
-r_light               t_junk
-r_sewers              t_junk
+//r_guardpost           t_junk
+//r_docks               t_junk
+//r_foliage             r_jungle
+//r_desert              t_junk
+//r_plains              t_junk
+//r_civilization        t_junk
+//r_caves               t_junk
+//r_stables             t_junk
+//r_house               t_junk
+//r_snow                t_junk
+//r_magical             t_junk
+//r_mountains           t_junk
+//r_mountains_volcanic  t_junk
+//r_darkness            t_junk
+//r_light               t_junk
+//r_sewers              t_junk
 //no longer used?
-r_goblin_camp				t_junk
-r_dungeon_terathan_keep		t_junk
-r_dungeon_bedlam			t_junk
-r_dungeon_blighted_grove	t_junk
-r_dungeon_citadel			t_junk
-r_dungeon_prism_of_light	t_junk
-r_dungeon_twisted_weald		t_junk
-r_orc_camp					t_junk
-r_ruins						t_junk
-r_dungeon_doom				t_junk
-r_dungeon_paroxysmus		t_junk
-r_dungeon_exodus			t_junk
-r_dungeon_khaldun			t_junk
-r_dungeon_destard			t_junk
-r_dungeon_fire				t_junk
-r_dungeon_abyss				t_junk
-r_dungeon_labyrinth			t_junk
-r_black_castle				t_junk
+//r_goblin_camp				t_junk
+//r_dungeon_terathan_keep		t_junk
+//r_dungeon_bedlam			t_junk
+//r_dungeon_blighted_grove	t_junk
+//r_dungeon_citadel			t_junk
+//r_dungeon_prism_of_light	t_junk
+//r_dungeon_twisted_weald		t_junk
+//r_orc_camp					t_junk
+//r_ruins						t_junk
+//r_dungeon_doom				t_junk
+//r_dungeon_paroxysmus		t_junk
+//r_dungeon_exodus			t_junk
+//r_dungeon_khaldun			t_junk
+//r_dungeon_destard			t_junk
+//r_dungeon_fire				t_junk
+//r_dungeon_abyss				t_junk
+//r_dungeon_labyrinth			t_junk
+//r_black_castle				t_junk
+
 // item types
-t_magic               t_junk
+//t_magic               t_junk
 
 
 [TYPEDEFS]

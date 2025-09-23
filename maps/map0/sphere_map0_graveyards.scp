@@ -1,0 +1,69 @@
+
+
+[AREADEF a_britain_graveyard_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_graveyards
+NAME=Britain Graveyard
+GROUP=Britain
+FLAGS=REGION_FLAG_NOBUILDING
+P=1384,1492,10,0
+RECT=1336,1443,1391,1494,0
+RECT=1336,1494,1376,1511,0
+
+[AREADEF a_yew_graveyard_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_graveyards
+NAME=Yew Graveyard
+GROUP=Yew
+FLAGS=REGION_FLAG_NOBUILDING
+P=724,1134,0,0
+RECT=711,1103,736,1136,0
+
+[AREADEF a_cove_graveyard_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_graveyards
+NAME=Cove Graveyard
+GROUP=Cove
+FLAGS=REGION_FLAG_NOBUILDING
+P=2442,1117,8,0
+RECT=2423,1098,2455,1120,0
+RECT=2431,1080,2455,1099,0
+
+[AREADEF a_vesper_graveyard_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_graveyards
+NAME=Vesper Graveyard
+GROUP=Vesper
+FLAGS=REGION_FLAG_NOBUILDING
+P=2781,867,0,0
+RECT=2727,839,2785,896,0
+
+
+[AREADEF a_nujelm_graveyard_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_graveyards
+NAME=Nujel'm Graveyard
+GROUP=Nujel'm
+FLAGS=REGION_FLAG_NOBUILDING
+P=3536,1151,20,0
+RECT=3502,1139,3532,1163,0
+RECT=3530,1142,3553,1152,0
+RECT=3530,1127,3543,1143,0
+RECT=3517,1121,3540,1140,0
+
+
+[AREADEF a_moonglow_graveyard_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_graveyards
+NAME=Moonglow Graveyard
+GROUP=Moonglow
+FLAGS=REGION_FLAG_NOBUILDING
+P=4546,1333,8,0
+RECT=4527,1313,4558,1336,0
+RECT=4535,1296,4558,1313,0
+
+[ROOMDEF a_jhelom_graveyard_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_graveyards
+NAME=Jhelom Graveyard
+GROUP=Jhelom
+FLAGS=REGION_FLAG_NOBUILDING
+P=1291,3719,0,0
+RECT=1271,3711,1293,3743,0
+RECT=1279,3736,1296,3752,0
+RECT=1293,3722,1301,3736,0
+
+[eof]

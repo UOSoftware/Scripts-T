@@ -3552,7 +3552,7 @@ DESCRIPTION=Clockwork Exodus
 DEFNAME=i_pet_tiger
 NAME=Tiger
 TYPE=t_figurine
-TDATA3=c_tiger
+// TDATA3=c_tiger
 CATEGORY=Miscellaneous
 SUBSECTION=Character Icons
 DESCRIPTION=Tiger
@@ -4025,6 +4025,36 @@ DESCRIPTION=Horse (dark brown)
 ON=@CREATE
 COLOR=colors_black
 
+
+[ITEMDEF i_pet_ostard_mid]
+DEFNAME=i_pet_ostard_mid
+ID=i_pet_ostard_desert_2
+NAME=Mid Ostard
+TYPE=t_figurine
+TDATA3=c_ostard_mid
+VALUE={450 500}
+CATEGORY=Miscellaneous
+SUBSECTION=Character Icons
+DESCRIPTION=Mid Ostard
+RESDISPDNHUE=01
+
+ON=@CREATE
+COLOR=colors_ostard_mid
+
+
+[ITEMDEF I_PET_UNICORN_AOS]
+DEFNAME=I_PET_UNICORN_AOS
+ID=i_pet_horse_brown_dk
+NAME=Unicorn
+TYPE=t_figurine
+TDATA3=C_UNICORN_AOS
+VALUE={1600 1900}
+CATEGORY=Miscellaneous
+SUBSECTION=Character Icons
+DESCRIPTION=Unicorn
+
+ON=@CREATE
+COLOR=<SERV.CHARDEF.<TDATA3>.RESDISPDNHUE>
 
 
 [EOF]

@@ -1,0 +1,178 @@
+﻿
+
+
+
+// Tamamlanmadı
+
+[ITEMDEF I_FISHING_NET_GREEN]
+DEFNAME=I_FISHING_NET_GREEN
+ID=I_FISHING_NET_3
+VALUE=500
+WEIGHT=2
+NAME=special fishing net
+RESOURCES=10 I_ROPE, 10 I_THREAD, 4 I_SHELL
+CATEGORY=Items by Professions
+SUBSECTION=Fisherman
+DESCRIPTION=Fishing Net
+RESDISPDNHUE=COLOR_O_VERITE
+
+ON=@CREATE
+ATTR=ATTR_DECAY
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+
+on=@DClick
+IF !(<SRC.ISINPACK <UID>>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,600036,<NAME>	// Bunu (~1_val~) kullanabilmek için çantanızda veya üzerinizde olmalıdır.
+	RETURN 1
+ELSEIF (<SRC.FISHING> < 90.0)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bunu kullanmak icin 90.0 fishing skilline sahip olmalisiniz!
+	RETURN 1
+ELSEIF !(<SRC.IsInShip>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bunu sadece gemilerde kullanabilirsiniz!
+	RETURN 1
+ELSEIF !(<IsInShip>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bunu sadece gemilerde kullanabilirsiniz!
+	RETURN 1
+ENDIF
+
+FORITEMS 5
+	IF (<BASEID> == I_FISHING_NET_GREEN)
+		LOCAL.AGAMOUNT +=<AMOUNT>
+	ENDIF
+	IF (<TYPE> == T_FISH)
+		LOCAL.FISHCOUNT +=<AMOUNT>
+	ENDIF
+ENDFOR
+FORITEMS 0
+	IF (<BASEID> == I_FISHING_NET_GREEN)
+		LOCAL.AGCOUNT +=1
+	ENDIF
+ENDFOR
+
+IF (<dLOCAL.AGAMOUNT> > 5)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Yeterince ag atilmis.
+	RETURN 1
+ELSEIF (<LOCAL.FISHCOUNT> > 100)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bulundugunuz yerde yeterince balik var.
+	RETURN 1
+ELSEIF (<dLOCAL.AGCOUNT> >= 1)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Ayni kare uzerine birden fazla ag atamazsiniz.
+	RETURN 1
+ENDIF
+
+IF (<MORE1> == 1)
+	// MESSAGE @68 [ag kurulu]
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu ağ zaten atılmış.
+ELSE
+	SRC.SAYU Hoyde rastgele!
+	DROP
+	MORE1=1
+	LINK=<SRC>
+	
+	SRC.NEWITEM I_FISHINGNET_EQUIPED_MEM
+	SRC.EQUIP <NEW>
+	
+	NEW.MORE1={6 8}
+	NEW.TIMER={4 6}
+	NEW.MOREP=<SRC.P>
+	
+	ATTR=ATTR_DECAY|ATTR_MOVE_NEVER
+	TIMER=(<SRC.FINDID.I_FISHINGNET_EQUIPED_MEM.MORE1> * <SRC.FINDID.I_FISHINGNET_EQUIPED_MEM.TIMER>)
+ENDIF
+RETURN 1
+
+ON=@CLICK
+IF (<MORE1> == 1)
+	MESSAGE @68 [ag kurulu]
+ENDIF
+
+ON=@TIMER
+ATTR=ATTR_DECAY
+REMOVE
+RETURN 1
+
+ON=@PICKUP_GROUND
+IF (<MORE1> == 1)
+RETURN 1
+ENDIF
+
+
+// i_fishnet_spawner2
+[ITEMDEF I_FISHINGNET_EQUIPED_MEM]
+DEFNAME=I_FISHINGNET_EQUIPED_MEM
+NAME=Fishingnet Memory
+ID=I_MEMORY
+TYPE=T_EQ_SCRIPT
+WEIGHT=0
+LAYER=LAYER_SPECIAL
+
+ON=@CREATE
+ATTR=ATTR_INVIS|ATTR_DECAY
+
+ON=@EQUIP
+TIMER=1	
+
+ON=@TIMER
+IF (<CONT>)
+	IF !(<MORE1> == 0)
+		MORE1 -=1
+		
+		SERV.NEWITEM { I_FISH_BIG_1 1 I_FISH_BIG_2 1 I_FISH_BIG_3 1 I_FISH_BIG_4 1 }
+		NEW.P = <MOREP> // YERE
+		// NEW.CONT = <TOPOBJ> // ÇANTAYA
+		NEW.AMOUNT = {10 14}
+		NEW.UPDATE
+		
+		TIMER = 2
+		RETURN 1
+	ELSE
+		IF (RAND(10) == 1)
+		
+			SERV.NEWNPC { C_DOLPHIN 1 C_SEA_SERPENT 1 }
+			NEW.P <MOREP>
+			NEW.MOVE 12
+			
+			SERV.NEWITEM I_FISHINETNET_NPC_MEMDEL,1,<NEW>,1
+			TOPOBJ.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>,Aginiza buyuk birseyler takilir...
+		ENDIF
+		REMOVE
+		RETURN 1
+	ENDIF
+ENDIF
+REMOVE
+RETURN 1
+
+
+
+// i_sedo_remove
+[ITEMDEF I_FISHINETNET_NPC_MEMDEL]
+DEFNAME=I_FISHINETNET_NPC_MEMDEL
+ID=I_MEMORY
+TYPE=T_EQ_SCRIPT
+WEIGHT=0
+LAYER=LAYER_SPECIAL
+NAME=Sea NPC Memory
+
+ON=@CREATE
+ATTR=ATTR_INVIS|ATTR_DECAY
+TIMER=300
+
+ON=@EQUIP
+TIMER=300
+
+ON=@TIMER
+IF !(<MORE2>)
+	CONT.FLAGS <CONT.FLAGS>|04
+	CONT.ANIM 4
+	CONT.SAYU * dibe dogru dalar... *
+	MORE2 1
+	TIMER 4
+ELSE
+	CONT.REMOVE
+	REMOVE
+ENDIF
+RETURN 1
+
+
+[eof]

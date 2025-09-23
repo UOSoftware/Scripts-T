@@ -1,0 +1,91 @@
+
+[AREADEF a_jail]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_jails
+NAME=Jail
+GROUP=Jails
+FLAGS=REGION_ANTIMAGIC_GATE|REGION_ANTIMAGIC_RECALL_OUT|REGION_ANTIMAGIC_RECALL_IN|REGION_ANTIMAGIC_ALL|REGION_FLAG_NOBUILDING|REGION_ANTIMAGIC_TELEPORT|REGION_FLAG_UNDERGROUND|REGION_FLAG_INSTA_LOGOUT|REGION_FLAG_GUARDED|REGION_FLAG_SAFE
+P=5295,1187,0,0
+RECT=5269,1157,5314,1194,0
+
+[ROOMDEF jail1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_jails
+NAME=Jail Cell 1
+GROUP=Jails
+FLAGS=REGION_FLAG_NOBUILDING
+P=5276,1164,0,0
+RECT=5272,1160,5281,1169,0
+
+[ROOMDEF jail2]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_jails
+NAME=Jail Cell 2
+GROUP=Jails
+FLAGS=REGION_FLAG_NOBUILDING
+P=5286,1164,0,0
+RECT=5282,1160,5291,1169,0
+
+[ROOMDEF jail3]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_jails
+NAME=Jail Cell 3
+GROUP=Jails
+FLAGS=REGION_FLAG_NOBUILDING
+P=5296,1164,0,0
+RECT=5292,1160,5301,1169,0
+
+[ROOMDEF jail4]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_jails
+NAME=Jail Cell 4
+GROUP=Jails
+FLAGS=REGION_FLAG_NOBUILDING
+P=5306,1164,0,0
+RECT=5302,1160,5311,1169,0
+
+[ROOMDEF jail5]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_jails
+NAME=Jail Cell 5
+GROUP=Jails
+FLAGS=REGION_FLAG_NOBUILDING
+P=5276,1174,0,0
+RECT=5272,1170,5281,1179,0
+
+[ROOMDEF jail6]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_jails
+NAME=Jail Cell 6
+GROUP=Jails
+FLAGS=REGION_FLAG_NOBUILDING
+P=5286,1174,0,0
+RECT=5282,1170,5291,1179,0
+
+[ROOMDEF jail7]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_jails
+NAME=Jail Cell 7
+GROUP=Jails
+FLAGS=REGION_FLAG_NOBUILDING
+P=5296,1174,0,0
+RECT=5292,1170,5301,1179,0
+
+[ROOMDEF jail8]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_jails
+NAME=Jail Cell 8
+GROUP=Jails
+FLAGS=REGION_FLAG_NOBUILDING
+P=5306,1174,0,0
+RECT=5302,1170,5311,1179,0
+
+[ROOMDEF jail9]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_jails
+NAME=Jail Cell 9
+GROUP=Jails
+FLAGS=REGION_FLAG_NOBUILDING
+P=5283,1184,0,0
+RECT=5272,1180,5291,1191,0
+
+[ROOMDEF jail10]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_jails
+NAME=Jail Cell 10
+GROUP=Jails
+FLAGS=REGION_FLAG_NOBUILDING
+P=5304,1184,0,0
+RECT=5292,1180,5311,1191,0
+
+
+[eof]

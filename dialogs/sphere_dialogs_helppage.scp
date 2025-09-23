@@ -1,7 +1,7 @@
 VERSION=0.56T
 
 
-[FUNCTION HelpPage]
+[FUNCTION f_onclient_helppage]
 LOCAL.RESULT <SetProcessDelay HelpPage,50>
 IF !(<LOCAL.RESULT>)
     //SDIALOG d_helppage

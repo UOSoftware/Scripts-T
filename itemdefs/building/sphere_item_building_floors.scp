@@ -4569,14 +4569,15 @@ DUPEITEM=050ef
 DUPEITEM=050ef
 
 
-//[ITEMDEF 0514a]	//unused
+//[ITEMDEF 05150]	//unused
 //[ITEMDEF 0514b]	//unused
 //[ITEMDEF 0514c]	//unused
 //[ITEMDEF 0514d]	//unused
 //[ITEMDEF 0514e]	//unused
 //[ITEMDEF 0514f]	//unused
 
-[ITEMDEF 05150]
+
+[ITEMDEF 0514a]
 DEFNAME=i_sa_floor_virtue_3
 CATEGORY=Buildings - Floors
 SUBSECTION=SA Virtue Floor 3

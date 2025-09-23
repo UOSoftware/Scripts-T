@@ -1,0 +1,67 @@
+
+
+[AREADEF a_Humility_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_shrines,r_shrine_humility
+NAME=Humility
+GROUP=Shrines
+FLAGS=REGION_FLAG_NOBUILDING
+P=4273,3702,0,0
+RECT=4268,3690,4280,3703,0
+
+[AREADEF a_chaos_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_shrines,r_shrine_chaos
+NAME=Chaos
+GROUP=Shrines
+FLAGS=REGION_FLAG_NOBUILDING
+P=1451,855,0,0
+RECT=1446,852,1451,859,0
+
+[AREADEF a_honesty_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_shrines,r_shrine_honesty
+NAME=Honesty
+GROUP=Shrines
+FLAGS=REGION_FLAG_NOBUILDING
+P=4215,563,41,0
+RECT=4207,560,4215,568,0
+
+[AREADEF a_sacrifice_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_shrines,r_shrine_sacrifice
+NAME=Sacrifice
+GROUP=Shrines
+FLAGS=REGION_FLAG_NOBUILDING
+P=3354,299,9,0
+RECT=3349,283,3361,299,0
+
+[AREADEF a_valor_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_shrines,r_shrine_valor
+NAME=Valor
+GROUP=Shrines
+FLAGS=REGION_FLAG_NOBUILDING
+P=2491,3930,0,0
+RECT=2487,3926,2496,3936,0
+
+[AREADEF a_spirituality_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_shrines,r_shrine_spirituality
+NAME=Spirituality
+GROUP=Shrines
+FLAGS=REGION_FLAG_NOBUILDING
+P=1601,2489,9,0
+RECT=1588,2484,1603,2497,0
+
+[AREADEF a_justice_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_shrines,r_shrine_justice
+NAME=Justice
+GROUP=Shrines
+FLAGS=REGION_FLAG_NOBUILDING
+P=1301,639,16,0
+RECT=1295,626,1307,640,0
+
+[AREADEF a_honor_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass,r_shrines,r_shrine_honor
+NAME=Honor
+GROUP=Shrines
+FLAGS=REGION_FLAG_NOBUILDING
+P=1729,3528,3,0
+RECT=1721,3524,1729,3531,0
+
+[eof]

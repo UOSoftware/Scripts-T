@@ -329,7 +329,6 @@ ON=@RegPeriodic
 SRC.SOUND={0e 10 0f 10 022 1 023 1 024 1 0267 1}
 
 
-
 /////////////////////
 // Generic Regions //
 /////////////////////
@@ -338,7 +337,7 @@ SRC.SOUND={0e 10 0f 10 022 1 023 1 024 1 0267 1}
 // Sphere.ini içinden değişebilir.
 [REGIONTYPE r_regions]
 
-
+// DEFAULTS
 [REGIONTYPE r_default]
 // ON=@Enter
 // IF (<SRC.ISPLAYER>)
@@ -349,15 +348,37 @@ SRC.SOUND={0e 10 0f 10 022 1 023 1 024 1 0267 1}
     // ENDIF
 // ENDIF
 
-
+// GRAVEYARDS
 [REGIONTYPE r_graveyards]
 ON=@RegPeriodic
 SRC.SOUND={0a 1 0b 1}
 
+
+// DUNGEONS
 [REGIONTYPE r_dungeons]
 
+
+// SHRINES
 [REGIONTYPE r_shrines]
 
+[REGIONTYPE r_shrine_humility]
+
+[REGIONTYPE r_shrine_chaos]
+
+[REGIONTYPE r_shrine_honesty]
+
+[REGIONTYPE r_shrine_sacrifice]
+
+[REGIONTYPE r_shrine_valor]
+
+[REGIONTYPE r_shrine_spirituality]
+
+[REGIONTYPE r_shrine_justice]
+
+[REGIONTYPE r_shrine_honor]
+
+
+// FORESTS
 [REGIONTYPE r_forests]
 ON=@RegPeriodic
 IF (<SRC.SECTOR.ISNIGHTTIME>)
@@ -366,7 +387,7 @@ ELSE
 SRC.SOUND={08 10 09 10 0219 1 07d 1}	//Play these sounds during the day.
 ENDIF
 
-
+// JUNGLES
 [REGIONTYPE r_jungle]
 ON=@RegPeriodic
 IF (<SRC.SECTOR.ISNIGHTTIME>)
@@ -375,14 +396,50 @@ ELSE
 SRC.SOUND={03 2 04 2 05 2 0b3 1}
 ENDIF
 
-[REGIONTYPE r_jail]
-
+// STAR CHAMBER
 [REGIONTYPE r_star]
 
+// JAILS
+[REGIONTYPE r_jails]
 
-/////////////////////
-// City Regions
-/////////////////////
+
+// GUARD TOWER.
+[REGIONTYPE r_guard_tower]
+ON=@ENTER
+IF (<SRC.ISPLAYER>)
+	// SRC.MUSIC=midi_ForestA
+	SRC.MIDILIST=midi_ForestA
+ENDIF
+
+
+// LORD BRIT CASTLE.
+[REGIONTYPE r_brit_castle]
+ON=@ENTER
+IF (<SRC.ISPLAYER>)
+	// SRC.MUSIC=midi_LBCastle
+	SRC.MIDILIST=midi_LBCastle
+ENDIF
+
+
+// Lord Blackthorne's Castle
+[REGIONTYPE r_black_castle]
+ON=@ENTER
+IF (<SRC.ISPLAYER>)
+	// SRC.MUSIC=midi_BtCastle
+	SRC.MIDILIST=midi_BtCastle
+ENDIF
+
+
+////////////////////////////////////////////////////////
+// Towns
+////////////////////////////////////////////////////////
+
+[REGIONTYPE r_towns]
+// ON=@ENTER
+// IF (<SRC.ISPLAYER>)
+// ENDIF
+
+// GZ
 
 [REGIONTYPE r_townBritain]
 ON=@ENTER
