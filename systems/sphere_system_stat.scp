@@ -46,7 +46,7 @@ DIALOG D_STAT
 
 
 [DIALOG D_STAT]
-<DEF.DSP>
+<DEF.dlgstartpos>
 RESIZE 0,0,375,220,Stat Menu
 
 // STATLOCK STR (0), DEX (2) or INT (1). [0 = up, 1 = down, 2 = locked]

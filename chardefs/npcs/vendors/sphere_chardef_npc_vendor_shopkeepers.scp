@@ -153,15 +153,9 @@ CATEGORY=Civilized
 SUBSECTION=Tradesmen
 DESCRIPTION=Animal Trainer (human male)
 
-
-
-
-
-
-
 ON=@Create
 COLOR=colors_skin
-NPC=brain_animal_trainer
+NPC=BRAIN_STABLE
 NEED=i_gold
 STR={145 155}
 DEX={85 95}
@@ -212,7 +206,7 @@ DESCRIPTION=Animal Trainer (human female)
 
 ON=@Create
 COLOR=colors_skin
-NPC=brain_animal_trainer
+NPC=BRAIN_STABLE
 NEED=i_gold
 STR={145 155}
 DEX={85 95}

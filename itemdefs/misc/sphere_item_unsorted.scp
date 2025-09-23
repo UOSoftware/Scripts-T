@@ -4293,8 +4293,7 @@ CATEGORY=Quest
 SUBSECTION=Virtue Items
 DESCRIPTION=Book of Truth (Gargish)
 ON=@Create
-   MORE1=b_principal_truth
-
+//MORE1=b_principal_truth
 
 [ITEMDEF 04515]
 //stackable bottle (duplicate of 0e2c)
@@ -4922,7 +4921,6 @@ DESCRIPTION=Seed of Renewal
 //Is an imbuing ingredient used to imbue the Lower Requirements property onto items.
 DEFNAME=i_elven_fletching
 NAME=elven fletching
-TYPE=t_fletching
 VALUE=100
 WEIGHT=1.0
 RESOURCES=1 i_fairy_dust,20 i_feather

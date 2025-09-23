@@ -25,12 +25,19 @@ random_gargoyle_female_horns      { i_horn_gargoyle_female_1 1 i_horn_gargoyle_f
 //layer_shoes
 random_footwear_all    { i_boots_calf 1 i_sandals 1 i_shoes_plain 1 i_boots_thigh 1 i_boots_fur 1 i_shoes_tabi 1 i_boots_tabi 1 i_elven_boots 1 }
 random_footwear_human  { i_boots_calf 1 i_sandals 1 i_shoes_plain 1 i_boots_thigh 1 i_boots_fur 1 i_shoes_tabi 1 i_boots_tabi 1 }
+
 random_footwear_elven    i_elven_boots
 random_footwear_gargoyle i_gargish_leather_talons
+random_footwear  { i_boots_calf 1 i_sandals 1 i_shoes_plain 1 i_boots_thigh 1 i_boots_fur 1 i_shoes_tabi 1 i_boots_tabi 1 }
+
+
 random_boots_all       { i_boots_calf 1 i_boots_thigh 1 i_boots_fur 1 i_boots_tabi 1 i_elven_boots 1 }
 random_boots_human     { i_boots_calf 1 i_boots_thigh 1 i_boots_fur 1 i_boots_tabi 1 }
 random_boots_elven       i_elven_boots
 random_shoes           { i_sandals 1 i_shoes_plain 1 i_shoes_tabi 1 }
+random_pants           { i_pants_short 1 i_pants_long 1 }
+random_skirt           { i_skirt_long 1 i_kilt 1 i_skirt_short 1 }
+random_boots           { i_boots_thigh 1 i_boots_calf 1 }
 
 //layer_pants
 random_pants_all       { i_pants_short 1 i_pants_long 1 i_hakama_tattsuke 1 i_elven_pants 1 i_elven_pants 1 i_gargish_cloth_leggings_female 1 i_gargish_cloth_leggings 1 }
@@ -139,10 +146,13 @@ random_glass           { i_glass_of_milk 1 i_glass_of_water 1 i_tea_green 1 i_mu
 random_bottle          { i_bottle_ale 1 i_bottle_ale_2 1 i_bottle_ale_3 1 i_bottle_ale_4 1 i_bottle_wine 1 i_bottle_wine_2 1 i_bottle_wine_3 1 i_bottle_wine_4 1 i_bottle_liquor 1 i_bottle_liquor_2 1 i_bottle_liquor_3 1 i_bottle_liquor_4 1 i_jug_cider 1 i_jug_cider_2 1 i_jug_cider_3 1 i_bottle_shochu 1 i_bottle_sake 1 i_jug_hooch 1 }
 
 [DEFNAME items_containers]
-random_container       { random_basket 3 random_chest 3 random_crate 3 random_giftbox 1 }
+//random_container       { random_basket 3 random_chest 3 random_crate 3 random_giftbox 1 }
+random_container       { random_basket 3 random_chest 3 random_crate 3 }
 
 random_basket          { i_basket 1 i_basket_bushel 1 i_basket_2 1 i_basin 1 i_basket_square 1 i_basket_square_small 1 i_basket_round_small 1 i_basket_round_tall 1 i_basket_square_deep 1 i_basket_square_tall 1 i_basket_round_flat 1 }
-random_chest           { i_box_brass 1 i_box_wood 1 i_chest_metal 1 i_chest_metal_brass 1 i_chest_wooden_brass 1 i_chest_japanese4 1 i_chest_ornate_elven 1 i_chest_ornate_elven_2 1 i_chest_gargoyle 1 i_chest_pirate 1 i_chest_gothic 1 }
+//random_chest           { i_box_brass 1 i_box_wood 1 i_chest_metal 1 i_chest_metal_brass 1 i_chest_wooden_brass 1 i_chest_japanese4 1 i_chest_ornate_elven 1 i_chest_ornate_elven_2 1 i_chest_gargoyle 1 i_chest_pirate 1 i_chest_gothic 1 }
+random_chest           { i_box_brass 1 i_box_wood 1 i_chest_metal 1 i_chest_metal_brass 1 }
+
 random_crate           { i_crate_small 1 i_crate_lg 1 i_crate_md 1 i_barrel_open 1 i_keg_small 1 i_tub_empty 1 i_barrel 1 i_bucket 1 }
 random_giftbox         { i_giftbox 1 i_giftbox_cube 1 i_giftbox_cylinder 1 i_giftbox_octogon 1 i_giftbox_rectangle 1 i_giftbox_angel 1 i_giftbox_tall 1 i_giftbox_heart_shaped 1 i_giftbox_heart_shaped_beating 1 }
 
@@ -223,7 +233,8 @@ random_reagent_pagan   { i_reag_blackmoor 1 i_reag_blood_spawn 1 i_reag_brimston
 [DEFNAME imbuing_ingredients]
 random_imbuing_base    { i_magical_residue 50 i_enchanted_essence 10 i_relic_fragment 1 }
 random_essence_virtue  { i_essence_achievement 1 i_essence_control 1 i_essence_diligence 1 i_essence_direction 1 i_essence_feeling 1 i_essence_order 1 i_essence_passion 1 i_essence_persistence 1 i_essence_precision 1 i_essence_singularity 1 }
-random_imbuing_item    { random_imbuing_base 1 random_essence_virtue 1 i_pearl_white 1 i_spider_carapace 1 i_daemon_claw 1 i_vial_of_vitriol 1 i_goblin_blood 1 i_lava_serpent_crust 1 i_undying_flesh 1 i_crystalline_blackrock 1 i_seed_of_renewal 1 i_elven_fletching 1 i_crystal_shards 1 i_delicate_scales 1 i_crushed_glass 1 i_powdered_iron 1 i_void_orb 1 i_boura_pelt 1 i_chaga_mushroom 1 i_silver_snake_skin 1 i_fairy_dust 1 i_slith_tongue 1 i_raptor_teeth 1 i_bottle_ichor 1 i_reflective_wolf_eye 1 i_abyssal_cloth 1 i_fungi_luminescent 1 i_plant_parasitic 1 }
+//random_imbuing_item    { random_imbuing_base 1 random_essence_virtue 1 i_pearl_white 1 i_spider_carapace 1 i_daemon_claw 1 i_vial_of_vitriol 1 i_goblin_blood 1 i_lava_serpent_crust 1 i_undying_flesh 1 i_crystalline_blackrock 1 i_seed_of_renewal 1 i_elven_fletching 1 i_crystal_shards 1 i_delicate_scales 1 i_crushed_glass 1 i_powdered_iron 1 i_void_orb 1 i_boura_pelt 1 i_chaga_mushroom 1 i_silver_snake_skin 1 i_fairy_dust 1 i_slith_tongue 1 i_raptor_teeth 1 i_bottle_ichor 1 i_reflective_wolf_eye 1 i_abyssal_cloth 1 i_fungi_luminescent 1 i_plant_parasitic 1 }
+random_imbuing_item    { random_imbuing_base 1}
 
 
 [DEFNAME random_artifacts]
@@ -233,6 +244,7 @@ random_doom_gauntlet_artifact { i_arcane_shield 1 i_armor_fortune 1 i_axe_heaven
 random_doom_artifact          { i_doom_skull_candle 1 i_doom_stretched_hide 1 i_doom_lamppost 1 i_doom_tower_lantern 1 i_doom_fancy_wind_chimes 1 i_doom_giftbox 1 i_doom_goat_skinned 1 i_doom_cards_tarot 1 i_doom_guillotine 1 i_doom_brazier 1 i_doom_gruesomestandard 1 i_doom_painting_ruined 1 i_doom_blade_righteous 1 i_doom_titan_hammer 1 i_doom_zyronic_claw 1 i_doom_inquisitor_resolution 1 }
 random_misc_artifact          { i_raptor_claw 1 }
 random_minor_artifact         { i_alchemists_bauble 1 i_arctic_death_dealer 1 i_blaze_death 1 i_bow_juka_king 1 i_burglar_bandana 1 i_candelabra_souls 1 i_captain_quacklebush_cutlass 1 i_cavorting_club 1 i_cold_blood 1 i_dread_pirate_hat 1 i_enchanted_titan_leg_bone 1 i_ghost_ship_anchor 1 i_gloves_pugilist 1 i_gold_bricks 1 i_gwennos_harp 1 i_heart_lion 1 i_iolos_lute 1 i_luna_lance 1 i_night_kiss 1 i_nox_ranger_heavy_crossbow 1 i_orcish_visage 1 i_phillip_wooden_steed 1 i_pixie_swatter 1 i_polar_bear_mask 1 i_seahorse_statuette 1 i_art_shield_invul 1 i_ship_model_hmscape 1 i_staff_of_power 1 i_admirals_hearty_rum 1 i_violet_courage 1 i_wrath_dryad 1 i_corredor_sword 1 i_fire_horn 1 i_fire_horn_timer 1 i_sprinter_legs 1 i_spiked_chest 1 i_aegis_grace 1 i_boomstick 1 i_bonesmasher 1 i_raeds_glory 1 i_wildfire_bow 1 i_windsong 1 i_talon_bite 1 i_soul_seeker 1 i_blade_dance 1 i_dreads_revenge 1 i_flesh_ripper 1 i_robe_equinox 1 i_robe_eclipse 1 i_righteous_anger 1 i_bloodwood_spirit 1 i_brightsight_lenses 1 i_crimson_cinture 1 i_fey_leggings 1 i_pads_of_cu_sidhe 1 i_totem_of_void 1 }
+
 random_treasure_of_tokuno     { i_ancient_urn 1 i_chest_of_heirlooms 1 i_honorable_swords 1 i_pigments_of_tokuno 1 i_greater_pigments_of_tokuno 1 i_ancient_farmer_kasa 1 i_ancient_samurai_do 1 i_arms_of_tactical_excellence 1 i_black_lotus_hood 1 i_daimyo_helm 1 i_darkened_sky 1 i_demon_forks 1 i_dragon_nunchaku 1 i_exiler 1 i_flute_renewal 1 i_gloves_of_the_sun 1 i_hanzos_bow 1 i_kasa_of_the_rajin 1 i_legs_of_stability 1 i_peasant_bokuto 1 i_pilfered_dancer_fans 1 i_rune_beetle_carapace 1 i_stormgrip 1 i_sword_of_the_stampede 1 i_swords_of_prosperity 1 i_the_destroyer 1 i_the_horselord 1 i_tome_enlightenment 1 i_tome_of_lost_knowledge 1 i_winds_edge 1 }
 random_eighth_age_item        { i_shield_dupre 1 i_cloak_humility 1 i_legs_honor 1 i_breastplate_justice 1 i_arms_compassion 1 i_gauntlets_valor 1 i_gorget_truth 1 i_helm_spirituality 1 i_solaretes_sacrifice 1 }//i_quiver_infinity 1
 

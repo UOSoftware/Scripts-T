@@ -380,7 +380,7 @@ WEIGHT=0
 ID=03eaa
 TYPE=t_eq_horse
 LAYER=layer_horse
-TDATA3=c_steed_ethereal
+//TDATA3=c_steed_ethereal
 WEIGHT=0
 
 [ITEMDEF i_mt_llama_ethereal]
@@ -394,7 +394,7 @@ WEIGHT=0
 ID=03eac
 TYPE=t_eq_horse
 LAYER=layer_horse
-TDATA3=c_ostard_ethereal
+//TDATA3=c_ostard_ethereal
 WEIGHT=0
 
 [ITEMDEF i_mt_kirin]
@@ -569,7 +569,7 @@ WEIGHT=0
 ID=03ecd
 TYPE=t_eq_horse
 LAYER=layer_horse
-TDATA3=c_palomino
+//DATA3=c_palomino
 WEIGHT=0
 
 [ITEMDEF i_mt_serpentine_dragon_ethereal]

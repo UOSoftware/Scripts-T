@@ -50,7 +50,7 @@ ITEM={ random_magic_jewelry_lesser 1 i_ring_bless_great 1 }
 
 [TEMPLATE random_magic_jewelry_lesser]
 NAME=Random magic jewelry
-ITEM={ i_ring_str_lesser 1 i_ring_dex_lesser 1 i_ring_int_lesser 1 i_ring_bless_lesser 1 }
+//ITEM={ i_ring_str_lesser 1 i_ring_dex_lesser 1 i_ring_int_lesser 1 i_ring_bless_lesser 1 }
 
 [TEMPLATE random_magic_clothing]
 NAME=Random magic clothing
@@ -438,7 +438,7 @@ ITEM=i_crystal_shards,50
 ITEM=i_crushed_glass,50
 ITEM=i_powdered_iron,50
 ITEM=i_void_orb,50
-ITEM=i_abyssal_cloth,50
+//ITEM=i_abyssal_cloth,50
 ITEM=i_ingot_shadow,50
 ITEM=i_ingot_blackrock,50
 ITEM=i_ingot_verite,50

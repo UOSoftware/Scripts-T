@@ -14,7 +14,7 @@ few masteries related to bard skills, but later on TOL it got renamed to
 
 [ITEMDEF 0225a]
 DEFNAME=i_spellbook_mastery
-TYPE=t_spellbook_mastery
+//TYPE=t_spellbook_mastery
 NAME=Book of Masteries
 TDATA3=700
 TDATA4=45

@@ -1,9 +1,6 @@
 VERSION=0.56T
 
 [SPEECH spk_generic_npc_animals]
-ON=*
-serv.b <name>
-
 ON=FRIEND
 SRC.SYSMESSAGELOC <def.tcolor_red>,600095 // "Bu komut kapalı/kaldırılmıştır."
 RETURN 1

@@ -2,11 +2,7 @@
 
 [ITEMDEF i_alchemists_bauble]
 ID=i_bracelet_gold
-NAME=Alchemist's Bauble
-BonusSkill1=Magery
-BonusSkill1Amt=10.0
-EnhancePotions=30
-LowerReagentCost=20
+NAME=Alchemists Bauble
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
@@ -42,7 +38,6 @@ HITPOINTS=255
 ID=i_bow
 NAME=Bow of the Juka King
 TAG.SlayerGroup=REPTILE
-HitMagicArrow=25
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
@@ -54,13 +49,6 @@ ON=@Create
 [ITEMDEF i_burglar_bandana]
 ID=i_bandana
 NAME=Burglar's Bandana
-BonusSkill1=Snooping
-BonusSkill1Amt=10.0
-BonusSkill2=Stealing
-BonusSkill2Amt=10.0
-BonusSkill3=Stealth
-BonusSkill3Amt=10.0
-BonusDex=5
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
@@ -115,8 +103,6 @@ HITPOINTS=255
 [ITEMDEF i_dread_pirate_hat]
 ID=i_hat_tricorne
 NAME=Dread Pirate Hat
-BonusDex=8
-NightSight=1
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
@@ -125,19 +111,11 @@ ON=@Create
    COLOR=0497
    HITPOINTS=255
    DORAND 5
-      BonusSkill1=Archery
-      BonusSkill1=MaceFighting
-      BonusSkill1=Fencing
-      BonusSkill1=Wrestling
-      BonusSkill1=Swordsmanship
    ENDDO
-   BonusSkill1Amt=10.0
 
 [ITEMDEF i_enchanted_titan_leg_bone]
 ID=i_spear_short
 NAME=Enchanted Titan Leg Bone
-HitLightning=40
-//HitLowerDef=40
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
@@ -158,9 +136,6 @@ ON=@Create
 [ITEMDEF i_gloves_pugilist]
 ID=i_leather_gloves
 NAME=Gloves of the Pugilist
-BonusSkill1=Wrestling
-BonusSkill1Amt=10.0
-BonusDex=8
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
@@ -189,9 +164,6 @@ ON=@Create
 ID=i_helm_winged
 NAME=Helm of Swiftness
 // CANUSE=can_u_elf
-FasterCasting=1
-FasterCastRecovery=2
-MageArmor=1
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
@@ -203,7 +175,6 @@ ON=@Create
 [ITEMDEF i_heart_lion]
 ID=i_platemail_chest
 NAME=Heart of the Lion
-MageArmor=1
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
@@ -224,9 +195,6 @@ ON=@Create
 [ITEMDEF i_luna_lance]
 ID=i_lance
 NAME=Luna Lance
-BonusSkill1=Chivalry
-BonusSkill1Amt=10.0
-BonusStr=5
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
@@ -250,7 +218,6 @@ ON=@Create
 [ITEMDEF i_nox_ranger_heavy_crossbow]
 ID=i_crossbow_heavy
 NAME=Nox Ranger's Heavy Crossbow
-SpellChanneling=1
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
@@ -262,8 +229,6 @@ ON=@Create
 [ITEMDEF i_orcish_visage]
 ID=i_mask_orc
 NAME=Orcish Visage
-BonusStr=10
-BonusStam=5
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
@@ -307,7 +272,6 @@ ON=@Create
 [ITEMDEF i_polar_bear_mask]
 ID=i_mask_bear
 NAME=Polar Bear Mask
-NightSight=1
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
@@ -317,7 +281,7 @@ ON=@Create
    HITPOINTS=255
 
 [ITEMDEF i_seahorse_statuette]
-ID=i_seahorse
+ID=i_aquarium_seahorse
 NAME=Seahorse Statuette
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
@@ -328,7 +292,6 @@ ON=@Create
 [ITEMDEF i_art_shield_invul]
 ID=i_shield_order
 NAME=Shield of Invulnerability
-SpellChanneling=1
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
@@ -349,9 +312,6 @@ ON=@Create
 [ITEMDEF i_staff_of_power]
 ID=i_staff_black
 NAME=Staff of Power
-SpellChanneling=1
-MageWeapon=15.0 Magery
-FasterCastRecovery=2
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
@@ -372,7 +332,6 @@ ON=@Create
 [ITEMDEF i_violet_courage]
 ID=i_armor_female_plate
 NAME=Violet Courage
-MageArmor=1
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
@@ -389,7 +348,6 @@ ON=@EquipTest
 [ITEMDEF i_wrath_dryad]
 ID=i_staff_gnarled
 NAME=Wrath of the Dryad
-HitLightning=33
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
@@ -409,8 +367,10 @@ NAME=Fire Horn
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Fire Horn
+
 ON=@Create
    COLOR=0466
+
 ON=@DClick
    IF (<CONT>)
       IF (<TOPOBJ.UID>==<SRC>)
@@ -441,7 +401,7 @@ ON=@DClick
    RETURN 1
 
 [ITEMDEF i_fire_horn_timer]
-ID=i_fire_horn
+ID=i_memory
 NAME=Fire Horn timer
 TYPE=t_eq_script
 WEIGHT=0
@@ -455,8 +415,6 @@ ON=@Timer
 [ITEMDEF i_aegis_grace]
 ID=i_dragon_helm
 NAME=Ægis of Grace
-BonusSkill1=MagicResistance
-BonusSkill1Amt=10.0
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
@@ -480,8 +438,6 @@ ON=@Create
 [ITEMDEF i_bonesmasher]
 ID=i_mace_diamond
 NAME=Bonesmasher
-BonusSkill1=MaceFighting
-BonusSkill1Amt=10.0
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
@@ -527,8 +483,6 @@ ON=@Create
 [ITEMDEF i_talon_bite]
 ID=i_ornate_axe
 NAME=Talon Bite
-BonusSkill1=Tactics
-BonusSkill1Amt=10.0
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
@@ -563,8 +517,6 @@ ON=@Create
 [ITEMDEF i_dreads_revenge]
 ID=i_kryss
 NAME=Dread's Revenge
-BonusSkill1=Fencing
-BonusSkill1Amt=20.0
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
@@ -576,9 +528,6 @@ ON=@Create
 [ITEMDEF i_flesh_ripper]
 ID=i_sword_assassin_spike
 NAME=Flesh Ripper
-BonusStr=5
-BonusSkill1=Anatomy
-BonusSkill1Amt=10.0
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
@@ -624,8 +573,6 @@ ON=@Create
 [ITEMDEF i_bloodwood_spirit]
 ID=i_talisman3
 NAME=Bloodwood Spirit
-BonusSkill1=SpiritSpeak
-BonusSkill1Amt=10.0
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
@@ -636,7 +583,6 @@ ON=@Create
 [ITEMDEF i_brightsight_lenses]
 ID=i_elven_glasses
 NAME=Brightsight Lenses
-NightSight=1
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
@@ -647,7 +593,6 @@ ON=@Create
 [ITEMDEF i_crimson_cincture]
 ID=i_talisman4
 NAME=Crimson Cincture
-BonusDex=10
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
@@ -658,7 +603,6 @@ ON=@Create
 [ITEMDEF i_fey_leggings]
 ID=i_chainmail_leggings
 NAME=Fey Leggings
-BonusHits=6
 // CANUSE=can_u_elf
 TEVENTS=t_equipitem
 CATEGORY=Artifacts

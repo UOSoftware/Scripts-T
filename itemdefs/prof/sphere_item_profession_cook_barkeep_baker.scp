@@ -2349,7 +2349,7 @@ DEFNAME=i_sushi_rolls
 TYPE=t_food
 FLIP=1
 RESOURCES=10 i_fish_cut_raw
-SKILLMAKING=Cooking 90.0, t_cooking
+SKILLMAKE=Cooking 90.0, t_cooking
 CATEGORY=Provisions - Food
 SUBSECTION=Assembled
 DESCRIPTION=Sushi Rolls
@@ -2366,7 +2366,7 @@ DEFNAME=i_sushi_platter
 TYPE=t_food
 FLIP=1
 RESOURCES=10 i_fish_cut_raw,1 i_pitcher_water
-SKILLMAKING=Cooking 90.0, t_cooking
+SKILLMAKE=Cooking 90.0, t_cooking
 CATEGORY=Provisions - Food
 SUBSECTION=Assembled
 DESCRIPTION=Sushi Platter
@@ -2735,6 +2735,16 @@ DUPELIST=044e6
 //Fish (dragon)
 DUPEITEM=044e5
 
+[ITEMDEF i_seahorse]
+DEFNAME=i_seahorse
+ID=i_aquarium_seahorse
+NAME=seahorse
+TYPE=t_fish
+VALUE=10
+WEIGHT=1.0
+CATEGORY=Provisions - Food
+SUBSECTION=Aquarium
+DESCRIPTION=Seahorse
 
 [ITEMDEF 0495e]
 DEFNAME=i_jug_hooch

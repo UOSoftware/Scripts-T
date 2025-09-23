@@ -8,9 +8,6 @@
 [ITEMDEF i_arcane_shield]
 ID=i_shield_kite_wood
 NAME=Arcane Shield
-SpellChanneling=1
-NightSight=1
-FasterCasting=1
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Doom (Gauntlet)
@@ -22,8 +19,6 @@ ON=@Create
 [ITEMDEF i_armor_fortune]
 ID=i_leather_tunic
 NAME=Armor of Fortune
-LowerReagentCost=40
-MageArmor=1
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Doom (Gauntlet)
@@ -35,7 +30,6 @@ ON=@Create
 [ITEMDEF i_axe_heavens]
 ID=i_axe_double
 NAME=Axe of the Heavens
-HitLightning=50
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Doom (Gauntlet)
@@ -47,7 +41,6 @@ ON=@Create
 [ITEMDEF i_blade_insanity]
 ID=i_katana
 NAME=Blade of Insanity
-RegenStam=2
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Doom (Gauntlet)
@@ -59,8 +52,6 @@ ON=@Create
 [ITEMDEF i_bone_crusher]
 ID=i_mace_war
 NAME=Bone Crusher
-//HitLowerDef=50
-BonusStr=10
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Doom (Gauntlet)
@@ -72,7 +63,6 @@ ON=@Create
 [ITEMDEF i_bracelet_health]
 ID=i_bracelet_gold
 NAME=Bracelet of Health
-BonusHits=5
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Doom (Gauntlet)
@@ -118,7 +108,6 @@ HITPOINTS=255
 [ITEMDEF i_gauntlets_nobility]
 ID=i_leather_gloves
 NAME=Gauntlets of Nobility
-BonusStr=8
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Doom (Gauntlet)
@@ -152,7 +141,6 @@ ON=@Create
 [ITEMDEF i_holy_knights_breastplate]
 ID=i_platemail_chest
 NAME=Holy Knight's Breastplate
-BonusHits=10
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Doom (Gauntlet)
@@ -164,10 +152,6 @@ ON=@Create
 [ITEMDEF i_hunters_headdress]
 ID=i_mask_deer
 NAME=Hunter's Headdress
-BonusSkill1=Archery
-BonusSkill1Amt=20.0
-BonusDex=8
-NightSight=1
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Doom (Gauntlet)
@@ -179,7 +163,6 @@ ON=@Create
 [ITEMDEF i_jackals_collar]
 ID=i_platemail_gorget
 NAME=Jackal's Collar
-BonusDex=15
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Doom (Gauntlet)
@@ -191,8 +174,6 @@ ON=@Create
 [ITEMDEF i_legacy_dread_lord]
 ID=i_bardiche
 NAME=Legacy of the Dread Lord
-SpellChanneling=1
-FasterCastRecovery=3
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Doom (Gauntlet)
@@ -204,7 +185,6 @@ ON=@Create
 [ITEMDEF i_leggings_bane]
 ID=i_ringmail_leggings
 NAME=Leggings of Bane
-BonusStam=8
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Doom (Gauntlet)
@@ -216,9 +196,6 @@ ON=@Create
 [ITEMDEF i_midnight_bracers]
 ID=i_bone_arms
 NAME=Midnight Bracers
-BonusSkill1=Necromancy
-BonusSkill1Amt=20.0
-MageArmor=1
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Doom (Gauntlet)
@@ -230,9 +207,6 @@ ON=@Create
 [ITEMDEF i_ornament_magician]
 ID=i_bracelet_gold
 NAME=Ornament of the Magician
-FasterCasting=2
-FasterCastRecovery=3
-LowerReagentCost=20
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Doom (Gauntlet)
@@ -243,7 +217,6 @@ ON=@Create
 [ITEMDEF i_ornate_crown_harrower]
 ID=i_bone_helmet
 NAME=Ornate Crown of the Harrower
-RegenStam=3
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Doom (Gauntlet)
@@ -265,8 +238,6 @@ ON=@Create
 [ITEMDEF i_ring_vile]
 ID=i_ring_gold
 NAME=Ring of the Vile
-BonusDex=8
-RegenStam=6
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Doom (Gauntlet)
@@ -277,7 +248,6 @@ ON=@Create
 [ITEMDEF i_serpents_fang]
 ID=i_kryss
 NAME=Serpent's Fang
-HitAreaPoison=100
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Doom (Gauntlet)
@@ -289,10 +259,6 @@ ON=@Create
 [ITEMDEF i_shadow_dancer_leggings]
 ID=i_leather_leggings
 NAME=Shadow Dancer Leggings
-BonusSkill1=Stealing
-BonusSkill1Amt=20.0
-BonusSkill2=Stealth
-BonusSkill2Amt=20.0
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Doom (Gauntlet)
@@ -304,7 +270,6 @@ ON=@Create
 [ITEMDEF i_spirit_totem]
 ID=i_mask_bear
 NAME=Spirit of the Totem
-BonusStr=20
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Doom (Gauntlet)
@@ -316,9 +281,6 @@ ON=@Create
 [ITEMDEF i_staff_magi]
 ID=i_staff_black
 NAME=Staff of the Magi
-SpellChanneling=1
-FasterCasting=1
-// DamEnergy=100
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Doom (Gauntlet)
@@ -328,15 +290,12 @@ ON=@Create
    HITPOINTS=255
    DORAND 3
       BEGIN
-         MageWeapon=<FVAL <R150,300>> Magery
          TAG.OVERRIDE_SKILL=26	//Magic Resistance
       END
       BEGIN
-         MageWeapon=<FVAL <R150,300>> Necromancy
          TAG.OVERRIDE_SKILL=50	//Focus
       END
       BEGIN
-         MageWeapon=<FVAL <R150,300>> Spellweaving
          TAG.OVERRIDE_SKILL=55	//Mysticism
       END
    ENDDO
@@ -356,7 +315,6 @@ ON=@Create
 ID=i_lance
 NAME=The Dragon Slayer
 TAG.SlayerGroup=DRAGON
-// DamEnergy=100
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Doom (Gauntlet)
@@ -376,20 +334,11 @@ ON=@Create
    COLOR=048f
    HITPOINTS=255
    DORAND 6
-      BonusSkill1=Archery
-      BonusSkill1=Chivalry
-      BonusSkill1=Healing
-      BonusSkill1=MagicResistance
-      BonusSkill1=Ninjitsu
-      BonusSkill1=Peacemaking
    ENDDO
-   BonusSkill1Amt=<QVAL !(<R4>)? 10.0 : 5.0>
 
 [ITEMDEF i_the_taskmaster]
 ID=i_war_fork
 NAME=The Taskmaster
-HitAreaPoison=100
-BonusDex=5
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Doom (Gauntlet)
@@ -401,7 +350,6 @@ ON=@Create
 [ITEMDEF i_tunic_fire]
 ID=i_chainmail_tunic
 NAME=Tunic of Fire
-NightSight=1
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Doom (Gauntlet)
@@ -413,8 +361,6 @@ ON=@Create
 [ITEMDEF i_voice_fallen_king]
 ID=i_leather_gorget
 NAME=Voice of the Fallen King
-BonusStr=8
-RegenStam=3
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Doom (Gauntlet)
@@ -507,7 +453,6 @@ DESCRIPTION=Ruined Painting
 ID=i_sword_long
 NAME=Blade of the Righteous
 TAG.SlayerGroup=DEMON
-BonusHits=10
 TAG.Stealable=1
 TAG.StealingTimer=672
 TEVENTS=t_equipitem
@@ -520,9 +465,7 @@ ON=@Create
 
 [ITEMDEF i_doom_titan_hammer]
 ID=i_hammer_war
-NAME=Titan's Hammer
-HitAreaEnergy=100
-BonusStr=15
+NAME=Titans Hammer
 TAG.Stealable=1
 TAG.StealingTimer=672
 TEVENTS=t_equipitem
@@ -549,8 +492,6 @@ HITPOINTS=255
 [ITEMDEF i_doom_inquisitor_resolution]
 ID=i_platemail_gloves
 NAME=Inquisitor's Resolution
-FasterCastRecovery=3
-MageArmor=1
 TAG.Stealable=1
 TAG.StealingTimer=672
 TEVENTS=t_equipitem
@@ -715,7 +656,7 @@ SUBSECTION=Stygian Abyss
 DESCRIPTION=Raptor Claw
 ON=@Create
    COLOR=035
-   HITPOINTS=255
+// HITPOINTS=255
 
 //////////////////////
 // Virtue Artifacts //
@@ -781,10 +722,7 @@ DAM=13,15
 SKILL=Swordsmanship
 SPEED=41
 TWOHANDS=Y
-BonusSkill1=Lumberjacking
-BonusSkill1Amt=5.0
 ReqStr=20
-SpellChanneling=1
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Peerless
@@ -814,10 +752,6 @@ ON=@Create
 [ITEMDEF i_ring_crystalline]
 ID=i_ring_gold
 NAME=Crystalline Ring
-BonusSkill1=Magery
-BonusSkill1Amt=20.0
-BonusSkill2=Focus
-BonusSkill2Amt=20.0
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Peerless
@@ -836,9 +770,6 @@ SPEED=53
 ReqStr=10
 TWOHANDS=N
 TEVENTS=t_equipitem
-BonusSkill1=Fencing
-BonusSkill1Amt=20.0
-HitAreaPoison=30
 CATEGORY=Artifacts
 SUBSECTION=Peerless
 DESCRIPTION=Dread's Revenge
@@ -854,7 +785,6 @@ ON=@Create
 DEFNAME=i_robe_hawkwinds
 NAME=Hawkwind's Robe
 TYPE=t_clothing
-LowerReagentCost=10
 // CANUSE=can_u_human|can_u_elf
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
@@ -1069,10 +999,6 @@ DEFNAME=i_mask_khal_ankur
 NAME=Mask of Khal Ankur
 TYPE=t_clothing
 FLIP=1
-BONUSHITS=10
-BONUSMANA=10
-ENHANCEPOTIONS=35
-LOWERMANACOST=10
 REQSTR=10
 // CANUSE=can_u_human|can_u_elf
 TEVENTS=t_equipitem
@@ -1094,11 +1020,6 @@ DEFNAME=i_pendant_khal_ankur
 NAME=Pendant of Khal Ankur
 TYPE=t_clothing
 FLIP=1
-BONUSHITS=10
-BONUSMANA=10
-ENHANCEPOTIONS=35
-LOWERMANACOST=10
-MAGEARMOR=1
 REQSTR=10
 // CANUSE=can_u_gargoyle
 TEVENTS=t_equipitem
@@ -1164,8 +1085,6 @@ DEFNAME=i_belt_first_aid
 TYPE=t_clothing
 TDATA2=03c
 DYE=1
-REGENHITS=2
-MODMAXWEIGHT=100.0
 CATEGORY=Artifacts
 SUBSECTION=Artifacts of the Cult
 DESCRIPTION=First Aid Belt

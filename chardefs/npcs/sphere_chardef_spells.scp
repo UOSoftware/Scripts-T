@@ -44,7 +44,7 @@ DEFNAME=c_horse_brown_lt_summon
 ID=c_horse_brown_lt
 NAME=Horse
 ICON=i_pet_horse_brown_lt_summon
-TEVENTS=e_generic_npc_summons
+//TEVENTS=e_generic_npc_summons
 
 ON=@Create
 Flags=Statf_Conjured
@@ -68,7 +68,7 @@ DEFNAME=c_horse_gray_summon
 ID=c_horse_gray
 NAME=Horse
 ICON=i_pet_horse_gray_summon
-TEVENTS=e_generic_npc_summons
+//TEVENTS=e_generic_npc_summons
 
 ON=@Create
 Flags=Statf_Conjured
@@ -91,7 +91,7 @@ KARMA=0
 DEFNAME=c_chicken_summon
 ID=c_chicken
 NAME=Chicken
-TEVENTS=e_generic_npc_summons
+//TEVENTS=e_generic_npc_summons
 
 ON=@Create
 Flags=Statf_Conjured
@@ -118,7 +118,7 @@ TAG.HitPoison=3
 CATEGORY=Monsters
 SUBSECTION=Spells
 DESCRIPTION=Giant Scorpion
-TEVENTS=e_generic_npc_summons
+//TEVENTS=e_generic_npc_summons
 
 ON=@Create
 Flags=Statf_Conjured

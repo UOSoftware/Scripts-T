@@ -605,7 +605,7 @@ SUBSECTION=Krampus Encounter
 DESCRIPTION=Barbed Whip
 DUPELIST=0a291
 ON=@Create
-   HITPOINTS={30 60}
+// HITPOINTS={30 60}
 
 [ITEMDEF 0a28a]
 DEFNAME=i_whip_spiked
@@ -624,7 +624,7 @@ SUBSECTION=Krampus Encounter
 DESCRIPTION=Spiked Whip
 DUPELIST=0a292
 ON=@Create
-   HITPOINTS={30 60}
+// HITPOINTS={30 60}
 
 [ITEMDEF 0a28b]
 DEFNAME=i_whip_bladed
@@ -643,7 +643,7 @@ SUBSECTION=Krampus Encounter
 DESCRIPTION=Bladed Whip
 DUPELIST=0a293
 ON=@Create
-   HITPOINTS={30 60}
+// HITPOINTS={30 60}
 
 
 [ITEMDEF 0a28d]
@@ -1769,7 +1769,6 @@ DUPEITEM=0a407
 [ITEMDEF 0a40b]
 DEFNAME=i_admiral_jacks_pumpkin_spice_ale
 NAME=Admiral Jack's Pumpkin Spice Ale
-SPELLCHANNELING=1
 TYPE=t_clothing
 CATEGORY=Quests
 SUBSECTION=Forsaken Foes
@@ -1781,7 +1780,7 @@ ON=@Create
 DEFNAME=i_belt_mace
 NAME=mace belt
 TYPE=t_clothing
-RESOURCES=5 i_cloth,5 i_hide,5 i_lodestone
+RESOURCES=5 i_cloth,5 i_hide
 SKILLMAKE=Tailoring 90.0,t_sewing_kit
 CATEGORY=Quests
 SUBSECTION=Forsaken Foes
@@ -1791,7 +1790,7 @@ DESCRIPTION=Mace Belt
 DEFNAME=i_belt_sword
 NAME=sword belt
 TYPE=t_clothing
-RESOURCES=5 i_cloth,5 i_hide,5 i_lodestone
+RESOURCES=5 i_cloth,5 i_hide
 SKILLMAKE=Tailoring 90.0,t_sewing_kit
 CATEGORY=Quests
 SUBSECTION=Forsaken Foes

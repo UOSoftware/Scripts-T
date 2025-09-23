@@ -565,16 +565,16 @@ COMPONENT=4806,3,-3
 COMPONENT=4797,3,-3
 COMPONENT=4807,4,-4
 
-[ITEMDEF m_statue]
-ID=i_statue_stone_lg_5
-NAME=Statue
-TYPE=t_multi
-CATEGORY=Multis
-SUBSECTION=Misc
-DESCRIPTION=Statue
-MULTIREGION=0,0,0,0
-COMPONENT=5023,-1,0,0,0
-COMPONENT=5024,0,-1,0,0
+// [ITEMDEF m_statue]
+// ID=i_statue_stone_lg_5
+// NAME=Statue
+// TYPE=t_multi
+// CATEGORY=Multis
+// SUBSECTION=Misc
+// DESCRIPTION=Statue
+// MULTIREGION=0,0,0,0
+// COMPONENT=5023,-1,0,0,0
+// COMPONENT=5024,0,-1,0,0
 
 [ITEMDEF m_altar]
 ID=01216

@@ -100,7 +100,7 @@ ReqStr=25
 TEVENTS=t_equipitem
 DUPELIST=04067
 ON=@Create
-   HITPOINTS={36 48}
+//  HITPOINTS={36 48}
 
 [ITEMDEF 0900]
 DEFNAME=i_stone_warsword
@@ -151,7 +151,7 @@ ReqStr=40
 TEVENTS=t_equipitem
 DUPELIST=0406c
 ON=@Create
-   HITPOINTS={36 48}
+// HITPOINTS={36 48}
 
 [ITEMDEF 0902]
 DEFNAME=i_gargish_dagger
@@ -351,7 +351,7 @@ ReqStr=60
 TEVENTS=t_equipitem
 DUPELIST=0406b
 ON=@Create
-   HITPOINTS={36 48}
+// HITPOINTS={36 48}
 
 [ITEMDEF 090b]
 DEFNAME=i_sword_dread
@@ -448,7 +448,7 @@ DESCRIPTION=Blank Wand 1
 ReqStr=5
 TEVENTS=t_equipitem
 ON=@Create
-   HITPOINTS={36 48}
+// HITPOINTS={36 48}
 
 [ITEMDEF 0df3]
 DEFNAME=i_wand_2
@@ -469,7 +469,7 @@ DESCRIPTION=Blank Wand 2
 ReqStr=5
 TEVENTS=t_equipitem
 ON=@Create
-   HITPOINTS={36 48}
+//  HITPOINTS={36 48}
 
 [ITEMDEF 0df4]
 DEFNAME=i_wand_3
@@ -490,7 +490,7 @@ DESCRIPTION=Blank Wand 3
 ReqStr=5
 TEVENTS=t_equipitem
 ON=@Create
-   HITPOINTS={36 48}
+// HITPOINTS={36 48}
 
 [ITEMDEF 0df5]
 DEFNAME=i_wand_4
@@ -511,7 +511,7 @@ DESCRIPTION=Blank Wand 4
 ReqStr=5
 TEVENTS=t_equipitem
 ON=@Create
-   HITPOINTS={36 48}
+// HITPOINTS={36 48}
 
 
 [ITEMDEF 0e81]
@@ -2334,7 +2334,7 @@ ON=@Create
 //To use Shuriken, a Leather Ninja Belt must be worn or within backpack.
 DEFNAME=i_shuriken
 NAME=shuriken
-TYPE=t_ninja_shuriken
+//TYPE=t_ninja_shuriken
 FLIP=1
 VALUE=6
 WEIGHT=1.0

@@ -166,11 +166,6 @@ ON=@TargOn_Char
 [ITEMDEF i_ancient_farmer_kasa]
 ID=i_hat_kasa
 NAME=Ancient Farmer Kasa
-BonusStr=5
-BonusStam=5
-RegenStam=5
-BonusSkill1=AnimalLore
-BonusSkill1Amt=5.0
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Lesser Treasures of Tokuno
@@ -181,9 +176,6 @@ ON=@Create
 [ITEMDEF i_ancient_samurai_do]
 ID=i_platemail_do
 NAME=Ancient Samurai Do
-MageArmor=1
-BonusSkill1=Parrying
-BonusSkill1Amt=10.0
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Lesser Treasures of Tokuno
@@ -194,9 +186,6 @@ ON=@Create
 [ITEMDEF i_arms_of_tactical_excellence]
 ID=i_leather_hiro_sode
 NAME=Arms of Tactical Excellence
-BonusDex=5
-BonusSkill1=Tactics
-BonusSkill1Amt=12.0
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Lesser Treasures of Tokuno
@@ -217,7 +206,6 @@ ON=@Create
 [ITEMDEF i_daimyo_helm]
 ID=i_helm_kabuto
 NAME=Daimyo's Helm
-MageArmor=1
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Lesser Treasures of Tokuno
@@ -249,7 +237,6 @@ ON=@Create
 [ITEMDEF i_dragon_nunchaku]
 ID=i_nunchaku
 NAME=Dragon Nunchaku
-HitFireball=50
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Lesser Treasures of Tokuno
@@ -261,7 +248,6 @@ ON=@Create
 ID=i_tetsubo
 NAME=Exiler
 TAG.SlayerGroup=DEMON
-// DamEnergy=100
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Lesser Treasures of Tokuno
@@ -309,8 +295,6 @@ ON=@ClientTooltip
 [ITEMDEF i_gloves_of_the_sun]
 ID=i_leather_gloves
 NAME=Gloves of the Sun
-NightSight=1
-LowerReagentCost=18
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Lesser Treasures of Tokuno
@@ -321,8 +305,6 @@ ON=@Create
 [ITEMDEF i_hanzos_bow]
 ID=i_yumi
 NAME=Hanzo's Bow
-BonusSkill1=Ninjitsu
-BonusSkill1Amt=10.0
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Lesser Treasures of Tokuno
@@ -343,8 +325,6 @@ ON=@Create
 [ITEMDEF i_legs_of_stability]
 ID=i_platemail_suneate
 NAME=Legs of Stability
-BonusStam=5
-MageArmor=1
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Lesser Treasures of Tokuno
@@ -368,8 +348,6 @@ ON=@Create
 ID=i_tessen
 NAME=Pilfered Dancer Fans
 SKILL=Macefighting
-SpellChanneling=1
-FasterCastRecovery=2
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Lesser Treasures of Tokuno
@@ -380,7 +358,6 @@ ON=@Create
 [ITEMDEF i_rune_beetle_carapace]
 ID=i_platemail_hiro_sode
 NAME=Rune Beetle Carapace
-MageArmor=1
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Greater Treasures of Tokuno
@@ -420,15 +397,12 @@ ON=@Create
    HITPOINTS=255
    DORAND 3
       BEGIN
-         MageWeapon=<FVAL <R150,300>> Magery
          TAG.OVERRIDE_SKILL=26	//Magic Resistance
       END
       BEGIN
-         MageWeapon=<FVAL <R150,300>> Necromancy
          TAG.OVERRIDE_SKILL=50	//Focus
       END
       BEGIN
-         MageWeapon=<FVAL <R150,300>> Spellweaving
          TAG.OVERRIDE_SKILL=55	//Mysticism
       END
    ENDDO
@@ -436,7 +410,6 @@ ON=@Create
 [ITEMDEF i_the_destroyer]
 ID=i_no_dachi
 NAME=The Destroyer
-BonusStr=6
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Lesser Treasures of Tokuno
@@ -448,7 +421,6 @@ ON=@Create
 ID=i_yumi
 NAME=The Horselord
 TAG.SlayerGroup=ELEMENTAL,REPTILE
-BonusDex=5
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Greater Treasures of Tokuno
@@ -459,7 +431,6 @@ ON=@Create
 [ITEMDEF i_tome_enlightenment]
 ID=i_spellbook
 NAME=Tome of Enlightenment
-FasterCasting=1
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Lesser Treasures of Tokuno
@@ -470,8 +441,6 @@ ON=@Create
 [ITEMDEF i_tome_of_lost_knowledge]
 ID=i_spellbook
 NAME=Tome of Lost Knowledge
-BonusSkill1=Magery
-BonusSkill1Amt=15.0
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Greater Treasures of Tokuno
@@ -482,7 +451,6 @@ ON=@Create
 [ITEMDEF i_winds_edge]
 ID=i_tessen
 NAME=Wind's Edge
-// DamEnergy=100
 TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Greater Treasures of Tokuno

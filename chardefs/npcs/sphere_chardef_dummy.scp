@@ -191,7 +191,7 @@ IF (<SRC.ISPLAYER>)
 ENDIF
 
 [dialog d_damage_show]
-<DEF.DSP>
+<DEF.dlgstartpos>
 
 RESIZEPIC 0 0 5120 240 340
 RESIZEPIC 10 10 3000 220 320

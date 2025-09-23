@@ -573,7 +573,7 @@ CATEGORY=Provisions - Deeds
 SUBSECTION=Multi Item Deeds
 DESCRIPTION=Large Forge with Bellow
 ON=@Create
-   MORE=i_multi_forge_bellow
+// MORE=i_multi_forge_bellow
 
 [ITEMDEF i_deed_bearskin_rug]
 ID=i_deed
@@ -583,7 +583,7 @@ CATEGORY=Provisions - Deeds
 SUBSECTION=Multi Item Deeds
 DESCRIPTION=Bearskin Rug
 ON=@Create
-   MORE=i_multi_bearskin_rug
+// MORE=i_multi_bearskin_rug
 
 [ITEMDEF i_deed_polarbear_rug]
 ID=i_deed
@@ -593,7 +593,7 @@ CATEGORY=Provisions - Deeds
 SUBSECTION=Multi Item Deeds
 DESCRIPTION=Polar Bearskin Rug
 ON=@Create
-   MORE=i_multi_polarbear_rug
+//  MORE=i_multi_polarbear_rug
 
 [ITEMDEF i_deed_gardenshed_south]
 ID=i_deed
@@ -603,7 +603,7 @@ CATEGORY=Provisions - Deeds
 SUBSECTION=Multi Item Deeds
 DESCRIPTION=Garden Shed
 ON=@Create
-   MORE=i_multi_gardenshed_south
+// MORE=i_multi_gardenshed_south
 
 
 [ITEMDEF i_deed_foundation_7x7]

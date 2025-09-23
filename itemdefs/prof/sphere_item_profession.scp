@@ -3053,7 +3053,6 @@ SKILLMAKE=Carpentry 100.0,Imbuing 75.0,t_carpentry
 CATEGORY=Items by Professions
 SUBSECTION=Artificer
 DESCRIPTION=Small Soulforge
-TEVENTS=t_soulforge
 DUPELIST=044c8,044c9,044ca
 
 [ITEMDEF 044c8]

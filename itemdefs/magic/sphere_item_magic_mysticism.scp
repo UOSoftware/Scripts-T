@@ -276,7 +276,7 @@ DESCRIPTION=Healing Stone
 
 ON=@Create
 attr=attr_blessed
-morex=<eval <src.Mysticism>/12> + (<src.Focus>/50 + <src.Imbuing>/50)>
+//morex=<eval <src.Mysticism>/12> + (<src.Focus>/50 + <src.Imbuing>/50)>
 more1=<morex>
 more2=<morex>/3
 
