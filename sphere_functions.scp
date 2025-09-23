@@ -8,30 +8,6 @@ FUNC_GIVE_HITS_FIX = Hitsi direkt olarak + yapıldığında bazen bug olabiliyor
 
 
 [FUNCTION Logger]
-// TREF_SERV          000001
-// TREF_FILE          000002
-// TREF_NEWFILE       000004
-// TREF_DB            000008
-// TREF_RESDEF        000010
-// TREF_RESBASE       000020
-// TREF_FUNCTIONARGS  000040
-// TREF_FILEOBJ       000080
-// TREF_FILEOBJCONT   000100
-// TREF_ACCOUNT       000200
-// TREF_STONEMEMBER   000800
-// TREF_SERVERDEF     001000
-// TREF_SECTOR        002000
-// TREF_WORLD         004000
-// TREF_GMPAGE        008000
-// TREF_CLIENT        010000
-// TREF_OBJECT        020000
-// TREF_CHAR          040000
-// TREF_ITEM          080000
-//EXAMPLE: @
-// CTCOL_RED, 
-// LOGL_EVENT, 
-// LOGM_NOCONTEXT|LOGM_KILLS 
-// MESSAGE
 IF (<GETREFTYPE> == <def.tref_account> || <GETREFTYPE> == <def.tref_client> || <GETREFTYPE> == <def.tref_world> || <GETREFTYPE> == <def.tref_char> || <GETREFTYPE> == <def.tref_item> || <GETREFTYPE> == <def.tref_object>)
 	
 	// Item
@@ -49,6 +25,7 @@ IF (<GETREFTYPE> == <def.tref_account> || <GETREFTYPE> == <def.tref_client> || <
 			LOCAL.OBJINFO NPCLog - [Name=<NAME>, UID=<UID>, Food=<FOOD>/<MAXFOOD>, Owner=<qval (<owner>)?<owner.NAME>:Yok>, Region=<QVAL (<REGION>)?<REGION.NAME>/<P>:>]
 		ENDIF
 	ENDIF
+	
 	SERV.LOG [<GETREFTYPE>] <LOCAL.OBJINFO> == <ARGS>
 ELSE
 	SERV.LOG [<GETREFTYPE>] <ARGS>
