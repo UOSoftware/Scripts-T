@@ -10,7 +10,7 @@ SUBSECTION=Miscellaneous
 DESCRIPTION=Lord Blackthorn
 
 ON=@Create
-NPC=BRAIN_MONSTER
+NPC=brain_human
 STR=100
 DEX=100
 INT=100
@@ -33,7 +33,7 @@ SUBSECTION=Champions
 DESCRIPTION=Blackthorn the Merciless
 
 ON=@Create
-NPC=brain_monster
+NPC=brain_human
 FAME={9000 9999}
 KARMA={-9000 -9999}
 STR={750 900}

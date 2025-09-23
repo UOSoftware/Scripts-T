@@ -1,0 +1,9 @@
+
+
+[events e_generic_npc_bankers]
+ON=@CLICK
+MESSAGE [Banker]
+
+
+
+[eof]

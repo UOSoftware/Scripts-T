@@ -1,6 +1,6 @@
 VERSION=0.56T
 
-[SPEECH spk_generic_npc_vendor_shopkeepers]
+[SPEECH spk_generic_npc_vendors]
 ON=*sell*
 IF (<SRC.FLAGS>&STATF_DEAD) 
 	SRC.SYSMESSAGELOC <def.tcolor_red>,600027 // "Ölü durumdayken bu işlemi yapamazsınız."

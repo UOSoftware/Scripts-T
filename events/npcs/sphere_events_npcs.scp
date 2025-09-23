@@ -26,18 +26,8 @@ ARGO.TAG0.CORPSE_BASEID=<SRC.BASEID>
 ARGO.TAG0.TIME <SERV.RTIME>
 
 
-// Npclerin sahiplerine sürekli crim görünmesi fixi
-ON=@NOTOSEND
-IF (<OWNER.ISVALIDE>) && (<OWNER>==<SRC>)
-	REF1 = <UID>
-	LOCAL.NOTO = <NOTOGETFLAG <REF1>>
-	ARGN1=<DLOCAL.NOTO>
-ENDIF
-
-
 // Yaratığın Str/hits yükseldikçe Poisondan aldığı hasr da aynı oranda yükseliyordu. 
 // Bunun fixi yapılmaya çalışıldı ama daha da optimize edilebilir.
-
 // Default Object: The object that is going to be affected.
 	// Src: The object that is going to be affected.
 	// ARGN1: Spell Id

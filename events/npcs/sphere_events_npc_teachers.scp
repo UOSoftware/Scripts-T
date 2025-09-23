@@ -1,5 +1,8 @@
 
-[events e_generic_npc_vendor_teachers]
+[events e_generic_npc_teachers]
+ON=@CLICK
+MESSAGE [Teacher]
+
 ON=@DCLICK
 SRC.SYSMESSAGE Burada teacher dialog acilacak.
 // DIALOGCLOSE D_NPC_VENDOR_TEACHER

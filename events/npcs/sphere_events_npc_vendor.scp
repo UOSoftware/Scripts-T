@@ -7,17 +7,22 @@ MESSAGE @<DEF.NOTO.<NOTOGETFLAG>> <NAME>
 RETURN 1
 
 
-// Spazm 
-On=@GetHit
-IF (<SRC.ISPLAYER>)
-	IF !(<SRC.FINDID.I_SpazmMemTimer>)
-		SRC.NEWITEM I_SpazmMemTimer,1,<SRC>,1
+ON=@DCLICK
+// sorgular buy speechin altında mı olmalı? buraya ekstra sorguya gerek var mı
+IF !(<SRC.ISGM>)
+	IF (<SRC.FLAGS>&STATF_DEAD) 
+		SRC.SYSMESSAGELOC <def.tcolor_red>,600027 // Ölü durumdayken bu işlemi yapamazsınız.
+		RETURN 1
+	ELSEIF (<SRC.ISDIFF 2,<UID>>)
+		SRC.SYSMESSAGELOC <def.tcolor_red>,600018,<JOB> <NAME>
+		RETURN 1
 	ENDIF
-	RETURN 1
 ENDIF
+FACE <SRC>
+BUY
+RETURN 1
 
-
-// nebula like
+// nebula2000 like
 On=@EnvironChange
 IF (<FLAGS>&STATF_WAR) 
 	RETURN 0

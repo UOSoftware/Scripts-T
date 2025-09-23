@@ -1,6 +1,6 @@
 VERSION=0.56T
 
-[SPEECH spk_generic_npc_vendor_bankers]
+[SPEECH spk_generic_npc_bankers]
 ON=*bank*
 SRC.OPENBANK
 
