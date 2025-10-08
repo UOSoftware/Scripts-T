@@ -370,15 +370,15 @@ SERV.LOG <QVAL (<ARGO>)?<ARGO>:<src.name>/<SRC>> karakter silindi.
 
 
 [FUNCTION f_onserver_window_minimize]
-serv.log Window Minimized
+// serv.log Window Minimized
 
 
 [FUNCTION f_onserver_window_restore]
-serv.log Window Restore
+// serv.log Window Restore
 
 
 [FUNCTION f_onserver_onclose_query]
-serv.log Window Close Query Dlg Open
+// serv.log Window Close Query Dlg Open
 
 // DB
 [FUNCTION f_onserver_db_close]
@@ -390,7 +390,7 @@ serv.log Window Close Query Dlg Open
 [FUNCTION f_onserver_db_query]
 
 [FUNCTION f_onserver_db_tick]
-
+// SERV.LOG f_onserver_db_tick
 
 
 //*****************************************
