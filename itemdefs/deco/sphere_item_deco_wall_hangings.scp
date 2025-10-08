@@ -3440,10 +3440,6 @@ SUBSECTION=Trophies
 DESCRIPTION=Saurosaurus
 DUPELIST=09c0d
 
-[ITEMDEF 09c0d]
-//trophy saurosaurushead
-DUPEITEM=09c0c
-
 
 [ITEMDEF 09cb9]
 DEFNAME=i_banner_fireworks_south

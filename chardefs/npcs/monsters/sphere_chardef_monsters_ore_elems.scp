@@ -134,39 +134,6 @@ ON=@NPCRestock
 
 
 
-
-[CHARDEF 06f]
-DEFNAME=c_elemental_ore_shadow
-NAME=Shadow Iron Elemental
-ICON=i_pet_elem_earth
-SOUND=snd_elementl_erthel1
-CAN=MT_WALK|MT_USEHANDS
-DAM=20,37
-ARMOR=30
-FOODTYPE=t_arock,t_coin,t_ore,t_ingot
-MAXFOOD=45
-RESOURCES=10 i_ore_shadow
-BLOODCOLOR=-1
-TAG.Barding.Diff=72.3
-CATEGORY=Monsters
-SUBSECTION=Elementals
-DESCRIPTION=Ore Elemental (shadow)
-
-ON=@Create
-NPC=brain_monster
-FAME={2500 2999}
-KARMA={-2500 -2999}
-STR={226 255}
-DEX={126 145}
-INT={71 92}
-MAGICRESISTANCE={100.0 125.0}
-TACTICS={60.0 100.0}
-WRESTLING={60.0 100.0}
-ON=@NPCRestock
-// ITEM=loot_elem_ore_shadow
-
-
-
 [CHARDEF 070]
 DEFNAME=c_elemental_ore_valorite
 NAME=Valorite Elemental

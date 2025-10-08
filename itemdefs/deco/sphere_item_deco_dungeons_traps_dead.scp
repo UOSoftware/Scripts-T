@@ -4210,12 +4210,7 @@ SUBSECTION=Goblin Trap
 DESCRIPTION=Goblin Trap
 
 
-[ITEMDEF 09cee]
-DEFNAME=i_automaton_actuator_right
-NAME=automaton actuator
-CATEGORY=Decoration - Dungeons and The Dead
-SUBSECTION=Kotl City
-DESCRIPTION=Automaton Actuator (right)
+
 
 [ITEMDEF 09ccf]
 //automaton actuator (right)
@@ -4383,11 +4378,11 @@ DESCRIPTION=Automaton Actuator (right)(disabled)
 
 [ITEMDEF 09cee]
 DEFNAME=i_automaton_actuator_left_disabled
+DEFNAME2=i_automaton_actuator_right
 NAME=automaton actuator
 CATEGORY=Decoration - Dungeons and The Dead
 SUBSECTION=Kotl City
 DESCRIPTION=Automaton Actuator (left)(disabled)
-
 
 [ITEMDEF 09d5f]
 //kotl sacrificial altar (multi-part)(south)
