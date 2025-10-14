@@ -46,7 +46,8 @@ ELSEIF (<IsInHouse>)
 ELSEIF (<IsInShip>)
 	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu eşya ev içindeyken kullanamazsın.
 	RETURN 1
-ELSEIF (<ATTR>&ATTR_MOVE_NEVER|ATTR_LOCKEDDOWN|ATTR_SECURE)
+// ELSEIF (<ATTR>&ATTR_MOVE_NEVER|ATTR_LOCKEDDOWN|ATTR_SECURE)
+ELSEIF (<ATTR>&ATTR_MOVE_NEVER)
 	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu eşya sabit.
 	RETURN 1
 ENDIF
@@ -83,7 +84,6 @@ ENDIF
 
 IF (<MORE2>) // DOLUYSA
 
-	
 	IF (<SRC.IsInShip>)
 		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu eşyayı gemi içindeyken kullanamazsın.
 		RETURN 1

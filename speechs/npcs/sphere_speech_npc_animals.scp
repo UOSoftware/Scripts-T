@@ -46,14 +46,16 @@ IF (<SRC.REGION.FLAGS>&REGION_FLAG_SAFE)
 	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu alanda bu komutu kullanamazsiniz.
 	RETURN 1
 ENDIF
-FORCHARS 18
-	IF (<OWNER>==<SRC>)
-		LOCAL.MYPET_COUNT ++
+IF (<DDEF.CHAR_NEAR_MAX>)
+	FORCHARS 18
+		IF (<OWNER>==<SRC>)
+			LOCAL.MYPET_COUNT ++
+		ENDIF
+	ENDFOR
+	IF (<DLOCAL.MYPET_COUNT> >= <DDEF.CHAR_NEAR_MAX>)
+		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Etrafınızda en fazla <DLOCAL.MYPET_COUNT>/<DDEF.CHAR_NEAR_MAX> adet sahibi oldugunuz varlık varken bu komutu kullanamazsınız.
+		RETURN 1
 	ENDIF
-ENDFOR
-IF (<DLOCAL.MYPET_COUNT> >= <DDEF.CHAR_NEAR_MAX>)
-	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Etrafınızda en fazla <DLOCAL.MYPET_COUNT>/<DDEF.CHAR_NEAR_MAX> adet sahibi oldugunuz varlık varken bu komutu kullanamazsınız.
-	RETURN 1
 ENDIF
 
 
@@ -69,14 +71,16 @@ IF (<SRC.REGION.FLAGS>&REGION_FLAG_SAFE)
 	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu alanda bu komutu kullanamazsiniz.
 	RETURN 1
 ENDIF
-FORCHARS 18
-	IF (<OWNER>==<SRC>)
-		LOCAL.MYPET_COUNT ++
+IF (<DDEF.CHAR_NEAR_MAX>)
+	FORCHARS 18
+		IF (<OWNER>==<SRC>)
+			LOCAL.MYPET_COUNT ++
+		ENDIF
+	ENDFOR
+	IF (<DLOCAL.MYPET_COUNT> >= <DDEF.CHAR_NEAR_MAX>)
+		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Etrafınızda en fazla <DLOCAL.MYPET_COUNT>/<DDEF.CHAR_NEAR_MAX> adet sahibi oldugunuz varlık varken bu komutu kullanamazsınız.
+		RETURN 1
 	ENDIF
-ENDFOR
-IF (<DLOCAL.MYPET_COUNT> >= <DDEF.CHAR_NEAR_MAX>)
-	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Etrafınızda en fazla <DLOCAL.MYPET_COUNT>/<DDEF.CHAR_NEAR_MAX> adet sahibi oldugunuz varlık varken bu komutu kullanamazsınız.
-	RETURN 1
 ENDIF
 
 
@@ -93,16 +97,18 @@ ENDIF
 	// SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu alanda bu komutu kullanamazsiniz.
 	// RETURN 1
 // ENDIF
-FORCHARS 18
-	IF (<OWNER>==<SRC>)
-		LOCAL.MYPET_COUNT ++
+IF (<DDEF.CHAR_NEAR_MAX>)
+	FORCHARS 18
+		IF (<OWNER>==<SRC>)
+			LOCAL.MYPET_COUNT ++
+		ENDIF
+	ENDFOR
+	// ACTPRI=100
+	// ACTDIFF=0
+	IF (<DLOCAL.MYPET_COUNT> >= <DDEF.CHAR_NEAR_MAX>)
+		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Etrafınızda en fazla <DLOCAL.MYPET_COUNT>/<DDEF.CHAR_NEAR_MAX> adet sahibi oldugunuz varlık varken bu komutu kullanamazsınız.
+		RETURN 1
 	ENDIF
-ENDFOR
-// ACTPRI=100
-// ACTDIFF=0
-IF (<DLOCAL.MYPET_COUNT> >= <DDEF.CHAR_NEAR_MAX>)
-	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Etrafınızda en fazla <DLOCAL.MYPET_COUNT>/<DDEF.CHAR_NEAR_MAX> adet sahibi oldugunuz varlık varken bu komutu kullanamazsınız.
-	RETURN 1
 ENDIF
 
 
@@ -116,14 +122,16 @@ ENDIF
 	// SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu alanda bu komutu kullanamazsiniz.
 	// RETURN 1
 // ENDIF
-FORCHARS 18
-	IF (<OWNER>==<SRC>)
-		LOCAL.MYPET_COUNT ++
+IF (<DDEF.CHAR_NEAR_MAX>)
+	FORCHARS 18
+		IF (<OWNER>==<SRC>)
+			LOCAL.MYPET_COUNT ++
+		ENDIF
+	ENDFOR
+	IF (<DLOCAL.MYPET_COUNT> >= <DDEF.CHAR_NEAR_MAX>)
+		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Etrafınızda en fazla <DLOCAL.MYPET_COUNT>/<DDEF.CHAR_NEAR_MAX> adet sahibi oldugunuz varlık varken bu komutu kullanamazsınız.
+		RETURN 1
 	ENDIF
-ENDFOR
-IF (<DLOCAL.MYPET_COUNT> >= <DDEF.CHAR_NEAR_MAX>)
-	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Etrafınızda en fazla <DLOCAL.MYPET_COUNT>/<DDEF.CHAR_NEAR_MAX> adet sahibi oldugunuz varlık varken bu komutu kullanamazsınız.
-	RETURN 1
 ENDIF
 
 
@@ -147,15 +155,18 @@ IF (<SRC.FLAGS>&STATF_DEAD)
 	SRC.SYSMESSAGELOC <def.tcolor_red>,600027 // Ölü durumdayken bu işlemi yapamazsınız.
 	RETURN 1
 ENDIF
-FORCHARS 18
-	IF (<OWNER>==<SRC>)
-		LOCAL.MYPET_COUNT ++
+IF (<DDEF.CHAR_NEAR_MAX>)
+	FORCHARS 18
+		IF (<OWNER>==<SRC>)
+			LOCAL.MYPET_COUNT ++
+		ENDIF
+	ENDFOR
+	IF (<DLOCAL.MYPET_COUNT> >= <DDEF.CHAR_NEAR_MAX>)
+		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Etrafınızda en fazla <DLOCAL.MYPET_COUNT>/<DDEF.CHAR_NEAR_MAX> adet sahibi oldugunuz varlık varken bu komutu kullanamazsınız.
+		RETURN 1
 	ENDIF
-ENDFOR
-IF (<DLOCAL.MYPET_COUNT> >= <DDEF.CHAR_NEAR_MAX>)
-	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Etrafınızda en fazla <DLOCAL.MYPET_COUNT>/<DDEF.CHAR_NEAR_MAX> adet sahibi oldugunuz varlık varken bu komutu kullanamazsınız.
-	RETURN 1
 ENDIF
+
 FORITEMS 18
 IF (<BASEID> == I_DEED_UYARI_UNCLOSE) || (<TYPE> == T_MOONGATE)
 	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu alanda bu komutu kullanamazsınız.

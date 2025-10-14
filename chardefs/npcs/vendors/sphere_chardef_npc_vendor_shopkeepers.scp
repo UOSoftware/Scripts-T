@@ -52,12 +52,6 @@ SUBSECTION=Tradesmen
 DESCRIPTION=Alchemist (human male)
 
 
-
-
-
-
-
-
 ON=@Create
 COLOR=colors_skin
 NPC=brain_vendor
@@ -95,19 +89,12 @@ SELL=VENDOR_S_ALCHEMIST
 BUY=VENDOR_B_ALCHEMIST
 
 
-
 [CHARDEF c_alchemist_f]
 ID=c_woman
 NAME=#NAMES_HUMANFEMALE the Alchemist
 CATEGORY=Civilized
 SUBSECTION=Tradesmen
 DESCRIPTION=Alchemist (human female)
-
-
-
-
-
-
 
 ON=@Create
 COLOR=colors_skin

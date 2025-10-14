@@ -178,7 +178,7 @@ RETURN 0
 
 
 [FUNCTION ISGOLEMS]
-IF (<BASEID> == C_GOLEM)
+IF (strmatch(*c_golem_tinker*,'<baseid>'))
 	RETURN 1
 ENDIF
 RETURN 0
@@ -440,23 +440,6 @@ RETURN <LOCAL.HOMEP>
 
 
 
-
-
-[FUNCTION IsMountables]
-// IF (<ISCHAR>) && (<SERV.CHARDEF.<BASEID>.TAG0.BINEK>)
-// mount_0xc8
-// mount_0xc8
-IF (<ISCHAR>) 
-	LOCAL.ID 0x<STRSUB 1 99 <SERV.CHARDEF.<BASEID>.ID>>
-	LOCAL.MT <def.mount_<LOCAL.ID>>
-	IF !(<ISEMPTY <LOCAL.MT>>) && (<RESOURCETYPE <LOCAL.MT>> == RES_ITEMDEF)
-		RETURN 1
-	ENDIF
-	// IF (<ISTEVENT.e_generic_npc_mounts>)
-		// RETURN 1
-	// ENDIF
-ENDIF
-RETURN 0
 
 
 
