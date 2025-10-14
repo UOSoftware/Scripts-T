@@ -270,6 +270,9 @@ IF (<SRC.FINDID.I_RUNE_REACTIVE_ARMOR>)
 ENDIF
 
 
+
+
+
 [TYPEDEF t_clothing]
 ON=@CLICK
 IF (<MOREY> > <ddef.MOREY_MAGIC_CLOTH_0>)
@@ -280,6 +283,8 @@ IF (<MOREY> > <ddef.MOREY_MAGIC_CLOTH_0>)
 	MESSAGE a magical <NAME>
 	RETURN 1
 ENDIF
+
+
 
 
 
