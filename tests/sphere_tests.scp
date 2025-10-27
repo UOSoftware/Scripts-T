@@ -1,0 +1,9 @@
+
+
+
+[function ftest]
+// timer 10
+timerd 100
+
+
+[eof]
