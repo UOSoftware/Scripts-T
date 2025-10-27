@@ -52,6 +52,7 @@ If (<ref1.memberfromuid.<argo.uid>.uid> != <argo.uid>)
     else
       f_townsys_addchartotown <ref1.uid>,<argo.uid>,0
     endif
+   endif
 else
   sysmessage @038A They are already a candidate.
 endif
@@ -76,7 +77,6 @@ endif
 if (!<ref2.isdspeech.<def.TOWNSCFGSPEECH_NAME>>)
 	ref2.dspeech +<def.TOWNSCFGSPEECH_NAME>
 endif
-ref1.NotoUpdate
 
 // ------------------------------------------------------
 [FUNCTION f_townsys_removecharfromtown]
@@ -93,7 +93,6 @@ if (<ref2.isdspeech.<def.TOWNSCFGSPEECH_NAME>>)
 endif
 
 ref1.resign <ref2.uid>
-ref1.NotoUpdate
 f_townsys_sendsmsg <ref1.uid>,<ref2.name> has resigned from the town.
 
 // ------------------------------------------------------
