@@ -27,11 +27,18 @@ ELSE
 	ENDIF
 ENDIF
 
+ON=@USERGUILDBUTTON
+f_guildsys_event_speech_fix
+IF (<DDEF.GUILDCONFIG_USEGUILDBUTTON> == 2)
+	IF (<GUILD>)
+		EVENTS -E_GUILDGENERICEVENT
+		f_guildsys_create
+	ELSE
+		f_guildsys_main
+	ENDIF
+ENDIF
 
 
 
-// SERV.B ARGN1 <ARGN1>
-// SERV.B ARGN3 <ARGN2>
-// SERV.B ARGN2 <ARGN3>
 
 [eof]

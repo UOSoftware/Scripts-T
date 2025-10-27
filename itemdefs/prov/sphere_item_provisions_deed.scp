@@ -293,13 +293,18 @@ ON=@Create
 
 [ITEMDEF i_deed_guildstone]
 ID=i_deed
-NAME=Deed to a Guildstone
-VALUE=25000
+NAME=Guildstone Deed
+VALUE=3000000
 CATEGORY=Provisions - Deeds
 SUBSECTION=Guild and Town Stones
 DESCRIPTION=Guildstone
+
 ON=@Create
-   MORE=i_guildstone
+//MORE=i_guildstone
+
+ON=@DClick
+SRC.f_guildsys_create
+RETURN 1
 
 [ITEMDEF i_deed_small_ship_n]
 ID=i_deed_ship

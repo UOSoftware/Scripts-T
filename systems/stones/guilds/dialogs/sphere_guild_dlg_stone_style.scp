@@ -1,0 +1,162 @@
+VERSION=0.56T
+
+
+[dialog d_Guild_StoneStyle]
+5,25
+IF (<TYPE>!=T_STONE_GUILD)
+	RETURN 1
+ELIF (<MASTERUID>!=<SRC.UID>)&&(!<SRC.ISGM>)
+	RETURN 1
+ENDIF
+
+PAGE 0
+
+RESIZE 0,0,820,350,Guild Stone Style
+
+DORIGIN 30 50
+DCROPPEDTEXT +0 +0 155 25 044 Guild puanınız: <BolukAyir <SRC.dTAG0.POINTS.GUILD>>
+
+FOR 1 7
+	RESIZEPIC <EVAL (<DLOCAL._FOR>*110)-70> +20 9200 100 200 
+ENDFOR
+
+TILEPICHUE +40 +80 <SERV.ITEMDEF.i_statue_warrior_custom2.ID> <QVAL (<SRC.CTAG0.Guild_StoneStyle.Color>)?<DCOLOR>:0>
+DHTMLGUMP +30 +230 100 25 0 0 <DEF.BFONT_WHITE>0 Guild puanı
+BUTTON +10 +233 0845 0846 1 0 1
+
+TILEPICHUE +120 +30 <SERV.ITEMDEF.i_statue_warrior_custom1.ID> <QVAL (<SRC.CTAG0.Guild_StoneStyle.Color>)?<DCOLOR>:0>
+DHTMLGUMP +140 +230 100 25 0 0 <DEF.BFONT_WHITE>50 Guild puanı
+BUTTON +120 +233 0845 0846 1 0 2
+
+
+TILEPICHUE +250 +60 <SERV.ITEMDEF.i_statue_warrior_custom3.ID> <QVAL (<SRC.CTAG0.Guild_StoneStyle.Color>)?<DCOLOR>:0>
+DHTMLGUMP +250 +230 100 25 0 0 <DEF.BFONT_WHITE>50 Guild puanı
+BUTTON +230 +233 0845 0846 1 0 3
+
+
+TILEPICHUE +360 +20 <SERV.ITEMDEF.i_statue_mage_custom1.ID> <QVAL (<SRC.CTAG0.Guild_StoneStyle.Color>)?<DCOLOR>:0>
+DHTMLGUMP +360 +230 100 25 0 0 <DEF.BFONT_WHITE>50 Guild puanı
+BUTTON +340 +233 0845 0846 1 0 4
+
+TILEPICHUE +460 +30 <SERV.ITEMDEF.i_statue_elrond_custom1.ID> <QVAL (<SRC.CTAG0.Guild_StoneStyle.Color>)?<DCOLOR>:0>
+DHTMLGUMP +470 +230 100 25 0 0 <DEF.BFONT_WHITE>50 Guild puanı
+BUTTON +450 +233 0845 0846 1 0 5
+
+
+TILEPICHUE +550 -35 <SERV.ITEMDEF.i_statue_onmount_warrior_sword.ID> <QVAL (<SRC.CTAG0.Guild_StoneStyle.Color>)?<DCOLOR>:0>
+DHTMLGUMP +570 +230 100 25 0 0 <DEF.BFONT_WHITE>50 Guild puanı
+BUTTON +550 +233 0845 0846 1 0 6
+
+
+TILEPICHUE +680 +35 <SERV.ITEMDEF.i_statue_warrior_muscle.ID> <QVAL (<SRC.CTAG0.Guild_StoneStyle.Color>)?<DCOLOR>:0>
+DHTMLGUMP +690 +230 100 25 0 0 <DEF.BFONT_WHITE>50 Guild puanı
+BUTTON +670 +233 0845 0846 1 0 7
+
+IF (<SRC.CTAG0.Guild_StoneStyle.Color>)
+	BUTTON +0 +270 04074 04071 1 0 999
+ELSE
+	BUTTON +0 +270 04071 04074 1 0 999
+ENDIF
+
+DTEXT +35 +270 1153 Renksiz gösterim
+
+[dialog d_Guild_StoneStyle Button]
+ON=0
+SDIALOG D_GUILD_MASTER
+
+
+ON=999
+IF (<SRC.CTAG0.Guild_StoneStyle.Color>)
+SRC.CTAG0.Guild_StoneStyle.Color=
+ELSE
+SRC.CTAG0.Guild_StoneStyle.Color=1
+ENDIF
+
+DIALOGCLOSE D_GUILD_STONESTYLE
+DIALOG D_GUILD_STONESTYLE
+
+ON=1
+DISPID =i_statue_warrior_custom2
+UPDATE
+SRC.SYSMESSAGE @044,,1,1 Guildstone görünümü değişti.
+
+
+ON=2
+IF (<SRC.ACCOUNT.TAG0.BAKIYE> < 50)
+	SRC.SYSMESSAGE @38,,1,1 Bunu kullanabilmek için en az 50 Donate pointe ihtiyacınız var.
+	RETURN 1
+ENDIF
+SRC.ACCOUNT.TAG0.BAKIYE -=50
+DISPID =i_statue_warrior_custom1
+UPDATE
+SRC.SYSMESSAGE @044,,1,1 Guildstone görünümü 50 Donate point karşılığında değişti.
+
+
+
+
+ON=3
+IF (<SRC.ACCOUNT.TAG0.BAKIYE> < 25)
+	SRC.SYSMESSAGE @38,,1,1 Bunu kullanabilmek için en az 25 Donate pointe ihtiyacınız var.
+	RETURN 1
+ENDIF
+SRC.ACCOUNT.TAG0.BAKIYE -=25
+DISPID =i_statue_warrior_custom3
+UPDATE
+SRC.SYSMESSAGE @044,,1,1 Guildstone görünümü 25 Donate point karşılığında değişti.
+
+
+
+ON=4
+IF (<SRC.ACCOUNT.TAG0.BAKIYE> < 50)
+	SRC.SYSMESSAGE @38,,1,1 Bunu kullanabilmek için en az 50 Donate pointe ihtiyacınız var.
+	RETURN 1
+ENDIF
+SRC.ACCOUNT.TAG0.BAKIYE -=50
+DISPID =i_statue_mage_custom1
+UPDATE
+SRC.SYSMESSAGE @044,,1,1 Guildstone görünümü 50 Donate point karşılığında değişti.
+
+
+
+ON=5
+IF (<SRC.ACCOUNT.TAG0.BAKIYE> < 50)
+	SRC.SYSMESSAGE @38,,1,1 Bunu kullanabilmek için en az 50 Donate pointe ihtiyacınız var.
+	RETURN 1
+ENDIF
+SRC.ACCOUNT.TAG0.BAKIYE -=50
+DISPID =i_statue_elrond_custom1
+UPDATE
+SRC.SYSMESSAGE @044,,1,1 Guildstone görünümü 50 Donate point karşılığında değişti.
+
+
+
+ON=6
+IF (<SRC.ACCOUNT.TAG0.BAKIYE> < 50)
+	SRC.SYSMESSAGE @38,,1,1 Bunu kullanabilmek için en az 50 Donate pointe ihtiyacınız var.
+	RETURN 1
+ENDIF
+SRC.ACCOUNT.TAG0.BAKIYE -=50
+DISPID =i_statue_onmount_warrior_sword
+UPDATE
+SRC.SYSMESSAGE @044,,1,1 Guildstone görünümü 50 Donate point karşılığında değişti.
+
+
+
+
+ON=7
+IF (<SRC.ACCOUNT.TAG0.BAKIYE> < 50)
+	SRC.SYSMESSAGE @38,,1,1 Bunu kullanabilmek için en az 50 Donate pointe ihtiyacınız var.
+	RETURN 1
+ENDIF
+SRC.ACCOUNT.TAG0.BAKIYE -=50
+DISPID =i_statue_warrior_muscle
+UPDATE
+SRC.SYSMESSAGE @044,,1,1 Guildstone görünümü 50 Donate point karşılığında değişti.
+
+
+
+
+[EOF]
+
+
+  

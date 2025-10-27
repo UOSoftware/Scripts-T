@@ -1,5 +1,6 @@
 VERSION=0.56T
 
+
 [dialog d_Guild_GuildList]
 5,25
 local.listtype=<args>

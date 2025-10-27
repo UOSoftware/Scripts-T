@@ -20,6 +20,8 @@ startmoney_gold			1000
 // 0. hücre, 1. hücre, 2. hücre, 3. hücre
 jails Küfür, Alan Ihlali, Hakaret,  Hatalı Çağrı, Uygunsuz Davranış
 char_near_max 5
+forbidden_strings salak
+
 
 [DEFNAME noto_type_hues]
 NOTO.1			063
