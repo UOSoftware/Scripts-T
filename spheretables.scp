@@ -110,7 +110,9 @@ systems/
 
 systems/stones/
 systems/stones/guilds/
+systems/stones/guilds/dialogs/
 systems/stones/towns/
+systems/stones/towns/dialogs/
 
 //*****************************************
 // core
@@ -138,6 +140,11 @@ events/regions/
 // staffs
 //*****************************************
 staffs/
+
+//*****************************************
+// tests
+//*****************************************
+tests/
 
 //*****************************************
 // packets
