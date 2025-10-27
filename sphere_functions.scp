@@ -6,6 +6,11 @@ Logger = Herhangi bir nesne için veya bağımsız olarak özelleştirilmiş log
 FUNC_GIVE_HITS_FIX = Hitsi direkt olarak + yapıldığında bazen bug olabiliyor, bu komutla verilebilir.
 
 
+[FUNCTION Webmap]
+LOCAL.HTTPS https:/
+WEBLINK <LOCAL.HTTPS>/alcoruo.gen.tr/explore/map#pos:<P.X>,<P.Y>,<P.M>,5
+
+
 
 [FUNCTION Logger]
 IF (<GETREFTYPE> == <def.tref_account> || <GETREFTYPE> == <def.tref_client> || <GETREFTYPE> == <def.tref_world> || <GETREFTYPE> == <def.tref_char> || <GETREFTYPE> == <def.tref_item> || <GETREFTYPE> == <def.tref_object>)
@@ -32,6 +37,16 @@ ELSE
 ENDIF
 
 
+
+
+
+[FUNCTION TumItemleriGetir]
+FOR 0 <SERV.ITEMLIST.COUNT>
+	SERV.LOG <SERV.ITEMLIST.<DLOCAL._FOR>.NAME>
+ENDFOR
+FOR 0 <SERV.CHARLIST.COUNT>
+	SERV.LOG <SERV.CHARLIST.<DLOCAL._FOR>.NAME>
+ENDFOR
 
 
 
@@ -1332,6 +1347,8 @@ RETURN <QVAL <ARGN2> < <ARGN1>? <ARGN2> : <ARGN1>>
 
 
 
+
+
 [FUNCTION ISVALIDE]
 // RETURN <ISVALID>
 REF1=<UID>
@@ -2243,28 +2260,6 @@ RETURN <EVAL <ARGV>>
 LOCAL.TORET = <STRARG <ARGS>>
 ARGS = <STREAT <ARGS>>
 RETURN <ARGV[<LOCAL.TORET>]>
-
-
-
-
-
-// Pack & Bank Item Remover
-// Use I.PACKBANK_REMOVER i_gold
-[FUNCTION PACKBANK_REMOVER]
-// Pack
-FORCONT <FINDLAYER.21> 9999
-REF1=<UID>
-	IF (<REF1.DISPID>==<ARGS>) || (<REF1.BASEID>==<ARGS>)
-		REF1.REMOVE
-	ENDIF
-ENDFOR
-// Bank
-FORCONT <FINDLAYER.29> 9999
-REF2=<UID>
-	IF (<REF2.DISPID>==<ARGS>) || (<REF2.BASEID>==<ARGS>)
-		REF2.REMOVE
-	ENDIF
-ENDFOR
 
 
 
