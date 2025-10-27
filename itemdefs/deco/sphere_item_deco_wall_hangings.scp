@@ -3420,6 +3420,7 @@ DUPEITEM=09c0a
 
 [ITEMDEF 09c0c]
 DEFNAME=i_trophy_dimetrosaurhead
+DEFNAME2=i_trophy_saurosaurushead
 NAME=dimetrosaur trophy
 FLIP=1
 CATEGORY=Decoration - Miscellaneous
@@ -3430,16 +3431,6 @@ DUPELIST=09c0d
 [ITEMDEF 09c0d]
 //trophy dimetrosaurhead
 DUPEITEM=09c0c
-
-[ITEMDEF 09c0c]
-DEFNAME=i_trophy_saurosaurushead
-NAME=saurosaurus trophy
-FLIP=1
-CATEGORY=Decoration - Miscellaneous
-SUBSECTION=Trophies
-DESCRIPTION=Saurosaurus
-DUPELIST=09c0d
-
 
 [ITEMDEF 09cb9]
 DEFNAME=i_banner_fireworks_south
