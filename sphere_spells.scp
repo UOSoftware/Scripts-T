@@ -455,10 +455,12 @@ DURATION=2*60.0,4*60.0
 MANAUSE=9
 SKILLREQ=MAGERY 30.0
 INTERRUPT=100.0,100.0
+
 ON=@Success
-   LOCAL.FieldWidth=3
+LOCAL.FieldWidth=5
+
 ON=@Effect
-   LOCAL.DAMAGETYPE=(<DEF.dam_physical>|<DEF.dam_magic>)
+LOCAL.DAMAGETYPE=(<DEF.dam_physical>|<DEF.dam_magic>)
 
 [SPELL 25]
 DEFNAME=s_archcure
@@ -476,8 +478,10 @@ DURATION=0.0
 MANAUSE=11
 SKILLREQ=MAGERY 40.0
 INTERRUPT=100.0,100.0
+
 ON=@Success
-   LOCAL.AREARADIUS=2
+// Default: 5
+LOCAL.AREARADIUS=2
 
 [SPELL 26]
 DEFNAME=s_archprotection
@@ -496,8 +500,10 @@ DURATION=30.0,1000.0
 MANAUSE=11
 SKILLREQ=MAGERY 40.0
 INTERRUPT=100.0,100.0
+
 ON=@Success
-   LOCAL.AREARADIUS=3
+// Default: 5
+LOCAL.AREARADIUS=3
 
 [SPELL 27]
 DEFNAME=s_curse
@@ -533,10 +539,12 @@ DURATION=2*60.0,4*60.0
 MANAUSE=11
 SKILLREQ=MAGERY 40.0
 INTERRUPT=100.0,100.0
+
 ON=@Success
-   LOCAL.FieldWidth=5
+LOCAL.FieldWidth=5
+
 ON=@Effect
-   LOCAL.DAMAGETYPE=(<DEF.dam_fire>|<DEF.dam_magic>)
+LOCAL.DAMAGETYPE=(<DEF.dam_fire>|<DEF.dam_magic>)
 
 [SPELL 29]
 DEFNAME=s_greater_heal
@@ -734,10 +742,12 @@ DURATION=2*60.0,4*60.0
 MANAUSE=14
 SKILLREQ=MAGERY 50.0
 INTERRUPT=100.0,100.0
+
 ON=@Success
-   LOCAL.FieldWidth=5
+LOCAL.FieldWidth=5
+
 ON=@Effect
-   LOCAL.DAMAGETYPE=(<DEF.dam_poison>|<DEF.dam_magic>)
+LOCAL.DAMAGETYPE=(<DEF.dam_poison>|<DEF.dam_magic>)
 
 [SPELL 40]
 DEFNAME=s_summon_creature
@@ -790,8 +800,9 @@ DURATION=0.0
 MANAUSE=20
 SKILLREQ=MAGERY 60.0
 INTERRUPT=100.0,100.0
+
 ON=@Effect
-   LOCAL.DAMAGETYPE=(<DEF.dam_energy>|<DEF.dam_magic>)
+LOCAL.DAMAGETYPE=(<DEF.dam_energy>|<DEF.dam_magic>)
 
 [SPELL 43]
 DEFNAME=s_explosion
@@ -809,8 +820,13 @@ DURATION=0.0
 MANAUSE=20
 SKILLREQ=MAGERY 60.0
 INTERRUPT=100.0,100.0
+
+ON=@Success
+// Default: 2
+LOCAL.AREARADIUS=2
+
 ON=@Effect
-   LOCAL.DAMAGETYPE=(<DEF.dam_general>|<DEF.dam_magic>)
+LOCAL.DAMAGETYPE=(<DEF.dam_general>|<DEF.dam_magic>)
 
 [SPELL 44]
 DEFNAME=s_invisibility
@@ -878,8 +894,10 @@ MANAUSE=20
 LAYER=layer_spell_stats
 SKILLREQ=MAGERY 60.0
 INTERRUPT=100.0,100.0
+
 ON=@Success
-   LOCAL.AREARADIUS=2
+// Default: 5
+LOCAL.AREARADIUS=2
 
 [SPELL 47]
 DEFNAME=s_paralyzation_field
@@ -898,8 +916,9 @@ DURATION=2*60.0,3*60.0
 MANAUSE=20
 SKILLREQ=MAGERY 60.0
 INTERRUPT=100.0,100.0
+
 ON=@Success
-   LOCAL.FieldWidth=5
+LOCAL.FieldWidth=5
 
 [SPELL 48]
 DEFNAME=s_reveal
@@ -917,8 +936,10 @@ DURATION=0.0
 MANAUSE=20
 SKILLREQ=MAGERY 60.0
 INTERRUPT=100.0,100.0
+
 ON=@Success
-   LOCAL.AREARADIUS=<eval 1+(<MAGERY>/200)>
+// Default: 12
+LOCAL.AREARADIUS=<eval 1+(<MAGERY>/200)>
 
 [SPELL 49]
 DEFNAME=s_chain_lightning
@@ -936,10 +957,13 @@ DURATION=0.0
 MANAUSE=40
 SKILLREQ=MAGERY 70.0
 INTERRUPT=100.0,100.0
+
 ON=@Success
-   LOCAL.AREARADIUS=2
+// Default: 5
+LOCAL.AREARADIUS=2
+
 ON=@Effect
-   LOCAL.DAMAGETYPE=(<DEF.dam_energy>|<DEF.dam_magic>)
+LOCAL.DAMAGETYPE=(<DEF.dam_energy>|<DEF.dam_magic>)
 
 [SPELL 50]
 DEFNAME=s_energy_field
@@ -957,8 +981,9 @@ DURATION=2*60.0,3*60.0
 MANAUSE=40
 SKILLREQ=MAGERY 70.0
 INTERRUPT=100.0,100.0
+
 ON=@Success
-   LOCAL.FieldWidth=5
+LOCAL.FieldWidth=5
 
 [SPELL 51]
 DEFNAME=s_flamestrike
@@ -976,8 +1001,9 @@ DURATION=0.0
 MANAUSE=40
 SKILLREQ=MAGERY 70.0
 INTERRUPT=100.0,100.0
+
 ON=@Effect
-   LOCAL.DAMAGETYPE=(<DEF.dam_fire>|<DEF.dam_magic>)
+LOCAL.DAMAGETYPE=(<DEF.dam_fire>|<DEF.dam_magic>)
 
 [SPELL 52]
 DEFNAME=s_gate_travel
@@ -1029,8 +1055,10 @@ DURATION=0.0
 MANAUSE=40
 SKILLREQ=MAGERY 70.0
 INTERRUPT=100.0,100.0
+
 ON=@Success
-   LOCAL.AREARADIUS=8
+// Default: 15
+LOCAL.AREARADIUS=8
 
 [SPELL 55]
 DEFNAME=s_meteor_swarm
@@ -1048,10 +1076,13 @@ DURATION=0.0
 MANAUSE=40
 SKILLREQ=MAGERY 70.0
 INTERRUPT=100.0,100.0
+
 ON=@Success
-   LOCAL.AREARADIUS=2
+// Default: 5
+LOCAL.AREARADIUS=2
+
 ON=@Effect
-   LOCAL.DAMAGETYPE=(<DEF.dam_physical>|<DEF.dam_magic>)
+LOCAL.DAMAGETYPE=(<DEF.dam_physical>|<DEF.dam_magic>)
 
 [SPELL 56]
 DEFNAME=s_polymorph
@@ -1070,16 +1101,17 @@ DURATION=5*60.0,8*60.0
 MANAUSE=40
 SKILLREQ=MAGERY 70.0
 INTERRUPT=100.0,100.0
+
 ON=@Select
-   IF (<FLAGS> & statf_polymorph)
-    IF (<MANA> < <SERV.SPELL.s_polymorph.MANAUSE>)
-     SYSMESSAGE <DEFMSG.spell_try_nomana>
-    ELSE
-     MANA -= <SERV.SPELL.s_polymorph.MANAUSE>
-     FINDID.<SERV.SPELL.s_polymorph.RUNE_ITEM>.REMOVE
-    ENDIF
-    return 1
-   ENDIF
+IF (<FLAGS> & statf_polymorph)
+	IF (<MANA> < <SERV.SPELL.s_polymorph.MANAUSE>)
+		SYSMESSAGE <DEFMSG.spell_try_nomana>
+	ELSE
+		MANA -= <SERV.SPELL.s_polymorph.MANAUSE>
+		FINDID.<SERV.SPELL.s_polymorph.RUNE_ITEM>.REMOVE
+	ENDIF
+	RETURN 1
+ENDIF
 
 [SPELL 57]
 DEFNAME=s_earthquake
@@ -1097,10 +1129,13 @@ DURATION=30.0
 MANAUSE=50
 SKILLREQ=MAGERY 80.0
 INTERRUPT=100.0,100.0
+
 ON=@Success
-   LOCAL.AREARADIUS=<eval 1+(<MAGERY>/150)>
+// Default: 12
+LOCAL.AREARADIUS=<eval 1+(<MAGERY>/150)>
+   
 ON=@Effect
-   LOCAL.DAMAGETYPE=(<DEF.dam_physical>|<DEF.dam_magic>)
+LOCAL.DAMAGETYPE=(<DEF.dam_physical>|<DEF.dam_magic>)
 
 [SPELL 58]
 DEFNAME=s_energy_vortex
