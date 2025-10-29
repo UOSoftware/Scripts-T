@@ -1,242 +1,1343 @@
+//****************************************************************************
+// FILE LAST UPDATED: Saturday, May 6, 2017
+//
+VERSION=0.56d
+
+
+////////////////////////////////////////
+// Defense
+////////////////////////////////////////
+
+
+[ITEMDEF i_leather_sleeves_Defense]
+ID=i_leather_sleeves
+NAME=Leather Sleeves of Defense
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Sleeves of Defense
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Defense
+
+ON=@Create
+MOREY=20.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_gorget_Defense]
+ID=i_leather_gorget
+NAME=Leather Gorget of Defense
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Gorget of Defense
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Defense
+
+ON=@Create
+MOREY=20.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_leggings_Defense]
+ID=i_leather_leggings
+NAME=Leather Leggings of Defense
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Leggings of Defense
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Defense
+
+ON=@Create
+MOREY=20.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_tunic_Defense]
+ID=i_leather_tunic
+NAME=Leather Tunic of Defense
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Tunic of Defense
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Defense
+
+ON=@Create
+MOREY=20.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_gloves_Defense]
+ID=i_leather_gloves
+NAME=Leather Gloves of Defense
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Gloves of Defense
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Defense
+
+ON=@Create
+MOREY=20.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_cap_Defense]
+ID=i_leather_cap
+NAME=Leather Cap of Defense
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Cap of Defense
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Defense
+
+ON=@Create
+MOREY=20.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_shorts_Defense]
+ID=i_armor_female_shorts
+NAME=Leather Shorts of Defense
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Shorts of Defense
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Defense
+
+ON=@Create
+MOREY=20.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_armor_Defense_female]
+ID=i_armor_female_leather
+NAME=Leather Armor of Defense
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Armor of Defense
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Defense
+
+ON=@Create
+MOREY=20.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_skirt_Defense]
+ID=i_armor_female_skirt
+NAME=Leather Skirt of Defense
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Skirt of Defense
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Defense
+
+ON=@Create
+MOREY=20.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_bustier_Defense]
+ID=i_armor_female_bustier
+NAME=Leather Bustier of Defense
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Bustier of Defense
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Defense
+
+ON=@Create
+MOREY=20.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
 
 
 
-[ITEMDEF i_leather_sleeves_invulnerability]
+/// Studded
+
+
+[ITEMDEF i_studded_sleeves_Defense]
+ID=i_studded_sleeves
+NAME=Studded Sleeves of Defense
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Studded
+DESCRIPTION=Studded Sleeves of Defense
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Defense
+
+ON=@Create
+MOREY=20.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_studded_gloves_Defense]
+ID=i_studded_gloves
+NAME=Studded Gloves of Defense
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Studded
+DESCRIPTION=Studded Gloves of Defense
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Defense
+
+ON=@Create
+MOREY=20.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+RESDISPDNHUE=color_magic_Defense
+
+[ITEMDEF i_studded_gorget_Defense]
+ID=i_studded_gorget
+NAME=Studded Gorget of Defense
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Studded
+DESCRIPTION=Studded Gorget of Defense
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Defense
+
+ON=@Create
+MOREY=20.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_studded_leggings_Defense]
+ID=i_studded_leggings
+NAME=Studded Leggings of Defense
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Studded
+DESCRIPTION=Studded Leggings of Defense
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Defense
+
+ON=@Create
+MOREY=20.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_studded_tunic_Defense]
+ID=i_studded_tunic
+NAME=Studded Tunic of Defense
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Studded
+DESCRIPTION=Studded Tunic of Defense
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Defense
+
+ON=@Create
+MOREY=20.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_studded_armor_Defense]
+ID=i_armor_female_studded
+NAME=Studded Armor of Defense
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Studded
+DESCRIPTION=Studded Armor of Defense
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Defense
+
+ON=@Create
+MOREY=20.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_studded_bustier_Defense]
+ID=i_armor_female_bustier_studded
+NAME=Studded Bustier of Defense
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Studded
+DESCRIPTION=Studded Bustier of Defense
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Defense
+
+ON=@Create
+MOREY=20.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+
+
+
+////////////////////////////////////////
+// Guarding
+////////////////////////////////////////
+
+
+[ITEMDEF i_leather_sleeves_Guarding]
+ID=i_leather_sleeves
+NAME=Leather Sleeves of Guarding
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Sleeves of Guarding
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Guarding
+
+ON=@Create
+MOREY=40.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_gorget_Guarding]
+ID=i_leather_gorget
+NAME=Leather Gorget of Guarding
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Gorget of Guarding
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Guarding
+
+ON=@Create
+MOREY=40.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_leggings_Guarding]
+ID=i_leather_leggings
+NAME=Leather Leggings of Guarding
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Leggings of Guarding
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Guarding
+
+ON=@Create
+MOREY=40.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_tunic_Guarding]
+ID=i_leather_tunic
+NAME=Leather Tunic of Guarding
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Tunic of Guarding
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Guarding
+
+ON=@Create
+MOREY=40.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_gloves_Guarding]
+ID=i_leather_gloves
+NAME=Leather Gloves of Guarding
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Gloves of Guarding
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Guarding
+
+ON=@Create
+MOREY=40.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_cap_Guarding]
+ID=i_leather_cap
+NAME=Leather Cap of Guarding
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Cap of Guarding
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Guarding
+
+ON=@Create
+MOREY=40.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_shorts_Guarding]
+ID=i_armor_female_shorts
+NAME=Leather Shorts of Guarding
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Shorts of Guarding
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Guarding
+
+ON=@Create
+MOREY=40.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_armor_Guarding_female]
+ID=i_armor_female_leather
+NAME=Leather Armor of Guarding
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Armor of Guarding
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Guarding
+
+ON=@Create
+MOREY=40.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_skirt_Guarding]
+ID=i_armor_female_skirt
+NAME=Leather Skirt of Guarding
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Skirt of Guarding
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Guarding
+
+ON=@Create
+MOREY=40.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_bustier_Guarding]
+ID=i_armor_female_bustier
+NAME=Leather Bustier of Guarding
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Bustier of Guarding
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Guarding
+
+ON=@Create
+MOREY=40.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+
+
+/// Studded
+
+
+[ITEMDEF i_studded_sleeves_Guarding]
+ID=i_studded_sleeves
+NAME=Studded Sleeves of Guarding
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Studded
+DESCRIPTION=Studded Sleeves of Guarding
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Guarding
+
+ON=@Create
+MOREY=40.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_studded_gloves_Guarding]
+ID=i_studded_gloves
+NAME=Studded Gloves of Guarding
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Studded
+DESCRIPTION=Studded Gloves of Guarding
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Guarding
+
+ON=@Create
+MOREY=40.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+RESDISPDNHUE=color_magic_Guarding
+
+[ITEMDEF i_studded_gorget_Guarding]
+ID=i_studded_gorget
+NAME=Studded Gorget of Guarding
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Studded
+DESCRIPTION=Studded Gorget of Guarding
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Guarding
+
+ON=@Create
+MOREY=40.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_studded_leggings_Guarding]
+ID=i_studded_leggings
+NAME=Studded Leggings of Guarding
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Studded
+DESCRIPTION=Studded Leggings of Guarding
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Guarding
+
+ON=@Create
+MOREY=40.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_studded_tunic_Guarding]
+ID=i_studded_tunic
+NAME=Studded Tunic of Guarding
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Studded
+DESCRIPTION=Studded Tunic of Guarding
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Guarding
+
+ON=@Create
+MOREY=40.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_studded_armor_Guarding]
+ID=i_armor_female_studded
+NAME=Studded Armor of Guarding
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Studded
+DESCRIPTION=Studded Armor of Guarding
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Guarding
+
+ON=@Create
+MOREY=40.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_studded_bustier_Guarding]
+ID=i_armor_female_bustier_studded
+NAME=Studded Bustier of Guarding
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Studded
+DESCRIPTION=Studded Bustier of Guarding
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Guarding
+
+ON=@Create
+MOREY=40.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+
+////////////////////////////////////////
+// Hardening
+////////////////////////////////////////
+
+[ITEMDEF i_leather_sleeves_Hardening]
+ID=i_leather_sleeves
+NAME=Leather Sleeves of Hardening
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Sleeves of Hardening
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Hardening
+
+ON=@Create
+MOREY=60.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_gorget_Hardening]
+ID=i_leather_gorget
+NAME=Leather Gorget of Hardening
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Gorget of Hardening
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Hardening
+
+ON=@Create
+MOREY=60.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_leggings_Hardening]
+ID=i_leather_leggings
+NAME=Leather Leggings of Hardening
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Leggings of Hardening
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Hardening
+
+ON=@Create
+MOREY=60.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_tunic_Hardening]
+ID=i_leather_tunic
+NAME=Leather Tunic of Hardening
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Tunic of Hardening
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Hardening
+
+ON=@Create
+MOREY=60.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_gloves_Hardening]
+ID=i_leather_gloves
+NAME=Leather Gloves of Hardening
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Gloves of Hardening
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Hardening
+
+ON=@Create
+MOREY=60.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_cap_Hardening]
+ID=i_leather_cap
+NAME=Leather Cap of Hardening
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Cap of Hardening
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Hardening
+
+ON=@Create
+MOREY=60.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_shorts_Hardening]
+ID=i_armor_female_shorts
+NAME=Leather Shorts of Hardening
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Shorts of Hardening
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Hardening
+
+ON=@Create
+MOREY=60.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_armor_Hardening_female]
+ID=i_armor_female_leather
+NAME=Leather Armor of Hardening
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Armor of Hardening
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Hardening
+
+ON=@Create
+MOREY=60.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_skirt_Hardening]
+ID=i_armor_female_skirt
+NAME=Leather Skirt of Hardening
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Skirt of Hardening
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Hardening
+
+ON=@Create
+MOREY=60.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_bustier_Hardening]
+ID=i_armor_female_bustier
+NAME=Leather Bustier of Hardening
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Bustier of Hardening
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Hardening
+
+ON=@Create
+MOREY=60.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+
+
+/// Studded
+
+
+[ITEMDEF i_studded_sleeves_Hardening]
+ID=i_studded_sleeves
+NAME=Studded Sleeves of Hardening
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Studded
+DESCRIPTION=Studded Sleeves of Hardening
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Hardening
+
+ON=@Create
+MOREY=60.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_studded_gloves_Hardening]
+ID=i_studded_gloves
+NAME=Studded Gloves of Hardening
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Studded
+DESCRIPTION=Studded Gloves of Hardening
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Hardening
+
+ON=@Create
+MOREY=60.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+RESDISPDNHUE=color_magic_Hardening
+
+[ITEMDEF i_studded_gorget_Hardening]
+ID=i_studded_gorget
+NAME=Studded Gorget of Hardening
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Studded
+DESCRIPTION=Studded Gorget of Hardening
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Hardening
+
+ON=@Create
+MOREY=60.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_studded_leggings_Hardening]
+ID=i_studded_leggings
+NAME=Studded Leggings of Hardening
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Studded
+DESCRIPTION=Studded Leggings of Hardening
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Hardening
+
+ON=@Create
+MOREY=60.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_studded_tunic_Hardening]
+ID=i_studded_tunic
+NAME=Studded Tunic of Hardening
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Studded
+DESCRIPTION=Studded Tunic of Hardening
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Hardening
+
+ON=@Create
+MOREY=60.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_studded_armor_Hardening]
+ID=i_armor_female_studded
+NAME=Studded Armor of Hardening
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Studded
+DESCRIPTION=Studded Armor of Hardening
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Hardening
+
+ON=@Create
+MOREY=60.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_studded_bustier_Hardening]
+ID=i_armor_female_bustier_studded
+NAME=Studded Bustier of Hardening
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Studded
+DESCRIPTION=Studded Bustier of Hardening
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Hardening
+
+ON=@Create
+MOREY=60.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+////////////////////////////////////////
+// Fortification
+////////////////////////////////////////
+
+
+[ITEMDEF i_leather_sleeves_Fortification]
+ID=i_leather_sleeves
+NAME=Leather Sleeves of Fortification
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Sleeves of Fortification
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Fortification
+
+ON=@Create
+MOREY=80.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_gorget_Fortification]
+ID=i_leather_gorget
+NAME=Leather Gorget of Fortification
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Gorget of Fortification
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Fortification
+
+ON=@Create
+MOREY=80.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_leggings_Fortification]
+ID=i_leather_leggings
+NAME=Leather Leggings of Fortification
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Leggings of Fortification
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Fortification
+
+ON=@Create
+MOREY=80.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_tunic_Fortification]
+ID=i_leather_tunic
+NAME=Leather Tunic of Fortification
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Tunic of Fortification
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Fortification
+
+ON=@Create
+MOREY=80.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_gloves_Fortification]
+ID=i_leather_gloves
+NAME=Leather Gloves of Fortification
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Gloves of Fortification
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Fortification
+
+ON=@Create
+MOREY=80.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_cap_Fortification]
+ID=i_leather_cap
+NAME=Leather Cap of Fortification
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Cap of Fortification
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Fortification
+
+ON=@Create
+MOREY=80.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_shorts_Fortification]
+ID=i_armor_female_shorts
+NAME=Leather Shorts of Fortification
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Shorts of Fortification
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Fortification
+
+ON=@Create
+MOREY=80.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_armor_Fortification_female]
+ID=i_armor_female_leather
+NAME=Leather Armor of Fortification
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Armor of Fortification
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Fortification
+
+ON=@Create
+MOREY=80.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_skirt_Fortification]
+ID=i_armor_female_skirt
+NAME=Leather Skirt of Fortification
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Skirt of Fortification
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Fortification
+
+ON=@Create
+MOREY=80.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_leather_bustier_Fortification]
+ID=i_armor_female_bustier
+NAME=Leather Bustier of Fortification
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Leather
+DESCRIPTION=Leather Bustier of Fortification
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Fortification
+
+ON=@Create
+MOREY=80.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+
+
+/// Studded
+
+
+[ITEMDEF i_studded_sleeves_Fortification]
+ID=i_studded_sleeves
+NAME=Studded Sleeves of Fortification
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Studded
+DESCRIPTION=Studded Sleeves of Fortification
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Fortification
+
+ON=@Create
+MOREY=80.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_studded_gloves_Fortification]
+ID=i_studded_gloves
+NAME=Studded Gloves of Fortification
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Studded
+DESCRIPTION=Studded Gloves of Fortification
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Fortification
+
+ON=@Create
+MOREY=80.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+RESDISPDNHUE=color_magic_Fortification
+
+[ITEMDEF i_studded_gorget_Fortification]
+ID=i_studded_gorget
+NAME=Studded Gorget of Fortification
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Studded
+DESCRIPTION=Studded Gorget of Fortification
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Fortification
+
+ON=@Create
+MOREY=80.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_studded_leggings_Fortification]
+ID=i_studded_leggings
+NAME=Studded Leggings of Fortification
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Studded
+DESCRIPTION=Studded Leggings of Fortification
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Fortification
+
+ON=@Create
+MOREY=80.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_studded_tunic_Fortification]
+ID=i_studded_tunic
+NAME=Studded Tunic of Fortification
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Studded
+DESCRIPTION=Studded Tunic of Fortification
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Fortification
+
+ON=@Create
+MOREY=80.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_studded_armor_Fortification]
+ID=i_armor_female_studded
+NAME=Studded Armor of Fortification
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Studded
+DESCRIPTION=Studded Armor of Fortification
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Fortification
+
+ON=@Create
+MOREY=80.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+[ITEMDEF i_studded_bustier_Fortification]
+ID=i_armor_female_bustier_studded
+NAME=Studded Bustier of Fortification
+CATEGORY=Provisions - Armor - Magic
+SUBSECTION=Studded
+DESCRIPTION=Studded Bustier of Fortification
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Fortification
+
+ON=@Create
+MOREY=80.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
+
+////////////////////////////////////////
+// Invulnerability
+////////////////////////////////////////
+
+
+
+[ITEMDEF i_leather_sleeves_Invulnerability]
 ID=i_leather_sleeves
 NAME=Leather Sleeves of Invulnerability
-
 CATEGORY=Provisions - Armor - Magic
 SUBSECTION=Leather
 DESCRIPTION=Leather Sleeves of Invulnerability
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Invulnerability
 
 ON=@Create
-	MOREY=120.0
-	ATTR=attr_magic
-	HITPOINTS={31 37}
-	COLOR=color_magic_invulnerability
+MOREY=100.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
 
-[ITEMDEF i_leather_gorget_invulnerability]
+[ITEMDEF i_leather_gorget_Invulnerability]
 ID=i_leather_gorget
 NAME=Leather Gorget of Invulnerability
-
 CATEGORY=Provisions - Armor - Magic
 SUBSECTION=Leather
 DESCRIPTION=Leather Gorget of Invulnerability
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Invulnerability
 
 ON=@Create
-	MOREY=120.0
-	ATTR=attr_magic
-	HITPOINTS={31 37}
-	COLOR=color_magic_invulnerability
+MOREY=100.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
 
-[ITEMDEF i_leather_leggings_invulnerability]
+[ITEMDEF i_leather_leggings_Invulnerability]
 ID=i_leather_leggings
 NAME=Leather Leggings of Invulnerability
-
 CATEGORY=Provisions - Armor - Magic
 SUBSECTION=Leather
 DESCRIPTION=Leather Leggings of Invulnerability
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Invulnerability
 
 ON=@Create
-	MOREY=120.0
-	ATTR=attr_magic
-	HITPOINTS={31 37}
-	COLOR=color_magic_invulnerability
+MOREY=100.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
 
-[ITEMDEF i_leather_tunic_invulnerability]
+[ITEMDEF i_leather_tunic_Invulnerability]
 ID=i_leather_tunic
 NAME=Leather Tunic of Invulnerability
-
 CATEGORY=Provisions - Armor - Magic
 SUBSECTION=Leather
 DESCRIPTION=Leather Tunic of Invulnerability
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Invulnerability
 
 ON=@Create
-	MOREY=120.0
-	ATTR=attr_magic
-	HITPOINTS={31 37}
-	COLOR=color_magic_invulnerability
+MOREY=100.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
 
-[ITEMDEF i_leather_gloves_invulnerability]
+[ITEMDEF i_leather_gloves_Invulnerability]
 ID=i_leather_gloves
 NAME=Leather Gloves of Invulnerability
-
 CATEGORY=Provisions - Armor - Magic
 SUBSECTION=Leather
 DESCRIPTION=Leather Gloves of Invulnerability
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Invulnerability
 
 ON=@Create
-	MOREY=120.0
-	ATTR=attr_magic
-	HITPOINTS={31 37}
-	COLOR=color_magic_invulnerability
+MOREY=100.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
 
-[ITEMDEF i_leather_cap_invulnerability]
+[ITEMDEF i_leather_cap_Invulnerability]
 ID=i_leather_cap
 NAME=Leather Cap of Invulnerability
-
 CATEGORY=Provisions - Armor - Magic
 SUBSECTION=Leather
 DESCRIPTION=Leather Cap of Invulnerability
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Invulnerability
 
 ON=@Create
-	MOREY=120.0
-	ATTR=attr_magic
-	HITPOINTS={31 37}
-	COLOR=color_magic_invulnerability
+MOREY=100.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
 
-[ITEMDEF i_leather_shorts_invulnerability]
+[ITEMDEF i_leather_shorts_Invulnerability]
 ID=i_armor_female_shorts
 NAME=Leather Shorts of Invulnerability
-
 CATEGORY=Provisions - Armor - Magic
 SUBSECTION=Leather
 DESCRIPTION=Leather Shorts of Invulnerability
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Invulnerability
 
 ON=@Create
-	MOREY=120.0
-	ATTR=attr_magic
-	HITPOINTS={31 37}
-	COLOR=color_magic_invulnerability
+MOREY=100.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
 
-[ITEMDEF i_leather_armor_invulnerability_female]
+[ITEMDEF i_leather_armor_Invulnerability_female]
 ID=i_armor_female_leather
 NAME=Leather Armor of Invulnerability
-
 CATEGORY=Provisions - Armor - Magic
 SUBSECTION=Leather
 DESCRIPTION=Leather Armor of Invulnerability
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Invulnerability
 
 ON=@Create
-	MOREY=120.0
-	ATTR=attr_magic
-	HITPOINTS={31 37}
-	COLOR=color_magic_invulnerability
+MOREY=100.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
 
-[ITEMDEF i_leather_skirt_invulnerability]
+[ITEMDEF i_leather_skirt_Invulnerability]
 ID=i_armor_female_skirt
 NAME=Leather Skirt of Invulnerability
-
 CATEGORY=Provisions - Armor - Magic
 SUBSECTION=Leather
 DESCRIPTION=Leather Skirt of Invulnerability
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Invulnerability
 
 ON=@Create
-	MOREY=120.0
-	ATTR=attr_magic
-	HITPOINTS={31 37}
-	COLOR=color_magic_invulnerability
+MOREY=100.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
 
-[ITEMDEF i_leather_bustier_invulnerability]
+[ITEMDEF i_leather_bustier_Invulnerability]
 ID=i_armor_female_bustier
 NAME=Leather Bustier of Invulnerability
-
 CATEGORY=Provisions - Armor - Magic
 SUBSECTION=Leather
 DESCRIPTION=Leather Bustier of Invulnerability
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Invulnerability
 
 ON=@Create
-	MOREY=120.0
-	ATTR=attr_magic
-	HITPOINTS={31 37}
-	COLOR=color_magic_invulnerability
+MOREY=100.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
 
-[ITEMDEF i_studded_sleeves_invulnerability]
+
+
+/// Studded
+
+
+[ITEMDEF i_studded_sleeves_Invulnerability]
 ID=i_studded_sleeves
 NAME=Studded Sleeves of Invulnerability
-
 CATEGORY=Provisions - Armor - Magic
 SUBSECTION=Studded
 DESCRIPTION=Studded Sleeves of Invulnerability
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Invulnerability
 
 ON=@Create
-	MOREY=120.0
-	ATTR=attr_magic
-	HITPOINTS={36 44}
-	COLOR=color_magic_invulnerability
+MOREY=100.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
 
-[ITEMDEF i_studded_gloves_invulnerability]
+[ITEMDEF i_studded_gloves_Invulnerability]
 ID=i_studded_gloves
 NAME=Studded Gloves of Invulnerability
-
 CATEGORY=Provisions - Armor - Magic
 SUBSECTION=Studded
 DESCRIPTION=Studded Gloves of Invulnerability
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Invulnerability
 
 ON=@Create
-	MOREY=120.0
-	ATTR=attr_magic
-	HITPOINTS={36 44}
-	COLOR=color_magic_invulnerability
+MOREY=100.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+RESDISPDNHUE=color_magic_Invulnerability
 
-[ITEMDEF i_studded_gorget_invulnerability]
+[ITEMDEF i_studded_gorget_Invulnerability]
 ID=i_studded_gorget
 NAME=Studded Gorget of Invulnerability
-
 CATEGORY=Provisions - Armor - Magic
 SUBSECTION=Studded
 DESCRIPTION=Studded Gorget of Invulnerability
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Invulnerability
 
 ON=@Create
-	MOREY=120.0
-	ATTR=attr_magic
-	HITPOINTS={36 44}
-	COLOR=color_magic_invulnerability
+MOREY=100.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
 
-[ITEMDEF i_studded_leggings_invulnerability]
+[ITEMDEF i_studded_leggings_Invulnerability]
 ID=i_studded_leggings
 NAME=Studded Leggings of Invulnerability
-
 CATEGORY=Provisions - Armor - Magic
 SUBSECTION=Studded
 DESCRIPTION=Studded Leggings of Invulnerability
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Invulnerability
 
 ON=@Create
-	MOREY=120.0
-	ATTR=attr_magic
-	HITPOINTS={36 44}
-	COLOR=color_magic_invulnerability
+MOREY=100.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
 
-[ITEMDEF i_studded_tunic_invulnerability]
+[ITEMDEF i_studded_tunic_Invulnerability]
 ID=i_studded_tunic
 NAME=Studded Tunic of Invulnerability
-
 CATEGORY=Provisions - Armor - Magic
 SUBSECTION=Studded
 DESCRIPTION=Studded Tunic of Invulnerability
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Invulnerability
 
 ON=@Create
-	MOREY=120.0
-	ATTR=attr_magic
-	HITPOINTS={36 44}
-	COLOR=color_magic_invulnerability
+MOREY=100.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
 
-[ITEMDEF i_studded_armor_invulnerability]
+[ITEMDEF i_studded_armor_Invulnerability]
 ID=i_armor_female_studded
 NAME=Studded Armor of Invulnerability
-
 CATEGORY=Provisions - Armor - Magic
 SUBSECTION=Studded
 DESCRIPTION=Studded Armor of Invulnerability
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Invulnerability
 
 ON=@Create
-	MOREY=120.0
-	ATTR=attr_magic
-	HITPOINTS={36 44}
-	COLOR=color_magic_invulnerability
+MOREY=100.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
 
-[ITEMDEF i_studded_bustier_invulnerability]
+[ITEMDEF i_studded_bustier_Invulnerability]
 ID=i_armor_female_bustier_studded
 NAME=Studded Bustier of Invulnerability
-
 CATEGORY=Provisions - Armor - Magic
 SUBSECTION=Studded
 DESCRIPTION=Studded Bustier of Invulnerability
+TEVENTS=t_equipitem
+RESDISPDNHUE=color_magic_Invulnerability
 
 ON=@Create
-	MOREY=120.0
-	ATTR=attr_magic
-	HITPOINTS={36 44}
-	COLOR=color_magic_invulnerability
+MOREY=100.0
+ATTR=attr_magic
+HITPOINTS={100 250}
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+
 
 [EOF]

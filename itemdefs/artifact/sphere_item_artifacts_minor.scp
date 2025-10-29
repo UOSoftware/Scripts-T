@@ -8,7 +8,7 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Alchemist's Bauble
 ON=@Create
-   COLOR=0290
+COLOR=0290
 
 [ITEMDEF i_arctic_death_dealer]
 ID=i_mace_war
@@ -43,8 +43,8 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Bow of the Juka King
 ON=@Create
-   COLOR=0460
-   HITPOINTS=255
+COLOR=0460
+HITPOINTS=255
 
 [ITEMDEF i_burglar_bandana]
 ID=i_bandana
@@ -54,8 +54,8 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Burglar's Bandana
 ON=@Create
-   COLOR={010 1 058c 1}
-   HITPOINTS=255
+COLOR={010 1 058c 1}
+HITPOINTS=255
 
 [ITEMDEF i_candelabra_souls]
 ID=i_candelabra2_lit
@@ -73,8 +73,8 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Captain Quacklebush's Cutlass
 ON=@Create
-   COLOR=066c
-   HITPOINTS=255
+COLOR=066c
+HITPOINTS=255
 
 [ITEMDEF i_cavorting_club]
 ID=i_club
@@ -85,8 +85,8 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Cavorting Club
 ON=@Create
-   COLOR=0593
-   HITPOINTS=255
+COLOR=0593
+HITPOINTS=255
 
 [ITEMDEF i_cold_blood]
 ID=i_cleaver_meat
@@ -108,10 +108,10 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Dread Pirate Hat
 ON=@Create
-   COLOR=0497
-   HITPOINTS=255
-   DORAND 5
-   ENDDO
+COLOR=0497
+HITPOINTS=255
+DORAND 5
+ENDDO
 
 [ITEMDEF i_enchanted_titan_leg_bone]
 ID=i_spear_short
@@ -121,8 +121,8 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Enchanted Titan Leg Bone
 ON=@Create
-   COLOR=08a5
-   HITPOINTS=255
+COLOR=08a5
+HITPOINTS=255
 
 [ITEMDEF i_ghost_ship_anchor]
 ID=i_anchor
@@ -131,7 +131,7 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Ghost Ship Anchor
 ON=@Create
-   COLOR=047e
+COLOR=047e
 
 [ITEMDEF i_gloves_pugilist]
 ID=i_leather_gloves
@@ -141,8 +141,8 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Gloves of the Pugilist
 ON=@Create
-   COLOR=06d1
-   HITPOINTS=255
+COLOR=06d1
+HITPOINTS=255
 
 [ITEMDEF i_gold_bricks]
 ID=01beb
@@ -158,7 +158,7 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Gwenno's Harp
 ON=@Create
-   COLOR=047e
+COLOR=047e
 
 [ITEMDEF i_helm_swiftness]
 ID=i_helm_winged
@@ -169,8 +169,8 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Helm of Swiftness
 ON=@Create
-   COLOR=0592
-   HITPOINTS=255
+COLOR=0592
+HITPOINTS=255
 
 [ITEMDEF i_heart_lion]
 ID=i_platemail_chest
@@ -180,8 +180,8 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Heart of the Lion
 ON=@Create
-   COLOR=0501
-   HITPOINTS=255
+COLOR=0501
+HITPOINTS=255
 
 [ITEMDEF i_iolos_lute]
 ID=i_lute
@@ -190,7 +190,7 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Iolo's Lute
 ON=@Create
-   COLOR=047e
+COLOR=047e
 
 [ITEMDEF i_luna_lance]
 ID=i_lance
@@ -200,8 +200,8 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Luna Lance
 ON=@Create
-   COLOR=047e
-   HITPOINTS=255
+COLOR=047e
+HITPOINTS=255
 
 [ITEMDEF i_night_kiss]
 ID=i_dagger
@@ -212,8 +212,8 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Night's Kiss
 ON=@Create
-   COLOR=0455
-   HITPOINTS=255
+COLOR=0455
+HITPOINTS=255
 
 [ITEMDEF i_nox_ranger_heavy_crossbow]
 ID=i_crossbow_heavy
@@ -223,8 +223,8 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Nox Ranger's Heavy Crossbow
 ON=@Create
-   COLOR=058c
-   HITPOINTS=255
+COLOR=058c
+HITPOINTS=255
 
 [ITEMDEF i_orcish_visage]
 ID=i_mask_orc
@@ -234,8 +234,8 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Orcish Visage
 ON=@Create
-   COLOR=0592
-   HITPOINTS=255
+COLOR=0592
+HITPOINTS=255
 
 [ITEMDEF i_pads_of_cu_sidhe]
 ID=i_boots_fur
@@ -247,8 +247,8 @@ DESCRIPTION=Pads of the Cu Sidhe
 TEVENTS=t_equipitem
 ReqStr=10
 ON=@Create
-   COLOR=047e
-   HITPOINTS=255
+COLOR=047e
+HITPOINTS=255
 
 [ITEMDEF i_phillip_wooden_steed]
 ID=03ffe
@@ -266,8 +266,8 @@ SUBSECTION=Minor Artifacts
 DESCRIPTION=Pixie Swatter
 
 ON=@Create
-   COLOR=08a
-   HITPOINTS=255
+COLOR=08a
+HITPOINTS=255
 
 [ITEMDEF i_polar_bear_mask]
 ID=i_mask_bear
@@ -277,8 +277,8 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Polar Bear Mask
 ON=@Create
-   COLOR={047e 1 0481 1}
-   HITPOINTS=255
+COLOR={047e 1 0481 1}
+HITPOINTS=255
 
 [ITEMDEF i_seahorse_statuette]
 ID=i_aquarium_seahorse
@@ -287,7 +287,7 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Seahorse Statuette
 ON=@Create
-   COLOR={0 1 0482 1 0489 1 0495 1 04f2 1}
+COLOR={0 1 0482 1 0489 1 0495 1 04f2 1}
 
 [ITEMDEF i_art_shield_invul]
 ID=i_shield_order
@@ -297,8 +297,8 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Shield of Invulnerability
 ON=@Create
-   COLOR=04f2
-   HITPOINTS=255
+COLOR=04f2
+HITPOINTS=255
 
 [ITEMDEF i_ship_model_hmscape]
 ID=i_model_ship
@@ -307,7 +307,7 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Ship Model of the H.M.S. Cape
 ON=@Create
-   COLOR=037b
+COLOR=037b
 
 [ITEMDEF i_staff_of_power]
 ID=i_staff_black
@@ -317,8 +317,8 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Staff of Power
 ON=@Create
-   COLOR={04f2 1 04ef 1}
-   HITPOINTS=255
+COLOR={04f2 1 04ef 1}
+HITPOINTS=255
 
 [ITEMDEF i_admirals_hearty_rum]
 ID=i_bottle_liquor
@@ -327,7 +327,7 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=The Admiral's Hearty Rum
 ON=@Create
-   COLOR=066c
+COLOR=066c
 
 [ITEMDEF i_violet_courage]
 ID=i_armor_female_plate
@@ -337,13 +337,13 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Staff of Power
 ON=@Create
-   COLOR={0486 1 0490 1}
-   HITPOINTS=255
+COLOR={0486 1 0490 1}
+HITPOINTS=255
 ON=@EquipTest
-   IF <f_isfemale>
-      SRC.SYSMESSAGE @032 You cannot wear female armor.
-      RETURN 1
-   ENDIF
+IF <f_isfemale>
+SRC.SYSMESSAGE @032 You cannot wear female armor.
+RETURN 1
+ENDIF
 
 [ITEMDEF i_wrath_dryad]
 ID=i_staff_gnarled
@@ -353,8 +353,8 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Wrath of the Dryad
 ON=@Create
-   COLOR=029c
-   HITPOINTS=255
+COLOR=029c
+HITPOINTS=255
 
 [ITEMDEF i_fire_horn]
 //1049616 "You are too busy to do that at the moment."
@@ -369,36 +369,36 @@ SUBSECTION=Minor Artifacts
 DESCRIPTION=Fire Horn
 
 ON=@Create
-   COLOR=0466
+COLOR=0466
 
 ON=@DClick
-   IF (<CONT>)
-      IF (<TOPOBJ.UID>==<SRC>)
-         IF !(<SRC.FINDID.i_fire_horn_TIMER>)
-            IF (<SRC.RESTEST 4 i_reag_sulfur_ash>)
-               IF (<SRC.MUSICIANSHIP> >= 52.6)
-                  SRC.CONSUME 4 i_reag_sulfur_ash
-                  FORCHARS <EVAL (<SRC.Musicianship> / 100) + (<SRC.Provocation> / 100)>
-                     IF (<UID>!=<SRC>)
-                        IF (<CANSEELOS>)
-                           LOCAL.DIV=<QVAL (<ISPLAYER>) ? 110:80>
-                           DAMAGE <EVAL ((<SRC.Musicianship> / <LOCAL.DIV>) + (<SRC.Provocation> / <LOCAL.DIV>) + (<SRC.Peacemaking> / <LOCAL.DIV>) + (<SRC.Enticement> / <LOCAL.DIV>)) - 5> <DEF.dam_fire> <SRC>
-                        ENDIF
-                     ENDIF
-                  ENDFOR
-                  SERV.NEWITEM=i_fire_horn_timer
-                  NEW.CONT=<SRC>
-                  NEW.TIMER=7
-               ENDIF
-            ELSE
-               SRC.SYSMESSAGELOC color_text,1049617//"You do not have enough sulfurous ash."
-            ENDIF
-         ELSE
-            SRC.SYSMESSAGELOC color_text,1049615//"You must take a moment to catch your breath."
-         ENDIF
-      ENDIF
-   ENDIF
-   RETURN 1
+IF (<CONT>)
+IF (<TOPOBJ.UID>==<SRC>)
+IF !(<SRC.FINDID.i_fire_horn_TIMER>)
+IF (<SRC.RESTEST 4 i_reag_sulfur_ash>)
+IF (<SRC.MUSICIANSHIP> >= 52.6)
+SRC.CONSUME 4 i_reag_sulfur_ash
+FORCHARS <EVAL (<SRC.Musicianship> / 100) + (<SRC.Provocation> / 100)>
+IF (<UID>!=<SRC>)
+IF (<CANSEELOS>)
+LOCAL.DIV=<QVAL (<ISPLAYER>) ? 110:80>
+DAMAGE <EVAL ((<SRC.Musicianship> / <LOCAL.DIV>) + (<SRC.Provocation> / <LOCAL.DIV>) + (<SRC.Peacemaking> / <LOCAL.DIV>) + (<SRC.Enticement> / <LOCAL.DIV>)) - 5> <DEF.dam_fire> <SRC>
+ENDIF
+ENDIF
+ENDFOR
+SERV.NEWITEM=i_fire_horn_timer
+NEW.CONT=<SRC>
+NEW.TIMER=7
+ENDIF
+ELSE
+SRC.SYSMESSAGELOC color_text,1049617//"You do not have enough sulfurous ash."
+ENDIF
+ELSE
+SRC.SYSMESSAGELOC color_text,1049615//"You must take a moment to catch your breath."
+ENDIF
+ENDIF
+ENDIF
+RETURN 1
 
 [ITEMDEF i_fire_horn_timer]
 ID=i_memory
@@ -406,11 +406,11 @@ NAME=Fire Horn timer
 TYPE=t_eq_script
 WEIGHT=0
 ON=@Create
-   COLOR=0466
+COLOR=0466
 ON=@Timer
-   CONT.SYSMESSAGELOC color_text,1049621//"You catch your breath."
-   REMOVE
-   RETURN 1
+CONT.SYSMESSAGELOC color_text,1049621//"You catch your breath."
+REMOVE
+RETURN 1
 
 [ITEMDEF i_aegis_grace]
 ID=i_dragon_helm
@@ -420,8 +420,8 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Aegis Of Grace
 ON=@Create
-   COLOR=047e
-   HITPOINTS=255
+COLOR=047e
+HITPOINTS=255
 
 [ITEMDEF i_boomstick]
 ID=i_staff_wild
@@ -432,8 +432,8 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Boomstick
 ON=@Create
-   COLOR=025
-   HITPOINTS=255
+COLOR=025
+HITPOINTS=255
 
 [ITEMDEF i_bonesmasher]
 ID=i_mace_diamond
@@ -443,8 +443,8 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Bonesmasher
 ON=@Create
-   COLOR=0482
-   HITPOINTS=255
+COLOR=0482
+HITPOINTS=255
 
 [ITEMDEF i_raeds_glory]
 ID=i_sword_warcleaver
@@ -454,8 +454,8 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Raed's Glory
 ON=@Create
-   COLOR=01e6
-   HITPOINTS=255
+COLOR=01e6
+HITPOINTS=255
 
 [ITEMDEF i_wildfire_bow]
 ID=i_elven_composite_longbow
@@ -466,8 +466,8 @@ SUBSECTION=Minor Artifacts
 DESCRIPTION=Wildfire Bow
 
 ON=@Create
-   COLOR=0489
-   HITPOINTS=255
+COLOR=0489
+HITPOINTS=255
 
 [ITEMDEF i_windsong]
 ID=i_magical_shortbow
@@ -477,8 +477,8 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Windsong
 ON=@Create
-   COLOR=0f7
-   HITPOINTS=255
+COLOR=0f7
+HITPOINTS=255
 
 [ITEMDEF i_talon_bite]
 ID=i_ornate_axe
@@ -488,8 +488,8 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Talon Bite
 ON=@Create
-   COLOR=047e
-   HITPOINTS=255
+COLOR=047e
+HITPOINTS=255
 
 [ITEMDEF i_soul_seeker]
 ID=i_radiant_scimitar
@@ -500,8 +500,8 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Soul Seeker
 ON=@Create
-   COLOR=038c
-   HITPOINTS=255
+COLOR=038c
+HITPOINTS=255
 
 [ITEMDEF i_blade_dance]
 ID=i_rune_blade
@@ -511,8 +511,8 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Blade Dance
 ON=@Create
-   COLOR=066c
-   HITPOINTS=255
+COLOR=066c
+HITPOINTS=255
 
 [ITEMDEF i_dreads_revenge]
 ID=i_kryss
@@ -522,8 +522,8 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Dread's Revenge
 ON=@Create
-   COLOR=03a
-   HITPOINTS=255
+COLOR=03a
+HITPOINTS=255
 
 [ITEMDEF i_flesh_ripper]
 ID=i_sword_assassin_spike
@@ -533,8 +533,8 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Flesh Ripper
 ON=@Create
-   COLOR=0341
-   HITPOINTS=255
+COLOR=0341
+HITPOINTS=255
 
 [ITEMDEF i_robe_equinox]
 ID=i_robe
@@ -545,8 +545,8 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Robe of the Equinox
 ON=@Create
-   COLOR=0d6
-   HITPOINTS=255
+COLOR=0d6
+HITPOINTS=255
 
 [ITEMDEF i_robe_eclipse]
 ID=i_robe
@@ -556,8 +556,8 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Robe of the Eclipse
 ON=@Create
-   COLOR=0486
-   HITPOINTS=255
+COLOR=0486
+HITPOINTS=255
 
 [ITEMDEF i_righteous_anger]
 ID=i_elven_machete
@@ -567,8 +567,8 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Righteous Anger
 ON=@Create
-   COLOR=0284
-   HITPOINTS=255
+COLOR=0284
+HITPOINTS=255
 
 [ITEMDEF i_bloodwood_spirit]
 ID=i_talisman3
@@ -578,7 +578,7 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Bloodwood Spirit
 ON=@Create
-   COLOR=027
+COLOR=027
 
 [ITEMDEF i_brightsight_lenses]
 ID=i_elven_glasses
@@ -588,7 +588,7 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Brightsight Lenses
 ON=@Create
-   COLOR=0501
+COLOR=0501
 
 [ITEMDEF i_crimson_cincture]
 ID=i_talisman4
@@ -598,7 +598,7 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Crimson Cincture
 ON=@Create
-   COLOR=0485
+COLOR=0485
 
 [ITEMDEF i_fey_leggings]
 ID=i_chainmail_leggings
@@ -609,7 +609,7 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Fey Leggings
 ON=@Create
-   HITPOINTS=255
+HITPOINTS=255
 
 [ITEMDEF i_totem_of_void]
 ID=i_talisman4
@@ -619,8 +619,8 @@ CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Totem of the Void
 ON=@Create
-   COLOR=02d0
-   DORAND 5
-   ENDDO
+COLOR=02d0
+DORAND 5
+ENDDO
 
 [EOF]

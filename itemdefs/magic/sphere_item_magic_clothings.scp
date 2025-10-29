@@ -1,0 +1,184 @@
+
+
+[ITEMDEF i_robe_mage_defense]
+DEFNAME=i_robe_mage_defense
+// ID=I_DEATHSHROUD_CRAFT
+ID=I_DEATHSHROUD
+TYPE=T_CLOTHING
+NAME=Mage Robe of Defense
+// NAME=mage's robe
+ARMOR=48
+VALUE=600
+WEIGHT=5
+DYE=0
+CATEGORY=Provisions - Cloth - Magic
+SUBSECTION=Deathshrouds
+DESCRIPTION=Mage Robe of Defense
+RESDISPDNHUE=color_magic_defense
+TEVENTS=ei_generic_item_clothings_magic
+TEVENTS=t_equipitem
+SKILL=EVALUATINGINTEL
+
+ON=@Create
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+ATTR=ATTR_MAGIC
+MOREY=20.0
+HITPOINTS={100 250}
+
+[ITEMDEF i_robe_mage_guarding]
+DEFNAME=i_robe_mage_guarding
+// ID=I_DEATHSHROUD_CRAFT
+ID=I_DEATHSHROUD
+TYPE=T_CLOTHING
+NAME=Mage Robe of Guarding
+// NAME=mage's robe
+ARMOR=52
+VALUE=3000
+WEIGHT=5
+DYE=0
+CATEGORY=Provisions - Cloth - Magic
+SUBSECTION=Deathshrouds
+DESCRIPTION=Mage Robe of Guarding
+RESDISPDNHUE=color_magic_guarding
+TEVENTS=ei_generic_item_clothings_magic
+TEVENTS=t_equipitem
+SKILL=EVALUATINGINTEL
+
+ON=@Create
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+ATTR=ATTR_MAGIC
+MOREY=40.0
+HITPOINTS={100 250}
+
+[ITEMDEF i_robe_mage_hardening]
+DEFNAME=i_robe_mage_hardening
+// ID=i_Deathshroud_craft
+ID=I_DEATHSHROUD
+TYPE=T_clothing
+NAME=Mage Robe of Hardening
+// NAME=mage's robe
+ARMOR=56
+VALUE=4500
+WEIGHT=5
+DYE=0
+CATEGORY=Provisions - Cloth - Magic
+SUBSECTION=Deathshrouds
+DESCRIPTION=Mage Robe of Hardening
+RESDISPDNHUE=color_magic_hardening
+TEVENTS=ei_generic_item_clothings_magic
+TEVENTS=t_equipitem
+SKILL=EVALUATINGINTEL
+
+
+ON=@Create
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+ATTR=ATTR_MAGIC
+MOREY=60.0
+HITPOINTS={100 250}
+
+
+
+
+[ITEMDEF i_robe_mage_fortification]
+DEFNAME=i_robe_mage_fortification
+// ID=i_Deathshroud_craft
+ID=I_DEATHSHROUD
+TYPE=T_clothing
+// NAME=Mage Robe of Fortification
+NAME=mage's robe
+ARMOR=60
+VALUE=6000
+WEIGHT=5
+DYE=0
+CATEGORY=Provisions - Cloth - Magic
+SUBSECTION=Deathshrouds
+DESCRIPTION=Mage Robe of Fortification
+RESDISPDNHUE=color_magic_fortification
+TEVENTS=ei_generic_item_clothings_magic
+TEVENTS=t_equipitem
+SKILL=EVALUATINGINTEL
+
+
+ON=@Create
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+ATTR=ATTR_MAGIC
+MOREY=80.0
+HITPOINTS={100 250}
+
+
+
+
+[ITEMDEF i_robe_mage_invulnerability]
+DEFNAME=i_robe_mage_invulnerability
+// ID=I_DEATHSHROUD_CRAFT
+ID=I_DEATHSHROUD
+TYPE=T_CLOTHING
+// NAME=mage's robe
+ARMOR=65
+NAME=Mage Robe of Invulnerability
+WEIGHT=5
+VALUE=9000
+DYE=0
+CATEGORY=Provisions - Cloth - Magic
+SUBSECTION=Mage's Robe
+DESCRIPTION=Mage Robe of Invulnerability
+RESDISPDNHUE=color_magic_invulnerability
+TEVENTS=ei_generic_item_clothings_magic
+TEVENTS=t_equipitem
+SKILL=Evaluatingintel
+
+ON=@Create
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+ATTR=ATTR_MAGIC
+MOREY=100.0
+HITPOINTS={100 250}
+
+
+[TYPEDEF ei_generic_item_clothings_magic]
+ON=@Equip
+IF (<ATTR>&ATTR_NEWBIE)
+	ATTR &= ~ATTR_NEWBIE
+ENDIF
+IF (<COLOR> != <SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>)
+	COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+ENDIF
+LOCAL.SKILLNAME = <SERV.SKILL.<SKILL>.NAME>
+
+IF (<SRC.PARRYING> >= 0.1)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, <NAME> kullanabilmek için Parrying becerisine sahip olmamalısınız. (0.0 Parrying)
+	UNEQUIP
+	RETURN 1
+ELSEIF (<SRC.MAGERY> < 100.0)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, <NAME> kullanacak beceriye sahip değilsiniz. (100.0 Magery)
+	UNEQUIP
+	RETURN 1
+ELSEIF (<SRC.<LOCAL.SKILLNAME>> < <MOREY>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, <NAME> kullanacak beceriye sahip değilsiniz. (<FVAL <dDEF.SKILL_MAGIC_CLOTH_<MagicValueBaseIdByValue>>> <LOCAL.SKILLNAME>)
+	UNEQUIP
+	RETURN 1
+ENDIF
+// IF (<SRC.FINDID.I_RUNE_PROTECTION>)
+	// SRC.FINDID.I_RUNE_PROTECTION.REMOVE
+	// SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, Protection büyü etkisi kaldırıldı.
+// ENDIF
+
+
+ON=@UNEQUIP
+IF (<ATTR>&ATTR_NEWBIE)
+	ATTR &= ~ATTR_NEWBIE
+ENDIF
+IF (<COLOR> != <SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>)
+	COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+ENDIF
+
+
+On=@Click
+IF (<ATTR>&ATTR_NEWBIE)
+	ATTR &= ~ATTR_NEWBIE
+ENDIF
+IF (<COLOR> != <SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>)
+	COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+ENDIF
+
+
+[EOF]

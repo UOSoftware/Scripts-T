@@ -7,6 +7,7 @@ RESOURCES=10 i_ingot_iron, i_scimitar
 CATEGORY=Provisions - Weapons - Magic
 SUBSECTION=Magic Scimitars
 DESCRIPTION=Scimitar of Ruin
+RESDISPDNHUE=
 
 ON=@Create
 MOREY=1.0
@@ -22,6 +23,7 @@ RESOURCES=10 i_ingot_iron, i_scimitar
 CATEGORY=Provisions - Weapons - Magic
 SUBSECTION=Magic Scimitars
 DESCRIPTION=Scimitar of Might
+RESDISPDNHUE=
 
 ON=@Create
 MOREY=25.0

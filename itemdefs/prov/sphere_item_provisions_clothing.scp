@@ -18,7 +18,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Masks
 DESCRIPTION=Orc Mask
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0141c]
 //orc mask
@@ -43,7 +43,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Cloak, Cape
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 01516]
 DEFNAME=i_skirt_long
@@ -63,7 +63,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Pants & Skirts
 DESCRIPTION=Long Skirt
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 01517]
 DEFNAME=i_shirt_plain
@@ -83,7 +83,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Plain Shirt
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 01518]
 //plain shirt
@@ -108,7 +108,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Pants & Skirts
 DESCRIPTION=Short Pants
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0152f]
 //Short Pants
@@ -135,7 +135,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Pants & Skirts
 DESCRIPTION=Skirt (Tea Length)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 
 [ITEMDEF 01535]
@@ -175,7 +175,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Pants & Skirts
 DESCRIPTION=Kilt
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 01538]
 //Kilt
@@ -199,7 +199,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Pants & Skirts
 DESCRIPTION=Long Pants
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0153a]
 //Long Pants
@@ -223,7 +223,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Miscellaneous
 DESCRIPTION=Half Apron
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0153c]
 //Half Apron
@@ -247,7 +247,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Miscellaneous
 DESCRIPTION=Full Apron
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0153e]
 //Full Apron
@@ -271,7 +271,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Hats
 DESCRIPTION=Bandana
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 01540]
 //bandana
@@ -295,7 +295,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Miscellaneous
 DESCRIPTION=Body Sash
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 01542]
 //body sash
@@ -319,7 +319,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Hats
 DESCRIPTION=Skull Cap
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 01544]
 //skullcap
@@ -343,7 +343,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Masks
 DESCRIPTION=Bear Mask
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 01546]
 //bear mask
@@ -367,7 +367,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Masks
 DESCRIPTION=Deer Mask
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 01548]
 //deer mask
@@ -392,7 +392,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Masks
 DESCRIPTION=Tribal Mask (fancy)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0154a]
 //tribal mask
@@ -416,7 +416,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Masks
 DESCRIPTION=Tribal Mask (red)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0154c]
 //tribal mask
@@ -441,7 +441,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Footwear
 DESCRIPTION=Boots
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0170c]
 //boots
@@ -465,7 +465,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Footwear
 DESCRIPTION=Sandals
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0170e]
 //Sandals
@@ -489,7 +489,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Footwear
 DESCRIPTION=Shoes
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 01710]
 //Shoes
@@ -513,7 +513,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Footwear
 DESCRIPTION=Thigh Boots
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 01712]
 //Thigh Boots
@@ -535,7 +535,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Hats
 DESCRIPTION=Floppy Hat
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 01714]
 DEFNAME=i_hat_wide_brim
@@ -552,7 +552,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Hats
 DESCRIPTION=Wide-Brim Hat
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 01715]
 DEFNAME=i_cap
@@ -570,7 +570,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Hats
 DESCRIPTION=Cap
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 01716]
 DEFNAME=i_hat_straw_tall
@@ -588,7 +588,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Hats
 DESCRIPTION=Tall Straw Hat
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 01717]
 DEFNAME=i_hat_straw
@@ -606,7 +606,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Hats
 DESCRIPTION=Straw Hat
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 01718]
 DEFNAME=i_hat_wizards
@@ -624,7 +624,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Hats
 DESCRIPTION=Wizards Hat
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 01719]
 DEFNAME=i_bonnet
@@ -642,7 +642,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Hats
 DESCRIPTION=Bonnet
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0171a]
 DEFNAME=i_hat_feather
@@ -660,7 +660,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Hats
 DESCRIPTION=Feathered Hat
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0171b]
 DEFNAME=i_hat_tricorne
@@ -678,7 +678,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Hats
 DESCRIPTION=Tricorne Hat
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0171c]
 DEFNAME=i_hat_jester
@@ -696,7 +696,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Hats
 DESCRIPTION=Jester Cap
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 
 [ITEMDEF 0172e]
@@ -717,7 +717,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Hats
 DESCRIPTION=BeeKeeper Hat (Jester Cap)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 
 [ITEMDEF 01efd]
@@ -737,7 +737,7 @@ DESCRIPTION=Fancy Shirt
 SUBSECTION=Shirts & Robes
 CATEGORY=Provisions - Clothes
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 01efe]
 //fancy shirt
@@ -760,7 +760,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Fancy Dress
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 01f00]
 //fancy dress
@@ -783,7 +783,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Plain Dress
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 01f02]
 //plain dress
@@ -806,7 +806,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Robe
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 01f04]
 //robe
@@ -830,7 +830,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Doublet
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 01f7c]
 //doublet
@@ -854,7 +854,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Jester Suit
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 01fa0]
 //Jester Suit
@@ -877,7 +877,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Tunic
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 01fa2]
 //Tunic
@@ -901,7 +901,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Surcoat
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 01ffe]
 //surcoat
@@ -926,7 +926,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Hats
 DESCRIPTION=Flower Garland
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 02306]
 //flower garland
@@ -949,7 +949,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Footwear
 DESCRIPTION=Fur Boots
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 02308]
 //fur boots
@@ -971,7 +971,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Fur Cape
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0230a]
 //fur cape
@@ -993,7 +993,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Fur Sarong
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0230c]
 //fur sarong
@@ -1016,7 +1016,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Gilded Dress
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0230e]
 //gilded dress
@@ -1039,7 +1039,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Formal Shirt
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 02310]
 //formal shirt
@@ -1063,7 +1063,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Checkered Shirt
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 025eb]
 //checkered shirt
@@ -1086,7 +1086,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Robe 2
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 025ed]
 //robe 2
@@ -1111,7 +1111,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Hooded Robe (unwearable)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 025ef]
 //hooded robe
@@ -1135,7 +1135,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Death Shroud (unwearable)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 025f1]
 //death shroud (unwearable)
@@ -1160,7 +1160,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Pants & Skirts
 DESCRIPTION=knee Skirt (3d client only)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 025f3]
 //knee skirt
@@ -1185,7 +1185,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Pants & Skirts
 DESCRIPTION=Jester Pants (3d client only)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0264a]
 //jester pants
@@ -1210,7 +1210,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Pants & Skirts
 DESCRIPTION=Haidate (3d client only)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0264e]
 //haidate
@@ -1234,7 +1234,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Pants & Skirts
 DESCRIPTION=Kobakama (3d client only)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 02650]
 //kobakama
@@ -1258,7 +1258,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Pants & Skirts
 DESCRIPTION=Ninja Pants (3d client only)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 02652]
 //ninja pants
@@ -1283,7 +1283,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Footwear
 DESCRIPTION=Jester Shoes (3d client only)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 02656]
 //jester shoes
@@ -1308,7 +1308,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Plain Shirt 2 (3d client only)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 02660]
 //plain shirt 2
@@ -1332,7 +1332,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Plain Shirt 3 (3d client only)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 02662]
 //plain shirt 3
@@ -1356,7 +1356,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Plain Shirt 4 (3d client only)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 02664]
 //plain shirt 4
@@ -1380,7 +1380,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Plain Shirt 5 (3d client only)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 02666]
 //plain shirt 5
@@ -1404,7 +1404,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Ninja (3d client only)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 02668]
 //ninja shirt
@@ -1429,7 +1429,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Kote Sleeves 1 (3d client only)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0266c]
 //kote sleeves 1
@@ -1453,7 +1453,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Kote Sleeves 2 (3d client only)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0266e]
 //kote sleeves 2
@@ -1478,7 +1478,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Do-maru (3d client only)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 02672]
 //do-maru
@@ -1502,7 +1502,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Haramaki-do (3d client only)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 02674]
 //haramaki-do
@@ -1526,7 +1526,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Fancy Dress 2
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0267c]
 //fancy dress 2
@@ -1549,7 +1549,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Fancy Dress 3
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0267e]
 //fancy dress 3
@@ -1572,7 +1572,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Long Dress
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 02680]
 //long dress
@@ -1597,7 +1597,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Female Kimono 1 (unwearable)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 02682]
 //Female Kimono 1 (unwearable)
@@ -1605,7 +1605,8 @@ DUPEITEM=02681
 
 [ITEMDEF 02683]
 DEFNAME=i_deathshroud_craft
-NAME=hooded shroud
+// NAME=hooded shroud
+NAME=shroud
 TYPE=t_clothing
 DYE=1
 FLIP=1
@@ -1620,12 +1621,36 @@ DUPELIST=02684
 CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Death Shroud (craftable)
+
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 02684]
 //hooded shroud
 DUPEITEM=02583
+
+[ITEMDEF I_SHROUD]
+DEFNAME=I_SHROUD
+ID=I_DEATHSHROUD
+NAME=Shroud
+TYPE=T_CLOTHING
+ARMOR=0
+DUPELIST=02684
+RESOURCES=60 I_CLOTH, 4 I_REAG_DRAGON_BLOOD
+SKILLMAKE=TAILORING 100.0
+DYE=0
+WEIGHT=0.5
+FLIP=0
+VALUE=1000
+RESDISPDNHUE=0
+
+ON=@CREATE 
+COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
+HITPOINTS=100
+
+ON=@UNEQUIP
+SRC.SPELLEFFECT S_NIGHT_SIGHT,100.0
+SRC.SOUND=SND_SPELL_PROTECTION
 
 [ITEMDEF 02685]
 //appears like nothing on paperdoll (it actually removes layers)
@@ -1645,7 +1670,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Death Shroud (unwearable)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 02686]
 //death shroud
@@ -1668,7 +1693,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Death Shroud (works)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 
 [ITEMDEF 0269d]
@@ -1689,7 +1714,7 @@ CATEGORY=Provisions - Armor
 SUBSECTION=Leather Armor
 DESCRIPTION=Robin Hood Cap (unwearable)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0269e]
 //feathered cap
@@ -1713,7 +1738,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Masks
 DESCRIPTION=Feathered Mask (unwearable)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 026a2]
 //feathered mask
@@ -1737,7 +1762,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Masks
 DESCRIPTION=Ninja Hood (unwearable)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 026a4]
 //ninja hood
@@ -1759,8 +1784,8 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Magic
 DESCRIPTION=Arcane Cloak
 ON=@Create
-   HITPOINTS={50 100}
-   TAG.ArcaneCharges=<R1,24>
+HITPOINTS={50 100}
+TAG.ArcaneCharges=<R1,24>
 
 [ITEMDEF 026ae]
 DEFNAME=i_robe_arcane
@@ -1777,8 +1802,8 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Magic
 DESCRIPTION=Arcane Robe
 ON=@Create
-   HITPOINTS={50 100}
-   TAG.ArcaneCharges=<R1,24>
+HITPOINTS={50 100}
+TAG.ArcaneCharges=<R1,24>
 
 [ITEMDEF 026af]
 DEFNAME=i_boots_thigh_arcane
@@ -1795,8 +1820,8 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Magic
 DESCRIPTION=Arcane Thigh Boots
 ON=@Create
-   HITPOINTS={50 100}
-   TAG.ArcaneCharges=<R1,24>
+HITPOINTS={50 100}
+TAG.ArcaneCharges=<R1,24>
 
 [ITEMDEF 026b0]
 DEFNAME=i_leather_gloves_arcane
@@ -1813,8 +1838,8 @@ CATEGORY=Provisions - Armor
 SUBSECTION=Magic
 DESCRIPTION=Arcane Leather Gloves
 ON=@Create
-   HITPOINTS={50 100}
-   TAG.ArcaneCharges=<R1,24>
+HITPOINTS={50 100}
+TAG.ArcaneCharges=<R1,24>
 
 
 [ITEMDEF 02782]
@@ -1834,7 +1859,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Male Kimono
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 02783]
 DEFNAME=i_kimono_female2
@@ -1854,7 +1879,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Female Kimono 2
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 
 [ITEMDEF 0278f]
@@ -1875,7 +1900,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Cloth Armor
 DESCRIPTION=Cloth Ninja Hood
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 
 [ITEMDEF 02794]
@@ -1896,7 +1921,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Cloth Armor
 DESCRIPTION=Cloth Ninja Jacket
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 02795]
 //unused tile named tabi boots tall
@@ -1922,7 +1947,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Footwear
 DESCRIPTION=Waraji and Tabi
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 02797]
 DEFNAME=i_boots_tabi
@@ -1941,7 +1966,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Footwear
 DESCRIPTION=Ninja Tabi
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 02798]
 DEFNAME=i_hat_kasa
@@ -1960,7 +1985,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Hats
 DESCRIPTION=Kasa
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 02799]
 DEFNAME=i_kamishimo
@@ -1980,7 +2005,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Kamishimo
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0279a]
 DEFNAME=i_hakama
@@ -2000,7 +2025,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Pants & Skirts
 DESCRIPTION=Hakama
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0279b]
 DEFNAME=i_hakama_tattsuke
@@ -2020,7 +2045,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Tattsuke Hakama
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0279c]
 DEFNAME=i_hakama_shita
@@ -2040,7 +2065,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Hakama-Shita
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 
 [ITEMDEF 027a0]
@@ -2061,7 +2086,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Pants & Skirts
 DESCRIPTION=Obi
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 027a1]
 DEFNAME=i_jinbaori
@@ -2081,7 +2106,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Jin-Baori
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 
 [ITEMDEF 027cd]
@@ -2152,10 +2177,10 @@ CATEGORY=Quest
 SUBSECTION=8th Age
 DESCRIPTION=Cloak of Humility
 ON=@Create
-   ATTR=attr_magic
-   COLOR=1827//tarnish
-   HITPOINTS=255
-   TAG.VirtueArmor=1
+ATTR=attr_magic
+COLOR=1827//tarnish
+HITPOINTS=255
+TAG.VirtueArmor=1
 
 [ITEMDEF 02b05]
 //cloak of humilty
@@ -2180,7 +2205,7 @@ CATEGORY=Provisions - Armor
 SUBSECTION=Elven
 DESCRIPTION=Woodland Belt
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 
 [ITEMDEF 02fb7]
@@ -2202,7 +2227,7 @@ SUBSECTION=Quivers
 DESCRIPTION=Elven Quiver
 //FIXME: quiver loading event
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 
 [ITEMDEF 02fb9]
@@ -2224,7 +2249,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Elven Male Robe
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 02fba]
 DEFNAME=i_elven_male_robe2
@@ -2245,7 +2270,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Elven Male Robe 2
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 02fbb]
 //elven shirt
@@ -2277,7 +2302,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Elven Male Shirt (bad tile)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 02fbe]
 //i_elven_male_shirt3
@@ -2331,7 +2356,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Elven Female Shirt
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 03176]
 DEFNAME=i_elven_shirt
@@ -2352,7 +2377,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Elven Shirt
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 03177]
 //Elven shirt
@@ -2381,7 +2406,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Pants & Skirts
 DESCRIPTION=Elven Pants
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0317a]
 DEFNAME=i_elven_boots
@@ -2402,7 +2427,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Footwear
 DESCRIPTION=Elven Boots
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 
 [ITEMDEF 04000]
@@ -2424,7 +2449,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Gargish Robe
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 04001]
 //Gargish robe
@@ -2449,7 +2474,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Gargish Fancy Robe
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 04003]
 //Gargish robe fancy
@@ -2475,7 +2500,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Gargoyle Cloth Armor
 DESCRIPTION=Gargish Cloth Wing Armor
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 045a5]
 //gargoyle cloth wings
@@ -2500,7 +2525,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Miscellaneous
 DESCRIPTION=Gargish Female Sash
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 046ab]
 //gargish female sash
@@ -2527,7 +2552,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Miscellaneous
 DESCRIPTION=Gargish Sash
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 046b5]
 //gargish sash
@@ -2553,7 +2578,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Miscellaneous
 DESCRIPTION=Gargish Half Apron
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 050d9]
 //Gargish half apron
@@ -2573,7 +2598,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Footwear
 DESCRIPTION=Jester Shoes
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0781a]
 DEFNAME=i_hat_chef
@@ -2588,7 +2613,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Hats
 DESCRIPTION=Chef's Toque
 ON=@Create
-   HITPOINTS={20 30}
+HITPOINTS={20 30}
 
 [ITEMDEF 0781b]
 DEFNAME=i_kilt_gilded
@@ -2604,7 +2629,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Pants & Skirts
 DESCRIPTION=Gilded Kilt
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0781c]
 DEFNAME=i_kilt_checkered
@@ -2620,7 +2645,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Pants & Skirts
 DESCRIPTION=Checkered Kilt
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0781d]
 DEFNAME=i_kilt_fancy
@@ -2636,7 +2661,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Pants & Skirts
 DESCRIPTION=Fancy Kilt
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0781e]
 DEFNAME=i_dress_flowered
@@ -2652,7 +2677,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Flowered Dress
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 
 [ITEMDEF 07821]
@@ -2669,7 +2694,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Evening Gown
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 
 [ITEMDEF 09985]
@@ -2704,7 +2729,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Hooded Britannia Robe (1)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0a0ac]
 DEFNAME=i_robe_hooded_britannia_2
@@ -2717,7 +2742,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Hooded Britannia Robe (2)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0a0ad]
 DEFNAME=i_robe_hooded_britannia_3
@@ -2730,7 +2755,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Hooded Britannia Robe (4)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0a0ae]
 DEFNAME=i_robe_hooded_britannia_4
@@ -2743,7 +2768,7 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Hooded Britannia Robe (4)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [ITEMDEF 0a0af]
 DEFNAME=i_robe_hooded_britannia_5
@@ -2756,6 +2781,6 @@ CATEGORY=Provisions - Clothes
 SUBSECTION=Shirts & Robes
 DESCRIPTION=Hooded Britannia Robe (5)
 ON=@Create
-   HITPOINTS={36 48}
+HITPOINTS={36 48}
 
 [EOF]
