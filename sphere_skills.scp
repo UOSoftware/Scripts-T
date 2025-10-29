@@ -618,7 +618,10 @@ ADV_RATE=10.0,200.0,800.0
 VALUES=1,20,80
 
 ON=@Abort
-SRC.SYSMESSAGE You stop casting the spell.
+SRC.SYSMESSAGE You abort casting the spell.
+
+ON=@Fail
+SRC.SYSMESSAGE You fail casting the spell.
 
 [SKILL 26]
 DEFNAME=Skill_MagicResist
