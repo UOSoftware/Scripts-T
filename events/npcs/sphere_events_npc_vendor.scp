@@ -22,7 +22,7 @@ FACE <SRC>
 BUY
 RETURN 1
 
-// nebula2000 like
+
 On=@EnvironChange
 IF (<FLAGS>&STATF_WAR) 
 	RETURN 0
