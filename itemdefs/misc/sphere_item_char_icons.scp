@@ -1,7 +1,7 @@
 
 
 
-[COMMENT sphere_item_char_icons]
+[COMMENT]
 
 This file contains t_figurine items.  Changing the VALUE of a figurine will
 change the price it is sold at by vendors.  If a t_figurine does not have a

@@ -1,6 +1,6 @@
 VERSION=0.56T
 
-[COMMENT sphere_template_vend]
+[COMMENT]
 This file contains vendor buy and sell templates.
 NOTE:
 * We should NOT mix containers (SELL and BUY stuff in the same template.)

@@ -1,7 +1,7 @@
 VERSION=0.56T
 
 
-[COMMENT dialog_help_section]
+[COMMENT]
 FLAGS
 noclose                             // Dialog can't be closed with right click
 nodispose                           // Dialog can't be closed with closegump macro

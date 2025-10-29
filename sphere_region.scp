@@ -1,6 +1,6 @@
 VERSION=0.56T
 
-[COMMENT sphere_resource]
+[COMMENT]
 A REGIONRESOURCE (usually named mr_something) describes how a map resource
 can be harvested by using the following properties:
 

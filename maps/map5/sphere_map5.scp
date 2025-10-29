@@ -1,6 +1,6 @@
 VERSION=0.56T
 
-[COMMENT sphere_map5]
+[COMMENT]
 Ter Mur and Stygian Abyss (SA, map5,statics5,staidx5), map #5
 MAP5=1280,4096,-1,5,5	//1280 sectors of size 64x64
 

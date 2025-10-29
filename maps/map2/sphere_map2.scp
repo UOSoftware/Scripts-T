@@ -1,6 +1,6 @@
 VERSION=0.56T
 
-[COMMENT sphere_map2]
+[COMMENT]
 Ilshenar
 MAP2=2304,1600,-1,2,2	//900 sectors of size 64x64
 

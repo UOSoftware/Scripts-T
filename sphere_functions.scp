@@ -1,6 +1,6 @@
 VERSION=0.56T
 
-[COMMENT sphere_functions]
+[COMMENT]
 Komutlar;
 Logger = Herhangi bir nesne için veya bağımsız olarak özelleştirilmiş log komutu.
 FUNC_GIVE_HITS_FIX = Hitsi direkt olarak + yapıldığında bazen bug olabiliyor, bu komutla verilebilir.

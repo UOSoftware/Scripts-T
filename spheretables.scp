@@ -1,6 +1,6 @@
 VERSION=0.56T
 
-[COMMENT spheretables]
+[COMMENT]
 NOTE: This file is loaded 2nd after SPHERE.INI and the order is very important,
 so be aware that the resources section is processed top down... if a file near
 the top is dependant on a file near the bottom, you may try to slide the dependent

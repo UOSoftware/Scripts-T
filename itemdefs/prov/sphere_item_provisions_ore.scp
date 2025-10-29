@@ -1,7 +1,7 @@
 VERSION=0.56c
 
 
-[COMMENT sphere_item_provisions_ore]
+[COMMENT]
 
 In order to actually mine ore, a REGIONRESOURCE needs to exist for it, and a
 REGIONTYPE needs a REGION= entry to that REGIONRESOURCE... also that same

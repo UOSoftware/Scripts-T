@@ -1,6 +1,6 @@
 VERSION=0.56b
 
-[COMMENT sphere_item_provisions_armor_color]
+[COMMENT]
 // Agapite can only be worn by good. rejects evil.
 // Shadow can only be worn by evil. will poison good people.
 //

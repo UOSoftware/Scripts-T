@@ -1,6 +1,6 @@
 VERSION=0.56T
 
-[COMMENT sphere_terrain_types]
+[COMMENT]
 This file contains the definition of each "Terrain" TYPEDEF (water, rock,
 dirt, grass, lava, snow, swamp, jungle, forest, acid,...)
 

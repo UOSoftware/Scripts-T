@@ -1,6 +1,6 @@
 
 
-[COMMENT sphere_item_typedef_equipitem]
+[COMMENT]
 The t_equipitem TYPEDEF is typically applied on every equipable item.
 eg:
   t_clothing

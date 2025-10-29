@@ -1,6 +1,6 @@
 VERSION=0.56T
 
-[COMMENT sphere_dialog_hunry]
+[COMMENT]
 
 
 [DIALOG D_HUNGRY]

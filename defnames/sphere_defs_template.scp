@@ -1,7 +1,7 @@
 VERSION=0.56T
 
 
-[COMMENT sphere_template]
+[COMMENT]
 A template is typically a collection of multiple items that are spawned in
 a container, but a template can also be used to create a single item from
 a collection.  Alternatively a DEFNAME can be used to create a single item

@@ -6,7 +6,7 @@ STR=10000,4000,600
 INT=10000,4000,600
 DEX=10000,4000,600
 
-[COMMENT SKILL x]
+[COMMENT]
 ADV_RATE=10.0,200.0,800.0
 // 10.0 successes at 0% to gain .1,
 // 800.0 successes at 100% to gain .1,

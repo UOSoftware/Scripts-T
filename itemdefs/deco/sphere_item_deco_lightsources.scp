@@ -1,7 +1,7 @@
 
 
 
-[COMMENT sphere_item_deco_lightsources]
+[COMMENT]
 This file still needs a lot of fixes so that lighting and extinguishing work
 without also causing the item to flip... that having been said, drop flipping
 should still be able to work.  Can this be accomplished without eliminating

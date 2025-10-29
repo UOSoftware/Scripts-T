@@ -1,6 +1,6 @@
 VERSION=0.56T
 
-[COMMENT sphere_spellmenu]
+[COMMENT]
 The sphereserver has a number of hardcoded spellmenu's, this file contains the softcoded component.  The prupose of each is as follows:
 // Spells
 sm_summon				= Triggered by the Magery "summoning" spell

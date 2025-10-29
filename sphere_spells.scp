@@ -1,6 +1,6 @@
 VERSION=0.56T
 
-[COMMENT sphere_spells]
+[COMMENT]
 - Potions are just spells that have an effect attached at the potion layer.
 - Spells and potion effects can be added to equipped items.
 - Until monster AI is improved, all "good" spells have had the spellflag_playeronly added

@@ -1,6 +1,6 @@
 VERSION=0.56T
 
-[COMMENT sphere_map1]
+[COMMENT]
 Trammel is basically a copy of Felucca, but pvp-safe.
 To enable Haven Island region, uncomment the lines below
 choosing between old Haven (AOS/SE) or New Haven (ML+).

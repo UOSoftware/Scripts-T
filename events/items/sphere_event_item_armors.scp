@@ -1,6 +1,6 @@
 VERSION=0.56T
 
-[COMMENT sphere_event_item_armors]
+[COMMENT]
 Bu event t_armor, t_armor_leather ve t_shield türündeki eşyalara verilir.
 t_jewelry ve t_clothing harictir.
 
