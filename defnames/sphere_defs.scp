@@ -749,6 +749,9 @@ layer_flag_murders  	     		52	// how many murders do we have ? and decay timer.
 layer_flag_bandage	    				53	// bandages go here for healing
 layer_auction	    				54	// layer for script purposes to equip container on character (like auction system)
 
+
+layer_storage						80 // New Storage layer, can equip t_container and t_container_locked.
+
 [DEFNAME def_gumps]
 // name the gumps.
 g_btn_green_ok			081a
