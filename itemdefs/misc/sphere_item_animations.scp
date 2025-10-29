@@ -73,6 +73,14 @@ DUPEITEM=0923
 //bee swarm 2
 DUPEITEM=0923
 
+[ITEMDEF I_MOONGATE]
+DEFNAME=I_MOONGATE
+ID=I_MOONGATE_BLUE
+TYPE=T_MOONGATE
+NAME=Moongate
+
+ON=@CREATE
+ATTR=ATTR_STATIC|ATTR_MOVE_NEVER
 
 [ITEMDEF 0dda]
 DEFNAME=i_moongate_red
@@ -83,7 +91,7 @@ SUBSECTION=Moongates
 DESCRIPTION=Red Moongate
 DUPELIST=0ddb,0ddc,0ddd,0dde
 ON=@Create
-   MOREP=-1,-1
+MOREP=-1,-1
 
 [ITEMDEF 0ddb]
 //Red Moongate (animation frame)
