@@ -1,12 +1,5 @@
 
 [events e_generic_npcs]
-ON=@Create
-TAG0.UUID <BCRYPTHASH 2, 4, <SERV.TIME>_<SERV.RTICKS>_<SERV.BUILD>_<SERV.SAVECOUNT>_<UID>>
-TAG0.CREATED_TICK = <SERV.RTICKS>
-TAG0.CREATED_AT = <SERV.RTIMESQL>
-
-
-
 // 2. acıkma yöntemi
 // NPC öldükten sonra spawnbitlerinin timeri aynen saymaya devam ediyor,
 // Burada npc ölünce spawnbit süresini varsayılan olarak random bir şekilde set ediyor.

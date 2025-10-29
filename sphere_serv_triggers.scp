@@ -255,13 +255,18 @@ SERV.LOG <QVAL (<ARGO>)?<ARGO>:<src.name>/<SRC>> karakter silindi.
 
 [FUNCTION f_onchar_create_npc]
 // Variables:
-//	ARGN --> Npc UID
-// REF1=<argn>
+//	ARGO --> Npc UID
+// REF1=<ARGO>
 // serv.log f_onchar_create_npc: <REF1.NAME>
-
-
-
-
+REF1=<ARGO>
+IF (<REF1> && <REF1.ISCHAR>)
+	// Bcrypt yavas olabilir, npcler olusmma esnasinda yük binebilir.
+	// Daha farklı eşsiz UUID set etme yöntemi bulmalıyız.
+	//REF1.TAG0.UUID <BCRYPTHASH 2, 4, <SERV.TIME>_<SERV.RTICKS>_<SERV.BUILD>_<SERV.SAVECOUNT>_<UID>>
+	
+	REF1.TAG0.CREATED_TICK = <SERV.RTICKS>
+	// REF1.TAG0.CREATED_AT = <SERV.RTIMESQL> // Bunu Emulatorden CreatedAt tagi olarak veriyoruz zaten.
+ENDIF
 
 
 //*****************************************
