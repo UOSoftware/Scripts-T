@@ -1,0 +1,163 @@
+
+
+[COMMENT sphere_item_typedef_weapons]
+
+
+
+[TYPEDEF T_WEAPON_THROWING]
+
+[TYPEDEF T_WEAPON_THROWN]
+
+[TYPEDEF T_WEAPON_FENCE]
+ON=@EQUIP
+IF (<DISPID> == I_PITCHFORK || <ID> == I_SPEAR_SHORT)
+	IF !(<SRC.ISEVENT.e_char_bonus_paradarbe>)
+		SRC.EVENTS +e_char_bonus_paradarbe
+	ENDIF
+ENDIF
+IF (<DISPID> == I_SPEAR)
+	IF !(<SRC.ISEVENT.e_char_bonus_dismount>)
+		SRC.EVENTS +e_char_bonus_dismount
+	ENDIF
+ENDIF
+
+ON=@UNEQUIP
+IF (<SRC.ISEVENT.e_char_bonus_paradarbe>)
+	SRC.EVENTS -e_char_bonus_paradarbe
+ENDIF
+IF (<SRC.ISEVENT.e_char_bonus_dismount>)
+	SRC.EVENTS -e_char_bonus_dismount
+ENDIF
+
+
+
+
+[TYPEDEF T_WEAPON_SWORD]
+ON=@EQUIP
+IF (<dispid> == i_halberd || <dispid> == i_bardiche)
+	IF !(<SRC.ISEVENT.e_char_bonus_dismount>)
+		SRC.EVENTS +e_char_bonus_dismount
+	ENDIF
+ENDIF
+IF (<dispid> == i_sword_broad || <dispid> == i_cutlass || <dispid> == i_katana || <dispid> == i_sword_viking || <dispid> == i_sword_long || <dispid> == i_scimitar)
+	IF !(<SRC.ISEVENT.e_char_bonus_bleeding>)
+		SRC.EVENTS +e_char_bonus_bleeding
+	ENDIF
+ENDIF
+
+
+ON=@UNEQUIP
+IF (<SRC.ISEVENT.e_char_bonus_dismount>)
+	SRC.EVENTS -e_char_bonus_dismount
+ENDIF
+IF (<SRC.ISEVENT.e_char_bonus_bleeding>)
+	SRC.EVENTS -e_char_bonus_bleeding
+ENDIF
+
+
+
+
+[TYPEDEF T_WEAPON_BOW]
+ON=@CLICK
+IF (<TOPOBJ> == <SRC>)
+	MESSAGE [Arrows: <EVAL <TOPOBJ.RESCOUNT <TDATA3>>>]
+ENDIF
+
+[TYPEDEF T_WEAPON_XBOW]
+ON=@CLICK
+IF (<TOPOBJ> == <SRC>)
+	MESSAGE [Bolts: <EVAL <TOPOBJ.RESCOUNT <TDATA3>>>]
+ENDIF
+
+
+[TYPEDEF T_WEAPON_MACE_SMITH]
+ON=@EQUIP
+IF (<dispid> == i_mace || <dispid> == i_mace_war || <dispid> == i_hammer_pick || <dispid> == i_maul || <dispid> == i_hammer_war)
+	IF !(<SRC.ISEVENT.e_char_bonus_dropstam>)
+		SRC.EVENTS +e_char_bonus_dropstam
+	ENDIF
+ENDIF
+IF (<dispid> == i_club && <ATTR>&ATTR_MAGIC)
+	IF !(<SRC.ISEVENT.e_char_bonus_dropstam>)
+		SRC.EVENTS +e_char_bonus_dropstam
+	ENDIF
+ENDIF
+
+
+ON=@UNEQUIP
+IF (<SRC.ISEVENT.e_char_bonus_dropstam>)
+	SRC.EVENTS -e_char_bonus_dropstam
+ENDIF
+
+
+[TYPEDEF T_WEAPON_MACE_SHARP]
+
+
+
+[TYPEDEF T_WEAPON_MACE_STAFF]
+ON=@EQUIP
+IF (<dispid> == i_staff_black)
+	IF !(<SRC.ISEVENT.e_char_bonus_dropstam>)
+		SRC.EVENTS +e_char_bonus_dropstam
+	ENDIF
+ENDIF
+
+ON=@UNEQUIP
+IF (<SRC.ISEVENT.e_char_bonus_dropstam>)
+	SRC.EVENTS -e_char_bonus_dropstam
+ENDIF
+
+
+
+
+
+[TYPEDEF T_WEAPON_MACE_PICK]
+
+
+
+
+[TYPEDEF T_WEAPON_MACE_CROOK]
+ON=@CLICK
+REF1=<TAG0.NPC>
+IF (<REF1.ISVALIDE>) && (<REF1.ISCHAR>)
+MESSAGE (<REF1.NAME>)
+ENDIF
+
+IF (<TAG0.TARGP>)
+MESSAGE (<TAG0.TARGP>)
+ENDIF
+
+ON=@TARGON_ITEM
+RETURN 1
+
+ON=@TARGON_CHAR
+IF !(<SRC.TARG.NPC> == brain_animal)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Sadece hayvanları sürebilirsiniz.
+	RETURN 1
+ELSEIF (<SRC.ISDISS 5,<SRC.TARG.UID>>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,600018,<SRC.TARG.NAME>
+	RETURN 1
+ELSEIF (<SRC.TARG.OWNER>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Sahipli hayvanları süremezsiniz.
+	RETURN 1
+ENDIF
+TAG0.NPC=<SRC.TARG.UID>
+
+
+
+
+[TYPEDEF T_WEAPON_AXE]
+
+ON=@EQUIP
+IF !(<SRC.ISEVENT.e_char_bonus_axe>)
+	SRC.EVENTS +e_char_bonus_axe
+ENDIF
+
+ON=@UNEQUIP
+IF (<SRC.ISEVENT.e_char_bonus_axe>)
+	SRC.EVENTS -e_char_bonus_axe
+ENDIF
+
+
+
+[EOF]

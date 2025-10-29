@@ -1,0 +1,29 @@
+
+
+[COMMENT sphere_item_typedef_armors]
+
+
+[TYPEDEF t_shield]
+ON=@EQUIPTEST
+IF (<BASEID> == I_SHIELD_ORDER)
+	LOCAL.SPELLREMOVE=0
+ELSEIF (<BASEID> == I_SHIELD_CHAOS)
+	LOCAL.SPELLREMOVE=0
+ELSE
+	LOCAL.SPELLREMOVE=1
+ENDIF
+IF (<LOCAL.SPELLREMOVE>)
+	IF (<SRC.FINDID.I_RUNE_PROTECTION>)
+		SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, Protection etkisi silindi.
+		SRC.FINDID.I_RUNE_PROTECTION.REMOVE
+	ENDIF
+	IF (<SRC.FINDID.I_RUNE_REACTIVE_ARMOR>)
+		SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, Reactive Armor etkisi silindi.
+		SRC.FINDID.I_RUNE_REACTIVE_ARMOR.REMOVE
+	ENDIF
+ENDIF
+
+
+
+
+[EOF]

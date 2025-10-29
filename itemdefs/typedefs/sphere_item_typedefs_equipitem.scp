@@ -1,0 +1,49 @@
+
+
+[COMMENT sphere_item_typedef_equipitem]
+The t_equipitem TYPEDEF is typically applied on every equipable item.
+eg:
+  t_clothing
+  t_armor*
+  t_weapon*
+  t_wand
+  t_jewelry
+  t_container (just quivers)
+  t_light_lit (just lights that could be equipped like candles, lanterns)
+  t_spellbook
+  t_fishing_pole
+
+When an item with t_equipitem is equipped by a char, the item properties are
+usually added to the char wearing it.  That way multiple items with the same
+properties can be equipped at the same time, stacking the effect.
+
+Properties being handled inside this TYPEDEF currently include:
+
+CANUSE
+ - Purpose: flag to control what race/gender can equip the item
+ - Values:  can_u_human
+            can_u_elf
+            can_u_gargoyle
+            can_u_female
+            can_u_all
+            can_u_none
+
+BONUSSKILL1[AMT]
+BONUSSKILL2[AMT]
+BONUSSKILL3[AMT]
+BONUSSKILL4[AMT]
+BONUSSKILL5[AMT]
+ - Purpose: increase/decrease up to 5 char skills when equipped
+ - Values:  BONUSSKILL[x]:     skill name (eg: Alchemy, Fencing, ...)
+            BONUSSKILL[x]AMT:  decimal value to increase/decrease (eg: 100 = +10.0)
+
+TAG.SlayerGroup (NOT IMPLEMENTED YET)
+ - Purpose: weapons with slayer property set will deal double damage when hit monsters of the opposite slayer group
+
+
+// Bunun yerine ei_generic_item_wearables kullaniliyor.
+[TYPEDEF t_equipitem]
+
+
+
+[EOF]

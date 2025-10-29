@@ -1,0 +1,21 @@
+
+
+[COMMENT sphere_item_typedef_clothings]
+
+
+
+
+
+[TYPEDEF T_ROBE_GM]
+ON=@DCLICK
+IF (<SRC.ISINVIS>)
+	SRC.INVIS=0
+ELSE
+	SRC.INVIS=1
+ENDIF
+
+
+
+
+
+[EOF]
