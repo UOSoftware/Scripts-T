@@ -19,7 +19,7 @@ LOCAL.GUILDCOUNT=<GUILD.COUNT>
 PAGE 0
 RESIZE 0,0,560,435,Savas Durumu
 
-DHTMLGUMP 55 400 300 35 0 0 <SRC.DHTMLBFONTDEFAULT>Ana menüye dön
+DHTMLGUMP 55 400 300 35 0 0 Ana menüye dön
 BUTTON 20 400 0FAF 0FB0 1 0 0 // Quit
   
 
@@ -27,7 +27,7 @@ PAGE 1
 BUTTON 525 400 015A4 015A5 0 2 0 // Next Page
 DHTMLGUMP 440 400 100 25 0 0 Sonraki sayfa
 
-DHTMLGUMP 30 50 400 20 0 0 <SRC.DHTMLBFONTDEFAULT>Şunlarla savaş halindeyiz:
+DHTMLGUMP 30 50 400 20 0 0 Şunlarla savaş halindeyiz:
 
 // AT WAR LIST
 IF (<GUILD.COUNT <DEF0.STONEPRIV_ENEMY>>==0)  
@@ -38,7 +38,7 @@ ELSE
 	WHILE (<LOCAL.GICURRENT> < <LOCAL.GUILDCOUNT>)
 		LOCAL.GCUIDCURRENT = <GUILD.<LOCAL.GICURRENT>.UID>
 			IF (<GUILDFROMUID.<LOCAL.GCUIDCURRENT>.ISENEMY>)
-				DHTMLGUMP 30 <EVAL (75 + (<LOCAL.GPCURRENT> * 20))> 300 20 0 0 <SRC.DHTMLBFONTDEFAULT>- <uid.<local.gcuidcurrent>.name> <qval (strlen(<uid.<local.gcuidcurrent>.abbrev>))&&(<DEF0.GUILDCONFIG_GUILDLIST_SHOWABBREV>) ? [<uid.<local.gcuidcurrent>.abbrev>]:>
+				DHTMLGUMP 30 <EVAL (75 + (<LOCAL.GPCURRENT> * 20))> 300 20 0 0 - <uid.<local.gcuidcurrent>.name> <qval (strlen(<uid.<local.gcuidcurrent>.abbrev>))&&(<DEF0.GUILDCONFIG_GUILDLIST_SHOWABBREV>) ? [<uid.<local.gcuidcurrent>.abbrev>]:>
 				LOCAL.GPCURRENT += 1
 			ENDIF
 		LOCAL.GICURRENT += 1
@@ -53,7 +53,7 @@ DHTMLGUMP 270 400 150 25 0 0 Önceki sayfa
 BUTTON 525 400 015A4 015A5 0 3 0 // Next Page
 DHTMLGUMP 440 400 100 25 0 0 Sonraki sayfa
 
-DHTMLGUMP 30 50 400 20 0 0 <SRC.DHTMLBFONTDEFAULT>Savaş ilan ettiğimiz guildler:
+DHTMLGUMP 30 50 400 20 0 0 Savaş ilan ettiğimiz guildler:
 
 // We Declare List
 IF (<GUILD.COUNT <DEF0.STONEPRIV_WEDECLARED>>==0)  
@@ -64,7 +64,7 @@ ELSE
   WHILE (<LOCAL.GICURRENT> < <LOCAL.GUILDCOUNT>)
     LOCAL.GCUIDCURRENT = <GUILD.<LOCAL.GICURRENT>.UID>
     IF (<GUILDFROMUID.<LOCAL.GCUIDCURRENT>.WEWAR> && !<GUILDFROMUID.<LOCAL.GCUIDCURRENT>.THEYWAR>)
-      DHTMLGUMP 30 <EVAL (75 + (<local.gpcurrent> * 20))> 300 20 0 0 <SRC.DHTMLBFONTDEFAULT>- <uid.<local.gcuidcurrent>.name> <qval (strlen(<uid.<local.gcuidcurrent>.abbrev>))&&(<DEF0.GUILDCONFIG_GUILDLIST_SHOWABBREV>) ? [<uid.<local.gcuidcurrent>.abbrev>]:>
+      DHTMLGUMP 30 <EVAL (75 + (<local.gpcurrent> * 20))> 300 20 0 0 - <uid.<local.gcuidcurrent>.name> <qval (strlen(<uid.<local.gcuidcurrent>.abbrev>))&&(<DEF0.GUILDCONFIG_GUILDLIST_SHOWABBREV>) ? [<uid.<local.gcuidcurrent>.abbrev>]:>
       LOCAL.GPCURRENT += 1
     ENDIF
     LOCAL.GICURRENT += 1
@@ -77,7 +77,7 @@ PAGE 3
 BUTTON 250 400 015a1 015a2 0 2 0 // Previous Page
 DHTMLGUMP 270 400 150 25 0 0 Önceki sayfa
 
-DHTMLGUMP 30 50 400 20 0 0 <SRC.DHTMLBFONTDEFAULT>Bize savaş ilan eden guildler:
+DHTMLGUMP 30 50 400 20 0 0 Bize savaş ilan eden guildler:
 
 
 // THEY DECLARED LIST
@@ -89,7 +89,7 @@ ELSE
 	WHILE (<LOCAL.GICURRENT> < <LOCAL.GUILDCOUNT>)
 		LOCAL.GCUIDCURRENT = <GUILD.<LOCAL.GICURRENT>.UID>
 		IF (<GUILDFROMUID.<LOCAL.GCUIDCURRENT>.THEYWAR> && !<GUILDFROMUID.<LOCAL.GCUIDCURRENT>.WEWAR>)
-			DHTMLGUMP 30 <EVAL (75 + (<local.gpcurrent> * 20))> 300 20 0 0 <SRC.DHTMLBFONTDEFAULT>- <uid.<local.gcuidcurrent>.name> <qval (strlen(<uid.<local.gcuidcurrent>.abbrev>))&&(<DEF0.GUILDCONFIG_GUILDLIST_SHOWABBREV>) ? [<uid.<local.gcuidcurrent>.abbrev>]:>
+			DHTMLGUMP 30 <EVAL (75 + (<local.gpcurrent> * 20))> 300 20 0 0 - <uid.<local.gcuidcurrent>.name> <qval (strlen(<uid.<local.gcuidcurrent>.abbrev>))&&(<DEF0.GUILDCONFIG_GUILDLIST_SHOWABBREV>) ? [<uid.<local.gcuidcurrent>.abbrev>]:>
 			LOCAL.GPCURRENT += 1
 		ENDIF
 	LOCAL.GICURRENT += 1

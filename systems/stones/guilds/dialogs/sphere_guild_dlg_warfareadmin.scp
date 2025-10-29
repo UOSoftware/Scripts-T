@@ -12,8 +12,8 @@ endif
 page 0
 RESIZE 0,0,550,440,Savas Menusu
 
-// dhtmlgump 60 50 300 30 0 0 <SRC.DHTMLBFONTDEFAULT>Guild adını arama yöntemi ile savaş ilan et
-dhtmlgump 60 50 300 30 0 0 <SRC.DHTMLBFONTDEFAULT>Guild listesi
+// dhtmlgump 60 50 300 30 0 0 Guild adını arama yöntemi ile savaş ilan et
+dhtmlgump 60 50 300 30 0 0 Guild listesi
 button 30 50 4006 4007 1 0 1 // Search
   
 local.gcount=0
@@ -29,7 +29,7 @@ endif
   
 If (<guild.count <def0.STONEPRIV_THEYDECLARED>>)
   button 30 <eval (160 + (<local.gcount> * 30))> 4006 4007 1 0 3
-  dhtmlgump 60 <eval (160 + (<local.gcount> * 30))> 400 30 0 0 <SRC.DHTMLBFONTDEFAULT>Savaş davetlerini kabul et.
+  dhtmlgump 60 <eval (160 + (<local.gcount> * 30))> 400 30 0 0 Savaş davetlerini kabul et.
   local.gcount += 1
   button 30 <eval (160 + (<local.gcount> * 30))> 4006 4007 1 0 4
   dhtmlgump 60 <eval (160 + (<local.gcount> * 30))> 400 30 0 0 <DEF.BFONT_lGREEN>Savaş davetlerini reddet.
@@ -51,7 +51,7 @@ else
 endif
 
 button 30 400 4015 4016 1 0 0
-dhtmlgump 60 400 400 35 0 0 <SRC.DHTMLBFONTDEFAULT>Önceki menüye dön
+dhtmlgump 60 400 400 35 0 0 Önceki menüye dön
 
 
 [dialog d_Guild_Master_Warfare Button]
