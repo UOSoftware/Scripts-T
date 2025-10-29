@@ -1,4 +1,20 @@
 
+
+[FUNCTION f_guildsys_point_gain]
+TAG0.POINTS.GUILD +=1
+SYSMESSAGE @044,,1,1 Guild puanı kazandın!
+
+[FUNCTION f_guildsys_point_lost]
+IF (<TAG0.POINTS.GUILD> > 0)
+	TAG0.POINTS.GUILD -=1
+	SYSMESSAGE @044,,1,1 Guild puanı kaybettin!
+ENDIF
+IF (<TAG0.POINTS.GUILD> <= 0)
+	TAG0.POINTS.GUILD=0
+ENDIF
+
+
+
 [FUNCTION f_guildsys_info]
 IF (<ISITEM>) && (<TYPE> == t_stone_guild)
 	DIALOGCLOSE D_GUILD_INFO
