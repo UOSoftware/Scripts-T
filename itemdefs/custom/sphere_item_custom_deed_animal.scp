@@ -178,7 +178,7 @@ IF (<MORE2>) // DOLUYSA
 	
 ELSE // BOŞSA
 
-	IF !(<SRC.TARG.ISPETABLES>)
+	IF !(<SRC.TARG.IsMountables> || <SRC.TARG.NPC> == brain_animal || <SRC.TARG.IsGolems> )
 		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Sadece evcil hayvanları - binek hayvanları ve golemleri küçültebilirsiniz.
 		RETURN 1
 		
@@ -194,7 +194,7 @@ ELSE // BOŞSA
 		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu hayvan şu anda çok kızgın.
 		RETURN 1
 		
-	ELSEIF (<SRC.TARG.IsSummon>)
+	ELSEIF (<SRC.TARG.IsSummons>)
 		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Büyü ile yaratılmış hayvanları küçültemezsiniz.
 		RETURN 1
 		

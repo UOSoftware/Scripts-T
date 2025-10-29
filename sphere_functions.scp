@@ -6,15 +6,19 @@ Logger = Herhangi bir nesne için veya bağımsız olarak özelleştirilmiş log
 FUNC_GIVE_HITS_FIX = Hitsi direkt olarak + yapıldığında bazen bug olabiliyor, bu komutla verilebilir.
 
 
-[FUNCTION Webmap]
-LOCAL.HTTPS https:/
-WEBLINK <LOCAL.HTTPS>/alcoruo.gen.tr/explore/map#pos:<P.X>,<P.Y>,<P.M>,5
 
+[FUNCTION RESKILLCONDITION]
+REF1=<ARGV0> // OLDUREN
+IF (<REF1.ISVALIDE>)
+	IF (<FAME> > <ARGV2>) && !((<REF1.TAG0.LastDeath.<ARGV1>> == <UID>) || (STRMATCH('<REF1.ACCOUNT.LASTIP>','<ACCOUNT.LASTIP>')) || (<REF1> == <UID>))
+		RETURN 1
+	ENDIF
+ENDIF
+RETURN 0
 
 
 [FUNCTION Logger]
 IF (<GETREFTYPE> == <def.tref_account> || <GETREFTYPE> == <def.tref_client> || <GETREFTYPE> == <def.tref_world> || <GETREFTYPE> == <def.tref_char> || <GETREFTYPE> == <def.tref_item> || <GETREFTYPE> == <def.tref_object>)
-	
 	// Item
 	IF (<ISITEM>)
 		LOCAL.OBJINFO = ItemLog - [BaseID=<BASEID>, Type=<TYPE>, Name=<NAME>, UID=<UID>, P=<P>, Region=<QVAL (<REGION>)?<REGION.NAME>:->, Topobj=<TOPOBJ>(<TOPOBJ.NAME>)]
@@ -207,7 +211,7 @@ ENDIF
 
 
 
-[FUNCTION TARGKAPAT]
+[FUNCTION TARGETKAPAT]
 IF (<ISONLINE>)
 	// TARGETCLOSE
 	SENDPACKET 06c 00 D(00) 03 D(00) W(00) W(00) 00 00 W(00)
@@ -234,7 +238,7 @@ ELSEIF (<FLAGS>&statf_stone)
 // ELSEIF (<SRC.ISPOISONED>)
 	// SRC.SYSMESSAGELOC <def.tcolor_red>,600031 // Zehirli durumdayken bu işlemi yapamazsınız.
 	// RETURN 1
-// ELSEIF (<SRC.IsYarali>)
+// ELSEIF (<SRC.IsNoFullHits>)
 	// SRC.SYSMESSAGELOC <def.tcolor_red>,600075 // "Yaralı durumdayken bu işlemi yapamazsınız."
 	// RETURN 1
 ENDIF
@@ -261,6 +265,8 @@ SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, Banka ağırlığı : <FVAL
 SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, Eşya sayısı : <BolukAyir <DLOCAL.BANKITEMS>>/<QVAL (<SERV.BankMaxItems> == -1)?Sinirsiz:<SERV.BankMaxItems>>
 BANKSELF
 RETURN 1
+
+
 
 
 [FUNCTION BolukAyir]
@@ -436,7 +442,7 @@ ENDFOR
 [FUNCTION FUNC_PEACEMODE]
 IF (<ISCHAR>)
 	IF (<ISPLAYER>)
-		TARGKAPAT
+		TARGETKAPAT
 
 		CustomMemDel_Force memory_iaggressor
 		CustomMemDel_Force memory_harmedby
@@ -447,6 +453,20 @@ IF (<ISCHAR>)
 		
 		ACTION -1
 		FUNC_WARMODE 0
+		ATTACKER.CLEAR
+		SKILL FAIL	
+	ENDIF
+ENDIF
+
+
+// Custom Peace Mode Function
+[FUNCTION PEACEMODE]
+IF (<ISCHAR>)
+	IF (<ISPLAYER>)
+		TARGETKAPAT
+		MEMDEL
+		ACTION -1
+		WARMODE 0
 		ATTACKER.CLEAR
 		SKILL FAIL	
 	ENDIF
@@ -521,7 +541,7 @@ ENDIF
 IF (<FINDLAYER.layer_flag_drunk>)
 	FINDLAYER.layer_flag_drunk.REMOVE
 ENDIF
-TARGKAPAT
+TARGETKAPAT
 // EVENTS +E_STAT // .ini de zaten var
 MODDEX=0
 MODINT=0
@@ -1413,11 +1433,6 @@ RETURN <LOCAL.RES>
 
 
 
-[FUNCTION CustomLog]
-SERV.LOG [Name=<NAME>, UID=<UID>, Region=<P>/<REGION.NAME>, Account=<ACCOUNT>, IP=<ACCOUNT.LASTIP>]
-SERV.LOG <ARGS>
-
-
 
 [Function SetProcessDelay]
 IF !(<ISGM>)
@@ -1635,7 +1650,7 @@ IF (<FINDTYPE.T_SPELL>)
 	ENDIF
 ENDIF
 
-TARGETCLOSE
+TARGETKAPAT
 
 EVENTS +E_STAT
 
@@ -2445,18 +2460,6 @@ ENDIF
 
 
 
-// Custom Peace Mode Function
-[FUNCTION PEACEMODE]
-IF (<ISCHAR>)
-	IF (<ISPLAYER>)
-		TARGETCLOSE
-		MEMDEL
-		ACTION -1
-		WARMODE 0
-		ATTACKER.CLEAR
-		SKILL FAIL	
-	ENDIF
-ENDIF
 
 
 
@@ -2502,12 +2505,6 @@ IF (<FINDLAYER.47>)
 	FINDLAYER.47.remove
 ENDIF
 UPDATE
-
-
-
-
-[FUNCTION STATTOTAL]
-RETURN <EVAL <STR>+<DEX>+<INT>>
 
 
 
@@ -3036,46 +3033,39 @@ ENDIF
 
 
 
-[function savecountitem]
-FORITEMS 7168
-local.i ++
-ENDFOR
-serv.log <dlocal.i> worldforitems
 
+// [PLEVEL 1]
+// MARKLA
 
-[function allitemattr]
-foritems 7168
-if !(<attr>&attr_invis)
-sayu <attr>
-// ATTR=ATTR_MOVE_NEVER|ATTR_STATIC
-endif
-ENDFOR
-
-
-[function SaveToDB]
-IF !(<LDB.CONNECTED>)
-LDB.CONNECT "db/save.db"
-	IF !(<LDB.CONNECTED>)
-		serv.log Can't connect to LDB "db/save.db".
-		RETURN 0
+[FUNCTION MARKLA]
+IF (<ISGM>)
+	SERV.NEWITEM I_RUNE_MARKER
+	NEW.MOREP <SRC.P>
+	IF !(STRMATCH('','<ARGS>'))
+		NEW.NAME <ARGS>
+	ELSE
+		NEW.NAME <SRC.REGION.NAME>
 	ENDIF
-ENDIF
-LDB.EXECUTE DROP TABLE IF EXISTS 'sphereworld'
-lDB.EXECUTE CREATE TABLE IF NOT EXISTS 'sphereworld' (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, baseid TEXT, name TEXT, amount INT, type TEXT, attr TEXT, color TEXT, morep TEXT, morex INT, morey INT, morez INT, morem INT, more1 TEXT, more2 TEXT, p TEXT, px INT, py INT, pz INT, pm INT, created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP)
-SERV.LOG Starting sphereworld database rebuild...
-
-local.hour=<serv.time>
-LDB.EXECUTE BEGIN
-FORITEMS 7168
-	LOCAL.NAME <StringReplacerSQL <NAME>>
-	LDB.EXECUTE INSERT INTO 'sphereworld' (baseid,  name , amount, type, attr, color, morep, morex, morey, morez, morem, more1, more2, p, px, py, pz, pm) VALUES ('<BASEID>','<LOCAL.NAME>','<AMOUNT>','<TYPE>','<attr>','<color>','<morep>','<morex>','<morey>','<morez>','<morem>','<more1>', '<more2>', '<p>', '<P.X>', '<P.Y>', '<P.Z>', '<P.M>')
-ENDFOR
-LDB.EXECUTE COMMIT
-serv.log Database rebuilt in <eval <serv.time>-<local.hour>> seconds.
-
-
-LDB.CLOSE
-
-
+	NEW.BOUNCE
+	SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, [GM] Marklanan alan : <NEW.NAME>
 	
-[EOF]
+ELSE
+	IF (<CTAG0.MarklaCmd.Delay> > <SERV.TIME>)
+		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, <defmsg.skillwait_3> (<f_stonesys_determine_timeleft <CTAG0.MarklaCmd.Delay>>)
+		RETURN 1
+	ENDIF
+	SERV.NEWITEM I_RUNE_MARKER
+	NEW.BOUNCE
+	ACTDIFF=0
+	ACTARG1 = 45
+	ACT = <NEW>
+	ACTPRV = <SRC>
+	ACTP = <P.X>,<P.Y>,<P.Z>,<P.M>
+	ACTION = 25
+	CTAG0.MarklaCmd.Delay=<EVAL <SERV.TIME>+<r80,90>>
+	SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, <region.name> (<p>) alanını işaretlemeye başladınız.
+ENDIF
+
+
+
+[eof]

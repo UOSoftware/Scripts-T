@@ -28,6 +28,75 @@ VERSION=0.56T
 // RETURN  
 
 
+[FUNCTION ColoredItemTitle]
+// magic weapons
+IF STRMATCH(*ruin*,<BASEID>)
+	RETURN ruin
+	
+ELIF STRMATCH(*might*,<BASEID>)
+	RETURN might
+	
+ELIF STRMATCH(*force*,<BASEID>)
+	RETURN force
+	
+ELIF STRMATCH(*power*,<baseid>)
+	RETURN power
+	
+ELIF STRMATCH(*vanq*,<baseid>)
+	RETURN vanquishing
+
+// magic armors
+ELIF STRMATCH(*defense*,<baseid>)
+	RETURN defense
+
+ELIF STRMATCH(*guarding*,<baseid>)
+	RETURN guarding
+
+ELIF STRMATCH(*hardening*,<baseid>)
+	RETURN hardening
+
+ELIF STRMATCH(*fortification*,<baseid>)
+	RETURN fortification
+
+ELIF STRMATCH(*invulnerability*,<BASEID>)
+	RETURN invulnerability
+
+// colored armors
+ELIF STRMATCH(*agapite*,<BASEID>)
+	RETURN Agapite
+
+ELIF STRMATCH(*blackrock*,<BASEID>)
+	RETURN Blackrock
+
+ELIF STRMATCH(*bloodrock*,<BASEID>)
+	RETURN Bloodrock
+
+ELIF STRMATCH(*bronze*,<BASEID>)
+	RETURN Bronze
+
+ELIF STRMATCH(*gold*,<BASEID>)
+	RETURN Golden
+
+ELIF STRMATCH(*rose*,<BASEID>)
+	RETURN Rose
+
+ELIF STRMATCH(*mytheril*,<BASEID>)
+	RETURN Mytheril
+
+ELIF STRMATCH(*shadow*,<BASEID>)
+	RETURN Shadow
+
+ELIF STRMATCH(*silver*,<BASEID>)
+	RETURN Silver
+
+ELIF STRMATCH(*valorite*,<BASEID>)
+	RETURN Valorite
+
+ELIF STRMATCH(*verite*,<BASEID>)
+	RETURN Verite
+ENDIF
+RETURN
+
 
 [FUNCTION CreatedAt]
 RETURN <TAG0.CREATEDAT>
@@ -49,10 +118,11 @@ RETURN <DLOCAL.CHARTYPE>
 
 
 [FUNCTION IsTeleportItem]
-IF (<BASEID> == I_RUNEBOOK_GATE || <ISTEVENT.ei_moongate> || <BASEID> == I_MOONGATE_BLACK || <BASEID> == I_MOONGATE_BLUE || <BASEID> == I_MOONGATE_RED || <TYPE> == T_TELEPAD_CUSTOM || <TYPE> == T_TELEPAD || <ISEVENT.ei_kiirin_gate>)
+IF (<BASEID> == I_RUNEBOOK_GATE || <BASEID> == I_MOONGATE || <BASEID> == I_MOONGATE_BLACK || <BASEID> == I_MOONGATE_BLUE || <BASEID> == I_MOONGATE_RED || <TYPE> == T_TELEPAD_CUSTOM || <TYPE> == T_TELEPAD)
 	RETURN 1
 ENDIF
 RETURN 0
+
 
 
 
@@ -63,11 +133,6 @@ IF (<ARGV0>)
 ELSE
 	RETURN %<eval <eval <hits>*100>/<maxhits>> yeni
 ENDIF
-
-
-
-[FUNCTION RTIMESQL]
-RETURN <SERV.RTIME.FORMAT %Y-%m-%d> <SERV.RTIME.FORMAT %H:%M:%S>
 
 
 
@@ -84,20 +149,6 @@ ELSE
 ENDIF
 
 RETURN <LOCAL.REGION>
-
-
-
-
-
-
-[FUNCTION FamilyCount]
-FORINSTANCES I_AILE_KOLYE_MASTER
-	LOCAL.X ++
-ENDFOR
-RETURN <DLOCAL.X>
-
-
-
 
 
 
@@ -155,7 +206,7 @@ RETURN 0
 
 
 
-[FUNCTION IsBoyanabilir]
+[FUNCTION IsDyeable]
 // IF (<ISITEM>)
 	// IF (<ATTR>&ATTR_MOVE_NEVER || <ATTR>&ATTR_STATIC || <ATTR>&ATTR_MAGIC)
 		// RETURN 0
@@ -177,13 +228,6 @@ RETURN 0
 
 
 
-[FUNCTION ISGOLEMS]
-IF (strmatch(*c_golem_tinker*,'<baseid>'))
-	RETURN 1
-ENDIF
-RETURN 0
-
-
 
 
 
@@ -194,27 +238,6 @@ FORCLIENTS 18
 	ENDIF
 ENDFOR
 RETURN <dLOCAL.PLAYERS>
-
-
-
-
-
-
-// ishorse function
-[FUNCTION ISHORSES]
-IF (<BASEID> == C_HORSE_GRAY)
-	RETURN 1
-ELSEIF (<BASEID> == C_HORSE_BROWN_LT) 
-	RETURN 1
-ELSEIF (<BASEID> == C_HORSE_BROWN_DK) 
-	RETURN 1
-ELSEIF (<BASEID> == C_HORSE_TAN)
-	RETURN 1
-ENDIF
-
-RETURN 0
-
-
 
 
 
@@ -257,11 +280,6 @@ RETURN <DLOCAL.AR>
 [FUNCTION ISPC]
 RETURN <ACCOUNT.TAG0.PCID>
 
-
-
-
-[FUNCTION STATTOTAL]
-RETURN <EVAL <STR>+<DEX>+<INT>>
 
 
 
@@ -441,43 +459,6 @@ RETURN <LOCAL.HOMEP>
 
 
 
-
-
-
-[FUNCTION IsMonsters]
-IF (<NPC> >= 8) 
-	RETURN 1
-ELSEIF (<NPC> == 9)
-	RETURN 1
-ELSEIF (<NPC> == 10)
-	RETURN 1
-ENDIF
-RETURN 0
-
-
-
-[FUNCTION IsVendors]
-IF (<NPC> == 3 || <NPC> == 5 || <NPC> == 6|| <NPC> == 7) 
-	RETURN 1
-ENDIF
-RETURN 0
-
-
-
-[FUNCTION IsHealableChar]
-IF (<ISPLAYER>)
-	RETURN 1
-	
-ELSEIF ((<NPC> >= 1) && (<NPC> <= 7))
-	RETURN 1
-	
-ELSEIF ((<NPC> >= 8) && (<NPC> <= 10))
-	RETURN 0	
-
-ELSEIF (<ISSUMMON>)
-	RETURN 0
-ENDIF
-RETURN 0
 
 
 
@@ -683,11 +664,21 @@ RETURN 0
 
 
 
-[FUNCTION ISNOFULLHP]
-RETURN <IsYarali>
+[FUNCTION IsNoFullHp]
+IF !(<FLAGS>&STATF_DEAD) && (<hits> < <str>)
+RETURN 1
+ENDIF
+RETURN 0
 
-[FUNCTION IsYarali]
-IF !(<FLAGS>&STATF_DEAD) && (<HITS> < <STR>)
+[FUNCTION IsNoFullMp]
+IF !(<FLAGS>&STATF_DEAD) && (<mana> < <int>)
+RETURN 1
+ENDIF
+RETURN 0
+
+
+[FUNCTION IsNoFullSp]
+IF !(<FLAGS>&STATF_DEAD) && (<stam> < <dex>)
 RETURN 1
 ENDIF
 RETURN 0
@@ -703,21 +694,6 @@ ENDIF
 RETURN 0
 
 
-
-[function Isinpacktest]
-targetf f_target_isinpacktest
-
-
-[FUNCTION f_target_isinpacktest]
-if (<argo>)
-	if (<ISINPACK <argo>>)
-		SYSMESSAGELOC <def.tcolor_green>,<def.empty_cliloc2>, Evet çantada veya üzerinde. <ISINPACK <argo>>
-	ELSE
-		SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>,  Hayır çantada veya üzerinde değil.. <ISINPACK <argo>>
-	endif
-endif
-
-
 [FUNCTION ISINPACK]
 REF1=<ARGS>
 IF (<REF1.ISVALIDE> && <REF1.ISITEM>) 
@@ -728,7 +704,6 @@ IF (<REF1.ISVALIDE> && <REF1.ISITEM>)
 	ENDIF
 ENDIF
 RETURN 0
-
 // IF (<REF1>)
 	// IF !(<REF1.CONT>)
 		// RETURN 0
@@ -806,33 +781,11 @@ RETURN 0
 
 
 
-[FUNCTION ISNOMOVEBOX]
+[FUNCTION IsImpassableItem]
 IF !((<ATTR>&ATTR_MOVE_NEVER) || (<CAN>&can_i_door) || (<CAN>&can_i_blocklos) || (<BASEID> == I_BACKPACK) || (<BASEID> == I_BAG)) && ((STRMATCH(*sticks*,'<BASEID>')) || (<BASEID> == I_HAY_SHEAF) || (<TYPE> == T_CONTAINER) || (<TYPE> == T_SAND))
 	 RETURN 1
 ENDIF
 RETURN 0
-
-
-
-
-[FUNCTION CANTA_MALZEME_SAY]
-FORCONT <FINDLAYER.21> 9999
-	IF (<BASEID> == <args>)
-		LOCAL.ADET +=<AMOUNT>
-	ENDIF
-ENDFOR
-RETURN <DLOCAL.ADET>
-
-
-
-[FUNCTION BANKA_MALZEME_SAY]
-FORCONT <FINDLAYER.29> 9999
-	IF (<BASEID> == <args>)
-		LOCAL.ADET +=<AMOUNT>
-	ENDIF
-ENDFOR
-RETURN <DLOCAL.ADET>
-
 
 
 [FUNCTION IsInvis]
@@ -886,79 +839,109 @@ ENDIF
 
 
 
-
-[FUNCTION IsTeleItem]
-IF (<BASEID> == I_RUNEBOOK_GATE) 
-	RETURN 1
-ELSEIF (<TYPE> == I_MOONGATE_BLUE) 
-	RETURN 1
-ELSEIF (<TYPE> == I_MOONGATE_RED) 
-	RETURN 1
-ELSEIF (<TYPE> == I_MOONGATE_BLACK) 
-	RETURN 1
-ELSEIF (<TYPE> == I_MOONGATE) 
-	RETURN 1
-ELSEIF (<TYPE> == T_TELEPAD)
-	RETURN 1 
-// ELSEIF (<TYPE> == T_KIIRIN_GATE)
-	// RETURN 1
+[FUNCTION IsMonsters]
+IF (<ISCHAR>) 
+	IF (<NPC> == brain_berserk) 
+		RETURN 1
+	ELSEIF (<NPC> == brain_thief)
+		RETURN 1
+	ELSEIF (<NPC> == brain_monster)
+		RETURN 1
+	ELSEIF (<NPC> == brain_undead)
+		RETURN 1
+	ELSEIF (<NPC> == brain_dragon)
+		RETURN 1
+	ENDIF
 ENDIF
 RETURN 0
 
 
 
-
-
-// ishorse function
-[FUNCTION IsHorse]
-IF (<ID> == C_HORSE_GRAY)
-	RETURN 1
-ELSEIF (<ID> == C_HORSE_BROWN_LT) 
-	RETURN 1
-ELSEIF (<ID> == C_HORSE_BROWN_DK) 
-	RETURN 1
-ELSEIF (<ID> == C_HORSE_TAN)
-	RETURN 1
+[FUNCTION IsVendors]
+IF (<ISCHAR>) 
+	IF (<NPC> == brain_stable) 
+		RETURN 1
+	ELSEIF (<NPC> == brain_healer)
+		RETURN 1
+	ELSEIF (<NPC> == brain_banker)
+		RETURN 1
+	ELSEIF (<NPC> == brain_vendor)
+		RETURN 1
+	ELSEIF (<NPC> == brain_beggar)
+		RETURN 1
+	ENDIF
 ENDIF
 RETURN 0
 
 
 
-[FUNCTION IsPetables]
-IF (<ISMOUNTABLES>)
-	RETURN 1
-ELSEIF (<ISGOLEMS>) 
-	RETURN 1
-ELSEIF (<ISSUMMON>) 
-	RETURN 0
-ENDIF
-RETURN 0
-
-
-
-[FUNCTION IsSummon]
-IF (<NPC>)
-
-	IF (<FINDID.I_RUNE_SUMMON_CREATURE>)
+[FUNCTION IsHealables]
+IF (<ISCHAR>) 
+	IF (<ISPLAYER>)
 		RETURN 1
 		
-	// ELSEIF (<ISEVENT.E_SUMMON_CREATURE>) 
-		// RETURN 1
+	ELSEIF (<NPC> == brain_animal)
+		RETURN 1
 		
-	// ELSEIF (<BASEID> == C_SUMMON_HORSE_1) 
+	ENDIF
+ENDIF
+RETURN 0
+
+
+[FUNCTION IsGolems]
+IF (<ISCHAR>) 
+	IF (strmatch(*c_golem_tinker*,'<baseid>'))
+		RETURN 1
+	ENDIF
+ENDIF
+RETURN 0
+
+
+
+
+
+[FUNCTION IsMountables]
+// IF (<ISCHAR>) && (<SERV.CHARDEF.<BASEID>.TAG0.BINEK>)
+// mount_0xc8
+// mount_0xc8
+IF (<ISCHAR>) 
+	LOCAL.ID 0x<STRSUB 1 99 <SERV.CHARDEF.<BASEID>.ID>>
+	LOCAL.MT <def.mount_<LOCAL.ID>>
+	IF !(<ISBLANK <LOCAL.MT>>) && (<RESOURCETYPE <LOCAL.MT>> == RES_ITEMDEF)
+		RETURN 1
+	ENDIF
+	// IF (<ISTEVENT.e_generic_npc_mounts>)
 		// RETURN 1
-		
-	// ELSEIF (<BASEID> == C_SUMMON_HORSE_2) 
-		// RETURN 1
-		
-	// ELSEIF (<BASEID> == C_SUMMON_HORSE_3) 
-		// RETURN 1
-		
-	// ELSEIF (<BASEID> == C_SUMMON_HORSE_4)
-		// RETURN 1
-		
-	ELSE
-		RETURN 0
+	// ENDIF
+ENDIF
+RETURN 0
+
+
+
+[FUNCTION IsSummons]
+IF (<ISCHAR>) 
+	IF (<NPC>)
+		IF (<FINDID.I_RUNE_SUMMON_CREATURE>)
+			RETURN 1
+			
+		// ELSEIF (<ISEVENT.E_SUMMON_CREATURE>) 
+			// RETURN 1
+			
+		// ELSEIF (<BASEID> == C_SUMMON_HORSE_1) 
+			// RETURN 1
+			
+		// ELSEIF (<BASEID> == C_SUMMON_HORSE_2) 
+			// RETURN 1
+			
+		// ELSEIF (<BASEID> == C_SUMMON_HORSE_3) 
+			// RETURN 1
+			
+		// ELSEIF (<BASEID> == C_SUMMON_HORSE_4)
+			// RETURN 1
+			
+		ELSE
+			RETURN 0
+		ENDIF
 	ENDIF
 ENDIF
 RETURN 0
@@ -985,14 +968,14 @@ ENDIF
 RETURN <DLOCAL.SIGN>
 
 
-[FUNCTION IsFood]
+[FUNCTION IsFoods]
 IF (<TYPE> == T_FRUIT) || (<TYPE> == T_GRAIN) || (<TYPE> == T_MEAT_RAW) || (<TYPE> == T_FOOD_RAW) || (<TYPE> == T_FOOD) || (<TYPE> == T_FOOD_RAW)
 	RETURN 1
 ENDIF
 RETURN 0
 
 
-[FUNCTION IsDoor]
+[FUNCTION IsDoors]
 IF (<TYPE> == T_DOOR) 
 	RETURN 1
 ELSEIF (<TYPE> == T_DOOR_LOCKED) 

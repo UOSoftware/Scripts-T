@@ -36,7 +36,7 @@ IF (<SRC.ISDIFF 3,<UID>>)
 ELSEIF (<SRC.ISPOISONED>)
 	SRC.SYSMESSAGE @38,,1,1 Zehirli durumdayken bu işlemi yapamazsınız.
 	RETURN 1
-ELSEIF (<SRC.IsYarali>)
+ELSEIF (<SRC.IsNoFullHp>)
 	SRC.SYSMESSAGE @38,,1,1 Yaralı durumdayken bu işlemi yapamazsınız.
 	RETURN 1
 ELSEIF (<SRC.IsInHouse>)

@@ -87,7 +87,7 @@ ELSEIF (<SRC.DISTANCE <SRC.TARG>> > 4)
 	SRC.SYSMESSAGE @38,,1,1  <SRC.TARG.NAME> yeterince yakınınızda değil.
 	RETURN 1
 	
-ELSEIF !(<SRC.TARG.ISHEALABLECHAR>)
+ELSEIF !(<SRC.TARG.IsHealables>)
 	SRC.SYSMESSAGE @38,,1,1  Bu varlığı iyileştiremezsiniz.
 	RETURN 1
 ENDIF
@@ -231,7 +231,7 @@ ELSEIF (<EVAL <CONT.P.Z>-8> > <LINK.P.Z>)
 	REMOVE
 	RETURN 1
 	
-ELSEIF !(<LINK.ISHEALABLECHAR>)
+ELSEIF !(<LINK.IsHealables>)
 	CONT.SYSMESSAGE @38,,1,1  Bu varlığı iyileştiremezsiniz.
 	REMOVE
 	RETURN 1

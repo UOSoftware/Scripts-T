@@ -1,0 +1,163 @@
+
+
+
+[FUNCTION chargez]
+FUNC_GetChar_List
+SRC.CTAG0.CURRENT.OnChar=
+DIALOGCLOSE D_CHAR_GEZ
+DIALOG D_CHAR_GEZ
+
+[DIALOG D_CHAR_GEZ]
+<DEF.DSP>
+RESIZEPIC 0 0 9200 235 60
+
+BUTTON 10 10 015A1 015A2 1 0 1
+BUTTON 40 10 015A4 015A6 1 0 2
+DHTMLGUMP 0 35 75 25 0 0 <DEF.BFONT_WHITE><DEF.CENTER><SRC.dCTAG0.CURRENT.OnChar>/<SRC.dCTAG0.OnChars>
+
+REF1=<SRC.CTAG0.OnChar.<EVAL <SRC.dCTAG0.CURRENT.OnChar>+1>>
+REF2=<SRC.CTAG0.OnChar.<EVAL <SRC.dCTAG0.CURRENT.OnChar>-1>>
+
+IF (<REF1.ISVALIDE>)
+DHTMLGUMP 80 5 150 25 1 0 Sonraki: <REF1.NAME>
+ENDIF
+IF (<REF2.ISVALIDE>)
+DHTMLGUMP 80 30 150 25 1 0 Önceki: <REF2.NAME>
+ENDIF
+
+[DIALOG D_CHAR_GEZ BUTTON]
+// ileri
+ON=2
+IF (<SRC.dCTAG0.CURRENT.OnChar> >= <SRC.dCTAG0.OnChars>)
+	SRC.FUNC_GetChar_List
+	SRC.CTAG0.CURRENT.OnChar=1
+ENDIF
+
+SRC.CTAG0.CURRENT.OnChar ++
+REF1=<SRC.CTAG0.OnChar.<SRC.dCTAG0.CURRENT.OnChar>>
+src.sysmessage <REF1> / <REF1.P.X>,<REF1.P.Y>,<REF1.P.Z>,<REF1.P.M>
+
+SRC.GOUID <REF1>
+
+DIALOGCLOSE D_CHAR_GEZ
+DIALOG D_CHAR_GEZ
+
+
+
+
+// geri
+ON=1
+SRC.CTAG0.CURRENT.OnChar -=1
+IF (<SRC.CTAG0.CURRENT.OnChar> <= 0)
+	SRC.FUNC_GetChar_List
+	SRC.CTAG0.CURRENT.OnChar=0
+ENDIF
+REF1=<SRC.CTAG0.OnChar.<SRC.dCTAG0.CURRENT.OnChar>>
+src.sysmessage <REF1> / <REF1.P.X>,<REF1.P.Y>,<REF1.P.Z>,<REF1.P.M>
+SRC.GOUID <REF1>
+DIALOGCLOSE D_CHAR_GEZ
+DIALOG D_CHAR_GEZ
+
+
+
+
+
+
+
+
+
+
+
+[function WorldToSetStatic]
+FORITEMS 7168
+	IF !((<TYPE> == T_SPAWN_ITEM) || (<TYPE> == T_SPAWN_CHAR) || (<TYPE> == t_crops) || (<TYPE> == t_fruit))
+		ATTR |= ATTR_STATIC|ATTR_MOVE_NEVER
+	ENDIF
+ENDFOR
+
+
+[function WorldItemList]
+CLEARCTAGS Dialog.ItemList
+FORITEMS 7168
+	IF !((<attr>&attr_static) || (<TYPE> == T_SPAWN_ITEM) || (<TYPE> == T_SPAWN_CHAR) || (<TYPE> == t_crops) || (<TYPE> == t_fruit))
+		SRC.CTAG0.Dialog.ItemList.Count ++
+		SRC.CTAG0.Dialog.ItemList.I<SRC.dCTAG0.Dialog.ItemList.Count>=<UID>
+	ENDIF
+ENDFOR
+
+// IF !(<DCTAG.Dialog.ItemList.Page>)
+	CTAG.Dialog.ItemList.Page=1
+// ENDIF
+CTAG.Dialog.ItemList.MaxPage=<eval (((<CTAG0.Dialog.ItemList.Count>-1)/50)+1)>
+DIALOGCLOSE D_ITEM_LIST
+DIALOG D_ITEM_LIST
+
+[DIALOG D_ITEM_LIST]
+<DEF.DSP>
+RESIZEPIC 0 0 9200 400 1050
+SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, <bolukayir <SRC.dCTAG0.Dialog.ItemList.Count>> items (<DCTAG0.Dialog.ItemList.Page>/<DCTAG0.Dialog.ItemList.MaxPage>)
+
+
+IF (<DCTAG0.Dialog.ItemList.Page> > 1)
+	BUTTON 270 820 015a1 015a3 1 0 1
+ENDIF
+IF (<DCTAG0.Dialog.ItemList.Page> < <DCTAG0.Dialog.ItemList.MaxPage>)
+	BUTTON 300 820 015a4 015a6 1 0 2
+ENDIF
+
+LOCAL.Y=20
+FOR <eval ((<DCTAG0.Dialog.ItemList.Page> - 1) * 50) + 1> <eval (<DCTAG0.Dialog.ItemList.Page> * 50)>
+	REF1=<CTAG0.Dialog.ItemList.I<dLOCAL._FOR>>
+	IF (<REF1.ISVALIDE> && <REF1.ISITEM>)		
+		LOCAL.HUE 1000
+		TILEPICHUE +0 <LOCAL.Y> <ref1.DISPIDDEC> <eval <ref1.COLOR> &~ 08000|04000>
+		BUTTON +50 <LOCAL.Y> 0845 0846 1 0 <eval 10+<LOCAL._FOR>>
+		
+		IF (<REF1.ISONSEA>)
+			LOCAL.HUE 084A
+		ELSEIF (<REF1.TYPE> == t_wall)
+			LOCAL.HUE 033
+		ELSEIF (<REF1.TYPE> == T_CONTAINER)
+			IF (<REF1.FCOUNT>)
+				LOCAL.HUE 38
+			ENDIF
+		ENDIF
+		
+		DCROPPEDTEXT +70 <LOCAL.Y> 300 20 <DLOCAL.HUE> Name=<REF1.NAME>, Type=<ref1.type>
+		LOCAL.Y += 20	
+	ENDIF
+ENDFOR
+
+
+[DIALOG D_ITEM_LIST BUTTON]
+ON=10 999999
+REF1=<CTAG0.Dialog.ItemList.I<EVAL <dARGN>-10>>
+IF (<REF1.ISVALIDE>)	
+	SRC.GOUID <REF1>
+ELSE
+	SRC.SYSMESSAGELOC <def.tcolor_red>,600050  // Eşya sunucuda kayıtlı değil/bulunamadı!
+ENDIF
+DIALOGCLOSE D_ITEM_LIST
+DIALOG D_ITEM_LIST
+	
+	
+ON=1
+IF (<CTAG0.Dialog.ItemList.Page> > 1)
+	CTAG0.Dialog.ItemList.Page --
+ENDIF
+DIALOGCLOSE D_ITEM_LIST
+DIALOG D_ITEM_LIST
+
+ON=2
+IF (<CTAG0.Dialog.ItemList.Page> < <CTAG0.Dialog.ItemList.MaxPage>)
+	CTAG0.Dialog.ItemList.Page ++
+ENDIF
+DIALOGCLOSE D_ITEM_LIST
+DIALOG D_ITEM_LIST
+
+
+
+
+
+
+[eof]

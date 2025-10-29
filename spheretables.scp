@@ -59,9 +59,8 @@ sphere_types.scp
 // itemdefs
 //*****************************************
 
-itemdefs/
+// itemdefs/
 itemdefs/artifact/
-
 itemdefs/building/
 itemdefs/custom/
 itemdefs/deco/

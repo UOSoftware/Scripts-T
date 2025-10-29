@@ -1,9 +1,13 @@
 VERSION=0.56T
 
 [events e_generic_chars]
+// argn1= skillid
+// argo = tool
+// args = dialog name
 ON=@SKILLMENU
-SRC.CRAFTSKILL <ARGS>,<SERV.SKILL.<ARGN1>.NAME>
-RETURN 1
+// SRC.CRAFTSKILL <ARGS>,<SERV.SKILL.<ARGN1>.NAME>
+// RETURN 1
+
 
 // I = Karakterin hapse gönderilmesi veya hapishaneden serbest bırakılması .
 // SRC = Hapis cezasından veya serbest bırakılmadan sorumlu karakter .
@@ -31,7 +35,6 @@ ON=@USERGUILDBUTTON
 f_guildsys_event_speech_fix
 IF (<DDEF.GUILDCONFIG_USEGUILDBUTTON> == 2)
 	IF (<GUILD>)
-		EVENTS -E_GUILDGENERICEVENT
 		f_guildsys_create
 	ELSE
 		f_guildsys_main
