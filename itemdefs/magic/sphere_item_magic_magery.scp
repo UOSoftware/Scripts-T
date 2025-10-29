@@ -97,6 +97,29 @@ LAYER=layer_hand1
 //Client Anomaly requires this out of order dupeitem with 0e3b
 //Do not DUPEITEM=0efa //
 
+
+[ITEMDEF I_FULL_SPELLBOOK]
+DEFNAME=I_FULL_SPELLBOOK
+ID=i_spellbook
+NAME=Full Spellbook
+VALUE=35000
+TYPE=t_spellbook
+RESOURCES=255 i_scroll_blank,i_spellbook
+SKILLMAKE=INSCRIPTION 98.0, MAGERY 98.0
+TAG0.CATEGORY=Other
+TAG0.SUBSECTION=
+TAG0.DESCRIPTION=
+
+ON=@CREATE
+ATTR=attr_magic|attr_newbie
+// FOR s 1 64
+	// ADDSPELL <DLOCAL.s>
+// ENDFOR
+FOR c 1 8
+ADDCIRCLE <DLOCAL.c>
+ENDFOR
+
+
 [ITEMDEF 0efa]
 DEFNAME=i_spellbook
 NAME=Spellbook

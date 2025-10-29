@@ -2,6 +2,104 @@ VERSION=0.56T
 
 
 [events e_generic_char_players]
+On=@Login
+IF (<SRC.ISGM>)
+	SRC.GM=0
+ENDIF
+IF (<SRC.FLAGS>&STATF_INVUL)
+	SRC.INVUL=0
+ENDIF
+IF (<SRC.FLAGS>&STATF_INSUBSTANTIAL)
+	SRC.INVIS=0
+ENDIF
+IF (<SRC.DEBUG>)
+	SRC.DEBUG=0
+ENDIF
+IF (<SRC.DETAIL>)
+	SRC.DETAIL=0
+ENDIF
+IF (<SRC.HEARALL>)
+	SRC.HEARALL=0
+ENDIF
+
+IF !(<SRC.FINDLAYER(32)> || <SRC.FINDLAYER(44)> || <SRC.FINDLAYER(47)>)
+	IF (<SRC.STATTOTAL> > <SRC.SKILLCLASS.STATSUM>)
+		SRC.FUNC_STATFIX 50,50,50
+		SRC.SYSMESSAGE @38,,1,1 Statlarınız <SRC.SKILLCLASS.STATSUM> aşmış. Statlarınız varsayılan haline alınmıştır. Tekrar ayarlayınız.
+	ENDIF
+ENDIF
+
+On=@Logout
+IF (<SRC.ISUSESKILL MAGERY>)
+	SRC.SKILL FAIL
+ENDIF
+IF (<SRC.FINDID.I_RUNE_INCOGNITO>)
+	SRC.FINDID.I_RUNE_INCOGNITO.REMOVE
+ENDIF
+
+// Farklı durumlarda oyundan düşme süresi ayarlama
+IF (<SRC.FLAGS>&STATF_DEAD)
+	ARGN1=1
+	ARGN2=<EVAL <SERV.CLIENTLINGER>/2>
+ELSEIF (<SRC.REGION.SAFE>)
+	ARGN1=0
+	ARGN1=5
+ELSEIF (<SRC.IsInShip>)
+	ARGN1=0
+	ARGN1=<EVAL <SERV.CLIENTLINGER>*2> // gemide çıkma süresi daha uzun
+// ELSE
+	// ARGN1=0
+	// ARGN1=<SERV.CLIENTLINGER>
+ENDIF
+
+
+ON=@USERWARMODE
+// ARGN1	I	If 0, the player is entering peace mode. If 1, the player is entering war mode.
+// ARGN2	I	If 1 will trigger skill fail for the current skill.
+// ARGN3	I	Setting it to 1 will force a attacker's cleanup.
+// ARGN3=1
+IF (<FLAGS>&STATF_STONE)
+	RETURN 1
+ENDIF
+
+
+
+ON=@GETHIT
+// I =DAMAGE YİYEN
+// SRC= SALDIRAN
+IF !(<ISGM>)
+	IF (<FINDTYPE.T_EQ_TRADE_WINDOW>)
+		FINDTYPE.T_EQ_TRADE_WINDOW.REMOVE
+	ENDIF
+	// Sadece hasar alınan büyülerde magic resist gain edilir.
+	// IF (<ARGN2>&dam_magic) // Magic Resistance Skill Gain
+		// SKILLGAIN 26
+	// ENDIF
+	IF (<ARGN2>&dam_physical)
+		IF (<SRC.FINDLAYER.1>) && (<SRC.FINDLAYER.1.ISWEAPON>)
+			TAG0.DEATHFORM=<STRTOLOWER <SRC.FINDLAYER.1.NAME>> ile
+			
+		ELIF (<SRC.FINDLAYER.2>) && (<SRC.FINDLAYER.2.ISWEAPON>)
+			TAG0.DEATHFORM=<STRTOLOWER <SRC.FINDLAYER.2.NAME>> ile
+			
+		ELIF (<SRC.ACTION>==SKILL_WRESTLING)
+			TAG0.DEATHFORM=yumruk ile
+		ENDIF
+	ENDIF
+	IF (<ARGN2>&dam_poison)
+		TAG0.DEATHFORM=zehir etkisi ile
+	ENDIF
+ENDIF
+
+
+// src, act = büyüyü atan
+// uid = büyüyü yiyen
+ON=@SPELLEFFECT
+IF (<SERV.SPELL.<DARGN>.FLAGS>&<def.SPELLFLAG_HARM>)
+	TAG0.DEATHFORM=<SERV.SPELL.<DARGN>.NAME> büyüsü ile
+ENDIF
+
+
 
 
 

@@ -162,7 +162,7 @@ DTEXT +30 +0 0 Sil
 
 [DIALOG d_gmpage_info BUTTON]
 ON=0
-SRC.PG
+SRC.PAGE
 
 // Oyuncuya git
 ON=1
@@ -203,7 +203,7 @@ IF (<ISITEM>)
     SRC.SYSMESSAGE @38,,1,1 GMPage silindi.
     REMOVE
 ENDIF
-SRC.PG
+SRC.PAGE
 
 
 // Cevapla
@@ -216,7 +216,7 @@ ENDIF
 IF (<SERV.LogMask>&000800)
     SERV.LOG [<src.name>/<uid>] GMPage cevaplandi. (Name:<topobj.name>, UID:<topobj>, P: <TOPOBJ.P>, Lokasyon: <TOPOBJ.REGION.NAME>, IP: <TOPOBJ.ACCOUNT.LASTIP>) Cevap: <ARGTXT[0]>
 ENDIF
-SRC.PG
+SRC.PAGE
 
 
 

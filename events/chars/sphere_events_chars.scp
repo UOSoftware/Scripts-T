@@ -1,12 +1,16 @@
 VERSION=0.56T
 
 [events e_generic_chars]
-// argn1= skillid
-// argo = tool
-// args = dialog name
-ON=@SKILLMENU
-// SRC.CRAFTSKILL <ARGS>,<SERV.SKILL.<ARGN1>.NAME>
-// RETURN 1
+
+ON=@LOGIN
+
+ARGN1=1 // Girişteki sphereden gelen default mesajları yazmaz. 
+
+IF (<EVAL <SERV.CLIENTS>> > <DVAR.MAXPLAYERS>)
+	VAR0.MAXPLAYERS <EVAL <SERV.CLIENTS>>
+ENDIF
+SRC.SKILLCLASS <QVAL (<SRC.ACCOUNT.PLEVEL> > 1)?Class_Staff:Class_Player>
+SRC.ACCOUNT.RESDISP=<SERV.AutoResDisp>
 
 
 // I = Karakterin hapse gönderilmesi veya hapishaneden serbest bırakılması .
@@ -31,16 +35,131 @@ ELSE
 	ENDIF
 ENDIF
 
+
+
 ON=@USERGUILDBUTTON
 f_guildsys_event_speech_fix
 IF (<DDEF.GUILDCONFIG_USEGUILDBUTTON> == 2)
-	IF (<GUILD>)
+	IF !(<GUILD>)
 		f_guildsys_create
 	ELSE
 		f_guildsys_main
 	ENDIF
 ENDIF
 
+
+ON=@ITEMTARGON_ITEM
+IF (<ACT.ISWEAPON>)
+	// IF (<ARGO.TYPE> == T_FISH)
+		// IF (<ARGO.AMOUNT> > 15000)
+			// SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bir seferde en fazla 15.000 balık kesebilirsiniz.
+			// RETURN 1
+		// ENDIF
+	// ENDIF
+	IF (<ARGO.TYPE>==T_POTION)
+		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu eşyayı bu şekilde kullanamazsınız.
+		RETURN 1
+	ENDIF
+    IF (<ARGO.TYPE> == T_CORPSE)
+		IF (<ARGO.RESCOUNT> > 100)
+			SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu cesette çok fazla eşya olduğu için ceseti parçalamayamazsın. (<SRC.TARG.RESCOUNT>/100)
+			RETURN 1
+		ENDIF
+    ENDIF
+ENDIF
+
+
+ON=@RESURRECT
+SAYU * hayata döner *
+OPENPAPERDOLL
+PACK
+
+On=@Profile
+IF (<SRC.UID> == <UID>)
+	SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>,Hesap Adı: <account>
+	SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>,Seri NO: <DUID> (<UID>)
+	SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>,İlk Girişi: <ACCOUNT.FIRSTCONNECTDATE>
+	SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>,Karakter Yaşı: <eval (<age>)> gün once doğmuş.
+	SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>,Gold (Toplam); <BolukAyir <BANKTOPLAM>>
+ENDIF
+
+
+
+// ARGO = MEMORY
+// SRC = BINEK
+// UID = PLAYER
+ON=@DISMOUNT
+// Poison yiyen binek altında ölmesin fixi.
+IF (<SRC.FINDID.I_RUNE_POISON>)
+	SRC.FINDID.I_RUNE_POISON.TIMER <SRC.TAG0.POISON.TIMER>
+ENDIF
+IF (<SRC.FINDID.I_RUNE_POISON_FIELD>)
+	SRC.FINDID.I_RUNE_POISON_FIELD.TIMER <SRC.TAG0.POISON_FIELD.TIMER>
+ENDIF
+
+
+
+ON=@MOUNT
+IF (<SRC.IsUseSkill Hiding>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Gizlenme esnasında bineğe binemezsin.
+	RETURN 1
+ELSEIF (<SRC.IsUseSkill Stealth>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Gizlenme esnasında bineğe binemezsin.
+	RETURN 1
+// ELSEIF (<FLAGS>&STATF_FREEZE)
+	// SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu durumda bineğe binemezsiniz.
+	// RETURN 1
+ENDIF
+
+// Poison yiyen binek altında ölmesin fixi.
+IF (<ARGO.FINDID.I_RUNE_POISON>)
+	ARGO.TAG0.POISON.TIMER <ARGO.FINDID.I_RUNE_POISON.TIMER>
+	ARGO.FINDID.I_RUNE_POISON.TIMER -1
+ENDIF
+IF (<ARGO.FINDID.I_RUNE_POISON_FIELD>)
+	ARGO.TAG0.POISON_FIELD.TIMER <ARGO.FINDID.I_RUNE_POISON_FIELD.TIMER>
+	ARGO.FINDID.I_RUNE_POISON_FIELD.TIMER -1
+ENDIF
+
+
+ON=@REVEAL
+SRC.SYSMESSAGE @38,,1,1 Gizliliğiniz bozuldu, ortaya çıktınız.
+SRC.SPEEDSET=0
+
+
+ON=@STEPSTEALTH
+IF !(<SRC.HouseDesign>)
+
+	IF (<SRC.IsOnRide>)
+		SRC.STEPSTEALTH=0
+		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Binek üzerinde olduğunuz için gizliliğin bozuldu!
+		SRC.REVEAL
+	ENDIF
+	IF (<EVAL (<SRC.AR> * 100)> > <EVAL (<SRC.STEALTH> + 200)>)
+		SRC.STEPSTEALTH=0
+		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Aşırı zıhlı olduğun için gizliliğin bozuldu! (<SRC.AR>/<DEF.Hide_Allow_Armor>)
+		SRC.REVEAL
+	ENDIF
+	IF (<SRC.STEPSTEALTH> <= 1)
+		SRC.SPEEDSET=0
+	ENDIF
+	IF (<SRC.STEPSTEALTH> > 0)
+		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Kalan adım: <SRC.STEPSTEALTH>
+	ENDIF
+ENDIF
+
+
+
+
+ON=@SPELLCAST
+// LOCAL.WOPFontTalkMode=10
+IF !(<SRC.ISGM>)
+	LOCAL.FREEZETIME = <SERV.SPELL.<DACTARG1>.FREEZE_TIME>
+	IF (<dLOCAL.FREEZETIME>)
+		SRC.TAG0.NOMOVETILL=<EVAL <SERV.TIME> + (<dLOCAL.FREEZETIME> * 6)>
+		// SRC.TAG0.NOMOVETILL=<EVAL <SERV.TIME> + <dLOCAL.FREEZETIME>>	
+	ENDIF
+ENDIF
 
 
 

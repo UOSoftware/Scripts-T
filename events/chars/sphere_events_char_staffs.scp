@@ -3,7 +3,41 @@ VERSION=0.56T
 [events e_generic_char_staffs]
 ON=@CLICK
 IF (<ISGM>)
-	MESSAGE [Staff]
+	TAG0.NAME.HUE=
+	MESSAGE @,,1,1 [<SERV.NAME> Staff]
 ENDIF
+
+ON=@LOGIN
+IF !(<SRC.ISGM>)
+	SRC.GM=1
+ENDIF
+IF !(<SRC.FLAGS>&STATF_INVUL)
+	SRC.INVUL=1
+ENDIF
+IF !(<SRC.FLAGS>&STATF_INSUBSTANTIAL)
+	SRC.INVIS=1
+ENDIF
+IF (<SRC.DEBUG>)
+	SRC.DEBUG=0
+ENDIF
+IF (<SRC.ALLSHOW>)
+	SRC.ALLSHOW=0 // giris esnasinda ekranda iki kere islem yaptiriyor, click triggerini iki kere tetikliyor.
+ENDIF
+IF (<SRC.DETAIL>)
+	SRC.DETAIL=0
+ENDIF
+IF (<SRC.HEARALL>)
+	SRC.HEARALL=0
+ENDIF
+
+// GMLER ÖLMEZ VATAN BÖLÜNMEZ
+ON=@DEATH
+IF (<ISGM>)
+	HITS=<STR>
+	RESURRECT 1
+	RETURN 1
+ENDIF
+
+
 
 [eof]

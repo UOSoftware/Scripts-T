@@ -2,6 +2,6 @@ VERSION=0.56T
 
 [events e_generic_npc_monsters]
 // ON=@CLICK
-// message [moster]
+// message [monster]
 
 [eof]

@@ -5,5 +5,9 @@ ON=@CLICK
 MESSAGE [Banker]
 
 
+ON=@DCLICK
+SRC.DIALOGCLOSE d_bank
+SRC.DIALOG d_bank
+
 
 [eof]

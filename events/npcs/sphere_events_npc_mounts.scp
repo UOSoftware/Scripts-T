@@ -3,7 +3,7 @@ VERSION=0.56T
 [events e_generic_npc_mounts]
 ON=@CLICK
 IF (<OWNER>)
-MESSAGE (<OWNER.NAME>)
+	MESSAGE (<OWNER.NAME>)
 ENDIF
 
 [eof]

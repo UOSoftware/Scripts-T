@@ -12,17 +12,17 @@ WEIGHT=0.1
 VALUE=0
 RESDISPDNHUE=08a1
 
-on=@create
+ON=@CREATE
 COLOR=<SERV.ITEMDEF.<BASEID>.RESDISPDNHUE>
 
 ON=@DCLICK
 IF (<AMOUNT> <= 0)
-REMOVE
+	REMOVE
 ENDIF
 SRC.SYSMESSAGE @,,1,1 Paralyze halinde otomatik olarak aktif olur. Bu şekilde kullanamazsınız.
 RETURN 1
 
-on=@click
+ON=@CLICK
 IF (<AMOUNT> <= 0)
 	REMOVE
 ENDIF

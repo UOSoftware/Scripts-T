@@ -1628,8 +1628,8 @@ CURE
 // IF (<FINDID.I_RUNE_POISON>)
 	// FINDID.I_RUNE_POISON.REMOVE
 // ENDIF
-//IF (<FINDID.I_BLEEDING>)
-//	FINDID.I_BLEEDING.REMOVE
+//IF (<FINDID.i_bonus_bleed_equiped_mem>)
+//	FINDID.i_bonus_bleed_equiped_mem.REMOVE
 //ENDIF
 
 
@@ -2136,15 +2136,15 @@ ENDDO
 
 [FUNCTION SPEEDSET]
 IF (<ISEMPTY <ARGS>>) || (<ARGS> == 0)
-	SYSMESSAGE @030,,1,1  Karakter hızı: Normal
+	SYSMESSAGE @,,1,1 Karakter hızı: Normal
 ELSEIF (<ARGS> == 1)
-	SYSMESSAGE @030,,1,1  Karakter hızı: Hızlı
+	SYSMESSAGE @,,1,1 Karakter hızı: Hızlı
 ELSEIF (<ARGS> == 2)
-	SYSMESSAGE @030,,1,1  Karakter hızı: Sadece yürüme
+	SYSMESSAGE @,,1,1 Karakter hızı: Sadece yürüme
 ELSEIF (<ARGS> == 3)
-	SYSMESSAGE @030,,1,1  Karakter hızı: Hızlı yürüme
+	SYSMESSAGE @,,1,1 Karakter hızı: Hızlı yürüme
 ELSEIF (<ARGS> == 3)
-	SYSMESSAGE @030,,1,1  Karakter hızı: Yürüme/koşma kapalı
+	SYSMESSAGE @,,1,1 Karakter hızı: Yürüme/koşma kapalı
 ENDIF
 SPEEDMODE=<ARGS>
 
