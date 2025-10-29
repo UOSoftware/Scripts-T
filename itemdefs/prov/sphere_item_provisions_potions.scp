@@ -283,6 +283,8 @@ RESOURCES=1 i_reag_ginseng,1 i_bottle_empty
 SKILLMAKE=ALCHEMY 0.1, t_mortar
 TYPE=t_potion
 TDATA1=i_bottle_empty
+CATEGORY=Heal Potions
+
 ON=@Create
    MORE1=s_heal
    MORE2=50.0
@@ -294,6 +296,8 @@ RESOURCES=3 i_reag_ginseng,1 i_bottle_empty
 SKILLMAKE=ALCHEMY 15.1, t_mortar
 TYPE=t_potion
 TDATA1=i_bottle_empty
+CATEGORY=Heal Potions
+
 ON=@Create
    MORE1=s_greater_heal
    MORE2=60.0
@@ -305,6 +309,8 @@ TYPE=t_potion
 TDATA1=i_bottle_empty
 RESOURCES=7 i_reag_ginseng,1 i_bottle_empty
 SKILLMAKE=ALCHEMY 55.1, t_mortar
+CATEGORY=Heal Potions
+
 ON=@Create
    MORE1=s_greater_heal
    MORE2=100.0
