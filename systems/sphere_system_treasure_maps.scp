@@ -1,5 +1,8 @@
 VERSION=0.56T
 
+// TODO:
+// Hazine kasasi tam yuzeye cikmadan acilabiliyor.
+
 [DEFNAME TreasureMap_Settings]
 TreasureMap_L1_Cartography	27.0
 TreasureMap_L1_Lockpicking	36.0
