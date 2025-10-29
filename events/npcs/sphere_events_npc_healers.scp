@@ -1,7 +1,7 @@
 
 [events e_generic_npc_healers]
-// ON=@CLICK
-// MESSAGE @0,3 [Healer]
+ON=@CLICK
+MESSAGE @0,3 [Healer]
 
 
 
