@@ -7,26 +7,26 @@ ref1 = <args>
 If (<ref1.type> != t_stone_town)
   return 1
 elif ((<ref1.masteruid> != <uid>) && (<ref1.memberfromuid.<uid>.priv> != <def0.STONEPRIV_MEMBER>) && (!<isgm>))
-  sysmessage @038a Only town members can recruit new players.
+  SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Only town members can recruit new players.
   return 1
 elif (<argo.isItem>)
-  sysmessage @038a You may only recruit players into the town.
+  SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, You may only recruit players into the town.
   return 1
 elif (!<argo.isPlayer>)
-  sysmessage @038a You may only recruit players into the town.
+  SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, You may only recruit players into the town.
   return 1
 elif (<ref1.Distance <argo>>><def.STONECONFIG_MISC_RECRUIT_MAXDISTANCE>)
-  sysmessage @038a <argo.name> is too far away to be recruited.
+  SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <argo.name> is too far away to be recruited.
   return 1
 elif (<argo.flags>&<def.statf_dead>)
-  sysmessage @038A Only the living may be recruited.
+  SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Only the living may be recruited.
   return 1
 endif
 If (<argo.memoryfindtype.<def0.memory_town>.uid>)
   If (<argo.memoryfindtype.<def0.memory_town>.link> == <ref1.uid>)
-    sysmessage @038A They are already a townmember!
+    SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, They are already a townmember!
   else
-    sysmessage @038A You can only recruit candidates who are not already in a town.
+    SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, You can only recruit candidates who are not already in a town.
   endif
   return 1
 endif
@@ -37,7 +37,7 @@ If (<ref1.memberfromuid.<argo.uid>.uid> != <argo.uid>)
       If (<ref1.member.count <def0.STONEPRIV_MEMBER>> < <def0.TOWNSCONFIG_MAXMEMBERS>)
         f_townsys_addchartotown <ref1.uid>,<argo.uid>,1
       else
-        sysmessage @038A There are already <dDEF0.TOWNSCONFIG_MAXMEMBERS> members. You cannot submit a member at this time.
+        SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, There are already <dDEF0.TOWNSCONFIG_MAXMEMBERS> members. You cannot submit a member at this time.
       endif
     else
       f_townsys_addchartotown <ref1.uid>,<argo.uid>,1
@@ -47,14 +47,14 @@ If (<ref1.memberfromuid.<argo.uid>.uid> != <argo.uid>)
       If (<ref1.member.count <def0.STONEPRIV_CANDIDATE>> < <def0.TOWNSCONFIG_MAXCANDIDATES>)
         f_townsys_addchartotown <ref1.uid>,<argo.uid>,0
       else
-        sysmessage @038A There are already <dDEF0.TOWNSCONFIG_MAXCANDIDATES> candidates awaiting a decision. You cannot submit a candidate at this time.
+        SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>,There are already <dDEF0.TOWNSCONFIG_MAXCANDIDATES> candidates awaiting a decision. You cannot submit a candidate at this time.
       endif
     else
       f_townsys_addchartotown <ref1.uid>,<argo.uid>,0
     endif
    endif
 else
-  sysmessage @038A They are already a candidate.
+  SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, They are already a candidate.
 endif
 
 // ------------------------------------------------------

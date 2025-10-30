@@ -30,7 +30,7 @@ DESCRIPTION=Map (Blank)
 DUPELIST=014ec
 
 ON=@DCLICK
-SRC.SYSMESSAGE @,,1,1 Harita yazabilmek icin Mapmakers pen kullaniniz.
+SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Harita yazabilmek icin Mapmakers pen kullaniniz.
 
 [ITEMDEF 014ec]
 //map

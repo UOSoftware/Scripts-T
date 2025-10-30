@@ -121,28 +121,29 @@ SKILLMAKE=TINKERING 65.0,t_tinker_tools
 CATEGORY=Magic
 SUBSECTION=Potions (keg)
 DESCRIPTION=Empty Potion Keg
+
 ON=@Create
    MOREP=0 0 0   //number of potions stored in keg
    MORE1=0       //store BASEID of first potion (i_potion_heal)
    MORE2=0      //store skillvalue off added potion
 ON=@DClick
-   SRC.SYSMESSAGE What potion would you like to fill the keg with?
+   SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, What potion would you like to fill the keg with?
    TARGET
    RETURN 1
 ON=@TargOn_Item
    IF (<SRC.ACTION> != -1 )
-      SRC.SYSMESSAGE You can't use this yet!
+      SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, You can't use this yet!
       RETURN 1
    ELIF (<src.targ.baseid>==i_bottle_empty)
       IF (0 >= <MOREX>)
-         SRC.SYSMESSAGE You can't use this on a empty keg!
+         SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, You can't use this on a empty keg!
          RETURN 1
       ENDIF
       IF (<SRC.TARG.TOPOBJ.UID> != <SRC.UID>)
-         SRC.SYSMESSAGE The empty bottle should be in your backpack!
+         SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, The empty bottle should be in your backpack!
          RETURN 1
       ENDIF
-      SRC.SYSMESSAGE You fill an empty bottle.
+      SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, You fill an empty bottle.
       SOUND=snd_Z_END_LIQUID
       SERV.NEWITEM=<MORE1>
       NEW.MORE2=<MORE2> //restore skillvalue
@@ -160,18 +161,18 @@ ON=@TargOn_Item
       SRC.TARG.CONSUME 1
       RETURN 1
    ELIF (<SRC.TARG.TYPE> != t_potion)
-      SRC.SYSMESSAGE Thats not a potion!
+      SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Thats not a potion!
       RETURN 1
    ELIF (<MORE1>) && (<SRC.TARG.BASEID>!=<MORE1>)
-      SRC.SYSMESSAGE You cannot mix potion types!
+      SRC.SYSMESSSYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>,AGE You cannot mix potion types!
       RETURN 1
    ELIF (<MOREX> > 99) //max 100 potion
-      SRC.SYSMESSAGE The keg is full!
+      SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, The keg is full!
       RETURN 1
    ELIF (<MOREX>==0)
       MORE1=<SRC.TARG.BASEID> // store potion baseid i_potion_xxx
    ELIF (<MORE1>!=<SRC.TARG.BASEID>)
-      SRC.SYSMESSAGE You can't fill up the keg with this potions!
+      SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, You can't fill up the keg with this potions!
       RETURN 1
    ENDIF
    MORE2=(<MORE2>*<MOREX>)
@@ -180,7 +181,7 @@ ON=@TargOn_Item
    MORE2=(<MORE2> / <MOREX>)
    NAME=a <SRC.TARG.NAME> Keg(<MOREX>)
    SRC.SOUND=snd_Z_END_LIQUID
-   SRC.SYSMESSAGE You fill up the keg with a <SRC.TARG.NAME> Potion!
+   SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, You fill up the keg with a <SRC.TARG.NAME> Potion!
    SRC.TARG.REMOVE
    SERV.NEWITEM=i_bottle_empty
    NEW.ATTR=0
@@ -422,33 +423,11 @@ TYPE=t_potion
 TDATA1=i_bottle_empty
 RESOURCES=2 i_reag_batwing,1 i_bottle_empty
 SKILLMAKE=ALCHEMY 100.0, t_mortar
+
 ON=@Create
    MORE1=s_shrink
    MORE2=100.0
    COLOR=color_gray_lt
-ON=@Dropon_char
-  obj=<argo>
-  IF !(0<obj.ISMYPET>)
-    src.sysMESSAGE="<obj.NAME> this is not your pet."
-  RETURN 1
-  ENDIF
-  obj.SHRINK
-  remove
-  RETURN 1
-ON=@DClick
-  target="what do you want to shrink?"
-  return 1
-ON=@TargOn_Char
-  IF !<src.targ.ismypet>
-    src.sysMESSAGE="<src.targ.NAME> this is not your pet."
-    RETURN 1
-  ENDIF
-  src.targ.SHRINK
-  remove
-  RETURN 1
-ON=@TargOn_Item
-  src.sysmessage="Items cannot be shrunk this way"
-  return 1
 
 [ITEMDEF i_potion_Invisibility]
 ID=i_bottle_white

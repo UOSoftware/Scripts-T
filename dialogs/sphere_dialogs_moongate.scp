@@ -31,19 +31,19 @@ ENDFOR
 [DIALOG D_MOONGATE BUTTON]
 ON=1 99
 IF (<SRC.ISDIFF 3,<UID>>)
-	SRC.SYSMESSAGE @38,,1,1 Moongateye ulaşamıyorsunuz.
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Moongateye ulaşamıyorsunuz.
 	RETURN 1
 ELSEIF (<SRC.ISPOISONED>)
-	SRC.SYSMESSAGE @38,,1,1 Zehirli durumdayken bu işlemi yapamazsınız.
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Zehirli durumdayken bu işlemi yapamazsınız.
 	RETURN 1
 ELSEIF (<SRC.IsNoFullHp>)
-	SRC.SYSMESSAGE @38,,1,1 Yaralı durumdayken bu işlemi yapamazsınız.
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Yaralı durumdayken bu işlemi yapamazsınız.
 	RETURN 1
 ELSEIF (<SRC.IsInHouse>)
-	SRC.SYSMESSAGE @38,,1,1 Ev içindeyken kullanamazsınız.
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Ev içindeyken kullanamazsınız.
 	RETURN 1
 ELSEIF !(<SRC.ISNEARTYPE T_MOONGATE 4>)
-	SRC.SYSMESSAGE @38,,1,1 Yakınlarınızda Moongate bulunmuyor.
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Yakınlarınızda Moongate bulunmuyor.
 	RETURN 1
 ENDIF
 LOCAL.P <SERV.AREA.<ARRAY <DEF.MOONGATE_FACET_<SRC.MAP>_MOONGATES>,<DARGN>>.P>

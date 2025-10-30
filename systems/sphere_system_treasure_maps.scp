@@ -139,20 +139,8 @@ ENDIF
 
 ON=@DropOn_Self
 IF !(<SRC.ISGM>)
- SRC.SYSMESSAGE @08a5 The chest refuses to be filled with treasure again.
+ SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>,The chest refuses to be filled with treasure again.
  return 1
-ENDIF
-
-ON=@ContextMenuRequest
-IF (<SRC> == <LINK>) || (<SRC.ISGM>)
- SRC.AddContextEntry 200,6149	//Remove Chest
-ENDIF
-
-ON=@ContextMenuSelect
-IF (<ARGN> == 200)
- IF (<SRC> == <LINK>) || (<SRC.ISGM>)
-  SDIALOG d_treasure_chest_remove
- ENDIF
 ENDIF
 
 ////////////
@@ -162,7 +150,7 @@ ENDIF
 [TYPEDEF t_map_treasure]
 ON=@DClick
 IF (<TOPOBJ> != <SRC>)
- SRC.SYSMESSAGE <DEFMSG.reach_fail>
+ SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <DEFMSG.reach_fail>
  return 1
 ELIF !(<MORE1>)
  TreasureMap_Decode
@@ -187,26 +175,6 @@ ELIF (<MOREM> == 4)
  SRC.ADDCLILOC 1115645	//for somewhere in Tokuno Islands
 ELIF (<MOREM> == 5)
  SRC.ADDCLILOC 1115646	//for somewhere in Ter Mur
-ENDIF
-
-ON=@ContextMenuRequest
-IF !(<MORE1>)
- SRC.AddContextEntry 120,6147,<QVAL (<TOPOBJ> == <SRC>)? 0:1>	//Decode Map
-ELSE
- SRC.AddContextEntry 121,6148,<QVAL (<TOPOBJ> == <SRC>)? 0:1>	//Dig For Treasure
-ENDIF
-
-ON=@ContextMenuSelect
-IF (<TOPOBJ> != <SRC>)
- return 1
-ELIF (<ARGN> == 120)
- IF !(<MORE1>)
-  TreasureMap_Decode
- ENDIF
-ELIF (<ARGN> == 121)
- IF (<TreasureMap_CanDig>)
-  TreasureMap_Dig
- ENDIF
 ENDIF
 
 ///////////////
@@ -239,30 +207,30 @@ PIN=<eval <TDATA1>/2>,<eval <TDATA2>/2>   //add pin on map center
 
 [FUNCTION TreasureMap_CanDig]
 IF (<TAG0.DirtPatch1>)
- SRC.SYSMESSAGE You are already digging treasure.
+ SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, You are already digging treasure.
  return 0
 ELIF (<SRC.CARTOGRAPHY> < <DEF0.TreasureMap_L<TDATA3>_Cartography>)
- SRC.SYSMESSAGE You did not decode this map and have no clue where to look for the treasure.
+ SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, You did not decode this map and have no clue where to look for the treasure.
  return 0
 ELIF (<SRC.FLAGS> & statf_hovering)
- SRC.SYSMESSAGE You cannot dig for treasure while flying!
+ SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, You cannot dig for treasure while flying!
  return 0
 ELIF (<SRC.DISTANCE <MOREX>,<MOREY>> > <SRC.TreasureMap_GetDigDistance>)
- SRC.SYSMESSAGE You dig and dig but no treasure seems to be here.
+ SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, You dig and dig but no treasure seems to be here.
  return 0
 ELIF (<SRC.P.M> != <MOREM>)
- SRC.SYSMESSAGE You seem to be in the right place, but may be on the wrong facet!
+ SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, You seem to be in the right place, but may be on the wrong facet!
  return 0
 ENDIF
 return 1
 
 [FUNCTION TreasureMap_Dig]
 IF (<TAG0.DiggingPos>) && STRCMP("<dTAG.DiggingPos>","<SRC.P.X><SRC.P.Y>")
- SRC.SYSMESSAGE You cannot move around while digging up treasure. You will need to start digging anew.
+ SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, You cannot move around while digging up treasure. You will need to start digging anew.
  TreasureMap_ClearTags
  return 1
 ELIF (<SRC.WEAPON.BASEID> != i_pickaxe)
- SRC.SYSMESSAGE You must have a digging tool to dig for treasure.
+ SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, You must have a digging tool to dig for treasure.
  TreasureMap_ClearTags
  return 1
 ENDIF
@@ -270,7 +238,7 @@ REF1=<TAG.DirtPatch1>
 REF2=<TAG.DirtPatch2>
 REF3=<TAG.Treasure>
 IF ((<TAG0.DirtPatch1>) && !(<REF1>)) || ((<TAG0.DirtPatch2>) && !(<REF2>)) || ((<TAG0.Treasure>) && !(<REF3>))
- SRC.SYSMESSAGE The treasure chest fell apart for some reason.  Try digging it up again.
+ SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, The treasure chest fell apart for some reason.  Try digging it up again.
  TreasureMap_ClearTags
  return 1
 ENDIF
@@ -284,11 +252,11 @@ IF !(<REF1>)
  REF1=<TAG0.DirtPatch1>
  //Check if treasure still fit on this location
  IF (<SRC.P.X> == <MOREX>) && (<SRC.P.Y> == <MOREY>)
-  SRC.SYSMESSAGE The chest can't be dug up because you are standing on top of it.
+  SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, The chest can't be dug up because you are standing on top of it.
   TreasureMap_ClearTags
   return 1
  ELIF !(<REF1.TreasureMap_CanFitLocation>)
-  SRC.SYSMESSAGE You have found the treasure chest but something is keeping it from being dug up.
+  SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, You have found the treasure chest but something is keeping it from being dug up.
   TreasureMap_ClearTags
   return 1
  ENDIF
@@ -449,7 +417,7 @@ dhtmlgump 75 197 180 35 0 0 <DEF.BFONT_WHITE>Cancel
 [DIALOG d_treasure_chest_remove BUTTON]
 ON=1
 IF ((<SRC> == <LINK>) && (<SRC.CANSEELOS <UID>>)) || (<SRC.ISGM>)
- SRC.SYSMESSAGE @08a5 The old, rusted chest crumbles when you hit it.
+ SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, The old, rusted chest crumbles when you hit it.
  REMOVE
 ENDIF
 

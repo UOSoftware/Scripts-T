@@ -506,7 +506,7 @@ REF1=<ACCOUNT.CHAR.<EVAL <DARGN>-100>.UID>
 IF (<REF1.ISVALIDE>)
 	REF1.DIALOG d_charprop1
 ELSE
-	SRC.SYSMESSAGE @38,,1,1 Oyuncu bulunamadı!
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Oyuncu bulunamadı!
 ENDIF
 
 

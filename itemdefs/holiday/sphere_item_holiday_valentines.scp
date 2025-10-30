@@ -153,31 +153,6 @@ CATEGORY=Valentine's Day
 SUBSECTION=Decoration
 DESCRIPTION=Cupid's Arrow
 DUPELIST=04f7b,04f7e,04f7f
-ON=@ClientTooltip
-   IF !(<ISEMPTY <TAG.Name1>>) && !(<ISEMPTY <TAG.Name1>>)
-    SRC.ADDCLILOC 1152273,<TAG.Name1>,<TAG.Name2>	//~1_val~ is madly in love with ~2_val~
-   ENDIF
-ON=@DClick
-   IF (<TOPOBJ> != <SRC>)
-    SRC.SYSMESSAGE You must have the object in your backpack to use it.
-   ELSE
-    TARGET
-   ENDIF
-   return 1
-ON=@TargOn_Char
-   IF (<SRC.CANSEELOS <ARGO>>)
-    IF (<ARGO.FLAGS> & statf_dead)
-     SRC.SYSMESSAGE That target is dead and even Cupid's arrow won't make them love you.
-    ELSE
-     TAG.Name1=<SRC.NAME>
-     TAG.Name2=<ARGO.NAME>
-     RESENDTOOLTIP
-     SRC.SOUND 0234
-     ARGO.EFFECT 0,i_arrow_cupid,10
-     ARGO.EFFECT 3,i_fx_hearts,1,20
-    ENDIF
-   ENDIF
-   return 1
 
 [ITEMDEF 04f7b]
 //cupid's arrow

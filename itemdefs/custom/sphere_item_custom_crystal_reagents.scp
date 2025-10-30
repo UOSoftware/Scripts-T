@@ -94,10 +94,10 @@ ATTR=ATTR_NEWBIE
 LOCAL.AMOUNT = <MORE1>
 
 IF !(<SRC.ISINPACK <UID>>)
-	SRC.SYSMESSAGE @38,,1,1 <NAME>: <DEF.UNPACKMSG>
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, <NAME>: <DEF.UNPACKMSG>
 	RETURN 1
 ELSEIF (<SRC.WEIGHT> >= <SRC.MAXWEIGHT>)
-	SRC.SYSMESSAGE @38,,1,1 Ağırlığınız maksimum seviyeye ulaştığı için bunu kullanamazsınız.
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Ağırlığınız maksimum seviyeye ulaştığı için bunu kullanamazsınız.
 	RETURN 1
 ENDIF
 IF (<ISEMPTY <TAG0.REAGENT_ITEMS>>)
@@ -108,7 +108,7 @@ IF (<DLOCAL.AMOUNT>)
 
 	IF !(<SRC.TAG0.REAGENT_CRYSTAL.CONTTYPE>)
 		SRC.TAG0.REAGENT_CRYSTAL.CONTTYPE=1
-		SRC.SYSMESSAGE @030,,1,1 Reagentların varsayılan çıkartma yeri çantanız olarak ayarlandı. Değiştirmek için tek tıklayınız.
+		SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Reagentların varsayılan çıkartma yeri çantanız olarak ayarlandı. Değiştirmek için tek tıklayınız.
 		LOCAL.CONTAINER=<SRC.FINDLAYER.21>
 	
 	ELSEIF (<SRC.TAG0.REAGENT_CRYSTAL.CONTTYPE> == 1)
@@ -130,7 +130,7 @@ IF (<DLOCAL.AMOUNT>)
 		
 	ELSE
 		SRC.TAG0.REAGENT_CRYSTAL.CONTTYPE=1
-		SRC.SYSMESSAGE @030,,1,1 Reagentların varsayılan çıkartma yeri çantanız olarak ayarlandı. Değiştirmek için tek tıklayınız.
+		SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Reagentların varsayılan çıkartma yeri çantanız olarak ayarlandı. Değiştirmek için tek tıklayınız.
 		LOCAL.CONTAINER=<SRC.FINDLAYER.21>
 		
 	ENDIF
@@ -139,7 +139,7 @@ IF (<DLOCAL.AMOUNT>)
 	
 	IF !(<SRC.ISINPACK <REF99>>)
 		SRC.TAG0.REAGENT_CRYSTAL.CONTTYPE=1
-		SRC.SYSMESSAGE @030,,1,1 Reagentların varsayılan çıkartma yeri çantanız olarak ayarlandı. Değiştirmek için tek tıklayınız.
+		SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Reagentların varsayılan çıkartma yeri çantanız olarak ayarlandı. Değiştirmek için tek tıklayınız.
 		LOCAL.CONTAINER=<SRC.FINDLAYER.21>
 	ENDIF
 	
@@ -163,17 +163,17 @@ IF (<DLOCAL.AMOUNT>)
 	REMOVE
 
 	IF (<SRC.TAG0.REAGENT_CRYSTAL.CONTTYPE> == 1)
-		SRC.SYSMESSAGE @044,,1,1 Reagentlar çantanıza çıkartıldı!
+		SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Reagentlar çantanıza çıkartıldı!
 	ELSEIF (<SRC.TAG0.REAGENT_CRYSTAL.CONTTYPE> == 2)
-		SRC.SYSMESSAGE @044,,1,1 Reagentlar yeni bag içine çıkartıldı.
+		SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Reagentlar yeni bag içine çıkartıldı.
 	ELSEIF (<SRC.TAG0.REAGENT_CRYSTAL.CONTTYPE> == 3)
-		SRC.SYSMESSAGE @044,,1,1 Reagentlar seçtiğiniz çanta içine çıkartıldı.
+		SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Reagentlar seçtiğiniz çanta içine çıkartıldı.
 	ELSEIF (<SRC.TAG0.REAGENT_CRYSTAL.CONTTYPE> == 4)
-		SRC.SYSMESSAGE @044,,1,1 Reagentlar seçtiğiniz çanta içine çıkartıldı.
+		SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Reagentlar seçtiğiniz çanta içine çıkartıldı.
 	ENDIF
 	
 ELSE
-	SRC.SYSMESSAGE @38,,1,1 Hatalı <NAME>!
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Hatalı <NAME>!
 ENDIF
 
 RETURN 1
@@ -230,43 +230,43 @@ ON=1
 IF (<SRC.FINDLAYER.21>)
     SRC.TAG0.REAGENT_CRYSTAL.CONTAINER=<SRC.FINDLAYER.21>
     SRC.TAG0.REAGENT_CRYSTAL.CONTTYPE=1
-    SRC.SYSMESSAGE @,,1,1 Bundan sonra tüm reagent crystal kullanımlarınızda reagentlar çantanıza düşecektir.
+    SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Bundan sonra tüm reagent crystal kullanımlarınızda reagentlar çantanıza düşecektir.
 ENDIF
 
 ON=2
 SRC.TAG0.REAGENT_CRYSTAL.CONTTYPE=2
 SRC.TAG0.REAGENT_CRYSTAL.CONTAINER=
-SRC.SYSMESSAGE @,,1,1 Bundan sonra tüm reagent crystal kullanımlarınızda yeni bir çantaya düşecektir.
+SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Bundan sonra tüm reagent crystal kullanımlarınızda yeni bir çantaya düşecektir.
 
 ON=3
 SRC.TAG0.REAGENT_CRYSTAL.CONTTYPE=3
 SRC.TARGETF REAGENT_CONTAINER_SELECT_ITEM
-SRC.SYSMESSAGE @,,1,1 Bir çanta/kutu/kasa seçiniz.
+SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Bir çanta/kutu/kasa seçiniz.
 
 ON=4
 IF (<CONT>)
     SRC.TAG0.REAGENT_CRYSTAL.CONTTYPE=4
     SRC.TAG0.REAGENT_CRYSTAL.CONTAINER=<CONT>
-    SRC.SYSMESSAGE @,,1,1 Bundan sonra tüm reagent crystal kullanımlarınızda bulunduğu yere düşecektir.
+    SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Bundan sonra tüm reagent crystal kullanımlarınızda bulunduğu yere düşecektir.
 ENDIF
 
 
 
 [FUNCTION REAGENT_CONTAINER_SELECT_ITEM]
 IF !(<ARGO>)
-    SRC.SYSMESSAGE @38,,1,1 Bu bir eşya değil.
+    SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bir eşya değil.
     RETURN 1
 ELSEIF !(<ARGO.ISITEM>)
-    SRC.SYSMESSAGE @38,,1,1 Bu bir eşya değil.
+    SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bir eşya değil.
     RETURN 1
 ELSEIF !(<ARGO.TYPE> == T_CONTAINER)
-    SRC.SYSMESSAGE @38,,1,1 Bu bir çanta/kutu/kasa değil.
+    SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bir çanta/kutu/kasa değil.
     RETURN 1
 ELSEIF !(<SRC.ISINPACK <ARGO>>)
-    SRC.SYSMESSAGE @38,,1,1 Bu bir çanta/kutu/kasa yanınızda değil.
+    SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bir çanta/kutu/kasa yanınızda değil.
     RETURN 1
 ENDIF
-SRC.SYSMESSAGE @,,1,1 Bundan sonra tüm reagent crystal kullanımlarınızda seçtiğiniz çantaya düşecektir.
+SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Bundan sonra tüm reagent crystal kullanımlarınızda seçtiğiniz çantaya düşecektir.
 SRC.TAG0.REAGENT_CRYSTAL.CONTAINER=<ARGO>
 
 [EOF]

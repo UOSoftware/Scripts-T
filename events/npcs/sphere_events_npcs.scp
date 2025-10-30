@@ -11,7 +11,7 @@ ENDIF
 
 
 // on=@rename
-// src.sysmessage Npclerin isimlerini degistiremezsiniz.
+// src.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Npclerin isimlerini degistiremezsiniz.
 // RETURN 1
 
 ON=@DEATHCORPSE

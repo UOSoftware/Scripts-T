@@ -42,29 +42,29 @@ return 1
 
 ON=@Dclick
 if (!<link.isitem>)
-    src.sysmessage This teleporting object can not determine what stone to teleport.
+    src.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, This teleporting object can not determine what stone to teleport.
     remove
     return 1
 endif
 
 if ((<link.type> != T_STONE_GUILD ) && (<link.type> != T_STONE_TOWN ))
-    src.sysmessage This teleporting object can not determine what stone to teleport.
+    src.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, This teleporting object can not determine what stone to teleport.
     remove
     return 1
 endif
 
 if (<cont.uid> != <src.findlayer(layer_pack).uid> )
-    src.sysmessage That must be in your pack for you to use it.
+    src.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, That must be in your pack for you to use it.
     return 1
 endif
 
 if ( !<src.isgm> && ( <link.masteruid> != <src.uid> ))
-    src.sysmessage You must be the master of the guild to use it.
+    src.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, You must be the master of the guild to use it.
     return 1
 endif
 
 if ( <link.tag0.stonesys_moveruid> != <uid> )
-    src.sysmessage This teleporting object can not determine what stone to teleport.
+    src.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, This teleporting object can not determine what stone to teleport.
     return 1
 endif
 

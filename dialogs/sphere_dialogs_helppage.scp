@@ -103,15 +103,15 @@ GMPAGEADD <ARGTXT[0]>
 
 // GMPage: Cancel
 ON=21
-SYSMESSAGE @38 GMPage'den vazgecildi.
+SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, GMPage'den vazgecildi.
 
 // GMPage: Delete
 ON=22
 IF (<FINDID.I_GMPAGE>)
     FINDID.I_GMPAGE.REMOVE
-    SYSMESSAGE @38,,1,1 Gönderdiginiz GMPageyi sildiniz.
+    SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Gönderdiginiz GMPageyi sildiniz.
 ELSE
-    SYSMESSAGE @38,,1,1 Göndermis oldugunuz GMPage bulunmuyor.
+    SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Göndermis oldugunuz GMPage bulunmuyor.
 ENDIF
 
 
@@ -128,7 +128,7 @@ IF !(<FINDID.i_memory_helppage_stuck>)
     NEW.TIMER=1
     NEW.MORE1=<eval 10+<R45>>
     NEW.EQUIP
-    SYSMESSAGE @,,1,1 <NEW.MORE1> saniye icinde <SERV.MAP(<dARGV[0]>,<dARGV[1]>,<dARGV[3]>).REGION.NAME> bolgesine ulasmis olacaksiniz.
+    SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <NEW.MORE1> saniye icinde <SERV.MAP(<dARGV[0]>,<dARGV[1]>,<dARGV[3]>).REGION.NAME> bolgesine ulasmis olacaksiniz.
 ENDIF
 
 
@@ -160,7 +160,7 @@ ON=@Timer
 IF (<MORE1>)
     TIMER 1
     MORE1 --
-    TOPOBJ.SYSMESSAGE <DMORE1>
+    TOPOBJ.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <DMORE1>
     TOPOBJ.FLAGS |= STATF_FREEZE
 ELSE
     CONT.GO <MOREP>

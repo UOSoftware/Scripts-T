@@ -288,7 +288,7 @@ IF (<ISBLANK <ARGTXT[1]>>)
 	SRC.TAG0.RESTYPE_DLG.WHERE="restype='<SRC.TAG0.RESTYPE_DLG.TYPE>'"
 	SRC.TAG0.RESTYPE_DLG.SearchTerm = 
 ELSE
-	SRC.SYSMESSAGE <SRC.TAG0.RESTYPE_DLG.TYPE> resourcelerinde araniyor...
+	SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <SRC.TAG0.RESTYPE_DLG.TYPE> resourcelerinde araniyor...
 	SRC.TAG0.RESTYPE_DLG.SearchTerm = <ARGTXT[1]>
 	SRC.TAG0.RESTYPE_DLG.WHERE="restype='<SRC.TAG0.RESTYPE_DLG.TYPE>' AND (name LIKE '%<ARGTXT[1]>%' OR defname LIKE '%<ARGTXT[1]>%')"
 ENDIF
@@ -418,7 +418,7 @@ ELSE
 	// 4 =  MAX TIME
 	// 5 =  DISTANCE
 	TARGETFG F_CREATESPAWN <LOCAL.TYPE>,<LOCAL.DEFNAME>,<ARGTXT[3]>,<ARGTXT[5]>,<ARGTXT[6]>,<ARGTXT[4]>
-	SYSMESSAGE Spawni nereye yerlestirmek istiyorsun?
+	SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Spawni nereye yerlestirmek istiyorsun?
 
 ENDIF
 
@@ -430,7 +430,6 @@ SDIALOG D_RESTYPES_DEED 2
 
 // INFO
 ON=1000 29999
-// SRC.SYSMESSAGE Info
 LDB.CONNECT "db/main.db"
 IF (<LDB.CONNECTED>)
 	lDB.Query "SELECT id, defname, data FROM 'restypes' WHERE id='<EVAL <DARGN>-1000>'"
@@ -446,7 +445,6 @@ lDB.CLOSE
 
 // PROCESS
 ON=30000 60000
-// SRC.SYSMESSAGE Process
 LDB.CONNECT "db/main.db"
 IF (<LDB.CONNECTED>)
 	lDB.Query "SELECT id, defname, data FROM 'restypes' WHERE id='<EVAL <DARGN>-30000>'"
@@ -454,7 +452,7 @@ IF (<LDB.CONNECTED>)
 	IF (<lDB.ROW.NUMROWS>)
 		LOCAL.DEFNAME = <ldb.row.0.defname>
 		 SRC.TAG0.RESTYPE_DLG.SPAWN_ID
-		SRC.SYSMESSAGE <LOCAL.DEFNAME> / <DRESOURCETYPE <LOCAL.DEFNAME>>
+		SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <LOCAL.DEFNAME> / <DRESOURCETYPE <LOCAL.DEFNAME>>
 		
 		IF (<RESOURCETYPE <LOCAL.DEFNAME>> == RES_ITEMDEF) 
 			// ADDITEM
@@ -467,14 +465,14 @@ IF (<LDB.CONNECTED>)
 		ELSEIF (<RESOURCETYPE <LOCAL.DEFNAME>> == RES_AREA) 
 			// GO
 			SRC.GO <SERV.AREA.<ldb.row.0.defname>.P>>
-			SRC.SYSMESSAGE <SERV.AREA.<ldb.row.0.defname>.P>
+			SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <SERV.AREA.<ldb.row.0.defname>.P>
 			
 		ELSEIF (<RESOURCETYPE <LOCAL.DEFNAME>> == RES_ROOM)
 			// Go
 			SRC.GO <SERV.ROOM.<ldb.row.0.defname>.P>>
-			SRC.SYSMESSAGE <SERV.ROOM.<ldb.row.0.defname>.P>
+			SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <SERV.ROOM.<ldb.row.0.defname>.P>
 		ELSE
-			SRC.SYSMESSAGE @38,,1,1 Tanımsız resource.
+			SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Tanımsız resource.
 		ENDIF
 		
 	ENDIF
@@ -538,7 +536,7 @@ ELSE
 	NEW.P=<TOPOBJ.P>
 	NEW.TIMER=1
 	
-	TOPOBJ.SYSMESSAGE @,,1,1 Name=<new.name>, Type=<new.type>, More1=<new.more1>, Amount=<new.AMOUNT>, MoreX=<new.MOREX>, MoreY=<new.MOREY>, MoreZ=<new.MOREZ>
+	TOPOBJ.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Name=<new.name>, Type=<new.type>, More1=<new.more1>, Amount=<new.AMOUNT>, MoreX=<new.MOREX>, MoreY=<new.MOREY>, MoreZ=<new.MOREZ>
 
 
 ENDIF

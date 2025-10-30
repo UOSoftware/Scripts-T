@@ -217,7 +217,7 @@ ELIF (<LOCAL.LISTTYPE>==<DEF0.GUILDDLG_LISTTYPE_GRANTTITLE>)
 		SRC.CTAG.GUILD_PROMPTHANDLER_GUILDUID=<UID>
 		SRC.CTAG.GUILD_PROMPTHANDLER_THISUID=<LOCAL.MEMBERUID>
 		SRC.PROMPTCONSOLE F_PROMPTHANDLER_GUILDTITLE
-		SRC.SYSMESSAGE @,,1,1 Yeni ünvan giriniz. (En fazla:<DDEF0.GUILDCONFIG_TITLE_MAXLENGTH>):
+		SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Yeni ünvan giriniz. (En fazla:<DDEF0.GUILDCONFIG_TITLE_MAXLENGTH>):
 		
 	ELSEIF (<SRC.ISGM>)||(<MASTERUID>==<SRC.UID>)
 		SDIALOG D_GUILD_MASTER,0
@@ -236,7 +236,7 @@ ELIF (<LOCAL.LISTTYPE>==<DEF0.GUILDDLG_LISTTYPE_ADMINCANDIDATES>)
 				IF (<MEMBER.COUNT <DEF.STONEPRIV_MEMBER>> < <DEF0.GUILDCONFIG_MAXMEMBERS>)
 					F_GUILDSYS_ADDCHARTOGUILD <UID>,<LOCAL.MEMBERUID>,1
 				ELSE
-					SRC.SYSMESSAGE @38,,1,1 Guildde zaten <dDEF0.GUILDCONFIG_MAXMEMBERS> üye mevcut. Şu anda bir üye gönderemezsiniz.
+					SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Guildde zaten <dDEF0.GUILDCONFIG_MAXMEMBERS> üye mevcut. Şu anda bir üye gönderemezsiniz.
 				ENDIF
 			ELSE
 				F_GUILDSYS_ADDCHARTOGUILD <UID>,<LOCAL.MEMBERUID>,1
@@ -281,7 +281,7 @@ ENDFOR
 [DIALOG D_ACCOUNT_GUILD_UYE BUTTON]
 ON=1 5
 IF (<SRC.ACCOUNT.CHARS> <= 1)
-	SRC.SYSMESSAGE @38,,1,1 Başka karakteriniz bulunmuyor.
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Başka karakteriniz bulunmuyor.
 	RETURN 1
 ENDIF
 REF1=<SRC.ACCOUNT.CHAR.<EVAL (<ARGN> -1)>.UID>
@@ -291,7 +291,7 @@ REF2=<SRC.GUILD>
 		REF2.Joinasmember <REF1>
 		REF1.GC Guildinizin yeni üyesi olarak kabul edildim. Teşekkürler...
 		REF2.SAYU Yeni üye : <REF1.NAME>
-		SRC.SYSMESSAGE @,,1,1 <REF1.NAME> isimli oyuncu guildinize dahil oldu.
+		SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <REF1.NAME> isimli oyuncu guildinize dahil oldu.
 		REF1.NOTICE <SRC.NAME> seni bu hesapta sahibi olduğn <REF2.NAME> guildinin üyeliğine dahil etti.
 		IF (!<REF1.ISEVENT.<DEF.GUILDCONFIG_CHAREVENT_NAME>>)
 		  REF1.EVENTS +<DEF.GUILDCONFIG_CHAREVENT_NAME>

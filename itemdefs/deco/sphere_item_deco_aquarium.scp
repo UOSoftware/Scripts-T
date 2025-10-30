@@ -1020,20 +1020,20 @@ ENDIF
 ON=@DropOn_Self
 IF (<ARGO.TAG0.AquariumCreature>)
    IF (<TAG0.LiveCreatures> >= 30)
-      SRC.SYSMESSAGE The aquarium can not hold the creature.
+      SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, The aquarium can not hold the creature.
       return 1
    ENDIF
-   SRC.SYSMESSAGE You add the following creature to your aquarium: <ARGO.NAME>
+   SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, You add the following creature to your aquarium: <ARGO.NAME>
    TAG0.LiveCreatures ++
 ELSE
    IF !(<ARGO.TAG0.AquariumDecoration>)
-      SRC.SYSMESSAGE The aquarium can not hold that item.
+      SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, The aquarium can not hold that item.
       return 1
    ELIF (<RESCOUNT> >= 125)
-      SRC.SYSMESSAGE The decoration will not fit in the aquarium.
+      SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, The decoration will not fit in the aquarium.
       return 1
    ENDIF
-   SRC.SYSMESSAGE You add the following decoration to your aquarium: <ARGO.NAME>
+   SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, You add the following decoration to your aquarium: <ARGO.NAME>
    TAG0.Decorations ++
 ENDIF
 TIMERF 1,RESENDTOOLTIP

@@ -34,6 +34,7 @@ DEFNAME=s_clumsy
 NAME=Clumsy
 SOUND=snd_spell_clumsy
 RUNES=UJ
+RUNES=.Uus Jux
 CAST_TIME=0.5
 FREEZE_TIME=0.0
 RESOURCES=i_reag_blood_moss,i_reag_nightshade
@@ -310,7 +311,7 @@ FREEZE_TIME=0.8
 RESOURCES=i_reag_garlic,i_reag_ginseng,i_reag_sulfur_ash
 RUNE_ITEM=i_rune_protection
 SCROLL_ITEM=i_scroll_protection
-FLAGS=SPELLFLAG_TARG_CHAR|SPELLFLAG_FX_TARG|SPELLFLAG_GOOD|SPELLFLAG_PLAYERONLY|SPELLFLAG_BLESS
+FLAGS=SPELLFLAG_TARG_CHAR|SPELLFLAG_FX_TARG|SPELLFLAG_GOOD|SPELLFLAG_PLAYERONLY|SPELLFLAG_BLESS|SPELLFLAG_TARG_ONLYSELF
 EFFECT_ID=i_fx_sparkle
 EFFECT=5,35
 LAYER=layer_spell_protection
@@ -367,15 +368,16 @@ FREEZE_TIME=1.0
 RESOURCES=i_reag_black_pearl
 RUNE_ITEM=i_rune_fireball
 SCROLL_ITEM=i_scroll_fireball
-FLAGS=SPELLFLAG_DIR_ANIM|SPELLFLAG_TARG_CHAR|SPELLFLAG_HARM|SPELLFLAG_DAMAGE|SPELLFLAG_FX_BOLT|SPELLFLAG_RESIST|SPELLFLAG_TARG_NOSELF
+FLAGS=SPELLFLAG_DIR_ANIM|SPELLFLAG_TARG_CHAR|SPELLFLAG_HARM|SPELLFLAG_DAMAGE|SPELLFLAG_FX_BOLT|SPELLFLAG_TARG_NOSELF
 EFFECT_ID=i_fx_fireball
 EFFECT=8,16
 DURATION=0.0
 MANAUSE=9
 SKILLREQ=MAGERY 30.0
 INTERRUPT=100.0,100.0
+
 ON=@Effect
-   LOCAL.DAMAGETYPE=(<DEF.dam_fire>|<DEF.dam_magic>)
+LOCAL.DAMAGETYPE=(<DEF.dam_fire>|<DEF.dam_magic>)
 
 [SPELL 19]
 DEFNAME=s_magic_lock
@@ -491,7 +493,7 @@ SKILLREQ=MAGERY 30.0
 INTERRUPT=100.0,100.0
 
 ON=@Success
-LOCAL.FieldWidth=5
+LOCAL.FieldWidth=7
 
 ON=@Effect
 LOCAL.DAMAGETYPE=(<DEF.dam_physical>|<DEF.dam_magic>)
@@ -579,7 +581,7 @@ SKILLREQ=MAGERY 40.0
 INTERRUPT=100.0,100.0
 
 ON=@Success
-LOCAL.FieldWidth=5
+LOCAL.FieldWidth=7
 
 ON=@Effect
 LOCAL.DAMAGETYPE=(<DEF.dam_fire>|<DEF.dam_magic>)
@@ -612,7 +614,7 @@ FREEZE_TIME=1.3
 RESOURCES=i_reag_mandrake_root,i_reag_sulfur_ash
 RUNE_ITEM=i_rune_lightning
 SCROLL_ITEM=i_scroll_lightning
-FLAGS=spellflag_dir_anim|spellflag_targ_obj|spellflag_fx_targ|spellflag_harm|spellflag_damage|spellflag_resist
+FLAGS=SPELLFLAG_DIR_ANIM|SPELLFLAG_TARG_CHAR|SPELLFLAG_FX_TARG|SPELLFLAG_HARM|SPELLFLAG_DAMAGE|SPELLFLAG_RESIST|SPELLFLAG_TARG_NOSELF
 EFFECT_ID=0
 EFFECT=10,20
 DURATION=0.0
@@ -665,8 +667,8 @@ DEFNAME=s_blade_spirits
 NAME=Blade Spirit
 SOUND=snd_spell_blade_spirits
 RUNES=IJHY
-CAST_TIME=7.5
-FREEZE_TIME=7.5
+CAST_TIME=2.5
+FREEZE_TIME=2.0
 RESOURCES=i_reag_black_pearl,i_reag_mandrake_root,i_reag_nightshade
 RUNE_ITEM=i_rune_blade_spirits
 SCROLL_ITEM=i_scroll_blade_spirits
@@ -689,7 +691,7 @@ FREEZE_TIME=1.5
 RESOURCES=i_reag_black_pearl,i_reag_garlic,i_reag_spider_silk,i_reag_sulfur_ash
 RUNE_ITEM=i_rune_dispel_field
 SCROLL_ITEM=i_scroll_dispel_field
-FLAGS=spellflag_targ_item|spellflag_playeronly
+FLAGS=SPELLFLAG_TARG_ITEM|SPELLFLAG_PLAYERONLY
 EFFECT_ID=i_fx_heal_effect
 EFFECT=0
 DURATION=0.0
@@ -707,7 +709,7 @@ FREEZE_TIME=1.5
 RESOURCES=i_reag_blood_moss,i_reag_garlic,i_reag_nightshade
 RUNE_ITEM=i_rune_incognito
 SCROLL_ITEM=i_scroll_incognito
-FLAGS=spellflag_playeronly
+FLAGS=SPELLFLAG_PLAYERONLY
 EFFECT_ID=0
 EFFECT=0
 LAYER=layer_spell_incognito
@@ -726,7 +728,7 @@ FREEZE_TIME=1.5
 RESOURCES=i_reag_garlic,i_reag_mandrake_root,i_reag_spider_silk
 RUNE_ITEM=i_rune_magic_reflection
 SCROLL_ITEM=i_scroll_magic_reflection
-FLAGS=spellflag_targ_char|spellflag_fx_targ|spellflag_good|spellflag_playeronly|spellflag_bless|spellflag_targ_onlyself
+FLAGS=SPELLFLAG_TARG_CHAR|SPELLFLAG_FX_TARG|SPELLFLAG_GOOD|SPELLFLAG_PLAYERONLY|SPELLFLAG_BLESS|SPELLFLAG_TARG_ONLYSELF
 EFFECT_ID=i_fx_bless_effect
 EFFECT=0
 LAYER=layer_spell_magic_reflect
@@ -745,7 +747,7 @@ FREEZE_TIME=1.5
 RESOURCES=i_reag_black_pearl,i_reag_mandrake_root,i_reag_nightshade,i_reag_sulfur_ash
 RUNE_ITEM=i_rune_mind_blast
 SCROLL_ITEM=i_scroll_mind_blast
-FLAGS=spellflag_dir_anim|spellflag_targ_char|spellflag_harm|spellflag_damage|spellflag_fx_targ|spellflag_resist|spellflag_nounparalyze
+FLAGS=SPELLFLAG_DIR_ANIM|SPELLFLAG_TARG_CHAR|SPELLFLAG_HARM|SPELLFLAG_DAMAGE|SPELLFLAG_FX_TARG|SPELLFLAG_RESIST|SPELLFLAG_NOUNPARALYZE
 EFFECT_ID=i_fx_curse
 EFFECT=5,20
 DURATION=0.0
@@ -760,13 +762,14 @@ LOCAL.DAMAGETYPE=(<DEF.dam_cold>|<DEF.dam_magic>)
 DEFNAME=s_paralyze
 NAME=Paralyze
 SOUND=snd_spell_paralyze
-RUNES=AEP
+// RUNES=AEP
+RUNES=.An Ex Por
 CAST_TIME=1.5
 FREEZE_TIME=1.5
 RESOURCES=i_reag_garlic,i_reag_mandrake_root,i_reag_spider_silk
 RUNE_ITEM=i_rune_paralyze
 SCROLL_ITEM=i_scroll_paralyze
-FLAGS=spellflag_dir_anim|spellflag_targ_char|spellflag_harm|spellflag_fx_targ|spellflag_resist|spellflag_nounparalyze
+FLAGS=SPELLFLAG_DIR_ANIM|SPELLFLAG_TARG_CHAR|SPELLFLAG_HARM|SPELLFLAG_FX_TARG|SPELLFLAG_RESIST|SPELLFLAG_NOUNPARALYZE
 EFFECT_ID=i_fx_curse
 EFFECT=0
 LAYER=layer_spell_paralyze
@@ -775,17 +778,37 @@ MANAUSE=14
 SKILLREQ=MAGERY 50.0
 INTERRUPT=100.0,100.0
 
+ON=@Effect
+IF (<FINDID.i_pouch_trapped>)
+	IF (<FINDLAYER{21}.FINDID{i_pouch_trapped}.AMOUNT> > 1)
+		FINDLAYER(21).FINDID{i_pouch_trapped}.AMOUNT -=1
+	ELSE
+		FINDLAYER(21).FINDID{i_pouch_trapped}.REMOVE
+	ENDIF
+	EFFECT 3,I_FX_SMOKE,3,25,1,07ef
+	SOUND SND_SPELL_EXPLOSION
+	DAMAGE 5
+	RETURN 1
+ELSE
+	// TP yoksa, paralyze olduysa greenbarı kaldırmak için poiyi sil,
+	// IF (<FINDID.I_RUNE_POISON>)
+		// FINDID.I_RUNE_POISON.REMOVE
+	// ENDIF
+ENDIF
+
+
 [SPELL 39]
 DEFNAME=s_poison_field
 NAME=Poison Field
 SOUND=snd_spell_poison_field
-RUNES=ING
+// RUNES=ING
+RUNES=.In Nox Grav
 CAST_TIME=1.5
 FREEZE_TIME=1.5
 RESOURCES=i_reag_black_pearl,i_reag_nightshade,i_reag_spider_silk
 RUNE_ITEM=i_rune_poison_field
 SCROLL_ITEM=i_scroll_poison_field
-FLAGS=spellflag_dir_anim|spellflag_targ_xyz|spellflag_harm|spellflag_damage|spellflag_fx_targ|spellflag_field|spellflag_playeronly
+FLAGS=SPELLFLAG_TARG_XYZ|SPELLFLAG_HARM|SPELLFLAG_DAMAGE|SPELLFLAG_FX_TARG|SPELLFLAG_FIELD|SPELLFLAG_PLAYERONLY
 EFFECT_ID=i_fx_curse
 EFFECT=5,50 // 50,500
 LAYER=layer_flag_poison
@@ -795,7 +818,7 @@ SKILLREQ=MAGERY 50.0
 INTERRUPT=100.0,100.0
 
 ON=@Success
-LOCAL.FieldWidth=5
+LOCAL.FieldWidth=7
 
 ON=@Effect
 LOCAL.DAMAGETYPE=(<DEF.dam_poison>|<DEF.dam_magic>)
@@ -907,33 +930,158 @@ DEFNAME=s_mark
 NAME=Mark
 SOUND=snd_spell_mark
 RUNES=KPY
-CAST_TIME=1.8
-FREEZE_TIME=1.8
+CAST_TIME=3.0
+FREEZE_TIME=2.0
 RESOURCES=i_reag_black_pearl,i_reag_blood_moss,i_reag_mandrake_root
 RUNE_ITEM=i_rune_mark
 SCROLL_ITEM=i_scroll_mark
 FLAGS=spellflag_targ_item|spellflag_playeronly
-EFFECT_ID=0
+EFFECT_ID=i_rune_marker
 EFFECT=1,10
 DURATION=0.0
 MANAUSE=20
 SKILLREQ=MAGERY 60.0
 INTERRUPT=100.0,100.0
 
-ON=@Effect
-REF1=<TOPOBJ>
-LOCAL.InsideHouse=<QVAL (<ISEMPTY <REGION.TYPE>>)? 0:1>
-IF (<REF1.P.M> == 0)		// Felucca
-   COLOR=<QVAL (<LOCAL.InsideHouse>)? 066d:0>
-ELIF (<REF1.P.M> == 1)	// Trammel
-   COLOR=<QVAL (<LOCAL.InsideHouse>)? 047f:032>
-ELIF (<REF1.P.M> == 3)	// Malas
-   COLOR=<QVAL (<LOCAL.InsideHouse>)? 055f:044e>
-ELIF (<REF1.P.M> == 4)	// Tokuno Islands
-   COLOR=<QVAL (<LOCAL.InsideHouse>)? 047f:0482>
-ELIF (<REF1.P.M> == 5)	// Ter Mur
-   COLOR=048a
+ON=@SELECT
+IF (<SRC.IsOnSea>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Deniz üzeri)
+	RETURN 1
+ELSEIF (<SRC.REGION.FLAGS>&REGION_ANTIMAGIC_ALL)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Anti-magic all)
+	RETURN 1
+ELSEIF (<SRC.REGION.FLAGS>&REGION_ANTIMAGIC_RECALL_IN)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Anti-magic recall in)
+	RETURN 1	
+ELSEIF (<SRC.REGION.FLAGS>&REGION_ANTIMAGIC_RECALL_OUT)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Anti-magic recall out)
+	RETURN 1	
+ELSEIF (<SRC.REGION.FLAGS>&REGION_ANTIMAGIC_GATE)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Anti-magic gate)
+	RETURN 1	
+ELSEIF (<SRC.REGION.FLAGS>&REGION_ANTIMAGIC_TELEPORT)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Anti-magic teleport)
+	RETURN 1	
+ELSEIF (<SRC.REGION.FLAGS>&REGION_ANTIMAGIC_TELEPORT)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Safe zone)
+	RETURN 1	
+ELSEIF (<SRC.REGION.FLAGS>&REGION_FLAG_NO_PVP)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Nopvp)
+	RETURN 1
+ELSEIF (<SRC.IsInShip>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Gemi içerisi)
+	RETURN 1
+ELSEIF (<SRC.IsInHouse>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Ev içerisi)
+	RETURN 1
+ELSEIF (strmatch('Star','<SRC.REGION.NAME>')) || (strmatch(*Green Acres*,'<SRC.REGION.NAME>')) || (strmatch(*Jail*,'<SRC.REGION.NAME>'))
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Ulaşılamayan alan)
+	RETURN 1
+ELSEIF (<SRC.ISNEARTYPE T_DEED_UYARI_MARK <DLOCAL.KARE>>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (<DLOCAL.KARE> kare mark yasağı)
+	RETURN 1
+ELSEIF (<SERV.MAP(<SRC.P>,0).TERRAIN> == 0244)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez.
+	RETURN 1
 ENDIF
+
+
+
+ON=@START
+IF (<SRC.IsOnSea>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Deniz üzeri)
+	RETURN 1
+ELSEIF (<SRC.REGION.FLAGS>&REGION_ANTIMAGIC_ALL)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Anti-magic all)
+	RETURN 1
+ELSEIF (<SRC.REGION.FLAGS>&REGION_ANTIMAGIC_RECALL_IN)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Anti-magic recall in)
+	RETURN 1	
+ELSEIF (<SRC.REGION.FLAGS>&REGION_ANTIMAGIC_RECALL_OUT)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Anti-magic recall out)
+	RETURN 1	
+ELSEIF (<SRC.REGION.FLAGS>&REGION_ANTIMAGIC_GATE)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Anti-magic gate)
+	RETURN 1	
+ELSEIF (<SRC.REGION.FLAGS>&REGION_ANTIMAGIC_TELEPORT)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Anti-magic teleport)
+	RETURN 1	
+ELSEIF (<SRC.REGION.FLAGS>&REGION_FLAG_SAFE)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Safe Zone)
+	RETURN 1	
+ELSEIF (<SRC.REGION.FLAGS>&REGION_FLAG_NO_PVP)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Nopvp)
+	RETURN 1
+ELSEIF (<SRC.IsInShip>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Gemi içerisi)
+	RETURN 1
+ELSEIF (<SRC.IsInHouse>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Ev içerisi)
+	RETURN 1
+ELSEIF (strmatch('Star','<SRC.REGION.NAME>')) || (strmatch(*Green Acres*,'<SRC.REGION.NAME>')) || (strmatch(*Jail*,'<SRC.REGION.NAME>'))
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Ulaşılamayan alan)
+	RETURN 1
+ELSEIF (<SRC.ISNEARTYPE T_DEED_UYARI_MARK <DLOCAL.KARE>>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (<DLOCAL.KARE> kare mark yasağı)
+	RETURN 1
+ELSEIF (<SERV.MAP(<SRC.P>,0).TERRAIN> == 0244)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez.
+	RETURN 1
+ENDIF
+
+
+ON=@EFFECT
+IF (<SRC.IsOnSea>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Deniz üzeri)
+	RETURN 1
+ELSEIF (<SRC.REGION.FLAGS>&REGION_ANTIMAGIC_ALL)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Anti-magic all)
+	RETURN 1
+ELSEIF (<SRC.REGION.FLAGS>&REGION_ANTIMAGIC_RECALL_IN)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Anti-magic recall in)
+	RETURN 1	
+ELSEIF (<SRC.REGION.FLAGS>&REGION_ANTIMAGIC_RECALL_OUT)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Anti-magic recall out)
+	RETURN 1	
+ELSEIF (<SRC.REGION.FLAGS>&REGION_ANTIMAGIC_GATE)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Anti-magic gate)
+	RETURN 1	
+ELSEIF (<SRC.REGION.FLAGS>&REGION_ANTIMAGIC_TELEPORT)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Anti-magic teleport)
+	RETURN 1	
+ELSEIF (<SRC.REGION.FLAGS>&REGION_ANTIMAGIC_TELEPORT)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Anti-magic safe)
+	RETURN 1	
+ELSEIF (<SRC.REGION.FLAGS>&REGION_FLAG_NO_PVP)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Anti-magic nopvp)
+	RETURN 1
+ELSEIF (<SRC.IsInShip>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Gemi içerisi)
+	RETURN 1
+ELSEIF (<SRC.IsInHouse>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Ev içerisi)
+	RETURN 1
+ELSEIF (strmatch('Star','<SRC.REGION.NAME>')) || (strmatch(*Green Acres*,'<SRC.REGION.NAME>')) || (strmatch(*Jail*,'<SRC.REGION.NAME>'))
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (Ulaşılamayan alan)
+	RETURN 1
+ELSEIF (<SRC.ISNEARTYPE T_DEED_UYARI_MARK <DLOCAL.KARE>>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez. (<DLOCAL.KARE> kare mark yasağı)
+	RETURN 1
+ELSEIF (<SERV.MAP(<SRC.P>,0).TERRAIN> == 0244)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu bölge işaretlenemez.
+	RETURN 1
+ENDIF
+
+IF (<TYPE> == T_RUNE)
+	IF (<ATTR>&ATTR_NEWBIE)
+		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>,  Bu rune marklanamaz.
+		RETURN 1
+	ENDIF
+	CALL Func_Map_Colors <SRC.P.X>,<SRC.P.Y>,<SRC.P.Z>,<SRC.P.M>
+	COLOR <DLOCAL.REGIONCOLOR_MARK>
+ENDIF
+
+
 
 [SPELL 46]
 DEFNAME=s_mass_curse
@@ -978,7 +1126,7 @@ SKILLREQ=MAGERY 60.0
 INTERRUPT=100.0,100.0
 
 ON=@Success
-LOCAL.FieldWidth=5
+LOCAL.FieldWidth=7
 
 [SPELL 48]
 DEFNAME=s_reveal
@@ -1046,21 +1194,22 @@ SKILLREQ=MAGERY 70.0
 INTERRUPT=100.0,100.0
 
 ON=@Success
-LOCAL.FieldWidth=5
+LOCAL.FieldWidth=7
 
 [SPELL 51]
 DEFNAME=s_flamestrike
 NAME=Flamestrike
 SOUND=snd_spell_flamestrike
-RUNES=KVF
-CAST_TIME=2.0
-FREEZE_TIME=2.0
+// RUNES=KVF
+RUNES=.Kal Vas Flam
+CAST_TIME=3.5
+FREEZE_TIME=3.0
 RESOURCES=i_reag_spider_silk,i_reag_sulfur_ash
 RUNE_ITEM=i_rune_flamestrike
 SCROLL_ITEM=i_scroll_flamestrike
 FLAGS=spellflag_dir_anim|spellflag_targ_obj|spellflag_harm|spellflag_damage|spellflag_fx_targ|spellflag_resist
 EFFECT_ID=i_fire_column
-EFFECT=25,50
+EFFECT=30,40
 DURATION=0.0
 MANAUSE=40
 SKILLREQ=MAGERY 70.0
@@ -1126,14 +1275,16 @@ INTERRUPT=100.0,100.0
 ON=@Success
 // Default: 15
 LOCAL.AREARADIUS=8
+SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, Etki alani: <dLOCAL.AREARADIUS> mt. (kare)
 
 [SPELL 55]
 DEFNAME=s_meteor_swarm
 NAME=Meteor Swarm
 SOUND=snd_spell_meteor_swarm
-RUNES=FKDY
-CAST_TIME=2.0
-FREEZE_TIME=2.0
+// RUNES=FKDY
+RUNES=.Flam Kal Des Ylem
+CAST_TIME=3.5
+FREEZE_TIME=3.0
 RESOURCES=i_reag_blood_moss,i_reag_mandrake_root,i_reag_spider_silk,i_reag_sulfur_ash
 RUNE_ITEM=i_rune_meteor_swarm
 SCROLL_ITEM=i_scroll_meteor_swarm
@@ -1148,6 +1299,7 @@ INTERRUPT=100.0,100.0
 ON=@Success
 // Default: 5
 LOCAL.AREARADIUS=2
+SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, Etki alani: <dLOCAL.AREARADIUS> mt. (kare)
 
 ON=@Effect
 LOCAL.DAMAGETYPE=(<DEF.dam_physical>|<DEF.dam_magic>)
@@ -1157,8 +1309,8 @@ DEFNAME=s_polymorph
 NAME=Polymorph
 SOUND=snd_spell_polymorph
 RUNES=VYR
-CAST_TIME=2.0
-FREEZE_TIME=2.0
+CAST_TIME=3.5
+FREEZE_TIME=3.5
 RESOURCES=i_reag_blood_moss,i_reag_mandrake_root,i_reag_spider_silk
 RUNE_ITEM=i_rune_polymorph
 SCROLL_ITEM=i_scroll_polymorph
@@ -1174,7 +1326,7 @@ INTERRUPT=100.0,100.0
 ON=@Select
 IF (<FLAGS> & statf_polymorph)
 	IF (<MANA> < <SERV.SPELL.s_polymorph.MANAUSE>)
-		SYSMESSAGE <DEFMSG.spell_try_nomana>
+		SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <DEFMSG.spell_try_nomana>
 	ELSE
 		MANA -= <SERV.SPELL.s_polymorph.MANAUSE>
 		FINDID.<SERV.SPELL.s_polymorph.RUNE_ITEM>.REMOVE
@@ -1187,13 +1339,13 @@ DEFNAME=s_earthquake
 NAME=Earthquake
 SOUND=snd_spell_earthquake
 RUNES=IVP
-CAST_TIME=2.3
-FREEZE_TIME=2.3
+CAST_TIME=4.0
+FREEZE_TIME=3.0
 RESOURCES=i_reag_blood_moss,i_reag_ginseng,i_reag_mandrake_root,i_reag_sulfur_ash
 RUNE_ITEM=i_rune_earthquake
 SCROLL_ITEM=i_scroll_earthquake
-FLAGS=spellflag_harm|spellflag_damage|spellflag_area|spellflag_fx_targ|spellflag_playeronly
-EFFECT_ID=i_fx_smoke
+FLAGS=SPELLFLAG_HARM|SPELLFLAG_DAMAGE|SPELLFLAG_AREA|SPELLFLAG_FX_TARG|SPELLFLAG_PLAYERONLY
+EFFECT_ID=0
 EFFECT=30,45
 DURATION=30.0
 MANAUSE=50
@@ -1203,6 +1355,7 @@ INTERRUPT=100.0,100.0
 ON=@Success
 // Default: 12
 LOCAL.AREARADIUS=<eval 1+(<MAGERY>/150)>
+SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, Etki alani: <dLOCAL.AREARADIUS> mt. (kare)
    
 ON=@Effect
 LOCAL.DAMAGETYPE=(<DEF.dam_physical>|<DEF.dam_magic>)
@@ -1211,13 +1364,14 @@ LOCAL.DAMAGETYPE=(<DEF.dam_physical>|<DEF.dam_magic>)
 DEFNAME=s_energy_vortex
 NAME=Energy Vortex
 SOUND=snd_spell_energy_vortex
-RUNES=VCP
-CAST_TIME=2.3
-FREEZE_TIME=2.3
+// RUNES=VCP
+RUNES=.Vas Corp Por
+CAST_TIME=4.0
+FREEZE_TIME=3.3
 RESOURCES=i_reag_black_pearl,i_reag_blood_moss,i_reag_mandrake_root,i_reag_nightshade
 RUNE_ITEM=i_rune_energy_vortex
 SCROLL_ITEM=i_scroll_energy_vortex
-FLAGS=spellflag_dir_anim|spellflag_targ_xyz|spellflag_harm|spellflag_summon
+FLAGS=SPELLFLAG_TARG_XYZ|SPELLFLAG_HARM|SPELLFLAG_SUMMON
 EFFECT_ID=0
 EFFECT=0
 LAYER=layer_spell_summon
@@ -1230,9 +1384,10 @@ INTERRUPT=100.0,100.0
 DEFNAME=s_resurrection
 NAME=Resurrection
 SOUND=snd_spell_resurrection
-RUNES=AC
-CAST_TIME=2.3
-FREEZE_TIME=2.3
+// RUNES=AC
+RUNES=.An Corp
+CAST_TIME=4.0
+FREEZE_TIME=4.0
 RESOURCES=i_reag_blood_moss,i_reag_garlic,i_reag_ginseng
 RUNE_ITEM=i_rune_resurrection
 SCROLL_ITEM=i_scroll_resurrection
@@ -1244,17 +1399,47 @@ MANAUSE=50
 SKILLREQ=MAGERY 80.0
 INTERRUPT=100.0,100.0
 
+ON=@EFFECT
+IF (<SRC.ISPLAYER> && <ISPLAYER>)
+	IF (<IsInHouse>)
+		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>,<NAME> evin içindeyken hayata döndüremezsiniz.
+		SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>,Evin içinde hayata dönemezsiniz.
+		RETURN 1
+	ELSEIF (<F_HOUSE_NEAR_DOOR 1>)
+		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>,Kapıların yakınında hayata döndüremezsiniz.
+		SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>,<SRC.NAME> sizi hayata döndürmeye çalıştı fakat kapıya çok yakın olduğun için başarısı oldu.
+		RETURN 1
+	ENDIF
+ENDIF
+
+ON=@START
+IF (<SRC.ISPLAYER> && <ACT.ISPLAYER>)
+	IF (<ACT.IsInHouse>)
+		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>,<ACT.NAME> evin içindeyken hayata döndüremezsiniz.
+		ACT.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>,Evin içinde hayata dönemezsiniz.
+		RETURN 1
+	ELSEIF (<ACT.F_HOUSE_NEAR_DOOR 2>)
+		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>,Kapıların yakınında hayata döndüremezsiniz.
+		ACT.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>,<SRC.NAME> sizi hayata döndürmeye çalıştı fakat kapıya çok yakın olduğun için başarısı oldu.
+		RETURN 1
+	ELSEIF (<ACT.FINDID.I_MEMORY_HELPPAGE_STUCK>)
+		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>,Stuck kullanan birisini canlandiramazsiniz.
+		RETURN 1
+	ENDIF
+ENDIF
+
 [SPELL 60]
 DEFNAME=s_summon_elem_air
 NAME=Air Elemental
 SOUND=snd_spell_summon_elem_air
-RUNES=KVXH
-CAST_TIME=2.3
-FREEZE_TIME=2.3
+// RUNES=KVXH
+RUNES=.Kal Vas Xen Hur
+CAST_TIME=4.0
+FREEZE_TIME=3.0
 RESOURCES=i_reag_blood_moss,i_reag_mandrake_root,i_reag_spider_silk
 RUNE_ITEM=i_rune_summon_elem_air
 SCROLL_ITEM=i_scroll_summon_elem_air
-FLAGS=spellflag_dir_anim|spellflag_summon
+FLAGS=SPELLFLAG_TARG_XYZ|SPELLFLAG_SUMMON
 EFFECT_ID=0
 EFFECT=0
 LAYER=layer_spell_summon
@@ -1267,13 +1452,14 @@ INTERRUPT=100.0,100.0
 DEFNAME=s_summon_daemon
 NAME=Summon Daemon
 SOUND=snd_spell_summon_daemon
-RUNES=KVXC
-CAST_TIME=2.3
-FREEZE_TIME=2.3
+// RUNES=KVXC
+RUNES=.Kal Vas Xen Corp
+CAST_TIME=4.0
+FREEZE_TIME=3.0
 RESOURCES=i_reag_blood_moss,i_reag_mandrake_root,i_reag_spider_silk,i_reag_sulfur_ash
 RUNE_ITEM=i_rune_summon_daemon
 SCROLL_ITEM=i_scroll_summon_daemon
-FLAGS=spellflag_dir_anim|spellflag_summon
+FLAGS=SPELLFLAG_TARG_XYZ|SPELLFLAG_SUMMON
 EFFECT_ID=0
 EFFECT=0
 LAYER=layer_spell_summon
@@ -1286,13 +1472,14 @@ INTERRUPT=100.0,100.0
 DEFNAME=s_summon_elem_earth
 NAME=Earth Elemental
 SOUND=snd_spell_summon_elem_earth
-RUNES=KVXY
-CAST_TIME=2.3
-FREEZE_TIME=2.3
+// RUNES=KVXY
+RUNES=.Kal Vas Xen Ylem
+CAST_TIME=4.0
+FREEZE_TIME=3.0
 RESOURCES=i_reag_blood_moss,i_reag_mandrake_root,i_reag_spider_silk
 RUNE_ITEM=i_rune_summon_elem_earth
 SCROLL_ITEM=i_scroll_summon_elem_earth
-FLAGS=spellflag_dir_anim|spellflag_summon
+FLAGS=SPELLFLAG_TARG_XYZ|SPELLFLAG_SUMMON
 EFFECT_ID=0
 EFFECT=0
 LAYER=layer_spell_summon
@@ -1305,13 +1492,14 @@ INTERRUPT=100.0,100.0
 DEFNAME=s_summon_elem_fire
 NAME=Fire Elemental
 SOUND=snd_spell_summon_elem_fire
-RUNES=KVXF
-CAST_TIME=2.3
+// RUNES=KVXF
+RUNES=.Kal Vas Xen Flam
+CAST_TIME=4.0
 FREEZE_TIME=3.0
 RESOURCES=i_reag_blood_moss,i_reag_mandrake_root,i_reag_spider_silk,i_reag_sulfur_ash
 RUNE_ITEM=i_rune_summon_elem_fire
 SCROLL_ITEM=i_scroll_summon_elem_fire
-FLAGS=spellflag_dir_anim|spellflag_summon
+FLAGS=SPELLFLAG_TARG_XYZ|SPELLFLAG_SUMMON
 EFFECT_ID=0
 EFFECT=0
 LAYER=layer_spell_summon
@@ -1324,13 +1512,14 @@ INTERRUPT=100.0,100.0
 DEFNAME=s_summon_elem_water
 NAME=Water Elemental
 SOUND=snd_spell_summon_elem_water
-RUNES=KVXAF
-CAST_TIME=2.3
-FREEZE_TIME=2.3
+// RUNES=KVXAF
+RUNES=.Kal Vas Xen An Flam
+CAST_TIME=4.0
+FREEZE_TIME=3.0
 RESOURCES=i_reag_blood_moss,i_reag_mandrake_root,i_reag_spider_silk
 RUNE_ITEM=i_rune_summon_elem_water
 SCROLL_ITEM=i_scroll_summon_elem_water
-FLAGS=spellflag_dir_anim|spellflag_summon
+FLAGS=SPELLFLAG_TARG_XYZ|SPELLFLAG_SUMMON
 EFFECT_ID=0
 EFFECT=0
 LAYER=layer_spell_summon

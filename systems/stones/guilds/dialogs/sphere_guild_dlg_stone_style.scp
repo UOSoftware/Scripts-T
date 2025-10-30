@@ -78,80 +78,80 @@ DIALOG D_GUILD_STONESTYLE
 ON=1
 DISPID =i_statue_warrior_custom2
 UPDATE
-SRC.SYSMESSAGE @044,,1,1 Guildstone görünümü değişti.
+SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Guildstone görünümü değişti.
 
 
 ON=2
 IF (<SRC.ACCOUNT.TAG0.BAKIYE> < 50)
-	SRC.SYSMESSAGE @38,,1,1 Bunu kullanabilmek için en az 50 Donate pointe ihtiyacınız var.
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bunu kullanabilmek için en az 50 Donate pointe ihtiyacınız var.
 	RETURN 1
 ENDIF
 SRC.ACCOUNT.TAG0.BAKIYE -=50
 DISPID =i_statue_warrior_custom1
 UPDATE
-SRC.SYSMESSAGE @044,,1,1 Guildstone görünümü 50 Donate point karşılığında değişti.
+SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Guildstone görünümü 50 Donate point karşılığında değişti.
 
 
 
 
 ON=3
 IF (<SRC.ACCOUNT.TAG0.BAKIYE> < 25)
-	SRC.SYSMESSAGE @38,,1,1 Bunu kullanabilmek için en az 25 Donate pointe ihtiyacınız var.
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bunu kullanabilmek için en az 25 Donate pointe ihtiyacınız var.
 	RETURN 1
 ENDIF
 SRC.ACCOUNT.TAG0.BAKIYE -=25
 DISPID =i_statue_warrior_custom3
 UPDATE
-SRC.SYSMESSAGE @044,,1,1 Guildstone görünümü 25 Donate point karşılığında değişti.
+SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Guildstone görünümü 25 Donate point karşılığında değişti.
 
 
 
 ON=4
 IF (<SRC.ACCOUNT.TAG0.BAKIYE> < 50)
-	SRC.SYSMESSAGE @38,,1,1 Bunu kullanabilmek için en az 50 Donate pointe ihtiyacınız var.
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bunu kullanabilmek için en az 50 Donate pointe ihtiyacınız var.
 	RETURN 1
 ENDIF
 SRC.ACCOUNT.TAG0.BAKIYE -=50
 DISPID =i_statue_mage_custom1
 UPDATE
-SRC.SYSMESSAGE @044,,1,1 Guildstone görünümü 50 Donate point karşılığında değişti.
+SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Guildstone görünümü 50 Donate point karşılığında değişti.
 
 
 
 ON=5
 IF (<SRC.ACCOUNT.TAG0.BAKIYE> < 50)
-	SRC.SYSMESSAGE @38,,1,1 Bunu kullanabilmek için en az 50 Donate pointe ihtiyacınız var.
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bunu kullanabilmek için en az 50 Donate pointe ihtiyacınız var.
 	RETURN 1
 ENDIF
 SRC.ACCOUNT.TAG0.BAKIYE -=50
 DISPID =i_statue_elrond_custom1
 UPDATE
-SRC.SYSMESSAGE @044,,1,1 Guildstone görünümü 50 Donate point karşılığında değişti.
+SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Guildstone görünümü 50 Donate point karşılığında değişti.
 
 
 
 ON=6
 IF (<SRC.ACCOUNT.TAG0.BAKIYE> < 50)
-	SRC.SYSMESSAGE @38,,1,1 Bunu kullanabilmek için en az 50 Donate pointe ihtiyacınız var.
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bunu kullanabilmek için en az 50 Donate pointe ihtiyacınız var.
 	RETURN 1
 ENDIF
 SRC.ACCOUNT.TAG0.BAKIYE -=50
 DISPID =i_statue_onmount_warrior_sword
 UPDATE
-SRC.SYSMESSAGE @044,,1,1 Guildstone görünümü 50 Donate point karşılığında değişti.
+SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>,Guildstone görünümü 50 Donate point karşılığında değişti.
 
 
 
 
 ON=7
 IF (<SRC.ACCOUNT.TAG0.BAKIYE> < 50)
-	SRC.SYSMESSAGE @38,,1,1 Bunu kullanabilmek için en az 50 Donate pointe ihtiyacınız var.
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bunu kullanabilmek için en az 50 Donate pointe ihtiyacınız var.
 	RETURN 1
 ENDIF
 SRC.ACCOUNT.TAG0.BAKIYE -=50
 DISPID =i_statue_warrior_muscle
 UPDATE
-SRC.SYSMESSAGE @044,,1,1 Guildstone görünümü 50 Donate point karşılığında değişti.
+SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Guildstone görünümü 50 Donate point karşılığında değişti.
 
 
 

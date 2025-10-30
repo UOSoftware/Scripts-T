@@ -35,7 +35,7 @@ ENDIF
 
 SRC.CTAG0.CURRENT.OnChar ++
 REF1=<SRC.CTAG0.OnChar.<SRC.dCTAG0.CURRENT.OnChar>>
-src.sysmessage <REF1> / <REF1.P.X>,<REF1.P.Y>,<REF1.P.Z>,<REF1.P.M>
+src.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <REF1> / <REF1.P.X>,<REF1.P.Y>,<REF1.P.Z>,<REF1.P.M>
 
 SRC.GOUID <REF1>
 
@@ -53,7 +53,7 @@ IF (<SRC.CTAG0.CURRENT.OnChar> <= 0)
 	SRC.CTAG0.CURRENT.OnChar=0
 ENDIF
 REF1=<SRC.CTAG0.OnChar.<SRC.dCTAG0.CURRENT.OnChar>>
-src.sysmessage <REF1> / <REF1.P.X>,<REF1.P.Y>,<REF1.P.Z>,<REF1.P.M>
+src.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <REF1> / <REF1.P.X>,<REF1.P.Y>,<REF1.P.Z>,<REF1.P.M>
 SRC.GOUID <REF1>
 DIALOGCLOSE D_CHAR_GEZ
 DIALOG D_CHAR_GEZ

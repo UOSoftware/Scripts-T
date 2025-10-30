@@ -17,7 +17,7 @@ else
 endif
 
 If (!<local.townlist_count>)
-  src.sysmessage No results found for "<local.tosearch>".
+  src.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, No results found for "<local.tosearch>".
   return 1
 endif
 
@@ -99,13 +99,13 @@ ON=0 1
 
 
     If ( <guildfromuid.<local.selectedtown>.isenemy> )
-        src.sysmessage @038A You're already at war with <uid.<local.selectedtown>.name>.
+        src.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, You are already at war with <uid.<local.selectedtown>.name>.
     elseif ( <guildfromuid.<local.selectedtown>.theywar> && !<guildfromuid.<local.selectedtown>.wewar> )
       If ( <f_townsys_candeclarewarwith <uid>,<local.selectedtown>> )
         f_townsys_declarewar <uid>,<local.selectedtown>,1
       endif
     elseif ( <guildfromuid.<local.selectedtown>.wewar> && !<guildfromuid.<local.selectedtown>.theywar> )
-        src.sysmessage @038A A declaration of war is already made to <uid.<local.selectedtown>.name>.
+        src.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>,A declaration of war is already made to <uid.<local.selectedtown>.name>.
     elseif ( !<guildfromuid.<local.selectedtown>.wewar> && !<guildfromuid.<local.selectedtown>.theywar> )
       If ( <f_townsys_candeclarewarwith <uid>,<local.selectedtown>> )
         f_townsys_declarewar <uid>,<local.selectedtown>,2

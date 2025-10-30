@@ -8,24 +8,10 @@ CATEGORY=Thanksgiving
 SUBSECTION=Misc
 DESCRIPTION=Cornucopia
 DUPELIST=046a1
-ON=@Create
-   MORE2=10
-ON=@ClientTooltip
-   SRC.ADDCLILOC 1049116,<dMORE2>	//[ Charges: ~1_CHARGES~ ]
-ON=@DClick
-   IF (<MORE2>)
-    SRC.SYSMESSAGE You take some food from the cornucopia.
-    SERV.NEWITEM {i_bacon_slab 1 i_cheese_wheel 1 i_bread_french 1 i_bird_cooked 1 i_ham 1 i_jar_honey 1 i_fruit_watermelon 1 i_fruit_onion 1 i_fruit_squash 1 i_fruit_carrot 1 i_fruit_turnip 1 i_banana_unpeeled 1 i_coconut_halved 1}
-    NEW.BOUNCE
-    MORE2 --
-    RESENDTOOLTIP
-    return 1
-   ENDIF
 
 [ITEMDEF 046a1]
 //cornucopia
 DUPEITEM=046a0
-
 
 [ITEMDEF 04988]
 DEFNAME=i_turkey_platter
@@ -726,7 +712,6 @@ ON=@Create
 NAME=enchanted picnic basket
 DUPEITEM=0a0db
 
-
 [ITEMDEF 0a0e6]
 DEFNAME=i_enchanted_wheelbarrow_empty
 NAME=enchanted wheelbarrow
@@ -735,21 +720,6 @@ CATEGORY=Holiday Gifts
 SUBSECTION=Spring
 DESCRIPTION=Enchanted Wheelbarrow (empty)
 DUPELIST=0a0e7
-ON=@Create
-   TAG.NextHarvest=<eval <SERV.TIME>+(60*60*24*7)>	//1 week
-   TIMER=3600
-ON=@Timer
-   IF (<SERV.TIME> > <TAG0.NextHarvest>)
-      DISPID=<eval <DISPIDDEC>+2>
-      UPDATEX
-      return 1
-   ELIF !(<ATTR> & attr_decay)
-      TIMER=3600
-      return 1
-   ENDIF
-ON=@DClick
-   SRC.SYSMESSAGE There is nothing to harvest.
-   return 1
 
 [ITEMDEF 0a0e7]
 NAME=enchanted wheelbarrow
@@ -763,23 +733,10 @@ CATEGORY=Holiday Gifts
 SUBSECTION=Spring
 DESCRIPTION=Enchanted Wheelbarrow
 DUPELIST=0a0e9
-ON=@DClick
-   SRC.MESSAGE *You collect a plant from the wheelbarrow*
-   SERV.NEWITEM {{0a0dd 0a0e5} 1 0a0ed 1 {0a11b 0a12b} 1}
-   IF (5 < <R100>)
-      NEW.COLOR={02 1 0481 1 048e 1 0496 1 04eb 1 0782 1 0a26 1 0aa9 1}
-   ENDIF
-   NEW.BOUNCE
-   DISPID=<eval <DISPIDDEC>-2>
-   TAG.NextHarvest=<eval <SERV.TIME>+(60*60*24*7)>	//1 week
-   TIMER=3600
-   UPDATEX
-   return 1
 
 [ITEMDEF 0a0e9]
 NAME=enchanted wheelbarrow
 DUPEITEM=0a0e8
-
 
 [ITEMDEF 0a2f6]
 DEFNAME=i_bonfire

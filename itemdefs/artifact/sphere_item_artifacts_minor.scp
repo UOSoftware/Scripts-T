@@ -276,6 +276,7 @@ TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Polar Bear Mask
+
 ON=@Create
 COLOR={047e 1 0481 1}
 HITPOINTS=255
@@ -286,6 +287,7 @@ NAME=Seahorse Statuette
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Seahorse Statuette
+
 ON=@Create
 COLOR={0 1 0482 1 0489 1 0495 1 04f2 1}
 
@@ -296,6 +298,7 @@ TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Shield of Invulnerability
+
 ON=@Create
 COLOR=04f2
 HITPOINTS=255
@@ -306,6 +309,7 @@ NAME=Ship Model of the H.M.S. Cape
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Ship Model of the H.M.S. Cape
+
 ON=@Create
 COLOR=037b
 
@@ -316,6 +320,7 @@ TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Staff of Power
+
 ON=@Create
 COLOR={04f2 1 04ef 1}
 HITPOINTS=255
@@ -326,6 +331,7 @@ NAME=The Admiral's Hearty Rum
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=The Admiral's Hearty Rum
+
 ON=@Create
 COLOR=066c
 
@@ -336,14 +342,10 @@ TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Staff of Power
+
 ON=@Create
 COLOR={0486 1 0490 1}
 HITPOINTS=255
-ON=@EquipTest
-IF <f_isfemale>
-SRC.SYSMESSAGE @032 You cannot wear female armor.
-RETURN 1
-ENDIF
 
 [ITEMDEF i_wrath_dryad]
 ID=i_staff_gnarled
@@ -352,6 +354,7 @@ TEVENTS=t_equipitem
 CATEGORY=Artifacts
 SUBSECTION=Minor Artifacts
 DESCRIPTION=Wrath of the Dryad
+
 ON=@Create
 COLOR=029c
 HITPOINTS=255

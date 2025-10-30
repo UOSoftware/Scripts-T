@@ -280,7 +280,7 @@ ON=@Create
    COLOR=0447
 ON=@Click
    MESSAGE=<NAME>
-   SRC.SYSMESSAGE Double click to paint your skin to a random color.
+   SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Double click to paint your skin to a random color.
    RETURN 1
 ON=@DClick
    IF (<SRC.RESTEST 1 i_bodypaint>) && (<SRC.COLOR>==<SRC.OSKIN>)
@@ -292,10 +292,10 @@ ON=@DClick
       REMOVE
       RETURN 1
    ELSEIF (<SRC.COLOR>!=<SRC.OSKIN>)
-      SRC.SYSMESSAGE You are already covered with paint.
+      SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, You are already covered with paint.
       RETURN 1
    ELSE
-      SRC.SYSMESSAGE You must have this in your backpack to use.
+      SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, You must have this in your backpack to use.
       RETURN 1
    ENDIF
 

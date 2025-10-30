@@ -6,6 +6,14 @@
 
 
 
+[typedef t_forge]
+ON=@TARGON_ITEM
+IF !(<SRC.TARG.TYPE> == T_ORE)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Sadece maden eritebilirsiniz.
+	RETURN 1
+ENDIF
+
+
 [TYPEDEF T_SPELLBOOK]
 ON=@CLICK
 // FOR 1 64
@@ -84,11 +92,11 @@ ENDIF
 
 ON=@DROPON_ITEM
 IF (<EVAL <ARGO.WEIGHT>+<WEIGHT>> > <SRC.MAXWEIGHT>)
-	SRC.SYSMESSAGE @38,,1,1 Bu ceset daha fazla eşya taşıyamaz.
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu ceset daha fazla eşya taşıyamaz.
 	RETURN 1
 ENDIF
 IF (<RESCOUNT> >= 100)
-	SRC.SYSMESSAGE @38,,1,1 Bu ceset daha fazla eşya alamaz.
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu ceset daha fazla eşya alamaz.
 	RETURN 1
 ENDIF
 
@@ -104,13 +112,103 @@ IF !(<LINK.ISCHAR>)
 ENDIF
 IF (<LINK.ISCHAR>)
 	IF (<SRC> == <LINK>)
-		SRC.SYSMESSAGE @044,,1,1 Bu ceset size ait.
+		SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>,Bu ceset size ait.
 	ENDIF
 ELSE
 	IF !(STRMATCH('<NAME>','corpse'))
 		NAME a corpse
 	ENDIF
 ENDIF
+
+
+
+
+
+[TYPEDEF T_RUNE]
+ON=@CLICK
+IF (<MOREX> > 0)
+   MESSAGE (<MOREX>,<MOREY>,<MOREZ>,<MOREM>)
+ENDIF
+
+IF (<COLOR>)
+	IF !(STRMATCH('<SERV.MAP(<MOREX>,<MOREY>,<MOREZ>,<MOREM>).REGION.NAME>','<NAME>'))
+		MESSAGE @<COLOR>,,1 [<SERV.MAP(<MOREX>,<MOREY>,<MOREZ>,<MOREM>).REGION.NAME>]
+	ENDIF
+	MESSAGE @<COLOR>,,1 <NAME>
+	RETURN 1
+ELSE
+   RETURN 0
+ENDIF
+
+ON=@DCLICK
+IF !(<MOREX> > 0)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Boş rune boş.
+	RETURN 1
+ENDIF
+TARGET
+SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>,Eklemek istediğiniz Runebooku seçiniz veya isim vermek için tekrar runeyi seçiniz.
+RETURN 1
+
+ON=@TARGON_ITEM
+IF (<SRC.TARG.UID> == <UID>)
+	IF !(<MOREX> > 0)
+		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Boş runeye isim veremezsiniz.
+		RETURN 1
+	ENDIF
+	DIALOGCLOSE D_RUNE_RENAME
+	DIALOG D_RUNE_RENAME
+ELSE
+	// SRC.TARG.Func_Runebook_Add_Rune <UID>
+ENDIF
+RETURN 1
+
+
+[DIALOG D_RUNE_RENAME]
+<DEF.DSP>
+RESIZE 0,0,260,120,Rune Rename
+
+DORIGIN 20 50
+
+RESIZEPIC +0 +0 3000 220 25
+DTEXTENTRYLIMITED +5 +5 220 25 <COLOR> 0 25 <name>
+
+BUTTON +0 +30 4006 4007 1 0 1
+DTEXT +30 +30 0 Tamam
+
+BUTTON +120 +30 4006 4007 1 0 2
+DTEXT +150 +30 0 Varsayılan
+
+[DIALOG D_RUNE_RENAME BUTTON]
+ON=1
+IF (<ISBADCHAR <ARGTXT[0]>>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Hatalı isim.
+	RETURN 1
+ELSEIF !(<ISALPHANUMERIC <ARGTXT[0]>>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Sadece alfabetik ve sayısal karakterler girebilirsiniz.
+	RETURN 1
+ELSEIF (<EVAL STRLEN(<ARGTXT[0]>)> < 3) || (<EVAL STRLEN(<ARGTXT[0]>)> > 25)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Rune adı en az 3 en fazla 25 karakterden oluşabilir.
+	RETURN 1
+ELSEIF (STRMATCH('<ARGTXT[0]>','<name>'))
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Herhangi bir değişiklik yapmadınız. İsim aynı.
+	RETURN 1
+ENDIF
+
+IF (<ISBLANK <ARGTXT[0]>>)
+	NAME=<SERV.MAP(<MOREX>,<MOREY>,<MOREZ>,<MOREM>).REGION.NAME>
+	SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>,Rune adı boş bırakıldığı için varsayılan adına alındı.
+ELSE
+	NAME=<ARGTXT[0]>
+	SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Rune adı başarıyla değişti: (<ARGTXT[0]>)
+ENDIF
+
+
+
+ON=2
+NAME=<SERV.MAP(<MOREX>,<MOREY>,<MOREZ>,<MOREM>).REGION.NAME>
+SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Rune adı başarıyla varsayılan haline getirildi: (<ARGTXT[0]>)
+
+
 
 
 

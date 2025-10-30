@@ -806,14 +806,14 @@ ADV_RATE=10.0,200.0,800.0
 RANGE=7
 
 ON=@Fail
-SRC.SYSMESSAGE @38,,1,1 Evcilleştirmeyi başarısız oldu.
+SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Evcilleştirmeyi başarısız oldu.
 
 ON=@Abort
-SRC.SYSMESSAGE @38,,1,1 Evcilleştirmekten vazgeçtiniz.
+SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Evcilleştirmekten vazgeçtiniz.
 
 ON=@Success
 IF !(<SRC.FINDID.I_STAFF_TAMING>)
-SRC.SYSMESSAGE @38,,1,1 Yanınızda Taming staff bulunmuyor.
+SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Yanınızda Taming staff bulunmuyor.
 RETURN 1
 ENDIF
 REF1=<ACT.SPAWNITEM>// SPAWNITEM
@@ -831,10 +831,10 @@ ENDIF
 
 ON=@Select
 IF !(<SRC.FINDID.I_STAFF_TAMING>)
-	SRC.SYSMESSAGE @38,,1,1 Yanınızda Taming staff bulunmuyor.
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Yanınızda Taming staff bulunmuyor.
 	RETURN 1
 ELSEIF (<SRC.REGION.FLAGS>&REGION_FLAG_SAFE)
-	SRC.SYSMESSAGE @38,,1,1 Bu alanda evcilleştirme yapamazsınız.
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu alanda evcilleştirme yapamazsınız.
 	RETURN 1
 ENDIF
 
@@ -842,27 +842,27 @@ ON=@Start
 REF1=<SRC.FINDID.I_STAFF_TAMING>
 
 IF !(<SRC.FINDID.I_STAFF_TAMING>)
-SRC.SYSMESSAGE @38,,1,1 Yanınızda Taming staff bulunmuyor.
+SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Yanınızda Taming staff bulunmuyor.
 RETURN 1
 ENDIF
 IF (<ACT.ISCHAR>)
 IF !(<ACT.NPC> == brain_Animal)
-SRC.SYSMESSAGE @38,,1,1 Sadece hayvanları evcilleştirebilirsiniz.
+SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Sadece hayvanları evcilleştirebilirsiniz.
 RETURN 1
 
 ELSEIF (<ACT.TAG0.TAMER> == <SRC>) 
-SRC.SYSMESSAGE @38,,1,1 Hayvan artik sizi umursamiyor.
+SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Hayvan artik sizi umursamiyor.
 RETURN 1
 
 ELSEIF (<ACT.MEMORYFINDTYPE.MEMORY_FIGHT>)
 IF (<ACT.MEMORYFINDTYPE.MEMORY_FIGHT.LINK> == <SRC>)
-SRC.SYSMESSAGE @38,,1,1 Hayvan su an size cok kizgin.
+SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Hayvan su an size cok kizgin.
 RETURN 1
 ENDIF
 
 ELSEIF (<SRC.TARG.SPAWNITEM>)
 IF (<SRC.TARG.DISTANCE <SRC.TARG.SPAWNITEM>> > 5)
-SRC.SYSMESSAGE @38,,1,1 Bu hayvan yuvasından uzakta.
+SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu hayvan yuvasından uzakta.
 RETURN 1
 ENDIF
 ENDIF
@@ -870,9 +870,6 @@ ENDIF
 IF (<REF1>) && (<REF1.TOPOBJ> != <SRC>)
 SRC.EQUIP <REF1>
 ENDIF
-
-// ON=@Stroke
-// SYSMESSAGE Stroke
 
 [SKILL 36]
 DEFNAME=Skill_TasteId

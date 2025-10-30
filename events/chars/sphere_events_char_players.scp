@@ -25,7 +25,7 @@ ENDIF
 IF !(<SRC.FINDLAYER(32)> || <SRC.FINDLAYER(44)> || <SRC.FINDLAYER(47)>)
 	IF (<SRC.STATTOTAL> > <SRC.SKILLCLASS.STATSUM>)
 		SRC.FUNC_STATFIX 50,50,50
-		SRC.SYSMESSAGE @38,,1,1 Statlarınız <SRC.SKILLCLASS.STATSUM> aşmış. Statlarınız varsayılan haline alınmıştır. Tekrar ayarlayınız.
+		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Statlarınız <SRC.SKILLCLASS.STATSUM> aşmış. Statlarınız varsayılan haline alınmıştır. Tekrar ayarlayınız.
 	ENDIF
 ENDIF
 

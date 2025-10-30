@@ -3,7 +3,7 @@ VERSION=0.56T
 // ------------------------------------------------------
 [FUNCTION TRANSFERSTONE]
 SRC.TARGETF F_STONESYS_TRANSFER <ARGS>
-SRC.SYSMESSAGE @,,1,1 <f_stonesys_gettypename <args>> aktarmak istediginiz kisiyi seciniz.
+SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <f_stonesys_gettypename <args>> aktarmak istediginiz kisiyi seciniz.
 
 [FUNCTION F_STONESYS_TRANSFER]
 // ARGS = STONE UID
@@ -12,27 +12,27 @@ REF1 = <ARGS>
 LOCAL.TYPENAME = <F_STONESYS_GETTYPENAME <REF1.UID>>
 
 IF !(<ARGO>)
-  SYSMESSAGE @38,,1,1 Hatali secim.
+  SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Hatali secim.
 
 ELSEIF (<ARGO.ISITEM>)
-  SYSMESSAGE @38,,1,1 Hatali secim.
+  SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Hatali secim.
 
 ELIF (<ARGO.NPC>)
-  SYSMESSAGE @38,,1,1 Hatali secim.
+  SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Hatali secim.
 
 elif (<argo> == <ref1.masteruid>)
-  sysmessage You are already the master of <ref1.name>.
+  SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, You are already the master of <ref1.name>.
 
 elif (<argo.memoryfindtype.memory_guild.link.uid> != <ref1.uid>) && (<argo.memoryfindtype.memory_town.link.uid> != <ref1.uid>)
-  sysmessage That player is not a member of the <local.typename>.
+  SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, That player is not a member of the <local.typename>.
 
 elif (!<argo.npc>)
   ref1.masteruid = <argo.uid>
   serv.log <name> (<uid>) transferred <sex his/her> <local.typename> (<ref1.name>) to <argo.name> (<argo.uid>)
-  sysmessage @038A You have transfered the <local.typename> to <argo.name>.
-  argo.sysmessage @038A You are now the master of <ref1.name>.
+  SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, You have transfered the <local.typename> to <argo.name>.
+  argo.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, You are now the master of <ref1.name>.
 else
-  sysmessage You cannot transfer a <local.typename> to that.
+  SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, You cannot transfer a <local.typename> to that.
 ENDIF
 RETURN 1
 

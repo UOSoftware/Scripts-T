@@ -16,14 +16,14 @@ ENDIF
 
 // ON=@EQUIP
 // IF (<SRC.STR> < <REQSTR>)
-	// SRC.SYSMESSAGE @38,,1,1 Bunu giyebilecek güçte değilsiniz. (Gerekli Str: <REQSTR>, Str:<SRC.STR>)
+	// SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bunu giyebilecek güçte değilsiniz. (Gerekli Str: <REQSTR>, Str:<SRC.STR>)
 	// UNEQUIP
 	// RETURN 1
 // ENDIF
 
 ON=@DCLICK
 IF (<REQSTR>) && (<SRC.STR> < <REQSTR>)
-	SRC.SYSMESSAGE @38,,1,1 <defmsg.equip_not_strong_enough> <name> (Gerekli Str: <REQSTR>, Str: <SRC.STR>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, <defmsg.equip_not_strong_enough> <name> (Gerekli Str: <REQSTR>, Str: <SRC.STR>)
 	UNEQUIP
 	RETURN 1
 ENDIF

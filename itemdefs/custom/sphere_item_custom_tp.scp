@@ -19,7 +19,7 @@ ON=@DCLICK
 IF (<AMOUNT> <= 0)
 	REMOVE
 ENDIF
-SRC.SYSMESSAGE @,,1,1 Paralyze halinde otomatik olarak aktif olur. Bu şekilde kullanamazsınız.
+SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Paralyze halinde otomatik olarak aktif olur. Bu şekilde kullanamazsınız.
 RETURN 1
 
 ON=@CLICK

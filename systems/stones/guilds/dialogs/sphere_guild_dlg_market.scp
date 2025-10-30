@@ -48,7 +48,7 @@ LOCAL.ALIGN=<SERV.ITEMDEF.<LOCAL.ITEM>.TAG0.GuildAlign>
 
 IF (<DLOCAL.POINT>)
 	IF (<SRC.dTAG0.POINTS.GUILD> < <DLOCAL.POINT>)
-		SRC.SYSMESSAGE @38,,1,1 Bu eşyayı almak için <DLOCAL.POINT> Guild puanına ihtiyacınız var.
+		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu eşyayı almak için <DLOCAL.POINT> Guild puanına ihtiyacınız var.
 		DIALOGCLOSE d_Guild_Market
 		DIALOG d_Guild_Market
 		RETURN 1
@@ -63,7 +63,7 @@ ENDIF
 NEW.LINK=<REF1>
 IF (<DLOCAL.POINT>)
 	SRC.TAG0.POINTS.GUILD -=<DLOCAL.POINT>
-	SRC.SYSMESSAGE @,,1,1 <DLOCAL.POINT> guild puanı harcadınız. Kalan guild puanını: <BolukAyir <SRC.dTAG0.POINTS.GUILD>>
+	SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <DLOCAL.POINT> guild puanı harcadınız. Kalan guild puanını: <BolukAyir <SRC.dTAG0.POINTS.GUILD>>
 	IF (<SRC.TAG0.POINTS.GUILD> <= 0)
 		SRC.TAG0.POINTS.GUILD=0
 	ENDIF

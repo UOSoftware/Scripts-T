@@ -9,43 +9,43 @@ LOCAL.MAKEITEM = <TAG0.CRAFT_LASTMAKE_BASEID>
 LOCAL.MAKEAMOUNT = <QVAL (<ISEMPTY <ARGS>>)?1:<ARGS>>
 
 IF !(<ACTION> == -1)
-	SYSMESSAGE @38,,1,1  Şu an zaten bir beceri kullanıyorsunuz.
+	SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Şu an zaten bir beceri kullanıyorsunuz.
 	CTAG.Craft_Menu.Notice = <DEF.BFONT_RED>Şu an zaten bir beceri kullanıyorsunuz.
 	RETURN 1
 	
 ELSEIF !(<TAG0.CRAFT_LASTMAKE_BASEID>)
-	SYSMESSAGE @38,,1,1  En son ne yaptığınızı hatırlamıyorsunuz.
+	SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, En son ne yaptığınızı hatırlamıyorsunuz.
 	CTAG.Craft_Menu.Notice = <DEF.BFONT_RED>En son ne yaptığınızı hatırlamıyorsunuz.
 	RETURN 1
 	
 ELSEIF (<LOCAL.MAKEITEM> == 0) || !(<LOCAL.MAKEITEM>)
-	SYSMESSAGE @38,,1,1  En son ne yaptığınızı hatırlamıyorsunuz.
+	SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, En son ne yaptığınızı hatırlamıyorsunuz.
 	CTAG.Craft_Menu.Notice = <DEF.BFONT_RED>En son ne yaptığınızı hatırlamıyorsunuz.
 	RETURN 1
 	
 ELSEIF (<LOCAL.MAKEAMOUNT> > 50000)
-	SYSMESSAGE @38,,1,1  En fazla 50.000 kere tekrar yapabilirsiniz.
+	SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>,  En fazla 50.000 kere tekrar yapabilirsiniz.
 	CTAG.Craft_Menu.Notice = <DEF.BFONT_RED>En fazla 50.000 kere tekrar yapabilirsiniz.
 	RETURN 1
 
 ELSEIF !(<CANMAKESKILL <LOCAL.MAKEITEM>>)
-	SYSMESSAGE @38,,1,1  [<serv.itemdef.<LOCAL.MAKEITEM>.name>] Yeterli beceriye sahip değilsin. (<SERV.ITEMDEF.<LOCAL.MAKEITEM>.SKILLMAKE>)
+	SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, [<serv.itemdef.<LOCAL.MAKEITEM>.name>] Yeterli beceriye sahip değilsin. (<SERV.ITEMDEF.<LOCAL.MAKEITEM>.SKILLMAKE>)
 	CTAG.Craft_Menu.Notice = <DEF.BFONT_RED>[<serv.itemdef.<LOCAL.MAKEITEM>.name>] Yeterli beceriye sahip değilsin. (<SERV.ITEMDEF.<LOCAL.MAKEITEM>.SKILLMAKE>)
 	RETURN 1
 
 ELSEIF (<ISEVENT.E_MAKELAST>)
-	SYSMESSAGE @38,,1,1  Şu an zaten yaptıklarınız tekrarlanıyor.
+	SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Şu an zaten yaptıklarınız tekrarlanıyor.
 	CTAG.Craft_Menu.Notice = <DEF.BFONT_RED>Şu an zaten yaptıklarınız tekrarlanıyor.
 	RETURN 1
 
 ELSEIF !(<CANMAKE <LOCAL.MAKEITEM>>)
-	SYSMESSAGE @38,,1,1  Yeterli malzemeye sahip değilsin. (<SERV.ITEMDEF.<LOCAL.MAKEITEM>.RESMAKE>)
+	SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Yeterli malzemeye sahip değilsin. (<SERV.ITEMDEF.<LOCAL.MAKEITEM>.RESMAKE>)
 		CTAG.Craft_Menu.Notice = <DEF.BFONT_RED>Yeterli malzemeye sahip değilsin. (<SERV.ITEMDEF.<LOCAL.MAKEITEM>.RESMAKE>)
 	RETURN 1
 ENDIF
 
 // IF (<WEIGHT> >= <MAXWEIGHT>)
-	// SYSMESSAGE @38,,1,1  Olabilecek en yüksek ağırlığa ulaştığınız için eşyayı üretemezsiniz. (<FVAL <WEIGHT>>/<FVAL <MAXWEIGHT>>)
+	// SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Olabilecek en yüksek ağırlığa ulaştığınız için eşyayı üretemezsiniz. (<FVAL <WEIGHT>>/<FVAL <MAXWEIGHT>>)
 	// CTAG.Craft_Menu.Notice = <DEF.BFONT_RED>Olabilecek en yüksek ağırlığa ulaştığınız için eşyayı üretemezsiniz. (<FVAL <WEIGHT>>/<FVAL <MAXWEIGHT>>)
 	// RETURN 1
 // ENDIF
@@ -57,7 +57,7 @@ IF (<ISONLINE>)
 	ENDIF
 	
 	IF (<ISEMPTY <ARGS>>)
-		SYSMESSAGE @084A,,1,1  .makelast 5000 olarak da komutu kullanabilirsiniz. 5000 tekrar otomatik olarak yapılacaktır. 5000 yerine 2 ile 50.000 arasında herhangi bir rakam girebilirsiniz.
+		SYSMESSAGELOC <def.tcolor_blue>,<def.empty_cliloc2>, .makelast 5000 olarak da komutu kullanabilirsiniz. 5000 tekrar otomatik olarak yapılacaktır. 5000 yerine 2 ile 50.000 arasında herhangi bir rakam girebilirsiniz.
 	ENDIF
 	
 	MAKEITEM <LOCAL.MAKEITEM>
@@ -67,11 +67,11 @@ IF (<ISONLINE>)
 	CTAG.Craft_Menu.Notice = <DEF.BFONT_GREEN>Son yaptığınız eşya yapılıyor. (<SERV.ITEMDEF.<LOCAL.MAKEITEM>.NAME>)
 			
 	IF !(<ISDIALOGOPEN D_CRAFT_MENU>)
-		SYSMESSAGE @044,,1,1  Son yaptığınız eşya yapılıyor. (<SERV.ITEMDEF.<LOCAL.MAKEITEM>.NAME>)
+		SYSMESSAGELOC <def.tcolor_green>,<def.empty_cliloc2>, Son yaptığınız eşya yapılıyor. (<SERV.ITEMDEF.<LOCAL.MAKEITEM>.NAME>)
 		
 		IF (<LOCAL.MAKEAMOUNT> > 1)
-			SYSMESSAGE @033,,1,1  Tekrar sayisi: <dCTAG0.MAKE_TEKRAR>
-			SYSMESSAGE @033,,1,1  İslemi iptal etmek icin savas moduna gecmeniz yeterlidir.
+			SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Tekrar sayisi: <dCTAG0.MAKE_TEKRAR>
+			SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, İslemi iptal etmek icin savas moduna gecmeniz yeterlidir.
 		ENDIF
 	ELSE
 		DIALOGCLOSE D_CRAFT_MENU
@@ -86,7 +86,7 @@ ENDIF
 [EVENTS e_makelast]
 ON=@USERWARMODE
 SRC.CTAG0.MAKE_TEKRAR =
-SRC.SYSMESSAGE @38,,1,1  Tekrar işleminiz sona erdi.
+SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Tekrar işleminiz sona erdi.
 SRC.CTAG.Craft_Menu.Notice = <DEF.BFONT_LRED>Tekrar işleminiz sona erdi.
 SRC.EVENTS -E_MAKELAST
 IF (<ISDIALOGOPEN D_CRAFT_MENU>)
@@ -97,7 +97,7 @@ ENDIF
 
 ON=@DEATH
 SRC.CTAG0.MAKE_TEKRAR =
-SRC.SYSMESSAGE @38,,1,1  Tekrar işleminiz sona erdi.
+SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Tekrar işleminiz sona erdi.
 SRC.CTAG.Craft_Menu.Notice = <DEF.BFONT_LRED>Tekrar işleminiz sona erdi.
 SRC.EVENTS -E_MAKELAST
 IF (<ISDIALOGOPEN D_CRAFT_MENU>)
@@ -109,7 +109,7 @@ ENDIF
 ON=@LOGOUT
 SKILL FAIL
 SRC.CTAG0.MAKE_TEKRAR =
-SRC.SYSMESSAGE @38,,1,1  Tekrar işleminiz sona erdi.
+SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Tekrar işleminiz sona erdi.
 SRC.CTAG.Craft_Menu.Notice = <DEF.BFONT_LRED>Tekrar işleminiz sona erdi.
 SRC.EVENTS -E_MAKELAST
 IF (<ISDIALOGOPEN D_CRAFT_MENU>)
@@ -120,7 +120,7 @@ ENDIF
 
 ON=@ATTACK
 CTAG0.MAKE_TEKRAR =
-SYSMESSAGE @38,,1,1  Tekrar işleminiz sona erdi.
+SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Tekrar işleminiz sona erdi.
 CTAG.Craft_Menu.Notice = <DEF.BFONT_LRED>Tekrar işleminiz sona erdi.
 EVENTS -E_MAKELAST
 IF (<ISDIALOGOPEN D_CRAFT_MENU>)
@@ -131,7 +131,7 @@ ENDIF
 
 ON=@SPELLCAST
 SRC.CTAG0.MAKE_TEKRAR =
-SRC.SYSMESSAGE @38,,1,1  Tekrar işleminiz sona erdi.
+SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Tekrar işleminiz sona erdi.
 SRC.CTAG.Craft_Menu.Notice = <DEF.BFONT_LRED>Tekrar işleminiz sona erdi.
 SRC.EVENTS -E_MAKELAST
 IF (<ISDIALOGOPEN D_CRAFT_MENU>)
@@ -144,7 +144,7 @@ ON=@SKILLFAIL
 LOCAL.MAKEITEM=<TAG0.CRAFT_LASTMAKE_BASEID>
 
 CTAG0.MAKE_TEKRAR -=1
-SYSMESSAGE @,,1,1  Kalan tekrar: <DCTAG0.MAKE_TEKRAR>/<dCTAG0.MAKE_TEKRAR_BASE>
+SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Kalan tekrar: <DCTAG0.MAKE_TEKRAR>/<dCTAG0.MAKE_TEKRAR_BASE>
 CTAG.Craft_Menu.Notice = <DEF.BFONT_WHITE>Kalan tekrar: <DCTAG0.MAKE_TEKRAR>/<dCTAG0.MAKE_TEKRAR_BASE>
 TIMERF 1,MAKEITEM <LOCAL.MAKEITEM>
 
@@ -161,7 +161,7 @@ ENDIF
 ON=@SKILLABORT
 LOCAL.MAKEITEM=<TAG0.CRAFT_LASTMAKE_BASEID>
 CTAG0.MAKE_TEKRAR -=1
-SYSMESSAGE @,,1,1  Kalan tekrar: <DCTAG0.MAKE_TEKRAR>/<dCTAG0.MAKE_TEKRAR_BASE>
+SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Kalan tekrar: <DCTAG0.MAKE_TEKRAR>/<dCTAG0.MAKE_TEKRAR_BASE>
 CTAG.Craft_Menu.Notice = <DEF.BFONT_WHITE>Kalan tekrar: <DCTAG0.MAKE_TEKRAR>/<dCTAG0.MAKE_TEKRAR_BASE>
 TIMERF 1,MAKEITEM <LOCAL.MAKEITEM>
 IF (<ISDIALOGOPEN D_CRAFT_MENU>)
@@ -178,19 +178,19 @@ LOCAL.MAKEITEM=<SRC.TAG0.CRAFT_LASTMAKE_BASEID>
 SRC.CTAG0.MAKE_TEKRAR --
 
 IF (<SRC.DCTAG0.MAKE_TEKRAR> <= 0)
-	SRC.SYSMESSAGE @38,,1,1  Tekrar işleminiz sona erdi.
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Tekrar işleminiz sona erdi.
 	SRC.CTAG.Craft_Menu.Notice = <DEF.BFONT_LRED>Tekrar işleminiz sona erdi.
 	SRC.EVENTS -E_MAKELAST
 	SRC.CTAG0.MAKE_TEKRAR=
 
 ELIF !(<SRC.CANMAKE <LOCAL.MAKEITEM>>)
-	SRC.SYSMESSAGE @38,,1,1  <SERV.ITEMDEF.<LOCAL.MAKEITEM>.NAME> uretebilecek malzemeniz veya yeteneğiniz bulunmuyor.
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>,  <SERV.ITEMDEF.<LOCAL.MAKEITEM>.NAME> uretebilecek malzemeniz veya yeteneğiniz bulunmuyor.
 	SRC.CTAG.Craft_Menu.Notice = <DEF.BFONT_LRED><SERV.ITEMDEF.<LOCAL.MAKEITEM>.NAME> uretebilecek malzemeniz veya yeteneğiniz bulunmuyor.
 	SRC.CTAG0.MAKE_TEKRAR=
 	SRC.EVENTS -E_MAKELAST
 ENDIF
 
-SRC.SYSMESSAGE @,,1,1  Kalan tekrar: <DCTAG0.MAKE_TEKRAR>/<dCTAG0.MAKE_TEKRAR_BASE>
+SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Kalan tekrar: <DCTAG0.MAKE_TEKRAR>/<dCTAG0.MAKE_TEKRAR_BASE>
 SRC.CTAG.Craft_Menu.Notice = <DEF.BFONT_WHITE>Kalan tekrar: <DCTAG0.MAKE_TEKRAR>/<dCTAG0.MAKE_TEKRAR_BASE>
 SRC.TIMERF 1,MAKEITEM <LOCAL.MAKEITEM>
 
@@ -320,7 +320,6 @@ ENDIF
 // emülatör zaten dialogu açıyor
 // DIALOGCLOSE d_craft_menu
 // DIALOG d_craft_menu
-// SYSMESSAGE <STRTOUPPER <argv1>>
 
 CLEARCTAGS Dialog.Craft
 
@@ -561,7 +560,6 @@ DB.CONNECT
 IF (<DB.CONNECTED>)
 	DB.QUERY "SELECT category FROM craftitems WHERE id='<eval <DARGN>-100>'"
 	IF (<DB.ROW.NUMROWS>)
-		SRC.SYSMESSAGE <db.row.0.category>
 		SRC.CTAG.Craft_Menu.Item_WHERE="category='<db.row.0.category>' AND <SRC.CTAG.Craft_Menu.Cat_WHERE>"
 		SRC.CTAG.Craft_Menu.Item_INDEX=0
 		SRC.CTAG.Craft_Menu.Item_ORDER="name ASC"
@@ -654,7 +652,7 @@ IF (STRMATCH(*T_SCROLL*,<SERV.ITEMDEF.<LOCAL.ITEM>.TYPE>)) && (<LOCAL.ITEM> != I
 ENDIF
 IF (<SRC.ISONLINE>)
 	SRC.MAKEITEM <LOCAL.ITEM>
-	SRC.SYSMESSAGE @044,,1,1  <SERV.ITEMDEF.<LOCAL.ITEM>.NAME> isimli eşyayı üretmeye başladın.
+	SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <SERV.ITEMDEF.<LOCAL.ITEM>.NAME> isimli eşyayı üretmeye başladın.
 	SRC.CTAG.Craft_Menu.Notice <DEF.BFONT_GREEN><SERV.ITEMDEF.<LOCAL.ITEM>.NAME> isimli eşyayı üretmeye başladın.
 	DIALOGCLOSE D_CRAFT_MENU
 	DIALOG D_CRAFT_MENU
@@ -803,7 +801,7 @@ IF (STRMATCH(*T_SCROLL*,<SERV.ITEMDEF.<LOCAL.ITEM>.TYPE>)) && (<LOCAL.ITEM> != I
 	ENDIF
 ENDIF
 SRC.MAKEITEM <LOCAL.ITEM>
-SRC.SYSMESSAGE @044,,1,1  <SERV.ITEMDEF.<TAG0.CRAFT_LASTMAKE_BASEID>.NAME> isimli eşyayı üretmeye başladın.
+SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <SERV.ITEMDEF.<TAG0.CRAFT_LASTMAKE_BASEID>.NAME> isimli eşyayı üretmeye başladın.
 SRC.CTAG.Craft_Menu.Notice= <StrTitle <SERV.ITEMDEF.<LOCAL.ITEM>.NAME>> isimli eşyayı üretmeye başladın.
 DIALOGCLOSE D_CRAFT_MENU
 DIALOG D_CRAFT_MENU

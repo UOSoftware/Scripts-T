@@ -83,7 +83,7 @@ elif (<argn1>==3)	// Roster List
   sdialog d_Town_CharList,0,<def0.TOWNSDLG_LISTTYPE_ROSTER>
 elif (<argn1>==4)	// Recruit New Member
   src.targetf f_townsys_recruitguy <uid>
-  src.sysmessage Select a character to recruit
+  src.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Select a character to recruit
 elif (<argn1>==5)	// Candidates list
   sdialog  d_Town_CharList,0,<def0.TOWNSDLG_LISTTYPE_CANDIDATES>
 elif (<argn1>==6)	// Town charter

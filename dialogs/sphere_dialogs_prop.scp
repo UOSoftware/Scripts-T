@@ -700,7 +700,7 @@ ENDIF
 
 // PAGE 0
 ON=9999
-SRC.SYSMESSAGE <NAME> silindi.
+SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, <NAME> silindi.
 TRYP 7 REMOVE
 
 
@@ -891,10 +891,8 @@ LOCAL.FLAG=<DEF0.CharFlag.<DLOCAL._FOR>>
 	IF !(<ISEMPTY <DEF.CharFlag.<DLOCAL._FOR>>>)
 		IF (<ARGCHK[<eval <LOCAL._FOR>+400>]>)
 			FLAGS |= STATF_<LOCAL.Flag>
-			SRC.SYSMESSAGE + <LOCAL.Flag>
 		ELSE
 			FLAGS &= ~STATF_<LOCAL.Flag>
-			// SRC.SYSMESSAGE - <LOCAL.Flag>
 		ENDIF
 	ENDIF
 ENDFOR
@@ -911,14 +909,14 @@ ON=500, 598
 // LOCAL.EVENT = <F_GETEVENTS <EVAL <ARGN>+-600>,<EVENTS>>
 // EVENTS -<LOCAL.EVENT>
 DIALOG D_CHARPROP1 5
-// SRC.SYSMESSAGE Event silindi: <LOCAL.EVENT>
+// SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Event silindi: <LOCAL.EVENT>
 
 
 // Event temizle
 On=599
 // clearevents
 DIALOG D_CHARPROP1 5
-// SRC.SYSMESSAGE Tum eventler silindi
+// SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Tum eventler silindi
 
 
 
@@ -929,7 +927,7 @@ DIALOG D_CHARPROP1 5
 On=699
 CLEARTAGS
 DIALOG D_CHARPROP1 6
-SRC.SYSMESSAGE Tum taglar silindi
+SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Tum taglar silindi
 
 
 
@@ -952,7 +950,7 @@ ON=703
 IF (<GUILD>)
 	SRC.GOUID <GUILD>
 ELSE
-	SRC.SYSMESSAGE @38,,1,1 Guild yok.
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Guild yok.
 ENDIF
 DIALOG D_CHARPROP1 7
 
@@ -1939,7 +1937,7 @@ ENDIF
 [DIALOG D_ITEMPROP1 BUTTON]
 // PAGE 0
 ON=9999
-SRC.SYSMESSAGE <NAME> silindi.
+SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <NAME> silindi.
 TRYP 4 REMOVE
 
 ON=9998
@@ -2138,19 +2136,19 @@ ON=705
 REF1=<HATCH>
 SRC.GOUID <REF1>
 DIALOG D_ITEMPROP1 7
-SRC.SYSMESSAGE <REF1.NAME>
+SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <REF1.NAME>
 
 ON=706
 REF1=<Tiller>
 SRC.GOUID <REF1>
 DIALOG D_ITEMPROP1 7
-SRC.SYSMESSAGE <REF1.NAME>
+SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <REF1.NAME>
 	
 ON=707
 REF1=<OWNER>
 SRC.GOUID <REF1>
 DIALOG D_ITEMPROP1 7
-SRC.SYSMESSAGE <REF1.NAME>
+SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <REF1.NAME>
 
 ON=708,710
 IF (<PLANK>)
@@ -2158,7 +2156,7 @@ IF (<PLANK>)
 	IF (<REF1.ISVALIDE>)
 		SRC.GOUID <REF1>
 	ELSE
-		SRC.SYSMESSAGE @38,,1,1 Ship Plank bulunamadı!
+		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Ship Plank bulunamadı!
 	ENDIF
 ENDIF
 DIALOG D_ITEMPROP1 7
@@ -2352,7 +2350,7 @@ ELSE
 	ATTR &=~ 0400000000000
 ENDIF
 UPDATE
-SRC.SYSMESSAGE <NAME> Attr Update
+SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <NAME> Attr Update
 DIALOG D_ITEMPROP1 13
 
 

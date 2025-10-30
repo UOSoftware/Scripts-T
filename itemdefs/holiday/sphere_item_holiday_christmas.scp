@@ -1561,17 +1561,6 @@ CATEGORY=Christmas
 SUBSECTION=Decoration
 DESCRIPTION=Chocolate Nutcracker (wrapped)
 DUPELIST=09c11
-ON=@DClick
-   IF (<TOPOBJ> != <SRC>)
-      SRC.SYSMESSAGE You must have the object in your backpack to use it.
-      return 1
-   ENDIF
-   SRC.EMOTE carefully peel back the wrapper...
-   SERV.NEWITEM <eval <DISPIDDEC>+2>
-   NEW.CONT=<CONT>
-   NEW.CONTP=<CONTP>
-   REMOVE
-   return 1
 
 [ITEMDEF 09c11]
 //chocolate nutcracker (wrapped)
@@ -1938,46 +1927,6 @@ DESCRIPTION=Candlelit Holiday Sign (south)(lit)
 //candlelit holiday sign (south)(anim)
 
 [TYPEDEF e_candlelit_holiday_sign]
-ON=@Create
-   TAG.GumpID=0689
-   MOREZ=1
-ON=@ContextMenuRequest
-   SRC.AddContextEntry 101,1158829	//Change Sign Text
-   SRC.AddContextEntry 102,1155742	//Toggle: On/Off
-ON=@ContextMenuSelect
-   IF (<ARGN> == 101)
-      TAG0.GumpID ++
-      IF (<TAG0.GumpID> > 068c)
-         TAG.GumpID=0689
-      ENDIF
-      IF (<TAG0.GumpID> == 0689)
-         ARGS="Happy Holidays"
-      ELIF (<TAG0.GumpID> == 068a)
-         ARGS="Merry Christmas"
-      ELIF (<TAG0.GumpID> == 068b)
-         ARGS="Season's Greetings"
-      ELIF (<TAG0.GumpID> == 068c)
-         ARGS="Happy Hanukkah"
-      ENDIF
-      SRC.SYSMESSAGE The sign text has been set to: <ARGS>
-   ELIF (<ARGN> == 102)
-      IF (<DISPID> == i_candlelit_holiday_sign_east)
-         DISPID=i_candlelit_holiday_sign_east_lit
-      ELIF (<DISPID> == i_candlelit_holiday_sign_east_lit)
-         DISPID=i_candlelit_holiday_sign_east
-      ELIF (<DISPID> == i_candlelit_holiday_sign_south)
-         DISPID=i_candlelit_holiday_sign_south_lit
-      ELIF (<DISPID> == i_candlelit_holiday_sign_south_lit)
-         DISPID=i_candlelit_holiday_sign_south
-      ENDIF
-      UPDATE
-   ENDIF
-ON=@DClick
-   // This packet just open an generic gump, exactly the same as t_sign_gump. But t_sign_gump can only send
-   // static TDATA2 gump set on ITEMDEF, so to deal with dynamic values the packet must be sent manually
-   SRC.SENDPACKET 08b W13 D<UID> W<TAG0.GumpID> W0 W0
-   return 1
-
 
 [ITEMDEF 0a266]
 DEFNAME=i_book_recipe

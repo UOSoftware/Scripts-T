@@ -4,7 +4,7 @@ ON=@CLICK
 MESSAGE [Teacher]
 
 ON=@DCLICK
-SRC.SYSMESSAGE Burada teacher dialog acilacak.
+SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Burada teacher dialog acilacak.
 // DIALOGCLOSE D_NPC_VENDOR_TEACHER
 // DIALOG D_NPC_VENDOR_TEACHER
 RETURN 1

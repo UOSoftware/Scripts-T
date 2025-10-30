@@ -417,9 +417,10 @@ CATEGORY=Boulders, Rocks, and Crystals
 SUBSECTION=Geodes
 DESCRIPTION=Cracked Lava Rock
 DUPELIST=04b4f
+
 ON=@Damage
    IF (<TOPOBJ> != <SRC>) && !(<SRC.ISGM>)
-    SRC.SYSMESSAGE That must be in your backpack for you to use it.
+    SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, That must be in your backpack for you to use it.
     return 1
    ENDIF
    SRC.SOUND 03b3
@@ -524,63 +525,12 @@ CATEGORY=Boulders, Rocks, and Crystals
 SUBSECTION=Moonstones
 DESCRIPTION=Moonstone Crystal (2)
 
-
 [ITEMDEF 09cbb]
 DEFNAME=i_moonstone_crystal_teleporter
 NAME=moonstone crystal
 CATEGORY=Boulders, Rocks, and Crystals
 SUBSECTION=Moonstones
 DESCRIPTION=Moonstone Crystal (teleporter)
-ON=@DClick
-   IF !(<ATTR> & attr_move_never|attr_static)
-    SRC.SYSMESSAGE This must be locked down or secured in order to use it.
-   ELSE
-    SDIALOG d_moonstone_crystal
-   ENDIF
-   return 1
-
-[DIALOG d_moonstone_crystal]
-75,75
-resizepic 0 0 01400 370 300
-dhtmlgump 115 10 400 16 0 0 <DEF.BFONT_LSLATEBLUE>Select your destination:
-FOR 12
- xmfhtmlgumpcolor 50 <eval 20+(<LOCAL._FOR>*20)> 250 16 <eval 1156704+<LOCAL._FOR>> 0 0 16777215
- button 10 <eval 20+(<LOCAL._FOR>*20)> 04b9 04ba 1 0 <LOCAL._FOR>
-ENDFOR
-
-[DIALOG d_moonstone_crystal BUTTON]
-ON=1 12
-IF !(<ATTR> & attr_move_never|attr_static)
- SRC.SYSMESSAGE This must be locked down or secured in order to use it.
- return 1
-ELIF (<DISTANCE> > 1)
- SRC.SYSMESSAGE You are too far away to use the gate.
- return 1
-ELIF (<ARGN> == 1)
- SRC.GO 719,1863,0,5 	//Eodon Moongate
-ELIF (<ARGN> == 2)
- SRC.GO 642,1721,40,5	//Barako Village
-ELIF (<ARGN> == 3)
- SRC.GO 701,2106,40,5	//Jukari Village
-ELIF (<ARGN> == 4)
- SRC.GO 355,1873,0,5	//Kurak Village
-ELIF (<ARGN> == 5)
- SRC.GO 552,1471,40,5	//Sakkhra Village
-ELIF (<ARGN> == 6)
- SRC.GO 412,1595,40,5	//Urali Village
-ELIF (<ARGN> == 7)
- SRC.GO 167,1800,80,5	//Barrab Village
-ELIF (<ARGN> == 8)
- SRC.GO 929,2016,50,5	//Shadowguard
-ELIF (<ARGN> == 9)
- SRC.GO 731,1603,40,5	//The great ape cave
-ELIF (<ARGN> == 10)
- SRC.GO 878,2105,40,5	//The Volcano
-ELIF (<ARGN> == 11)
- SRC.GO 390,1690,40,5	//Dragon Turtle Habitat
-ELIF (<ARGN> == 12)
- SRC.GO 269,1726,80,5	//Britannian Encampment
-ENDIF
 
 [ITEMDEF 09cbc]
 //moonstone crystal (teleporter)(animation frame)

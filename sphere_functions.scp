@@ -664,7 +664,7 @@ REF1=<SERV.ACCOUNT.<ARGS>.CHAR.0.UID>
 		REF1.GO <SRC.P>
 	ENDIF
 ELSE
-	//SRC.SYSMESSAGE @38,,1,1 Hesap bulunamadi! Sunucuya boyle bir hespa kayitli degil.
+	//SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Hesap bulunamadi! Sunucuya boyle bir hespa kayitli degil.
 	SRC.SYSMESSAGELOC <def.tcolor_red>,3000033 // Hesap bulunamadi! Sunucuya boyle bir hespa kayitli degil.
 ENDIF
 
@@ -944,7 +944,7 @@ ENDIF
 ON=100 999
 REF1=<SRC.CTAG0.BAGLA_TELEPORTERS.<EVAL <ARGN>-100>>
 IF !(<REF1.ISVALIDE>)
-	SRC.SYSMESSAGE @38,,1,1 Teleporter bulunamadı!
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Teleporter bulunamadı!
 	RETURN 1
 ENDIF
 SRC.GOUID <REF1>
@@ -953,12 +953,12 @@ SRC.GOUID <REF1>
 ON=1000 1999
 REF1=<SRC.CTAG0.BAGLA_TELEPORTERS.<EVAL <ARGN>-1000>>
 IF !(<REF1.ISVALIDE>)
-	SRC.SYSMESSAGE @38,,1,1 Teleporter bulunamadı!
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Teleporter bulunamadı!
 	RETURN 1
 ENDIF
 REF1.MOREP <P>
 MOREP <REF1.P>
-SRC.SYSMESSAGE Iki teleporter birbirine baglandi.
+SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Iki teleporter birbirine baglandi.
 
 
 
@@ -970,14 +970,14 @@ ON=0
  
 [FUNCTION F_BAGLAC_YER]
 REF1=<ARGS>
-SRC.SYSMESSAGE <REF1.P>
+SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <REF1.P>
 IF (<REF1>)
 	IF (<EVAL <TARGP>> == <EVAL <REF1.P>>)
-		SRC.SYSMESSAGE @38,,1,1 Aynı yere bağlayamazsınız.
+		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Aynı yere bağlayamazsınız.
 		RETURN 1
 	ENDIF
 
-	SRC.SYSMESSAGE @,,1,1 Baglanan yer : <SRC.TARGP>
+	SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Baglanan yer : <SRC.TARGP>
 	REF1.MOREP <SRC.TARGP>
 ENDIF
 
@@ -1437,7 +1437,7 @@ RETURN <LOCAL.RES>
 [Function SetProcessDelay]
 IF !(<ISGM>)
 	IF (<CTAG0.<ARGV0>.Delay> > <SERV.TIME>)
-		SYSMESSAGE @38,,1,1 You must wait to perform another action. (<f_stonesys_determine_timeleft <CTAG0.<ARGV0>.DELAY>>)
+		SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, You must wait to perform another action. (<f_stonesys_determine_timeleft <CTAG0.<ARGV0>.DELAY>>)
 		RETURN 1
 	ENDIF
 	CTAG0.<ARGV0>.DELAY = <EVAL <SERV.TIME>+<ARGV1>>
@@ -1594,7 +1594,7 @@ TAKE_STAM_FIX <ARGV[2]>
 IF (<HITS> >= 1)
 	LOCAL.DROP = <QVAL (<ISEMPTY <ARGS>>)?1:<ARGS>>
 	HITS -=<DLOCAL.DROP>
-	SYSMESSAGE @38,,1,1  "-<DLOCAL.DROP> Hits"
+	SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>,  "-<DLOCAL.DROP> Hits"
 ENDIF
 
 
@@ -1602,14 +1602,14 @@ ENDIF
 IF (<MANA> > 1)
 	LOCAL.DROP = <QVAL (<ISEMPTY <ARGS>>)?1:<ARGS>>
 	MANA -=<DLOCAL.DROP>
-	SYSMESSAGE @38,,1,1  "-<DLOCAL.DROP> Mana"
+	SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>,  "-<DLOCAL.DROP> Mana"
 ENDIF
 
 [FUNCTION TAKE_STAM_FIX]
 IF (<STAM> > 1)
 	LOCAL.DROP = <QVAL (<ISEMPTY <ARGS>>)?1:<ARGS>>
 	STAM -=<DLOCAL.DROP>
-	SYSMESSAGE @38,,1,1  "-<DLOCAL.DROP> Stam"
+	SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>,  "-<DLOCAL.DROP> Stam"
 ENDIF
 
 
@@ -1764,11 +1764,11 @@ RETURN <ARGS>
 
 [FUNCTION TARGETF_REMOVE]
 IF !(<ARGO>)
-	SRC.SYSMESSAGE @38,,1,1  <def.msg_invalid_target_tr>
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>,  <def.msg_invalid_target_tr>
 	RETURN 1
 ENDIF
 IF (<ARGO.TAG0.SILINMEZ>)
-	SRC.SYSMESSAGE @38,,1,1  Bu eşya/varlık silinmez.
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>,  Bu eşya/varlık silinmez.
 	SRC.TARGETF TARGETF_REMOVE
 	RETURN 1
 ENDIF
@@ -1783,7 +1783,7 @@ IF (<ARGO.ISCHAR>)
 
 ELSEIF (<ARGO.ISITEM>)
 	// IF ((<ARGO.TAG0.MULTICOMPONENT>) || (<ARGO.ISEVENT.ei_house_door>) || (<ARGO.ISEVENT.ei_house_component>))
-		// SRC.SYSMESSAGE @38,,1,1  Ev komponentleri silinemez.
+		// SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>,  Ev komponentleri silinemez.
 		// RETURN 1
 	// ENDIF
 	ARGO.REMOVE_ITEM
@@ -1801,10 +1801,10 @@ RETURN 1
 //  Custom Player Remove Function
 [FUNCTION REMOVE_PLAYER]
 IF (<SRC.UID> == <UID>)
-	SRC.SYSMESSAGE @38,,1,1  You cannot removed yourself.
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>,  You cannot removed yourself.
 	RETURN 1
 ENDIF
-SRC.SYSMESSAGE @38,,1,1  Oyuncular bu şekilde silinemez.
+SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>,  Oyuncular bu şekilde silinemez.
 
 
 
@@ -1825,7 +1825,7 @@ IF (<TYPE> == T_CONTAINER)
 	ENDIF
 ENDIF
 
-SRC.SYSMESSAGE @38,,1,1  Item: <NAME> removed.
+SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>,  Item: <NAME> removed.
 REMOVE
 
 
@@ -1835,7 +1835,7 @@ REMOVE
 IF (<OWNER>)
 SRC.LOG Mount Removed :  Name : <NAME> Serial : <UID> <QVAL (<OWNER>) ? Owner=<OWNER.NAME>:>
 ENDIF
-SRC.SYSMESSAGE @38,,1,1  Char: <NAME> removed.
+SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>,  Char: <NAME> removed.
 REMOVE
 
 
@@ -1846,7 +1846,7 @@ REMOVE
 REF1=<ARGO>
 IF (<REF1>)
 	REF1.FLIP
-	SRC.SYSMESSAGE @,,1,1 Flipped: <REF1.NAME>
+	SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Flipped: <REF1.NAME>
 	SRC.TARGETF TARGETF_FLIP
 ELSE
 	RETURN 1
@@ -1858,7 +1858,7 @@ ENDIF
 //  Custom Tele Function
 [FUNCTION TARGETFG_MTELE]
 TARGETFG TARGF_TELE
-SYSMESSAGE Nereye teleport olmak istiyorsun?
+SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Nereye teleport olmak istiyorsun?
 
 [FUNCTION TARGETF_TELE]
 IF (<SRC.PRIVSHOW>)
@@ -2136,15 +2136,15 @@ ENDDO
 
 [FUNCTION SPEEDSET]
 IF (<ISEMPTY <ARGS>>) || (<ARGS> == 0)
-	SYSMESSAGE @,,1,1 Karakter hızı: Normal
+	SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Karakter hızı: Normal
 ELSEIF (<ARGS> == 1)
-	SYSMESSAGE @,,1,1 Karakter hızı: Hızlı
+	SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Karakter hızı: Hızlı
 ELSEIF (<ARGS> == 2)
-	SYSMESSAGE @,,1,1 Karakter hızı: Sadece yürüme
+	SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Karakter hızı: Sadece yürüme
 ELSEIF (<ARGS> == 3)
-	SYSMESSAGE @,,1,1 Karakter hızı: Hızlı yürüme
+	SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Karakter hızı: Hızlı yürüme
 ELSEIF (<ARGS> == 3)
-	SYSMESSAGE @,,1,1 Karakter hızı: Yürüme/koşma kapalı
+	SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Karakter hızı: Yürüme/koşma kapalı
 ENDIF
 SPEEDMODE=<ARGS>
 
@@ -2256,7 +2256,7 @@ IF (<ISCHAR>)
 	
 	SERV.NEWITEM I_DISCONNECTIMER,1,<UID>,1
 	NEW.TIMER=<ARGN1>
-	SYSMESSAGE <RemaingTime <ARGN1>> saniye sonra baglantiniz kesilecektir.
+	SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <RemaingTime <ARGN1>> saniye sonra baglantiniz kesilecektir.
 ENDIF
 
 [ITEMDEF I_DISCONNECTIMER]
@@ -2310,7 +2310,7 @@ IF (<ISCHAR>) && !(<FLAGS>&STATF_STONE)
       SERV.NEWITEM I_STONETIMER
       NEW.TIMER=<ARGS>
       EQUIP <NEW>
-	  SYSMESSAGE @,,1,1 <RemaingTime <ARGS>> saniye stone stoneliğiniz kalkacaktır.
+	  SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <RemaingTime <ARGS>> saniye stone stoneliğiniz kalkacaktır.
    ENDIF
 ENDIF
 
@@ -2371,7 +2371,7 @@ ELSE
 	ENDIF
 	MORE1 --
 	TIMER=1
-	TOPOBJ.SYSMESSAGE <DMORE1>
+	TOPOBJ.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <DMORE1>
 ENDIF
 
 
@@ -2471,9 +2471,9 @@ IF (<CTAG0.OPEN_WEBURL_TIME> < <SERV.TIME>)
    CTAG0.OPEN_WEBURL_TIME <EVAL <SERV.TIME>+8>
    WEBLINK <LOCAL.HTTPS>/<ARGS>
    // ClassicUO clientte bu mesaja gerek yok
-   // SYSMESSAGE @,,1,1 Yönlendiriliyorsunuz: <LOCAL.HTTP>/<ARGS>
+   // SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Yönlendiriliyorsunuz: <LOCAL.HTTP>/<ARGS>
 ELSE
-   SYSMESSAGE @38,,1,1  Başka bir yönlendirme için bekleyiniz.
+   SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>,  Başka bir yönlendirme için bekleyiniz.
 ENDIF
 
 
@@ -2667,7 +2667,7 @@ ENDIF
 IF (<SERV.CHARDEF.<LOCAL.ID>>)
  ADD <LOCAL.ID> <LOCAL.Amount>
 ELSE
- SYSMESSAGE <DEFMSG.cmd_invalid>
+ SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <DEFMSG.cmd_invalid>
 ENDIF
 
 [FUNCTION tweak]
@@ -2702,9 +2702,9 @@ IF (<LOCAL.Amount> < 1)
 ENDIF
 IF (<SERV.ITEMDEF.<LOCAL.ID>>)
  TARGETFG static_callback <LOCAL.ID>,<LOCAL.Amount>
- SYSMESSAGE <DEFMSG.where_to_place> <SERV.ITEMDEF.<LOCAL.ID>.NAME>?
+ SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <DEFMSG.where_to_place> <SERV.ITEMDEF.<LOCAL.ID>.NAME>?
 ELSE
- SYSMESSAGE <DEFMSG.cmd_invalid>
+ SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <DEFMSG.cmd_invalid>
 ENDIF
 
 [FUNCTION static_callback]
@@ -2733,7 +2733,7 @@ SERV.NEWITEM i_eq_followSrc
 NEW.LINK=<QVAL (<dARGS>)? <ARGS>:<UID>>
 NEW.TIMER=2
 NEW.EQUIP
-SRC.SYSMESSAGE Following: <NEW.LINK.NAME> - Use war mode to stop following
+SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Following: <NEW.LINK.NAME> - Use war mode to stop following
 
 [ITEMDEF i_eq_followSrc]
 ID=i_handr_1
@@ -2749,7 +2749,7 @@ LINK=<ARGO>
 
 ON=@Timer
 IF !(<LINK.UID>) || (<CONT.FLAGS> & statf_war)
- CONT.SYSMESSAGE Follow: off
+ CONT.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Follow: off
  REMOVE
  return 0
 ELIF STRCMP("'<CONT.P>'","'<LINK.P>'")
@@ -3038,33 +3038,18 @@ ENDIF
 // MARKLA
 
 [FUNCTION MARKLA]
-IF (<ISGM>)
-	SERV.NEWITEM I_RUNE_MARKER
-	NEW.MOREP <SRC.P>
-	IF !(STRMATCH('','<ARGS>'))
-		NEW.NAME <ARGS>
-	ELSE
-		NEW.NAME <SRC.REGION.NAME>
-	ENDIF
-	NEW.BOUNCE
-	SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, [GM] Marklanan alan : <NEW.NAME>
-	
+SERV.NEWITEM I_RUNE_MARKER
+NEW.MOREP <SRC.P>
+IF !(STRMATCH('','<ARGS>'))
+NEW.NAME <ARGS>
 ELSE
-	IF (<CTAG0.MarklaCmd.Delay> > <SERV.TIME>)
-		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, <defmsg.skillwait_3> (<f_stonesys_determine_timeleft <CTAG0.MarklaCmd.Delay>>)
-		RETURN 1
-	ENDIF
-	SERV.NEWITEM I_RUNE_MARKER
-	NEW.BOUNCE
-	ACTDIFF=0
-	ACTARG1 = 45
-	ACT = <NEW>
-	ACTPRV = <SRC>
-	ACTP = <P.X>,<P.Y>,<P.Z>,<P.M>
-	ACTION = 25
-	CTAG0.MarklaCmd.Delay=<EVAL <SERV.TIME>+<r80,90>>
-	SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, <region.name> (<p>) alanını işaretlemeye başladınız.
+NEW.NAME <SRC.REGION.NAME>
 ENDIF
+NEW.BOUNCE
+CALL Func_Map_Colors <NEW.MOREX>,<NEW.MOREY>,<NEW.MOREZ>,<NEW.MOREM>
+NEW.COLOR <DLOCAL.REGIONCOLOR_MARK>
+SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, [GM] Marklanan alan : <NEW.NAME>
+	
 
 
 

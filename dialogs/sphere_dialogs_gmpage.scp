@@ -16,7 +16,7 @@ ON=@EQUIP
 IF (<SERV.LogMask>&000800)
     SERV.LOG Yeni GMPage (Name:<topobj.name>, UID:<topobj>, P: <TOPOBJ.P>, Lokasyon: <TOPOBJ.REGION.NAME>, IP: <TOPOBJ.ACCOUNT.LASTIP>)
 ENDIF
-SRC.SYSMESSAGE GMPage iletildi, <EVAL <SRC.GMPAGESEQ>> siradasiniz.
+SYSMESSAGELOC <def.color_red>,<def.empty_cliloc2>, GMPage iletildi, <EVAL <SRC.GMPAGESEQ>> siradasiniz.
 
 
 
@@ -50,7 +50,7 @@ IF !(<FINDID.I_GMPAGE>)
     NEW.MOREP=<P>
     NEW.TAG0.TIME = <SERV.TIME>
 ELSE
-    SYSMESSAGE GMPage guncellendi.
+    SYSMESSAGELOC <def.tcolor_green>,<def.empty_cliloc2>, GMPage guncellendi.
     IF (<SERV.LogMask>&000800)
         SERV.LOG GMPage Guncellendi. (Name:<name>, UID:<uid>, P: <P>, Lokasyon: <REGION.NAME>, IP: <ACCOUNT.LASTIP>)
     ENDIF
@@ -182,14 +182,14 @@ DIALOG d_gmpage_info
 ON=3
 REF1=<LINK>
 IF (<REF1>) && (<REF1.ISGM>)
-    SRC.SYSMESSAGE @38,,1,1 Bu page ile zaten <REF1.NAME> ilgileniyor.
+    SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu page ile zaten <REF1.NAME> ilgileniyor.
     RETURN 1
 ENDIF
 LINK=<SRC>
 IF (<SERV.LogMask>&000800)
     SERV.LOG [<src.name>/<uid>] GMPage ile ilgileniyor. (Name:<topobj.name>, UID:<topobj>, P: <TOPOBJ.P>, Lokasyon: <TOPOBJ.REGION.NAME>, IP: <TOPOBJ.ACCOUNT.LASTIP>)
 ENDIF
-SRC.SYSMESSAGE Bu page ile artik siz ilgileniyorsunuz.
+SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Bu page ile artik siz ilgileniyorsunuz.
 DIALOGCLOSE d_gmpage_info
 DIALOG d_gmpage_info
 
@@ -200,7 +200,7 @@ IF (<ISITEM>)
     IF (<SERV.LogMask>&000800)
         SERV.LOG [<src.name>/<uid>] GMPage silindi. (Name:<topobj.name>, UID:<topobj>, P: <TOPOBJ.P>, Lokasyon: <TOPOBJ.REGION.NAME>, IP: <TOPOBJ.ACCOUNT.LASTIP>)
     ENDIF
-    SRC.SYSMESSAGE @38,,1,1 GMPage silindi.
+    SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, GMPage silindi.
     REMOVE
 ENDIF
 SRC.PAGE

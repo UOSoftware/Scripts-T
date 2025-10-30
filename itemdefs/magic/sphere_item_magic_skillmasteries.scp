@@ -30,28 +30,9 @@ ON=@Create
    MORE1=0ffffffff
    MORE2=01fff
 
-ON=@ContextMenuRequest
-SRC.AddContextEntry 700,1151948,<QVAL (<TOPOBJ> == <SRC>)? 0:1>  //Switch Mastery
-
-ON=@ContextMenuSelect
-IF (<ARGN> == 700)
- IF (<TOPOBJ> == <SRC>)
-  SDIALOG d_skillmastery_switch
- ENDIF
-ENDIF
-
-ON=@ClientToolTip
-FOR 1 57
- IF (<TAG0.Mastery> == <LOCAL._FOR>)
-  SRC.AddCliloc <DEF0.SkillMastery.<dLOCAL._FOR>>
-  return 0
- ENDIF
-ENDFOR
-
 [ITEMDEF 0225b]
 //book of masteries
 DUPEITEM=0225a
-
 
 [DIALOG d_skillmastery_switch]
 75,25

@@ -77,7 +77,7 @@ ELIF !(<SRC.ISGM>)
   return 1
  ENDIF
  SRC.GOLD -= <SRC.CTAG0.Hairstylist.Price>
- SRC.SYSMESSAGE <dSRC.CTAG0.Hairstylist.Price> gold has been removed from your bank box.
+ SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <dSRC.CTAG0.Hairstylist.Price> gold has been removed from your bank box.
 ENDIF
 
 LOCAL.Race=<QVAL (<SRC.f_iself>)? "Elf" : "Human">
@@ -163,7 +163,7 @@ ELIF !(<SRC.ISGM>)
   return 1
  ENDIF
  SRC.GOLD -= <SRC.CTAG0.Hairstylist.Price>
- SRC.SYSMESSAGE <dSRC.CTAG0.Hairstylist.Price> gold has been removed from your bank box.
+ SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <dSRC.CTAG0.Hairstylist.Price> gold has been removed from your bank box.
 ENDIF
 
 ARGS=<DEF.Beard.Style.Human.<ARGCHKID>>
@@ -225,7 +225,7 @@ ELIF !(<SRC.ISGM>)
   return 1
  ENDIF
  SRC.GOLD -= <SRC.CTAG0.Hairstylist.Price>
- SRC.SYSMESSAGE <dSRC.CTAG0.Hairstylist.Price> gold has been removed from your bank box.
+ SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <dSRC.CTAG0.Hairstylist.Price> gold has been removed from your bank box.
 ENDIF
 
 WHILE !(<isempty <DEF.Hair.Dye.<SRC.CTAG0.Hairstylist.Dye.Palette>.<eval <LOCAL._WHILE>+1>>>)

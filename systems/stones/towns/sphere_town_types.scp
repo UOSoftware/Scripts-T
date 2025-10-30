@@ -14,7 +14,7 @@ return 1
 
 ON=@Dclick
   If (<distance> > 2)
-    src.sysmessage @038A That is too far away.
+    src.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, That is too far away.
   elif (<member.count>==0)&&(!<masteruid>)	//(<masteruid>!=<src.uid>)
     f_townsys_addchartotown <uid>,<src.uid>,1	//auto makes the master
   elif (!<masteruid>)

@@ -23,7 +23,7 @@ HITPOINTS={128 154}
 ON=@EquipTest
 IF !(<SRC.ISGM>)
 	IF !(<SRC.GUILD>)
-		SRC.SYSMESSAGE @38,,1,1 Bu eşyayı sadece guild üyeleri kullanabilir.
+		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu eşyayı sadece guild üyeleri kullanabilir.
 		UNEQUIP
 		RETURN 1
 	ENDIF
@@ -45,7 +45,7 @@ ATTR ATTR_INVIS|ATTR_NEWBIE|ATTR_DECAY
 On=@Equip
 SRC.NOTICE 1-2 dakika içinde guildden tamamen ilişkiniz kesilecektir. DİKKAT: Bu süre içinde Guardzoneye girerseniz ayrılma süreci iptal olacaktır.
 SRC.GC 1-2 dakika içinde guild üyeliğinden ayrılmış olacağım.
-SRC.SYSMESSAGE @38,,1,1 1-2 dakika içinde guildden tamamen ilişkiniz kesilecektir. DİKKAT: Bu süre içinde Guardzoneye girerseniz ayrılma süreci iptal olacaktır.
+SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, 1-2 dakika içinde guildden tamamen ilişkiniz kesilecektir. DİKKAT: Bu süre içinde Guardzoneye girerseniz ayrılma süreci iptal olacaktır.
 SRC.SAYUA 38,6,0,0 Guildden ayrılıyor...
 MORE1={60 120}
 TIMER 1
@@ -57,7 +57,7 @@ SRC.FUNC_DIALOGCLOSEALL
 ON=@TIMER
 IF (<TOPOBJ.ISONLINE>)
 	IF (<TOPOBJ.REGION.GUARDED>)
-		TOPOBJ.SYSMESSAGE @38,,1,1 Guildden ayrılma sürecinde Guardzone içine girdiğiniz için ayrılma süreci iptal edildi.
+		TOPOBJ.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Guildden ayrılma sürecinde Guardzone içine girdiğiniz için ayrılma süreci iptal edildi.
 		REMOVE
 		RETURN 1
 	ENDIF
