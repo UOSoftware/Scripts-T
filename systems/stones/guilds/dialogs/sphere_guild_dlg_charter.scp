@@ -63,7 +63,7 @@ IF (<EVAL STRLEN(<LOCAL.WEBSITE>)> <= 3)
 	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Webste bağlantı adresi bu kadar kısa olamaz.
 	LOCAL.WEBSITE=<SERV.URL>
 ENDIF
-SRC.FUNC_OpenWebUrl <LOCAL.WEBSITE>
+SRC.Weblink <LOCAL.WEBSITE>
 RETURN 1
 
 

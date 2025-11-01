@@ -1,0 +1,3 @@
+// TODO: bandaj sistemi 
+// TODO: taming sistemi
+// TODO: .onlinelist komutunun dialogu yapilacak.

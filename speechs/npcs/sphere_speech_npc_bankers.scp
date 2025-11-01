@@ -2,8 +2,7 @@ VERSION=0.56T
 
 [SPEECH spk_generic_npc_bankers]
 ON=*bank*
-SRC.OPENBANK
-
+SRC.BANKSELF
 
 ON=*balance*
 IF (<SERV.FeatureTOL>&02)
@@ -11,7 +10,6 @@ IF (<SERV.FeatureTOL>&02)
 ELSE
 	SAY Thy current bank balance is <bolukayir <SRC.BANKBALANCE>> physical gold.
 ENDIF
-
 
 ON=*check*
 

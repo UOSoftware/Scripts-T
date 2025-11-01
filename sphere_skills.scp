@@ -32,7 +32,7 @@ DEFNAME=Skill_Alchemy
 KEY=Alchemy
 TITLE=Alchemist
 FLAGS=skf_craft
-DELAY=1.2//Old value=3.0,1.0 // per stroke.
+DELAY=1.2 //Old value=3.0,1.0 // per stroke.
 STAT_STR=5
 STAT_DEX=40
 STAT_INT=75
@@ -40,19 +40,24 @@ BONUS_STR=0
 BONUS_DEX=20
 BONUS_INT=80
 BONUS_STATS=10
-ADV_RATE=10.0,200.0,800.0
+// old ph system
+ADV_RATE=2.5,50.0,200.0
+// new ph system
+// SKILL_GAIN_RANGE=0.0,10.0,80.0
+// SKILL_GAIN_RANGE=10.0,30.0,50.0
+// SKILL_GAIN_RANGE=30.0,100.0,5.0
 VALUES=1,20,100
 
 ON=@Fail
-SRC.SYSMESSAGE You toss the failed mixture from the mortar, unable to create a potion from it.
+	SRC.SYSMESSAGE You toss the failed mixture from the mortar, unable to create a potion from it.
 
 ON=@Abort
-SRC.SYSMESSAGE You fail to complete the potion.
-
+	SRC.SYSMESSAGE You fail to complete the potion.
+	
 [SKILL 1]
 DEFNAME=Skill_Anatomy
 KEY=Anatomy
-TITLE=Biologist
+TITLE=Scholar
 PROMPT_MSG=Whom shall I examine?
 DELAY=1.0
 STAT_STR=15
@@ -62,19 +67,23 @@ BONUS_STR=0
 BONUS_DEX=0
 BONUS_INT=100
 BONUS_STATS=50
+// old ph system
 ADV_RATE=2.5,50.0,200.0
-RANGE=8
+// new ph system
+// SKILL_GAIN_RANGE=0.0,10.0,80.0
+// SKILL_GAIN_RANGE=10.0,30.0,50.0
+// SKILL_GAIN_RANGE=30.0,100.0,5.0
 
 ON=@Fail
-SRC.SYSMESSAGE You cannot quite get a sense of their physical characteristics.
+	SRC.SYSMESSAGE You can't think of anything about this creature
 
 ON=@Abort
-SRC.SYSMESSAGE You fail to examine the creature fully.
+	SRC.SYSMESSAGE You fail to examine the creature fully.
 
 [SKILL 2]
 DEFNAME=Skill_Animal_Lore
 KEY=AnimalLore
-TITLE=Naturalist
+TITLE=Scholar
 PROMPT_MSG=What animal should I look at?
 DELAY=1.0
 STAT_STR=0
@@ -85,14 +94,13 @@ BONUS_DEX=0
 BONUS_INT=100
 BONUS_STATS=50
 ADV_RATE=2.5,50.0,200.0
-RANGE=12
 
 ON=@Fail
-SRC.SYSMESSAGE You can't think of anything you know offhand.
+	SRC.SYSMESSAGE You can't think of anything off hand
 
 ON=@Abort
-SRC.SYSMESSAGE You stop trying to understand the creature.
-
+	SRC.SYSMESSAGE You stop trying to understand the creature.
+	
 [SKILL 3]
 DEFNAME=Skill_Appraise
 KEY=ItemID
@@ -107,18 +115,17 @@ BONUS_DEX=0
 BONUS_INT=100
 BONUS_STATS=25
 ADV_RATE=2.5,50.0,200.0
-RANGE=3
 
 ON=@Fail
-SRC.SYSMESSAGE You have no idea how much it might be worth.
+	SRC.SYSMESSAGE You can't think of anything off hand
 
 ON=@Abort
-SRC.SYSMESSAGE You can't concentrate enough to come up with a good estimate.
-
+	SRC.SYSMESSAGE You stop trying to appraise the item.
+	
 [SKILL 4]
 DEFNAME=Skill_ArmsLore
 KEY=ArmsLore
-TITLE=Weapon Master
+TITLE=Arms%s
 PROMPT_MSG=What item do you wish to get information about?
 DELAY=1.0
 STAT_STR=10
@@ -129,18 +136,17 @@ BONUS_DEX=33
 BONUS_INT=34
 BONUS_STATS=25
 ADV_RATE=2.5,50.0,200.0
-RANGE=3
 
 ON=@Fail
-SRC.SYSMESSAGE You are not certain...
+	SRC.SYSMESSAGE You are uncertain about this item 
 
 ON=@Abort
-SRC.SYSMESSAGE You stop trying to evaluate the item.
-
+	SRC.SYSMESSAGE You stop trying to evaluate the item.
+	
 [SKILL 5]
 DEFNAME=Skill_Parrying
 KEY=Parrying
-TITLE=Duelist
+TITLE=Shieldfighter
 FLAGS=skf_fight
 STAT_STR=75
 STAT_DEX=25
@@ -172,14 +178,14 @@ BONUS_STATS=10
 ADV_RATE=2.5,50.0,200.0
 
 ON=@Abort
-SRC.SYSMESSAGE You fail utterly in your attempt to grovel.
+	SRC.SYSMESSAGE You fail utterly in your attempt to grovel.
 
 [SKILL 7]
 DEFNAME=Skill_Blacksmith
 KEY=Blacksmithing
 TITLE=Blacksmith
 FLAGS=skf_craft
-DELAY=1.2//Old value=1.7
+DELAY=1.2 //Old value=1.7
 STAT_STR=95
 STAT_DEX=25
 STAT_INT=15
@@ -189,19 +195,20 @@ BONUS_INT=5
 BONUS_STATS=10
 ADV_RATE=2.5,50.0,200.0
 VALUES=1,20,100
+RANGE=3 // forge dist
 
 ON=@Fail
-SRC.SYSMESSAGE You have failed to make anything
+	SRC.SYSMESSAGE You have failed to make anything
 
 ON=@Abort
-SRC.SYSMESSAGE You fail to complete the item.
+	SRC.SYSMESSAGE You fail to complete the item.
 
 [SKILL 8]
 DEFNAME=Skill_Bowcraft
 KEY=Bowcraft
 TITLE=Bowyer
 FLAGS=skf_craft
-DELAY=1.2//Old value=1.7
+DELAY=1.2 //Old value=1.7
 STAT_STR=40
 STAT_DEX=70
 STAT_INT=45
@@ -213,15 +220,15 @@ ADV_RATE=10.0,200.0,800.0
 VALUES=1,30,200
 
 ON=@Fail
-SRC.SYSMESSAGE You fail to create the item
+	SRC.SYSMESSAGE You fail to create the item
 
 ON=@Abort
-SRC.SYSMESSAGE You fail to complete the item.
+	SRC.SYSMESSAGE You fail to complete the item.
 
 [SKILL 9]
 DEFNAME=Skill_Peacemaking
 KEY=Peacemaking
-TITLE=Pacifier
+TITLE=Bard
 DELAY=2.0
 STAT_STR=0
 STAT_DEX=70
@@ -233,15 +240,15 @@ BONUS_STATS=5
 ADV_RATE=2.5,50.0,200.0
 
 ON=@Fail
-SRC.SYSMESSAGE You attempt to calm everyone, but fail.
+	SRC.SYSMESSAGE You attempt to calm everyone, but fail.
 
 ON=@Abort
-SRC.SYSMESSAGE You fail to complete the song.
+	SRC.SYSMESSAGE You fail to complete the song.
 
 [SKILL 10]
 DEFNAME=Skill_Camping
 KEY=Camping
-TITLE=Explorer
+TITLE=Camper
 DELAY=6.0
 STAT_STR=30
 STAT_DEX=30
@@ -253,10 +260,10 @@ BONUS_STATS=50
 ADV_RATE=2.5,50.0,200.0
 
 ON=@Fail
-SRC.SYSMESSAGE You fail to ignite the campfire.
+	SRC.SYSMESSAGE You fail to ignite the campfire.
 
 ON=@Abort
-SRC.SYSMESSAGE You give up trying to light the campfire.
+	SRC.SYSMESSAGE You give up trying to light the campfire.
 
 [SKILL 11]
 DEFNAME=Skill_Carpentry
@@ -275,10 +282,10 @@ ADV_RATE=2.5,50.0,200.0
 VALUES=1,20,80
 
 ON=@Fail
-SRC.SYSMESSAGE You fail to create the item
+	SRC.SYSMESSAGE You fail to create the item
 
 ON=@Abort
-SRC.SYSMESSAGE You fail to complete the item.
+	SRC.SYSMESSAGE You fail to complete the item.
 
 [SKILL 12]
 DEFNAME=Skill_Cartography
@@ -296,15 +303,11 @@ BONUS_STATS=15
 ADV_RATE=2.5,50.0,200.0
 VALUES=1,20,80
 
-ON=@Select
-SRC.SYSMESSAGE This skill cannot be used directly.
-return 1
-
 ON=@Fail
-SRC.SYSMESSAGE Thy trembling hand results in an unusable map.
+	SRC.SYSMESSAGE Thy trembling hand results in an unusable map.
 
 ON=@Abort
-SRC.SYSMESSAGE You fail to complete the map.
+	SRC.SYSMESSAGE You fail to complete the map.
 
 [SKILL 13]
 DEFNAME=Skill_Cooking
@@ -322,17 +325,19 @@ BONUS_INT=60
 BONUS_STATS=50
 ADV_RATE=2.5,50.0,200.0
 VALUES=1,20,80
+RANGE=3 // campfire dist
 
 ON=@Fail
-SRC.SYSMESSAGE You burn the food to a crisp! It's ruined.
+	SRC.SYSMESSAGE You burn the food to a crisp! It's ruined.
 
 ON=@Abort
-SRC.SYSMESSAGE You stop cooking the food.
+	SRC.SYSMESSAGE You stop cooking the food.
+
 
 [SKILL 14]
 DEFNAME=Skill_DetectHidden
 KEY=DetectingHidden
-TITLE=Scout
+TITLE=Detective
 DELAY=3.0,2.0
 STAT_STR=15
 STAT_DEX=20
@@ -344,15 +349,15 @@ BONUS_STATS=25
 ADV_RATE=2.5,50.0,200.0
 
 ON=@Fail
-SRC.SYSMESSAGE You can see nothing hidden there.
+	SRC.SYSMESSAGE You can see nothing hidden there.
 
 ON=@Abort
-SRC.SYSMESSAGE You stop looking for anything hidden.
+	SRC.SYSMESSAGE You stop looking for anything hidden.
 
 [SKILL 15]
 DEFNAME=Skill_Enticement
 KEY=Enticement
-TITLE=Demoralizer
+TITLE=Bard
 PROMPT_MSG=Whom do you wish to entice?
 DELAY=2.0
 STAT_STR=15
@@ -365,10 +370,10 @@ BONUS_STATS=5
 ADV_RATE=2.5,50.0,200.0
 
 ON=@Fail
-SRC.SYSMESSAGE Your music fails to attract anyone.
+	SRC.SYSMESSAGE Your music fails to attract anyone.
 
 ON=@Abort
-SRC.SYSMESSAGE You fail to complete the song.
+	SRC.SYSMESSAGE You fail to complete the song.
 
 [SKILL 16]
 DEFNAME=Skill_EvalInt
@@ -384,13 +389,12 @@ BONUS_DEX=0
 BONUS_INT=100
 BONUS_STATS=50
 ADV_RATE=2.5,50.0,200.0
-RANGE=8
 
 ON=@Fail
-SRC.SYSMESSAGE You cannot quite judge its mental abilities.
+	SRC.SYSMESSAGE You cannot seem to judge the creature correctly.
 
 ON=@Abort
-SRC.SYSMESSAGE You fail to inspect the creature completely.
+	SRC.SYSMESSAGE You fail to inspect the creature completely.
 
 [SKILL 17]
 DEFNAME=Skill_Healing
@@ -408,16 +412,10 @@ BONUS_INT=70
 BONUS_STATS=20
 ADV_RATE=10.0,100.0,250.0
 
-ON=@Fail
-SRC.SYSMESSAGE You apply the bandages, but they barely help.
-
-ON=@Abort
-SRC.SYSMESSAGE You stop applying the bandages.
-
 [SKILL 18]
 DEFNAME=Skill_Fishing
 KEY=Fishing
-TITLE=Fisherman
+TITLE=Fisher%s
 PROMPT_MSG=What water do you want to fish in?
 FLAGS=skf_gather
 DELAY=8.0
@@ -430,7 +428,7 @@ BONUS_INT=0
 BONUS_STATS=25
 ADV_RATE=2.5,50.0,200.0
 VALUES=1,30,200
-RANGE=4
+RANGE=8 
 
 ON=@Start
 ANIM 12
@@ -442,32 +440,31 @@ ON=@Success
 ACTARG2=1 // location to drop the created item (0 = ground / 1 = backpack)
 
 ON=@Fail
-SRC.SYSMESSAGE You fish a while, but fail to catch anything.
+	SRC.SYSMESSAGE You fish a while, but fail to catch anything.
 
 ON=@Abort
-SRC.SYSMESSAGE You pull your line back in and stop fishing.
+	SRC.SYSMESSAGE You pull your line back in and stop fishing.
 
+[ITEMDEF I_MEMORY_FISHING_SPLASH]
+ID=I_MEMORY
 
-[ITEMDEF i_memory_fishing_splash]
-ID=i_memory
-
-ON=@Create
-ATTR=attr_move_never|attr_decay
+ON=@CREATE
+ATTR=ATTR_MOVE_NEVER|ATTR_DECAY
 TIMERD=15
 IF (<TIMERD> > <SERV.SKILL.FISHING.DELAY>)
 	TIMERD=<eval <SERV.SKILL.FISHING.DELAY> / 2>
 ENDIF
 
-ON=@Timer
-IF (<LINK.ACTION> == skill_fishing)
-	EFFECT 2,0352d,4,16
+ON=@TIMER
+IF (<LINK.ACTION> == SKILL_FISHING)
+	EFFECT 2,0352D,4,16
 	SOUND 0364
 ENDIF
 
 [SKILL 19]
 DEFNAME=Skill_Forensics
 KEY=Forensics
-TITLE=Detective
+TITLE=Scholar
 PROMPT_MSG=Select what you want to examine.
 DELAY=1.0
 STAT_STR=10
@@ -478,13 +475,12 @@ BONUS_DEX=0
 BONUS_INT=100
 BONUS_STATS=25
 ADV_RATE=2.5,50.0,200.0
-RANGE=12
 
 ON=@Fail
-SRC.SYSMESSAGE You cannot determine anything useful.
+	SRC.SYSMESSAGE You can tell nothing about the corpse.
 
 ON=@Abort
-SRC.SYSMESSAGE You decide you'd rather not look at that.
+	SRC.SYSMESSAGE You decide you'd rather not look at that.
 
 [SKILL 20]
 DEFNAME=Skill_Herding
@@ -501,15 +497,15 @@ BONUS_STATS=25
 ADV_RATE=2.5,50.0,200.0
 
 ON=@Fail
-SRC.SYSMESSAGE You don't seem to be able to persuade that to move.
+	SRC.SYSMESSAGE You don't seem to be able to persuade that to move.
 
 ON=@Abort
-SRC.SYSMESSAGE You give up trying to persuade that to move.
+	SRC.SYSMESSAGE You give up trying to persuade that to move.
 
 [SKILL 21]
 DEFNAME=Skill_Hiding
 KEY=Hiding
-TITLE=Shade
+TITLE=Rogue
 DELAY=2.0
 STAT_STR=20
 STAT_DEX=90
@@ -521,11 +517,11 @@ BONUS_STATS=25
 ADV_RATE=2.5,50.0,200.0
 
 ON=@Fail
-SRC.SYSMESSAGE You can't seem to hide here.
+	SRC.SYSMESSAGE You can't seem to hide here.
 
 ON=@Abort
-SRC.SYSMESSAGE You stop trying to hide.
-
+	SRC.SYSMESSAGE You stop trying to hide.
+	
 ON=@PreStart
 IF (<SRC.ISPLAYER>)
 	IF (<EVAL (<SRC.AR> * 100)> > <EVAL (<SRC.HIDING> + 200)>)
@@ -540,7 +536,7 @@ ENDIF
 [SKILL 22]
 DEFNAME=Skill_Provocation
 KEY=Provocation
-TITLE=Rouser
+TITLE=Bard
 PROMPT_MSG=Whom do you wish to incite?
 DELAY=3.0
 STAT_STR=20
@@ -553,10 +549,10 @@ BONUS_STATS=5
 ADV_RATE=2.5,50.0,200.0
 
 ON=@Fail
-SRC.SYSMESSAGE Your music fails to incite enough anger.
+	SRC.SYSMESSAGE Your music fails to incite enough anger.
 
 ON=@Abort
-SRC.SYSMESSAGE You decide not to incite anything for now.
+	SRC.SYSMESSAGE You decide not to incite anything for now.
 
 [SKILL 23]
 DEFNAME=Skill_Inscription
@@ -576,15 +572,16 @@ ADV_RATE=10.0,200.0,800.0
 VALUES=1,30,200
 
 ON=@Fail
-SRC.SYSMESSAGE You fail to inscribe the scroll, and the scroll is ruined.
+	SRC.SYSMESSAGE You fail to inscribe the scroll, and the scroll is ruined.
+	SRC.CONSUME 1 i_scroll_blank
 
 ON=@Abort
-SRC.SYSMESSAGE You scribble on the scroll a bit, but fail to finish it.
+	SRC.SYSMESSAGE You scribble on the scroll a bit, but fail to finish it.
 
 [SKILL 24]
 DEFNAME=Skill_Lockpick
 KEY=Lockpicking
-TITLE=Infiltrator
+TITLE=Locksmith
 PROMPT_MSG=What do you want to pick?
 DELAY=3.0
 STAT_STR=20
@@ -597,10 +594,10 @@ BONUS_STATS=25
 ADV_RATE=2.5,50.0,200.0
 
 ON=@Fail
-SRC.SYSMESSAGE You are unable to pick the lock.
+	SRC.SYSMESSAGE You are unable to pick the lock.
 
 ON=@Abort
-SRC.SYSMESSAGE You stop trying to pick the lock.
+	SRC.SYSMESSAGE You stop trying to pick the lock.
 
 [SKILL 25]
 DEFNAME=Skill_Magery
@@ -626,7 +623,7 @@ SRC.SYSMESSAGE You fail casting the spell.
 [SKILL 26]
 DEFNAME=Skill_MagicResist
 KEY=MagicResistance
-TITLE=Warder
+TITLE=Resistor
 EFFECT=0.0,90.0
 STAT_STR=40
 STAT_DEX=40
@@ -640,7 +637,7 @@ ADV_RATE=10.0,200.0,800.0
 [SKILL 27]
 DEFNAME=Skill_Tactics
 KEY=Tactics
-TITLE=Tactician
+TITLE=Warrior
 STAT_STR=60
 STAT_DEX=70
 STAT_INT=40
@@ -653,7 +650,7 @@ ADV_RATE=10.0,150.0,600.0
 [SKILL 28]
 DEFNAME=Skill_Snooping
 KEY=Snooping
-TITLE=Spy
+TITLE=Pickpocket
 DELAY=2.0
 STAT_STR=30
 STAT_DEX=60
@@ -663,12 +660,13 @@ BONUS_DEX=100
 BONUS_INT=0
 BONUS_STATS=25
 ADV_RATE=2.5,50.0,200.0
+RANGE=2 
 
 ON=@Fail
-SRC.SYSMESSAGE You fail to peek into the container.
+	SRC.SYSMESSAGE You fail to peek into the container.
 
 ON=@Abort
-SRC.SYSMESSAGE You give up trying to peek into the container.
+	SRC.SYSMESSAGE You give up trying to peek into the container.
 
 [SKILL 29]
 DEFNAME=Skill_Musicianship
@@ -685,10 +683,10 @@ BONUS_STATS=10
 ADV_RATE=2.5,50.0,200.0
 
 ON=@Fail
-SRC.SYSMESSAGE You play poorly, and there is no effect.
+	SRC.SYSMESSAGE You play poorly, and there is no effect.
 
 ON=@Abort
-SRC.SYSMESSAGE You put down your instrument.
+	SRC.SYSMESSAGE You put down your instrument.
 
 [SKILL 30]
 DEFNAME=Skill_Poisoning
@@ -707,10 +705,10 @@ ADV_RATE=2.5,50.0,200.0
 VALUES=1,30,200
 
 ON=@Fail
-SRC.SYSMESSAGE You fail to apply a sufficient dose of poison to it.
+	SRC.SYSMESSAGE You fail to apply a sufficient dose of poison to it.
 
 ON=@Abort
-SRC.SYSMESSAGE You decide not to poison anything for now.
+	SRC.SYSMESSAGE You decide not to poison anything for now.
 
 [SKILL 31]
 DEFNAME=Skill_Archery
@@ -731,6 +729,7 @@ DEFNAME=Skill_SpiritSpeak
 KEY=SpiritSpeak
 TITLE=Medium
 DELAY=2.0
+EFFECT=5,15
 STAT_STR=20
 STAT_DEX=30
 STAT_INT=70
@@ -742,14 +741,19 @@ ADV_RATE=2.5,50.0,200.0
 
 ON=@Fail
 SRC.SYSMESSAGE You fail your attempt at contacting the netherworld.
+SRC.TAG0.NOMOVETILL_SKILL = 
 
 ON=@Abort
-SRC.SYSMESSAGE You stop trying to commune with the netherworld.
+SRC.SYSMESSAGE You abort trying to commune with the netherworld.
+SRC.TAG0.NOMOVETILL_SKILL = 
+
+ON=@Start
+SRC.TAG0.NOMOVETILL_SKILL = <EVAL <SERV.TIME> + 10>
 
 [SKILL 33]
 DEFNAME=Skill_Stealing
 KEY=Stealing
-TITLE=Pickpocket
+TITLE=Thief
 PROMPT_MSG=Which item will you attempt to steal?
 DELAY=2.5
 STAT_STR=40
@@ -760,19 +764,20 @@ BONUS_DEX=100
 BONUS_INT=0
 BONUS_STATS=10
 ADV_RATE=10.0,200.0,800.0
+RANGE=2
 
 ON=@Fail
-SRC.SYSMESSAGE You fail to steal the item.
+	SRC.SYSMESSAGE You fail to steal the item.
 
 ON=@Abort
-SRC.SYSMESSAGE You give up trying to steal the item.
+	SRC.SYSMESSAGE You give up trying to steal the item.
 
 [SKILL 34]
 DEFNAME=Skill_Tailoring
 KEY=Tailoring
 TITLE=Tailor
 FLAGS=skf_craft
-DELAY=1.2//Old value=4.5
+DELAY=1.2 //Old value=4.5
 STAT_STR=30
 STAT_DEX=60
 STAT_INT=30
@@ -784,15 +789,15 @@ ADV_RATE=2.5,50.0,200.0
 VALUES=1,20,80
 
 ON=@Fail
-SRC.SYSMESSAGE Tailoring failed. Some of the cloth is ruined.
+	SRC.SYSMESSAGE Tailoring failed. Some of the cloth is ruined.
 
 ON=@Abort
-SRC.SYSMESSAGE You decide not to sew anymore for now.
+	SRC.SYSMESSAGE You decide not to sew anymore for now.
 
 [SKILL 35]
 DEFNAME=Skill_Taming
 KEY=Taming
-TITLE=Tamer
+TITLE=Animal Tamer
 PROMPT_MSG=Tame which animal?
 DELAY=2.0
 STAT_STR=30
@@ -803,7 +808,7 @@ BONUS_DEX=10
 BONUS_INT=60
 BONUS_STATS=20
 ADV_RATE=10.0,200.0,800.0
-RANGE=7
+RANGE=3
 
 ON=@Fail
 SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Evcilleştirmeyi başarısız oldu.
@@ -811,70 +816,60 @@ SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Evcilleştirmeyi başar�
 ON=@Abort
 SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Evcilleştirmekten vazgeçtiniz.
 
-ON=@Success
-IF !(<SRC.FINDID.I_STAFF_TAMING>)
-SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Yanınızda Taming staff bulunmuyor.
-RETURN 1
-ENDIF
-REF1=<ACT.SPAWNITEM>// SPAWNITEM
-IF (<REF1>) && (<REF1.TYPE> == T_SPAWN_CHAR)
-LOCAL.RESPAWNTIME = <EVAL (<R<REF1.MOREX>,<REF1.MOREY>>)*60>
-DORAND 2
-LOCAL.RESPAWNTIME -=<R60,120>
-LOCAL.RESPAWNTIME +=<R60,120>
-ENDDO
-REF1.TIMER <LOCAL.RESPAWNTIME>
-ENDIF
-IF !(<ACT.TAG0.TAMER>)
-ACT.TAG0.TAMER=<SRC>
-ENDIF
-
 ON=@Select
 IF !(<SRC.FINDID.I_STAFF_TAMING>)
 	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Yanınızda Taming staff bulunmuyor.
 	RETURN 1
-ELSEIF (<SRC.REGION.FLAGS>&REGION_FLAG_SAFE)
-	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu alanda evcilleştirme yapamazsınız.
+ENDIF
+REF1=<SRC.FINDID.I_STAFF_TAMING>
+IF (<SRC.ACTION> == SKILL_TAMING)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Şu an zaten evcilleştirme yapıyorsunuz.
 	RETURN 1
 ENDIF
 
+// OVERRIDE.STROKECOUNT
 ON=@Start
+IF !(<SRC.FINDID.I_STAFF_TAMING>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Yanınızda Taming staff bulunmuyor.
+	RETURN 1
+ENDIF
 REF1=<SRC.FINDID.I_STAFF_TAMING>
 
-IF !(<SRC.FINDID.I_STAFF_TAMING>)
-SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Yanınızda Taming staff bulunmuyor.
-RETURN 1
-ENDIF
-IF (<ACT.ISCHAR>)
-IF !(<ACT.NPC> == brain_Animal)
-SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Sadece hayvanları evcilleştirebilirsiniz.
-RETURN 1
-
+IF !(<ACT.NPC> == BRAIN_ANIMAL)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Sadece hayvanları evcilleştirebilirsiniz.
+	RETURN 1
+	
 ELSEIF (<ACT.TAG0.TAMER> == <SRC>) 
-SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Hayvan artik sizi umursamiyor.
-RETURN 1
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Hayvan artik sizi umursamiyor.
+	RETURN 1
 
 ELSEIF (<ACT.MEMORYFINDTYPE.MEMORY_FIGHT>)
-IF (<ACT.MEMORYFINDTYPE.MEMORY_FIGHT.LINK> == <SRC>)
-SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Hayvan su an size cok kizgin.
-RETURN 1
-ENDIF
-
-ELSEIF (<SRC.TARG.SPAWNITEM>)
-IF (<SRC.TARG.DISTANCE <SRC.TARG.SPAWNITEM>> > 5)
-SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu hayvan yuvasından uzakta.
-RETURN 1
-ENDIF
-ENDIF
+	IF (<ACT.MEMORYFINDTYPE.MEMORY_FIGHT.LINK> == <SRC>)
+		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Hayvan su an size cok kizgin.
+		RETURN 1
+	ENDIF
 ENDIF
 IF (<REF1>) && (<REF1.TOPOBJ> != <SRC>)
-SRC.EQUIP <REF1>
+	SRC.EQUIP <REF1>
+ENDIF
+
+ON=@Stroke
+serv.b tame stroke
+
+
+ON=@Success
+IF !(<SRC.FINDID.I_STAFF_TAMING>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Yanınızda Taming staff bulunmuyor.
+	RETURN 1
+ENDIF
+IF !(<ACT.TAG0.TAMER>)
+	ACT.TAG0.TAMER=<SRC>
 ENDIF
 
 [SKILL 36]
 DEFNAME=Skill_TasteId
 KEY=TasteID
-TITLE=Praegustator
+TITLE=Food Taster
 PROMPT_MSG=What would you like to taste?
 DELAY=1.0
 STAT_STR=25
@@ -885,13 +880,12 @@ BONUS_DEX=0
 BONUS_INT=80
 BONUS_STATS=50
 ADV_RATE=2.5,50.0,200.0
-RANGE=1
 
 ON=@Fail
-SRC.SYSMESSAGE You cannot discern anything about this substance.
+	SRC.SYSMESSAGE You cannot discern anything about this substance.
 
 ON=@Abort
-SRC.SYSMESSAGE You decide against tasting anything.
+	SRC.SYSMESSAGE You decide against tasting anything.
 
 [SKILL 37]
 DEFNAME=Skill_Tinkering
@@ -910,10 +904,10 @@ ADV_RATE=2.5,50.0,200.0
 VALUES=1,20,80
 
 ON=@Fail
-SRC.SYSMESSAGE Tinkering failed.
+	SRC.SYSMESSAGE Tinkering failed.
 
 ON=@Abort
-SRC.SYSMESSAGE You stop trying to make anything.
+	SRC.SYSMESSAGE You stop trying to make anything.
 
 [SKILL 38]
 DEFNAME=Skill_Tracking
@@ -950,7 +944,6 @@ SRC.ARROWQUEST 0,0,38
 DEFNAME=Skill_Vet
 KEY=Veterinary
 TITLE=Veterinarian
-PROMPT_MSG=What animal would you like to heal?
 DELAY=2.0
 STAT_STR=30
 STAT_DEX=40
@@ -970,7 +963,7 @@ SRC.SYSMESSAGE You stop applying the bandages.
 [SKILL 40]
 DEFNAME=Skill_Swordsmanship
 KEY=Swordsmanship
-TITLE=Swordsman
+TITLE=Swords%s
 FLAGS=skf_fight
 STAT_STR=75
 STAT_DEX=75
@@ -984,7 +977,7 @@ ADV_RATE=10.0,150.0,600.0
 [SKILL 41]
 DEFNAME=Skill_Macefighting
 KEY=Macefighting
-TITLE=Armsman
+TITLE=Macefighter
 FLAGS=skf_fight
 STAT_STR=100
 STAT_DEX=55
@@ -1077,7 +1070,7 @@ ELIF (<SRC.FLAGS> & STATF_POLYMORPH)
 ENDIF
 
 ON=@Success
-ACTARG2=1// location to drop the created item (0 = ground / 1 = backpack)
+ACTARG2=1 // location to drop the created item (0 = ground / 1 = backpack)
 
 ON=@Fail
 SRC.SYSMESSAGE You loosen some rocks but fail to find any useable ore.
@@ -1086,12 +1079,12 @@ ON=@Abort
 SRC.SYSMESSAGE You decide not to mine for now.
 
 ON=@Stroke
-IF (<SRC.FLAGS> & statf_onhorse|statf_hovering)
-SRC.SYSMESSAGE You can't dig while riding or flying.
-return 1
-ELIF (<SRC.FLAGS> & statf_polymorph)
-SRC.SYSMESSAGE You can't dig while polymorphed.
-return 1
+IF (<SRC.FLAGS> & STATF_ONHORSE|STATF_HOVERING)
+	SRC.SYSMESSAGE Binek uzerinde kazi yapamazsiniz.
+	RETURN 1
+ELIF (<SRC.FLAGS> & STATF_POLYMORPH)
+	SRC.SYSMESSAGE Farkli bir bedendeyken kazi yapamazsiniz.
+	RETURN 1
 ENDIF
 
 [SKILL 46]
@@ -1113,10 +1106,6 @@ SRC.SYSMESSAGE You lose your concentration.
 
 ON=@Abort
 SRC.SYSMESSAGE You stop concentrating.
-
-ON=@Start
-
-ON=@Success
 
 [SKILL 47]
 DEFNAME=Skill_Stealth
@@ -1148,10 +1137,7 @@ ENDIF
 
 ON=@Success
 SPEEDSET=2
-STEPSTEALTH = <EVAL (<STEALTH>/50)+1>
 SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, Sessizce hareket etmeye basla! En fazla atılacak adım: <STEPSTEALTH>
-FLAGS |= STATF_HIDDEN
-UPDATE // kosarken stealth basinca burasi kare atlatiyor.
 
 ON=@Fail
 SYSMESSAGE You fail in your attempt to move unnoticed.
@@ -1160,11 +1146,10 @@ REVEAL
 ON=@Abort
 SYSMESSAGE You give up trying to hide here.
 
-
 [SKILL 48]
 DEFNAME=Skill_Remove_Trap
 KEY=RemoveTrap
-TITLE=Trap Specialist
+TITLE=Jack
 PROMPT_MSG=Select the trap to disarm
 DELAY=7.0,3.0,2.0
 STAT_STR=20

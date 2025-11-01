@@ -1,0 +1,105 @@
+
+
+[FUNCTION SERV.ZAMAN]
+RETURN <serv.rtime.format %d> <SERV.AYNUM <SERV.rtime.format %m>> <serv.rtime.format %Y> <SERV.DAYNAME> <serv.rtime.format %H:%M>
+
+
+[FUNCTION SERV.SAAT]
+RETURN <serv.rtime.format %H:%M>
+
+
+[FUNCTION SERV.AYNAME]
+ARGS=Aralik,Ocak,Subat,Mart,Nisan,Mayis,Haziran,Temmuz,Agustos,Eylul,Ekim,Kasim
+RETURN <ARGV[<SERV.rtime.format %m>]>
+
+
+[FUNCTION SERV.DAYNAME]
+ARGS=Pazar,P.tesi,Salı,Çarşamba,Perşembe,Cuma,C.tesi
+RETURN <ARGV[<SERV.rtime.format %w>]>
+
+
+[FUNCTION SERV.DAYNUM]
+ARGS=7,1,2,3,4,5,6
+RETURN <ARGV[<SERV.rtime.format %w>]>
+
+
+
+// RemaingTime
+[FUNCTION KALANZAMAN]
+RETURN <RemaingTime <args>>
+
+[FUNCTION KALANSURE]
+RETURN <RemaingTime <args>>
+
+
+
+// Kalansure
+[FUNCTION RemaingTime]
+LOCAL.TIMER = <ARGS>
+
+LOCAL.DAYs = <EVAL (<LOCAL.TIMER> / 86400)>
+LOCAL.TIMER -= <EVAL (<LOCAL.DAYS> * 86400)>
+LOCAL.HOURs = <EVAL (<LOCAL.TIMER> / 3600)>
+LOCAL.TIMER -= <EVAL (<LOCAL.HOURS> * 3600)>
+LOCAL.MINs = <EVAL (<LOCAL.TIMER> / 60)>
+LOCAL.TIMER -= <EVAL (<LOCAL.MINS> * 60)>
+LOCAL.SECs = <LOCAL.TIMER>
+
+IF (<LOCAL.DAYS>)
+	LOCAL.TIME = "<dLOCAL.DAYs> g. "
+ENDIF
+IF (<LOCAL.HOURS>)
+	IF !(STRCMP(<LOCAL.TIME>,0))
+		LOCAL.TIME = "<dLOCAL.HOURs> sa."
+	ELSE
+		LOCAL.TIME .= "<dLOCAL.HOURs> sa. "
+	ENDIF
+ENDIF
+IF (<LOCAL.MINS>)
+	IF !(STRCMP(<LOCAL.TIME>,0))
+		LOCAL.TIME = "<dLOCAL.MINs> dk."
+	ELSE
+		LOCAL.TIME .= "<dLOCAL.MINs> dk. "
+	ENDIF
+ENDIF
+IF (<LOCAL.SECS>)
+	IF !(STRCMP(<LOCAL.TIME>,0))
+		LOCAL.TIME = "<dLOCAL.SECs> sn."
+	ELSE
+		LOCAL.TIME .= "<dLOCAL.SECs> sn."
+	ENDIF
+ENDIF
+RETURN <LOCAL.TIME>
+
+
+
+[FUNCTION FormatMinutes]
+IF (<ARGN1> >= 518400)
+	RETURN <eval <ARGN1> / 518400> yıl <eval (<ARGN1> % 518400) / 43200> ay <eval ((<ARGN1> % 518400) % 43200) / 1440> gün <eval (((<ARGN1> % 518400) % 43200) % 1440) / 60> saat <eval (((<ARGN1> % 518400) % 43200) % 1440) % 60> dakika.
+ELIF (<ARGN1> >= 43200)
+	RETURN <eval <ARGN1> / 43200> ay <eval (<ARGN1> % 43200) / 1440> gün <eval ((<ARGN1> % 43200) % 1440) / 60> saat <eval ((<ARGN1> % 43200) % 1440) % 60> dakika.
+ELIF (<ARGN1> >= 1440)
+	RETURN <eval <ARGN1> / 1440> gün <eval (<ARGN1> % 1440) / 60> saat <eval (<ARGN1> % 1440) % 60> dk.
+ELIF (<ARGN1> >= 60)
+	RETURN <eval <ARGN1> / 60> saat. <eval <ARGN1> % 60> dk.
+ELSE
+	RETURN <ARGN1> dk.
+ENDIF
+
+
+[FUNCTION FormatSeconds]
+//MAXIMUM 24H
+IF (<ARGN1> >= 86400)
+	RETURN <eval <ARGN1> / 86400>gün, <eval (<ARGN1> % 86400) / 60>sa, <eval (<ARGN1> % 86400) % 60>dk, <eval <ARGN1> % 60>sn.
+ELIF (<ARGN1> >= 3600)
+	RETURN <eval <ARGN1> / 3600>gün, <eval (<ARGN1>  % 3600) / 60>sa, <eval <ARGN1> % 60>
+ELIF (<ARGN1> >= 60)
+	RETURN <eval <ARGN1> / 60>dk, <eval <ARGN1> % 60>sn.
+ELSE
+	RETURN <ARGN1>sn.
+ENDIF
+
+
+
+
+[eof]

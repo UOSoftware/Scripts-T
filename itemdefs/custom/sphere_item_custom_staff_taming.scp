@@ -43,13 +43,14 @@ ELSEIF (<SRC.FLAGS>&STATF_STONE)
 	SRC.SYSMESSAGELOC <def.tcolor_red>,600028 // "Stone durumdayken bu işlemi yapamazsınız."
 
 ELSEIF (<TIMER> == -1)
-       EQUIP
+    EQUIP
 	TARGET
 	SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, Hangi hayvanı evcilleştirmek istiyorsunuz?
 ELSE
 	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Şu an zaten evcilleştirme yapıyorsunuz.
 ENDIF
 RETURN 1
+
 
 ON=@TameAbort
 // TOPOBJ.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Taming işleminiz iptal oldu!
@@ -147,7 +148,6 @@ ON=@TARGON_ITEM
 SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Hatalı seçim.
 TRIGGER @DCLICK
 RETURN 1
-
 
 
 ON=@TIMER

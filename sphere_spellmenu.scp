@@ -51,17 +51,16 @@ TEST=NECROMANCY 100.0,SPIRITSPEAK 100.0
 SUMMON=c_vampire_bat
 
 
-
 [SKILLMENU sm_polymorph]
 Polymorph
 
-ON=i_pet_MAN Man
-TEST=MAGERY 40.0
-POLY C_MAN
+// ON=i_pet_MAN Man
+// TEST=MAGERY 40.0
+// POLY C_MAN
 
-ON=i_pet_woman Woman
-TEST=MAGERY 40.0
-POLY C_WOMAN
+// ON=i_pet_woman Woman
+// TEST=MAGERY 40.0
+// POLY C_WOMAN
 
 ON=i_PET_CHICKEN Chicken
 TEST=MAGERY 40.0
@@ -75,8 +74,8 @@ ON=i_PET_DEMON Demon
 TEST=MAGERY 85.0
 POLY c_DEMON
 
-// ON=i_pet_DRAGON Dragon
-// TEST=MAGERY 98.0
-// POLY { c_dragon 1 c_dragon_red 1 }
+ON=i_pet_DRAGON Dragon
+TEST=MAGERY 98.0
+POLY { c_dragon 1 c_dragon_red 1 }
 
 [EOF]

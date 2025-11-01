@@ -1,0 +1,231 @@
+﻿
+
+
+
+[PLEVEL 1]
+PINIM
+
+
+[FUNCTION PINIM]
+Func_Pin
+
+[FUNCTION Func_Pin]
+IF (<ISEMPTY <ACCOUNT.PIN>>)
+	SYSMESSAGE @38,,1,1 Pin kodunuz bulunmuyor.
+ELSE
+	IF !(<TAG0.PINGIRDI>)
+		Func_Pin_Login
+	ELSE
+		DIALOGCLOSE D_PIN_Main
+		DIALOG D_PIN_Main
+	ENDIF
+ENDIF
+
+[FUNCTION Func_Pin_Login]
+IF !(<ISEMPTY <ACCOUNT.PIN>>)
+	DIALOGCLOSE D_PIN_Login
+	DIALOG D_PIN_Login
+ENDIF
+
+
+
+
+
+[DIALOG D_PIN_Login]
+0,0
+IF (<SRC.dTAG0.SCREENSIZE.X> <= 0)
+LOCAL.MAINX = 100
+LOCAL.MAINW = 1850
+LOCAL.MAINH = 1200
+ELSE
+LOCAL.MAINX = <EVAL (<SRC.dTAG0.SCREENSIZE.X>-360)/2>
+LOCAL.MAINW = <EVAL <SRC.dTAG0.SCREENSIZE.X>+500>
+LOCAL.MAINH = <EVAL <SRC.dTAG0.SCREENSIZE.Y>+500>
+ENDIF
+
+IF (<ACCOUNT.PLEVEL> > 1)
+	NOMOVE
+	NOCLOSE
+	NODISPOSE
+	RESIZEPIC 0 0 3000 <LOCAL.MAINW> <LOCAL.MAINH>
+	CHECKERTRANS 0 0 <LOCAL.MAINW> <LOCAL.MAINH>
+ENDIF
+IF (<SRC.dTAG0.SCREENSIZE.Y> <= 0)
+LOCAL.MAINY = 100
+ELSE
+LOCAL.MAINY = <EVAL (<SRC.dTAG0.SCREENSIZE.Y>-560)/2>
+ENDIF
+
+// LOCAL.MAINX=300
+// LOCAL.MAINY=210
+DORIGIN <LOCAL.MAINX> <LOCAL.MAINY>
+
+RESIZE <LOCAL.MAINX>,<LOCAL.MAINY>,230,90,Pin Giriş
+RESIZEPIC +20 +70 3009 95 31
+DTEXTENTRYLIMITED +35 +75 60 30 0 1 5
+
+BUTTON +125 +70 072 073 1 0 1
+
+LOCAL.HTTPS https:/
+DHTMLGUMP +20 +105 190 25 0 0 <def.bfont_black><DEF.L1>a href="<LOCAL.HTTPS>/<SERV.URL>/login?username=<ACCOUNT>&pwd=<STRSUB 5 99 <ACCOUNT.TAG0.PWD>>"<DEF.R1>Pinimi unuttum!<DEF.L1>/a<DEF.R1>
+
+
+[DIALOG D_PIN_Login BUTTON]
+ON=1
+IF !(<ISEMPTY <SRC.ACCOUNT.PIN>>)
+	IF (<ISEMPTY <argtxt[1]>>)
+		SRC.SYSMESSAGE @38,,1,1 Pin kısmını boş bırakamazsın.
+		DIALOGCLOSE D_PIN_Login
+		DIALOG D_PIN_Login
+		RETURN 1
+	ELSEIF !(<ISNUM <argtxt[1]>>)
+		SRC.SYSMESSAGE @38,,1,1 Pin kısmına sadece rakam girebilirsin.
+		DIALOGCLOSE D_PIN_Login
+		DIALOG D_PIN_Login
+		RETURN 1
+	ELSEIF (<ISBADCHAR <argtxt[1]>>)
+		SRC.SYSMESSAGE @38,,1,1 Pin kısmına hatalı giriş yaptınız.
+		DIALOGCLOSE D_PIN_Login
+		DIALOG D_PIN_Login
+		RETURN 1
+	ELSEIF (<ISEMPTY <ACCOUNT.PIN>>)
+		SRC.SYSMESSAGE @38,,1,1 Pin kodunuz bulunmuyor.
+		DIALOGCLOSE D_PIN_Login
+		// DIALOG D_PIN_Login
+		RETURN 1
+	ENDIF
+
+
+	IF (<TAG0.PINGIRDI_YANLIS> >= 3)
+		SRC.SYSMESSAGE @38,,1,1 Pin kodunuzu 3 kere üst üste yanlış girdiniz. Oyundan atıldınız.
+		SRC.LOG PIN KODUNU 3 KERE UST USTE YANLIS GIRDI. Oyundan atıldı.
+		SRC.LOGOUT
+		TAG0.PINGIRDI_YANLIS=0
+		RETURN 1
+	ENDIF
+
+	IF (STRMATCH('<ACCOUNT.PIN>','<ARGTXT[1]>'))
+		SRC.SYSMESSAGE @044,,1,1 Pin kabul edildi.
+		TAG0.PINGIRDI=1
+		EVENTS -E_PIN
+		TAG0.PINGIRDI_YANLIS=0
+		CLEARCTAGS PIN_ISLEM
+	ELSE
+		TAG0.PINGIRDI=0
+		TAG0.PINGIRDI_YANLIS +=1
+		SRC.SYSMESSAGE @38,,1,1 Pin kabul edilmedi.
+		DIALOGCLOSE D_PIN_Login
+		DIALOG D_PIN_Login
+	ENDIF
+ENDIF
+
+
+
+[DIALOG D_PIN_MAIN]
+<DEF.DSP>
+
+RESIZE 0,0,290,230,Pin 
+
+DORIGIN 20 70
+
+DHTMLGUMP +0 +0 250 50 1 1 Pin kodu değişiklikleri internet sitesi üzerinden yapılmaktadır. Hesabınıza giriş yaptıktan sonra Pin bölümünden değişiklik yapabilirsiniz.
+
+BUTTON +0 +60 4006 4007 1 0 3
+DTEXT +30 +60 0455 Hesabıma git
+
+DHTMLGUMP +0 +90 250 100 1 1 <def.bfont_red>Pinkodu sorulan yerler;<def.bfont_black><def.br>* Help menü<def.br>* Eşya kullanımı<def.br>* Komut kullanımı
+
+
+[DIALOG D_PIN_MAIN BUTTON]
+ON=1
+SYSMESSAGE @,,1,1 Pin kodu ayarlarınız kaydedildi.
+ACCOUNT.TAG.PIN_SPEECH=<ARGCHK[1]>
+ACCOUNT.TAG.PIN_HELP=<ARGCHK[2]>
+ACCOUNT.TAG.PIN_ITEMUSE=<ARGCHK[3]>
+ACCOUNT.TAG.PIN_COMMAND=<ARGCHK[4]>
+
+ON=2
+// ACCOUNT.PIN=
+DIALOGCLOSEALL
+SYSMESSAGE @38,,1,1 Pin sisteminden faylanmıyorsunuz. Karakteriniz ile ilgili herhangi bir güvenlik ihlalinden, kayıp vs. gibi şeylerden <serv.name> sunucusu sorumlu değildir.
+EVENTS -E_PIN
+
+ON=3
+SYSMESSAGE @38,,1,1 Pin değişimleri Hesabım > Pin bölümünden yapılmaktadır. Yönlendiriliyorsunuz...
+// OpenWebUrl <SERV.URL>/home
+sifre
+
+
+ON=4
+SYSMESSAGE @38,,1,1 Pin kodu ayarlarınız sıfırlandı.
+ACCOUNT.TAG.PIN_SPEECH=
+ACCOUNT.TAG.PIN_HELP=
+ACCOUNT.TAG.PIN_ITEMUSE=
+ACCOUNT.TAG.PIN_COMMAND=
+
+
+
+
+
+[FUNCTION ISPINLOGIN]
+IF !(<ISEMPTY <ACCOUNT.PIN>>) 
+	IF !(<TAG0.PINGIRDI>)
+		RETURN 0
+	ENDIF
+ENDIF
+RETURN 1
+
+
+
+
+
+
+[EVENTS e_pin]
+ON=@ItemPickUp_Pack
+IF (<SRC.ISINSAFE>)
+	IF !(<SRC.ISPINLOGIN>)
+		SRC.SYSMESSAGE @38,,1,1 Pin girişi yapmadan bunu yapamazsınız.
+		SRC.Func_Pin_Login
+		RETURN 1
+	ENDIF
+ENDIF
+
+ON=@ITEMPICKUP_SELF
+IF !(<SRC.ISINSAFE>)
+	IF !(<SRC.ISPINLOGIN>)
+		SRC.SYSMESSAGE @38,,1,1 Pin girişi yapmadan bunu yapamazsınız.
+		SRC.Func_Pin_Login
+		RETURN 1
+	ENDIF
+ENDIF
+
+On=@ItemDClick
+IF !(<SRC.ISPINLOGIN>)
+
+	IF ( (<ACT.BASEID> == I_BACKPACK) || (<ACT.BASEID> == I_POTION_BAG) )
+		LOCAL.PINSOR=0
+	ELSEIF ((<ACT.TYPE> == T_POTION) || (<ACT.TYPE> == T_BANDAGE)  || (<ACT.TYPE> == T_DOOR) || (<ACT.TYPE> == T_DOOR_OPEN) || (<ACT.TYPE> == T_ARMOR) || (<ACT.TYPE> == t_armor_leather) || (<ACT.TYPE> == t_shield) )
+		LOCAL.PINSOR=0
+	ELSEIF ( (<ACT.ISWEAPON> == 1) || (<ACT.ISARMOR> == 1) )
+		LOCAL.PINSOR=0
+	ELSE	
+		LOCAL.PINSOR=1
+	ENDIF
+	
+	IF (<LOCAL.PINSOR> == 1)
+		SRC.Func_Pin_Login
+		RETURN 1
+	ENDIF
+	
+ENDIF
+
+On=@ItemDropon_Ground
+IF !(<SRC.ISPINLOGIN>)
+	SRC.SYSMESSAGE @38,,1,1 Pin girişi yapmadan bunu yapamazsınız.
+	SRC.Func_Pin_Login
+	RETURN 1
+ENDIF
+
+
+
+[EOF]

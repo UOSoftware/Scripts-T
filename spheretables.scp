@@ -35,6 +35,12 @@ defnames/sphere_defs_template.scp
 
 
 //*****************************************
+// functions
+//*****************************************
+functions/
+// packets
+functions/packets/
+//*****************************************
 // dialogs
 //*****************************************
 
@@ -147,11 +153,6 @@ staffs/
 tests/
 
 //*****************************************
-// packets
-//*****************************************
-packets/
-
-//*****************************************
 // maps
 //*****************************************
 
@@ -164,6 +165,7 @@ maps/map0/sphere_map0_moongates.scp
 maps/map0/sphere_map0_roomdefs.scp
 maps/map0/sphere_map0_shrines.scp
 maps/map0/sphere_map0_towns.scp
+
 maps/map0/points/
 maps/map0/points/teleporters/
 

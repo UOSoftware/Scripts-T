@@ -1,0 +1,1169 @@
+VERSION=0.56T
+
+[COMMENT]
+
+
+
+[FUNCTION CloseHealthbar]
+REF1=<QVAL (<ISEMPTY <ARGS>>)?<UID>:<ARGS>>
+IF (<REF1.ISVALIDE>) && (<REF1.ISCHAR>)
+	// SRC.CLOSEPROFILE <REF1>
+	SRC.CLOSESTATUS <REF1>
+	// SRC.CLOSEPAPERDOLL <REF1>
+	// SRC.SENDPACKET 0BF W13 W016 D002 D<ref1>
+	// SRC.SENDPACKET 0BF W09 W0C D<REF1>
+ENDIF
+
+
+
+
+
+[FUNCTION RESKILLCONDITION]
+REF1=<ARGV0> // OLDUREN
+IF (<REF1.ISVALIDE>)
+	IF (<FAME> > <ARGV2>) && !((<REF1.TAG0.LastDeath.<ARGV1>> == <UID>) || (STRMATCH('<REF1.ACCOUNT.LASTIP>','<ACCOUNT.LASTIP>')) || (<REF1> == <UID>))
+		RETURN 1
+	ENDIF
+ENDIF
+RETURN 0
+
+
+[FUNCTION Logger]
+IF (<GETREFTYPE> == <def.tref_account> || <GETREFTYPE> == <def.tref_client> || <GETREFTYPE> == <def.tref_world> || <GETREFTYPE> == <def.tref_char> || <GETREFTYPE> == <def.tref_item> || <GETREFTYPE> == <def.tref_object>)
+	// Item
+	IF (<ISITEM>)
+		LOCAL.OBJINFO = ItemLog - [BaseID=<BASEID>, Type=<TYPE>, Name=<NAME>, UID=<UID>, P=<P>, Region=<QVAL (<REGION>)?<REGION.NAME>:->, Topobj=<TOPOBJ>(<TOPOBJ.NAME>)]
+		LOCAL.COLOR=<def.CTCOL_DEFAULT>
+		CALL ContanerAllInsideLog 
+	// Char
+	ELSEIF (<ISCHAR>)
+		IF (<ISPLAYER>)
+			LOCAL.COLOR=<QVAL (<ACCOUNT.PLEVEL> == 1)?<def.CTCOL_YELLOW>:<DEF.CTCOL_CYAN>>
+			LOCAL.OBJINFO <QVAL (<ACCOUNT.PLEVEL> == 1)?Player:Staff>Log - [Priv=<ACCOUNT.PLEVEL>, Account=<ACCOUNT>, Name=<NAME>, UID=<UID>, Region=<QVAL (<REGION>)?<REGION.NAME>/<P>:>, IP=<ACCOUNT.LASTIP>, PC=<ISPC>, ClientVersion=<REPORTEDCLIVER>]
+		ELSE
+			LOCAL.COLOR=<def.CTCOL_WHITE>
+			LOCAL.OBJINFO NPCLog - [Name=<NAME>, UID=<UID>, Food=<FOOD>/<MAXFOOD>, Owner=<qval (<owner>)?<owner.NAME>:Yok>, Region=<QVAL (<REGION>)?<REGION.NAME>/<P>:>]
+		ENDIF
+	ENDIF
+	
+	SERV.LOG [<GETREFTYPE>] <LOCAL.OBJINFO> == <ARGS>
+ELSE
+	SERV.LOG [<GETREFTYPE>] <ARGS>
+ENDIF
+
+
+
+
+[FUNCTION ContanerAllInsideLog]
+REF1=<UID>
+IF (<REF1.ISCONT>)
+	IF (<REF1.RESCOUNT> > 0)
+		LOCAL.OBJINFO .= [Container Items / Rescont=<RESCOUNT>];
+		FORCONT <UID> 99999999
+			LOCAL.x ++
+			LOCAL.OBJINFO .= * <DLOCAL.x>. BaseID=<BASEID>, Type=<TYPE>, Name=<NAME>, UID=<UID> , 
+		ENDFOR
+		LOCAL.OBJINFO .= ]
+	ENDIF
+ENDIF
+
+
+
+
+
+
+[FUNCTION MyHouseCount]
+CALL Get_House_Memories
+SYSMESSAGE <DLOCAL.Houses>
+
+
+[FUNCTION Get_House_Memories]
+REF1 = <UID>
+FORCHARLAYER layer_special
+	IF (<LINK.ISVALIDE> && <LINK.ISITEM> && <LINK.TYPE> == T_MULTI)
+		REF2=<LINK>
+		IF (<REF2.MORE1> == <REF1>)
+			LOCAL.Houses ++
+			LOCAL.House.<DLOCAL.HOUSES> <LINK>
+		ENDIF
+	ENDIF
+ENDFOR
+RETURN <DLOCAL.Houses>
+
+
+
+
+
+// emulatorde zaten TARGETCLOSE var.
+[FUNCTION TARGETKAPAT]
+IF (<ISONLINE>)
+	// TARGETCLOSE
+	SENDPACKET 06c 00 D(00) 03 D(00) W(00) W(00) 00 00 W(00)
+	SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, Hedef zorla kapatildi.
+ENDIF
+
+
+
+
+
+//
+[FUNCTION Pack_Counter]
+IF (<FINDLAYER.LAYER_PACK>)
+	FORCONT <FINDLAYER.LAYER_PACK.UID> 9999
+		IF (<BASEID> == <ARGV0>)
+			LOCAL.ADET +=<AMOUNT>
+		ENDIF
+	ENDFOR
+ENDIF
+RETURN <DLOCAL.ADET>
+
+
+[FUNCTION Bank_Counter]
+IF (<FINDLAYER.layer_bankbox>)
+	FORCONT <FINDLAYER.layer_bankbox.UID> 9999
+		IF (<BASEID> == <ARGV0>)
+			LOCAL.ADET +=<AMOUNT>
+		ENDIF
+	ENDFOR
+
+ENDIF
+RETURN <DLOCAL.ADET>
+
+
+[FUNCTION PackBank_Counter]
+IF (<FINDLAYER.layer_bankbox>)
+	FORCONT <FINDLAYER.layer_bankbox.UID> 9999
+		IF (<BASEID> == <ARGV0>)
+			LOCAL.ADET +=<AMOUNT>
+		ENDIF
+	ENDFOR
+ENDIF
+IF (<FINDLAYER.LAYER_PACK>)
+	FORCONT <FINDLAYER.LAYER_PACK.UID> 9999
+		IF (<BASEID> == <ARGV0>)
+			LOCAL.ADET +=<AMOUNT>
+		ENDIF
+	ENDFOR
+ENDIF
+RETURN <DLOCAL.ADET>
+
+
+
+
+// Pack & Bank Item Remover
+// Use I.PACKBANK_REMOVER i_gold
+[FUNCTION PACKBANK_REMOVER]
+// Pack
+Pack_Remover <args>
+
+// Bank
+Bank_Remover <args>
+
+// Layers
+Layer_Remover <args>
+
+
+
+// Layer Item Remover
+// Use I.Layer_Remover i_robe
+[FUNCTION Layer_Remover]
+// Layers
+FOR 1 54
+	IF (<FINDLAYER.<DLOCAL._FOR>>)
+	REF3=<FINDLAYER.<DLOCAL._FOR>.UID>
+		IF (<REF3.DISPID>==<ARGS>) || (<REF3.BASEID>==<ARGS>)
+			REF3.REMOVE
+		ENDIF
+	ENDIF
+ENDFOR
+
+
+// Pack & Bank Item Remover
+// Use I.PACKBANK_REMOVER i_gold
+[FUNCTION Pack_Remover]
+// Pack
+FORCONT <FINDLAYER.21> 9999
+REF1=<UID>
+	IF (<REF1.DISPID>==<ARGS>) || (<REF1.BASEID>==<ARGS>)
+		REF1.REMOVE
+	ENDIF
+ENDFOR
+
+
+[FUNCTION Bank_Remover]
+// Bank
+FORCONT <FINDLAYER.29> 9999
+REF2=<UID>
+	IF (<REF2.DISPID>==<ARGS>) || (<REF2.BASEID>==<ARGS>)
+		REF2.REMOVE
+	ENDIF
+ENDFOR
+
+
+
+
+
+
+
+
+
+[FUNCTION FlagDel]
+FLAGS &= ~<args>
+
+[FUNCTION FlagAdd]
+FLAGS |= <args>
+
+[FUNCTION FlagToggle]
+IF (<FLAGS>&<ARGS>)
+	FLAGS &= ~<args>
+ELSE
+	FLAGS |= <args>
+ENDIF
+
+
+
+
+[FUNCTION CustomMemDel_Force]
+FORCHARMEMORYTYPE <args>
+	REMOVE
+ENDFOR
+
+// Custom Peace Mode Function
+[FUNCTION FUNC_PEACEMODE]
+IF (<ISCHAR>)
+	IF (<ISPLAYER>)
+		TARGETKAPAT
+
+		CustomMemDel_Force memory_iaggressor
+		CustomMemDel_Force memory_harmedby
+		CustomMemDel_Force memory_irritatedby
+		CustomMemDel_Force memory_aggreived
+		CustomMemDel_Force memory_war_targ	
+		CustomMemDel_Force memory_fight	
+		
+		ACTION -1
+		FUNC_WARMODE 0
+		ATTACKER.CLEAR
+		SKILL FAIL	
+	ENDIF
+ENDIF
+
+
+
+
+
+
+[FUNCTION ActLogla]
+SYSMESSAGE @,,1,1 ----------------
+SYSMESSAGE @,,1,1 ACT: <ACT> <qval (<ACT.ISVALIDE>) ? [<ACT.NAME>] : >
+SYSMESSAGE @,,1,1 ACTARG1: <dACTARG1>
+SYSMESSAGE @,,1,1 ACTARG2: <dACTARG2>
+SYSMESSAGE @,,1,1 ACTARG3: <dACTARG3>
+SYSMESSAGE @,,1,1 ACTPRV: <ACTPRV>
+SYSMESSAGE @,,1,1 ACTP: <ACTP>
+SYSMESSAGE @,,1,1 ACTION: <ACTION>
+SYSMESSAGE @,,1,1 ACTIONEFFECT: <ACTIONEFFECT>
+SYSMESSAGE @,,1,1 ACTDIFF: <ACTDIFF>
+IF (<ISONLINE> && <ISPLAYER>)
+	SYSMESSAGE @,,1,1 Targ: <TARG> <qval (<Targ>) ? [<Targ.NAME>] : >
+	SYSMESSAGE @,,1,1 TargP: <TargP>
+ENDIF
+SYSMESSAGE @,,1,1 ActPri: <ActPri>
+
+
+
+
+[FUNCTION FUNC_ORDERSET]
+LOCAL.TAG=<ARGV[0]>
+IF (<ISCHAR>)
+	IF (STRMATCH(*ASC*,<CTAG0.<LOCAL.TAG>>)) || (STRMATCH(*ASC*,<TAG0.<LOCAL.TAG>>))
+		SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, Listeleme : Artan
+		RETURN DESC
+	ELSE
+		SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, Listeleme : Azalan
+		RETURN ASC
+	ENDIF
+ELSE
+	IF STRMATCH(*ASC*,<TAG0.<LOCAL.TAG>>)
+		SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, Listeleme : Artan
+		RETURN DESC
+	ELSE
+		SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, Listeleme : Azalan
+		RETURN ASC
+	ENDIF
+ENDIF
+
+
+
+[FUNCTION FUNC_ISIM_KONTROL]
+IF (<FINDID.I_RUNE_INCOGNITO>)
+	FINDID.I_RUNE_INCOGNITO.REMOVE
+ENDIF
+IF (STRLEN(<ARGS>) > 16) || (STRLEN(<ARGS>) < 2)
+	LOCAL.NAME_BAD_LEN ++
+ENDIF
+IF (<ISFORBIDSTRING <ARGS>>)
+	LOCAL.NAME_BAD_FORBIDDEN ++
+ENDIF
+LOCAL.CHAR=<ASC <ARGS>>
+IF ( (STRMATCH('41*,'<LOCAL.CHAR>')) || (STRMATCH(*03d*,'<LOCAL.CHAR>')) || (STRMATCH(*02c*,'<LOCAL.CHAR>')) || (STRMATCH(*02e*,'<LOCAL.CHAR>')) || (STRMATCH(*021*,'<LOCAL.CHAR>')) || (STRMATCH(*05e*,'<LOCAL.CHAR>')) || (STRMATCH(*02b*,'<LOCAL.CHAR>')) || (STRMATCH(*025*,'<LOCAL.CHAR>')) || (STRMATCH(*026*,'<LOCAL.CHAR>')) || (STRMATCH(*028*,'<LOCAL.CHAR>')) || (STRMATCH(*029*,'<LOCAL.CHAR>')) || (STRMATCH(*03f*,'<LOCAL.CHAR>')) || (STRMATCH(*03e*,'<LOCAL.CHAR>')) || (STRMATCH(*03c*,'<LOCAL.CHAR>')) || (STRMATCH(*023*,'<LOCAL.CHAR>')) || (STRMATCH(*07b*,'<LOCAL.CHAR>')) || (STRMATCH(*05b*,'<LOCAL.CHAR>')) || (STRMATCH(*05d*,'<LOCAL.CHAR>')) || (STRMATCH(*07d*,'<LOCAL.CHAR>')) || (STRMATCH(*05c*,'<LOCAL.CHAR>')) || (STRMATCH(*07c*,'<LOCAL.CHAR>')) )
+	LOCAL.NAME_BAD_CHAR ++
+ENDIF
+IF !(<ISSTRING <ARGS>>)
+	LOCAL.NAME_BAD_CHAR ++
+ENDIF
+FOR 0 <EVAL <SERV.ACCOUNTS>-1>
+IF (<SERV.ACCOUNT.<DLOCAL._for>>)
+	LOCAL.ACCOUNT <SERV.ACCOUNT.<DLOCAL._for>.NAME>
+		IF (<SERV.ACCOUNT.<LOCAL.ACCOUNT>.CHARS>)
+			FOR CHARS 0 <EVAL <SERV.ACCOUNT.<LOCAL.ACCOUNT>.CHARS>-1>
+				REF1=<SERV.ACCOUNT.<LOCAL.ACCOUNT>.CHAR.<DLOCAL.CHARS>.UID>
+				IF !(<REF1> == <UID>) && (STRMATCH('<REF1.NAME>','<ARGS>'))
+					LOCAL.NAME_DUPE ++
+				ENDIF
+			ENDFOR
+		ENDIF
+	ENDIF
+ENDFOR
+IF (<DLOCAL.NAME_BAD_LEN>)
+	SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, İsminiz EN AZ 2 EN FAZLA 16 karakter olmalıdır.
+ENDIF
+IF (<DLOCAL.NAME_BAD_FORBIDDEN>)
+	SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, İsminiz içeriğinde argo veya yasaklı kelimeler bulunuyor.
+ENDIF	
+IF (<DLOCAL.NAME_BAD_CHAR>)
+	SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, İsminizde yalnızca alfabetik karakter kullanabilirsiniz.
+ENDIF		
+IF (<DLOCAL.NAME_DUPE>)
+	SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bu isimden sunucuda bulunuyor.
+ENDIF
+LOCAL.RESPONSE <EVAL <DLOCAL.NAME_BAD_LEN> + <DLOCAL.NAME_BAD_FORBIDDEN> + <DLOCAL.NAME_BAD_CHAR> + <DLOCAL.NAME_DUPE>>
+IF (<DLOCAL.RESPONSE>)
+	SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, İsminiz hatalıdır, Otomatik olarak değiştirilmiştir. (<NAME>)
+	NAME #NAMES_HUMAN<IsGenderName>
+	DIALOGCLOSE D_RENAME_CHAR
+	DIALOG D_RENAME_CHAR
+ENDIF
+
+
+
+[DIALOG D_RENAME_CHAR]
+<DEF.dlgstartpos>
+IF !(<SRC.CTAG0.RENAMEDEED>)
+	NOCLOSE
+ENDIF
+
+RESIZE 0,0,390,200
+DORIGIN 20 20
+DHTMLGUMP +0 +0 350 120 1 1 Adınız en az 2 ve en fazla 16 karakterden oluşabilir. Alfabetik karakterleri ve özel karakter olarak yalnızca kesme işareti kullanabilirsiniz. Hakaret veya küfür içerikli olmamalıdır. Adınız sunucu veya yöneticilerinden herhangi birinin isimlerini içermemelidir. Adınızda boşluk kullanamazsınız. Kurulumda türkçe karakter (ş-ç-ı-ğ) kullanmayınız.
+
+RESIZEPIC +0 +130 3000 160 30 
+DTEXTENTRYLIMITED +5 +135 160 25 0 1 16
+
+BUTTON +180 +135 4006 4007  1 0 1
+DTEXT +210 +135 044 Tamamla
+
+[DIALOG D_RENAME_CHAR BUTTON]
+ON=1
+REF1=<SRC.CTAG0.RENAMEDEED>
+IF (<SRC.CTAG0.RENAMEDEED>)
+	IF !(<SRC.ISINPACK <REF1>>)
+		SRC.SYSMESSAGELOC <def.tcolor_red>,600036,<REF1.NAME>	// Bunu (~1_val~) kullanabilmek için çantanızda veya üzerinizde olmalıdır.
+		RETURN 1
+	ENDIF
+ENDIF
+CALL FUNC_ISIM_KONTROL <ARGTXT[1]>
+IF (<DLOCAL.RESPONSE>)
+	// SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, İsim değişikliği başarısız oldu. Bazı hatalar tespit edildi.
+	RETURN 1
+ENDIF
+
+LOCAL.NAME <STRARG <STRTOUPPER(<STRSUB 0 1 <ARGTXT[1]>>)><STRTOLOWER(<STRSUB 1 16 <ARGTXT[1]>>)>>
+SRC.NAME <STRTRIM <LOCAL.NAME>>
+SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>,İsminiz <SRC.NAME> olarak değiştirilmiştir.
+
+// IF (<REF1.ISVALIDE>) && (<REF1.BASEID> == I_DEED_RENAME)
+	// REF1.REMOVE
+// ENDIF
+
+
+
+
+
+
+[FUNCTION Func_CharRegion_Colors]
+REF1=<ARGS>
+IF (<REF1>)
+	IF (<REF1.ISONLINE>)
+		IF (<REF1.REGION.GUARDED>)
+			LOCAL.CharRegionColor_HTML <DEF.BFONT_BLUE>
+			LOCAL.CharRegionColor_TEXT 063
+		ELSEIF (<ref1.REGION.FLAGS>&REGION_FLAG_SAFE)
+			LOCAL.CharRegionColor_HTML <DEF.BFONT_GREEN>
+			LOCAL.CharRegionColor_TEXT 044
+		ELSEIF (<REF1.REGION.FLAGS>&region_flag_underground)
+			LOCAL.CharRegionColor_HTML <DEF.BFONT_GRAY>
+			LOCAL.CharRegionColor_TEXT 03b0
+		ELSE
+			LOCAL.CharRegionColor_HTML <DEF.BFONT_RED>
+			LOCAL.CharRegionColor_TEXT 38
+		ENDIF
+	ELSE
+		LOCAL.CharRegionColor_HTML <DEF.BFONT_RED>
+		LOCAL.CharRegionColor_TEXT 38
+	ENDIF
+ENDIF
+
+
+
+// LOCAL.REGIONCOLOR_MARK 0845
+// LOCAL.REGIONCOLOR_HTML <DEF.BFONT_RED>
+// LOCAL.REGIONCOLOR_TEXT 38
+[FUNCTION Func_CharName_Colors]
+REF100=<ARGS>
+IF (<REF100>)
+	IF (0<REF100.ACCOUNT.PLEVEL> > 1)
+		LOCAL.CharNameColor_HTML <DEF.BFONT_PURPLE>
+		LOCAL.CharNameColor_Text 030
+	ELSEIF (<REF100.FLAGS>&STATF_DEAD)
+		LOCAL.CharNameColor_HTML <DEF.BFONT_DGRAY>
+		LOCAL.CharNameColor_Text 0455
+	ELSEIF (<REF100.ISPK>)
+		LOCAL.CharNameColor_HTML <DEF.BFONT_RED>
+		LOCAL.CharNameColor_Text 38
+	ELSEIF !(<REF100.ISPK>)
+		LOCAL.CharNameColor_HTML <DEF.BFONT_BLUE>
+		LOCAL.CharNameColor_Text 063
+	ELSE
+		LOCAL.CharNameColor_HTML <DEF.BFONT_BLACK>
+		LOCAL.CharNameColor_Text 1000
+	ENDIF
+ENDIF
+
+
+[FUNCTION Func_Map_Colors]
+// argv0 = x , argv1 = y, argv2 = z , argv3 = m
+IF ((<ISNUM <ARGV[0]>>) || (<ISNUM <ARGV[1]>>) || (<ISNUM <ARGV[2]>>) || (<ISNUM <ARGV[3]>>))
+LOCAL.P <ARGV[0]>,<ARGV[1]>,<ARGV[2]>,<ARGV[3]>
+	IF !(<ISEMPTY <LOCAL.P>>)
+		IF (<SERV.MAP(<LOCAL.P>).REGION.FLAGS>&REGION_FLAG_GUARDED)
+			LOCAL.REGIONCOLOR_MARK 084A
+			LOCAL.REGIONCOLOR_HTML <DEF.BFONT_BLUE>
+			LOCAL.REGIONCOLOR_TEXT 084a
+		ELIF (<SERV.MAP(<LOCAL.P>).REGION.FLAGS>&REGION_FLAG_UNDERGROUND)
+			LOCAL.REGIONCOLOR_MARK 03B0
+			LOCAL.REGIONCOLOR_HTML <DEF.BFONT_GRAY_RUNEBOOK>
+			LOCAL.REGIONCOLOR_TEXT 0450
+		ELIF (<SERV.MAP(<LOCAL.P>).REGION.FLAGS>&REGION_FLAG_SAFE)
+			LOCAL.REGIONCOLOR_MARK 08A1
+			LOCAL.REGIONCOLOR_HTML <DEF.BFONT_GREEN>
+			LOCAL.REGIONCOLOR_TEXT 044
+		ELSE
+			LOCAL.REGIONCOLOR_MARK 0845
+			LOCAL.REGIONCOLOR_HTML <DEF.BFONT_RED>
+			LOCAL.REGIONCOLOR_TEXT 38
+		ENDIF
+	ENDIF
+ENDIF
+
+
+
+
+// Season Flag:
+// 0: Spring == ilkbahar
+// 1: Summer == yaz
+// 2: Fall == sonbahar
+// 3: Winter == kis
+// 4: Desolation
+// BYTE[1] 0xBC
+// BYTE[1] Season Flag
+// BYTE[1] Play Sound (0/1)
+[FUNCTION FUNC_Season]
+IF (<ISNUM <ARGS>>)
+	IF (<ARGS> >= 0) && (<ARGS> <= 4)
+		SENDPACKET 0bc B<ARGS> B1
+	ENDIF
+ENDIF
+
+
+
+// Packet Build
+// BYTE[1] type (See Notes)
+// BYTE[1] num (number of weather effects on screen)
+// BYTE[1] temperature
+
+[FUNCTION FUNC_WEATHER]
+IF (<ISPLAYER> && <ISONLINE>)
+	IF (<ISEMPTY <ARGS>>)
+		SENDPACKET 065 0FF 00 00  // WT_INVALID_0
+		SENDPACKET 065 0FE 00 00  // WT_INVALID_1
+	ELSEIF (<ARGS> == 1)
+		SENDPACKET 065 000 50 00 // It starts to rain // WT_RAIN
+	ELSEIF (<ARGS> == 2)
+		SENDPACKET 065 001 50 00 // A fierce storm approaches. // WT_STORM_APPROACH
+	ELSEIF (<ARGS> == 3)
+		SENDPACKET 065 002 50 00 // It begins to snow // WT_SNOW
+	ELSEIF (<ARGS> >= 4)
+		SENDPACKET 065 003 50 00 // "A storm is brewing. // WT_STORM_BREWING
+	ENDIF
+ENDIF
+
+
+
+
+
+[FUNCTION RevealAll]
+REVEAL STATF_HIDDEN
+REVEAL STATF_INSUBSTANTIAL
+REVEAL STATF_INVISIBLE
+
+
+[FUNCTION max]
+RETURN <QVAL <ARGN2> < <ARGN1>? <ARGN1> : <ARGN2>>
+
+
+[FUNCTION min]
+RETURN <QVAL <ARGN2> < <ARGN1>? <ARGN2> : <ARGN1>>
+
+
+
+[FUNCTION ISVALIDE]
+// RETURN <ISVALID>
+REF1=<UID>
+IF (<UID.<REF1>.UID>) && ((<REF1.ISITEM>) || (<REF1.ISCHAR>))
+	RETURN 1
+ENDIF
+RETURN 0
+
+
+
+
+
+[Function SetProcessDelay]
+IF !(<ISGM>)
+	IF (<CTAG0.<ARGV0>.Delay> > <SERV.TIME>)
+		SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, You must wait to perform another action. (<f_stonesys_determine_timeleft <CTAG0.<ARGV0>.DELAY>>)
+		RETURN 1
+	ENDIF
+	CTAG0.<ARGV0>.DELAY = <EVAL <SERV.TIME>+<ARGV1>>
+ENDIF
+
+
+
+
+[FUNCTION OwnerMemDel_Custom]
+IF (<ISEMPTY <ARGS>>)
+	REF1=<ARGS>
+ENDIF
+FORCHARMEMORYTYPE memory_ipet
+	remove
+ENDFOR
+FORCHARMEMORYTYPE memory_friend
+	remove
+ENDFOR
+FORCHARMEMORYTYPE memory_guard
+	remove
+ENDFOR
+IF (<REF1>)
+	ATTACK=<REF1>
+ENDIF
+OWNER=
+RELEASE
+SAY @,,1,1 <NAME> appears to have decided that it is better off without a master!
+
+
+
+
+[FUNCTION RANDMOVE]
+LOCAL._DIRECTIONS=S,W,N,E,SW,NE,ES,WN,NW,SE
+MOVE <ARRAY <LOCAL._DIRECTIONS>,<R1,<ARRAYCOUNT <LOCAL._DIRECTIONS>>>> <ARGS>
+
+
+
+
+
+// Add Gold Function
+// Kullanım;
+// I = 5000 (Char)
+// NEW = 5000 (Item)
+[FUNCTION ADDGold]
+WHILE (<ARGS> > 0)
+  SERV.NEWITEM I_GOLD
+  IF (<ARGS> > <SERV.ItemsMaxAmount>)
+    NEW.AMOUNT=<SERV.ItemsMaxAmount>
+  ELSE
+    NEW.AMOUNT=<ARGS>
+  ENDIF
+  NEW.CONT=<UID>
+  ARGS -= <NEW.AMOUNT>
+ENDWHILE
+
+
+
+
+
+
+// Yüzde hesaplama
+// Kullanımı;
+// <PERCENT 10,222>  222 = %si alınacak rakam 10 = % değeri.
+[FUNCTION PERCENT]
+RETURN <EVAL (<DARGV[1]>*<DARGV[0]>)/100>
+
+
+
+
+
+
+// Custom All Dialog Close Function
+[FUNCTION DIALOGCLOSEALL]
+IF (<ISONLINE>)
+	IF (<DIALOGLIST.COUNT>)
+		FOR 0 <EVAL <DIALOGLIST.COUNT>-1>
+			IF !((STRMATCH('D_STAFF_PANEL','<DIALOGLIST.<dLOCAL._FOR>.ID>')) || (STRMATCH('d_pin_login','<DIALOGLIST.<dLOCAL._FOR>.ID>')))
+				DIALOGCLOSE <DIALOGLIST.<dLOCAL._FOR>.ID> // <ARGN2>
+			ENDIF
+		ENDFOR
+	ENDIF
+ENDIF
+
+[FUNCTION ISDIALOGOPEN]
+FOR 0 <EVAL <DIALOGLIST.COUNT>-1>
+	IF (STRMATCH('<DIALOGLIST.<DLOCAL._FOR>.ID>','<ARGS>'))
+		RETURN 1
+	ENDIF
+ENDFOR
+RETURN 0
+
+
+
+
+
+
+[PLEVEL 9]
+WRITEFILE
+DELETEFILE
+
+[FUNCTION WRITEFILE]
+IF (STRMATCH(*.scp*,'<ARGS>')) 
+	RETURN 1
+ELSEIF (STRMATCH(*.php*,'<ARGS>'))
+	RETURN 1
+ENDIF
+
+IF !(<FILE.INUSE>)
+	FILE.MODE.CREATE=1
+	FILE.MODE.APPEND=1
+	FILE.MODE.WRITEFLAG=1
+	IF (<FILE.OPEN <STRARG <ARGS>>>)
+		FILE.WRITELINE <STREAT <ARGS>>
+		FILE.CLOSE
+	ENDIF
+ENDIF
+
+
+
+[FUNCTION DELETEFILE]
+IF (STRMATCH(*.scp*,'<ARGS>')) 
+	RETURN 1
+ELSEIF (STRMATCH(*.php*,'<ARGS>'))
+	RETURN 1
+ENDIF
+	IF !(<FILE.INUSE>)
+	FILE.MODE.APPEND=1
+	FILE.DELETEFILE <ARGS>
+	FILE.CLOSE
+ENDIF
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+[FUNCTION PACKITEMCOUNTER]
+IF (<FINDLAYER.LAYER_PACK>)
+	FORCONT <FINDLAYER.LAYER_PACK.UID> 9999
+		IF (<BASEID> == <ARGV[0]>)
+			LOCAL.ADET +=<AMOUNT>
+		ENDIF
+	ENDFOR
+	RETURN <DLOCAL.ADET>
+ENDIF
+RETURN 0
+
+
+[FUNCTION BANKITEMCOUNTER]
+IF (<FINDLAYER.layer_bankbox>)
+	FORCONT <FINDLAYER.layer_bankbox.UID> 9999
+		IF (<BASEID> == <ARGV[0]>)
+			LOCAL.ADET +=<AMOUNT>
+		ENDIF
+	ENDFOR
+	RETURN <DLOCAL.ADET>
+ENDIF
+RETURN 0
+
+
+
+
+[FUNCTION MOVEBACK]
+IF (<ARGN1>)
+	DOSWITCH (<DIR>)
+	LOCAL.OK=<MOVE s>
+	LOCAL.OK=<MOVE sw>
+	LOCAL.OK=<MOVE w>
+	LOCAL.OK=<MOVE nw>
+	LOCAL.OK=<MOVE n>
+	LOCAL.OK=<MOVE ne>
+	LOCAL.OK=<MOVE e>
+	LOCAL.OK=<MOVE se>
+	ENDDO
+	IF (<LOCAL.OK>&08)
+		RETURN 1
+	ENDIF
+ENDIF
+DOSWITCH (<DIR>)
+MOVE s <ARGS>
+MOVE sw <ARGS>
+MOVE w <ARGS>
+MOVE nw <ARGS>
+MOVE n <ARGS>
+MOVE ne <ARGS>
+MOVE e <ARGS>
+MOVE se <ARGS>
+ENDDO
+// FIX
+
+
+[FUNCTION MOVEFORWARD]
+IF (<ARGN1>)
+	DOSWITCH (<DIR>)
+	LOCAL.OK=<MOVE n>
+	LOCAL.OK=<MOVE ne>
+	LOCAL.OK=<MOVE e>
+	LOCAL.OK=<MOVE se>
+	LOCAL.OK=<MOVE s>
+	LOCAL.OK=<MOVE sw>
+	LOCAL.OK=<MOVE w>
+	LOCAL.OK=<MOVE nw>
+	ENDDO
+	// IF (<LOCAL.OK>&08)
+		// RETURN 1
+	// ENDIF
+ENDIF
+DOSWITCH (<DIR>)
+MOVE n <ARGS>
+MOVE ne <ARGS>
+MOVE e <ARGS>
+MOVE se <ARGS>
+MOVE s <ARGS>
+MOVE sw <ARGS>
+MOVE w <ARGS>
+MOVE nw <ARGS>
+ENDDO
+
+
+[FUNCTION SPEEDSET]
+IF (<ISEMPTY <ARGS>>) || (<ARGS> == 0)
+	SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Karakter hızı: Normal
+ELSEIF (<ARGS> == 1)
+	SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Karakter hızı: Hızlı
+ELSEIF (<ARGS> == 2)
+	SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Karakter hızı: Sadece yürüme
+ELSEIF (<ARGS> == 3)
+	SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Karakter hızı: Hızlı yürüme
+ELSEIF (<ARGS> == 3)
+	SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Karakter hızı: Yürüme/koşma kapalı
+ENDIF
+SPEEDMODE=<ARGS>
+
+
+
+
+
+
+[FUNCTION SPELL_REMOVE_ALL]
+IF (<FINDLAYER(layer_spell_stats)>) // 32
+	IF (<FINDLAYER(layer_spell_stats).TYPE> == T_SPELL)
+		FINDLAYER(layer_spell_stats).REMOVE
+	ENDIF
+ENDIF
+IF (<FINDLAYER(layer_flag_potion)>) // 44
+	IF (<FINDLAYER(layer_flag_potion).TYPE> == T_SPELL)
+		FINDLAYER(layer_flag_potion).REMOVE
+	ENDIF
+ENDIF
+
+
+
+[FUNCTION SPELLSTAT_REMOVE_ALL]
+IF (<FINDLAYER(layer_spell_stats)>) // ayer:32
+	IF (<FINDLAYER(layer_spell_stats).TYPE> == T_SPELL)
+		FINDLAYER(layer_spell_stats).REMOVE
+	ENDIF
+ENDIF
+
+
+
+[FUNCTION POTIONSTAT_REMOVE_ALL]
+IF (<FINDLAYER(layer_flag_potion)>) // layer:44
+	IF (<FINDLAYER(layer_flag_potion).TYPE> == T_SPELL)
+		FINDLAYER(layer_flag_potion).REMOVE
+	ENDIF
+ENDIF
+
+
+
+[FUNCTION SPELLSTAT_REMOVE]
+IF (<FINDLAYER(layer_spell_stats)>) //layer:32
+	IF (<FINDLAYER(layer_spell_stats).BASEID> == <ARGS>)
+		FINDLAYER(layer_spell_stats).REMOVE
+	ENDIF
+ENDIF
+
+
+
+[FUNCTION PotionSTAT_REMOVE]
+IF (<FINDLAYER(layer_flag_potion)>) // layer:44
+	IF (<FINDLAYER(layer_flag_potion).BASEID> == <ARGS>)
+		FINDLAYER(layer_flag_potion).REMOVE
+	ENDIF
+ENDIF
+
+
+
+
+
+// Custom Logout Function
+[FUNCTION LOGOUT]
+IF (<ISPLAYER>) && (<ISONLINE>)
+	// DISCONNECT 2
+	SENDPACKET 0D1 0AD // LOGOUT CLIENT
+	SENDPACKET 082 04 // LOGIN DENIED
+	FOR 1 2
+		DISCONNECT 2
+	ENDFOR
+	// DISCONNECT
+	// DISCONNECT 1
+ENDIF 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Array function
+[FUNCTION ARRAY]
+LOCAL.TEMP = <ARGV[<EVAL <ARGV> - 1>]> -1
+RETURN <ARGV[<DLOCAL.TEMP>]>
+
+// Arraycount item function
+[FUNCTION ARRAYCOUNT]
+RETURN <EVAL <ARGV>>
+
+[FUNCTION GETARGV]
+LOCAL.TORET = <STRARG <ARGS>>
+ARGS = <STREAT <ARGS>>
+RETURN <ARGV[<LOCAL.TORET>]>
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Make mypet function
+[FUNCTION MAKEMYPET]
+CONSUME 100 I_MEMORY
+SERV.NEWITEM = I_MEMORY
+NEW.COLOR = MEMORY_IPET
+NEW.ATTR = ATTR_NEWBIE
+NEW.MORE1 = 04
+NEW.MORE2 = <SERV.TIME>
+NEW.MOREP = <P>
+NEW.LINK = <ARGS>
+NEW.CONT = <UID>
+
+
+
+
+[FUNCTION WARMODE]
+IF !(0<ARGN1>)
+	FLAGS &= ~STATF_WAR
+	IF (<ISPLAYER>) || (<ISGM>) && (<ISONLINE>)
+		SENDPACKET 072 00 00 32 00
+	ENDIF
+ELSE
+	FLAGS |= STATF_WAR
+	IF (<ISPLAYER>) || (<ISGM>) && (<ISONLINE>)
+		SENDPACKET 072 01 00 32 00
+	ENDIF
+ENDIF
+
+
+
+
+
+
+
+
+// Item Unequip All Function
+[FUNCTION UnEquipAll]
+FOR 1 24
+	IF (<FINDLAYER(<DLOCAL._FOR>)>)
+	   IF (<DLOCAL._FOR> != 11) && (<DLOCAL._FOR> != 15) && (<DLOCAL._FOR> != 16) && (<DLOCAL._FOR> != 21)
+			REF1=<FINDLAYER.<DLOCAL._FOR>>
+			IF (<ISEMPTY <ARGS>>)
+				UNEQUIP <REF1>
+			ELSE
+				REF1.CONT = <FINDLAYER.29>
+			ENDIF
+	   ENDIF
+	ENDIF
+ENDFOR
+IF (<FINDLAYER.32>)
+	FINDLAYER.32.remove
+ENDIF
+IF (<FINDLAYER.44>)
+	FINDLAYER.44.remove
+ENDIF
+IF (<FINDLAYER.47>)
+	FINDLAYER.47.remove
+ENDIF
+UPDATE
+
+
+
+
+
+
+
+			
+[FUNCTION GetCharActionName]
+IF ((<ACTION> >= skill_anatomy) && (<ACTION> <= skill_throwing))	//1 ~ 57
+ return <DEF.skillact_using> <SERV.SKILL.<eval <ACTION> & 0ff>.KEY>
+ELIF (<ACTION> == 100)
+ return <DEF.skillact_following>
+ELIF (<ACTION> == 101)
+ return <DEF.skillact_staying>
+ELIF (<ACTION> == 102)
+ return <DEF.skillact_goingto>
+ELIF (<ACTION> == 103)
+ return <DEF.skillact_wandering>
+ELIF (<ACTION> == 104)
+ return <DEF.skillact_looking>
+ELIF (<ACTION> == 105)
+ return <DEF.skillact_fleeing>
+ELIF (<ACTION> == 106)
+ return <DEF.skillact_talking>
+ELIF (<ACTION> == 107)
+ return <DEF.skillact_talkfollow>
+ELIF (<ACTION> == 108)
+ return <DEF.skillact_guarding>
+ELIF (<ACTION> == 109)
+ return <DEF.skillact_goinghome>
+ELIF (<ACTION> == 110)
+ return <DEF.skillact_breathing>
+ELIF (<ACTION> == 111)
+ return <DEF.skillact_ridden>
+ELIF (<ACTION> == 112)
+ return <DEF.skillact_throwing>
+ELIF (<ACTION> == 113)
+ return <DEF.skillact_training>
+ELIF (<ACTION> == 114)
+ return <DEF.skillact_searchingfood>
+ELIF (<ACTION> == 115)
+ return <DEF.skillact_runningto>
+ELSE
+ return <DEF.skillact_idling>
+ENDIF
+
+
+
+[FUNCTION SPELLCIRCLE] // Büyülerin kaçıncı circle olduğunu döndürür.
+//ARGN1=SPELL NUMBER
+IF (<ARGN1> >= 1) && (<ARGN1> <= 64) //ONLY WITH DEFAULT (MAGE) SPELLS
+	RETURN <EVAL ((<ARGN1>-1)/8)+1>
+ELSE
+	RETURN 1
+ENDIF
+
+
+
+[FUNCTION UpdateAllForce]
+UPDATE
+UPDATEX
+FIXWEIGHT
+FIX
+IF (<ISONLINE>)
+	RESEND
+	FLUSH // network flush
+ENDIF
+
+
+
+
+
+
+[FUNCTION AddNpc]
+LOCAL.ID=<STRARG <ARGS>>
+LOCAL.Amount=<STREAT <ARGS>>
+IF (<ISNUM <LOCAL.ID>>)
+	LOCAL.ID |= 08c000000
+ELIF !(<DEF0.<LOCAL.ID>>)
+	LOCAL.ID=0
+ENDIF
+IF (<LOCAL.Amount> < 1)
+	LOCAL.Amount=1
+ENDIF
+IF (<SERV.CHARDEF.<LOCAL.ID>>)
+	ADD <LOCAL.ID> <LOCAL.Amount>
+ELSE
+	SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, <DEFMSG.cmd_invalid>
+ENDIF
+
+
+[FUNCTION TWEAK]
+INFO
+
+
+[FUNCTION BRAIN]
+IF (<ARGN>)
+	NPC=<ARGN>
+ELSE
+	RETURN <NPC>
+ENDIF
+
+
+[FUNCTION M]
+MOVE <ARGS>
+
+
+[FUNCTION INVULNERABLE]
+INVUL <ARGS>
+
+
+[FUNCTION INVISIBLE]
+INVIS <ARGS>
+
+
+[FUNCTION static]
+LOCAL.ID=<STRARG <ARGS>>
+LOCAL.Amount=<STREAT <ARGS>>
+IF (<ISNUM <LOCAL.ID>>)
+	LOCAL.ID |= 09C000000
+ELIF !(<DEF0.<LOCAL.ID>>)
+	LOCAL.ID=0
+ENDIF
+IF (<LOCAL.AMOUNT> < 1)
+	LOCAL.AMOUNT=1
+ENDIF
+IF (<SERV.ITEMDEF.<LOCAL.ID>>)
+	TARGETFG STATIC_CALLBACK <LOCAL.ID>,<LOCAL.AMOUNT>
+	SYSMESSAGELOC <DEF.TCOLOR_TEXT>,<DEF.EMPTY_CLILOC2>, <DEFMSG.where_to_place> <SERV.ITEMDEF.<LOCAL.ID>.NAME>?
+ELSE
+	SYSMESSAGELOC <DEF.TCOLOR_TEXT>,<DEF.EMPTY_CLILOC2>, <DEFMSG.CMD_INVALID>
+ENDIF
+
+
+[FUNCTION STATIC_CALLBACK]
+SERV.NEWITEM <ARGS>
+NEW.ATTR |= ATTR_MOVE_NEVER|ATTR_STATIC
+NEW.TIMER=-1
+NEW.P=<SRC.TARGP>
+ACT=<NEW>
+
+
+
+[FUNCTION SFX]
+SOUND <ARGS>
+
+
+[FUNCTION MUSIC]
+IF (<ISPLAYER>)
+	MIDILIST <ARGS>
+ENDIF
+
+
+
+[FUNCTION CLIVER]
+RETURN <CLIENTVERSION>
+
+[FUNCTION CLIENTVER]
+RETURN <CLIENTVERSION>
+
+
+
+
+
+[FUNCTION NpcCast]
+// This function can be used to force a character to cast a specific
+// spell. Works on both players and NPCs. Two arguments can be given:
+//
+// "NpcCast <spell>, <target>"
+// spell  -->  spell id to cast
+// target -->  target (optional, default: previous action's target)
+//             - can be a uid or map location
+//
+// Determine spell and skill used to cast
+LOCAL.SPELL = <EVAL <ARGV[0]> &~ 0ff000000>
+LOCAL.SKILL = <EVAL (<STREAT <SERV.SPELL.<LOCAL.SPELL>.SKILLREQ>>) &~ 0ff000000>
+IF !(<LOCAL.SKILL>)
+	LOCAL.SKILL = 25
+ENDIF
+// Set spell target
+
+IF (<ARGV> > 2)
+	ACT = 0
+	ACTP = <ARGV[1]>,<ARGV[2]>,<ARGV[3]>,<ARGV[4]>
+ELSE
+	REF1 = <ARGV[1]>
+	IF !(<REF1>)
+		REF1 = <ACT>
+		IF !(<REF1>)
+			REF1 = <UID>
+		ENDIF
+	ENDIF
+	ACT = <REF1>
+	ACTP = <REF1.P>
+ENDIF
+// Set character action
+ACTPRV = <UID>
+ACTARG1 = <LOCAL.SPELL>
+ACTION = <LOCAL.SKILL>
+RETURN 1
+
+
+
+[EOF]

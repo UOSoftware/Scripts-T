@@ -1,0 +1,397 @@
+
+////////////////////////////////////////////////////////////////////////
+// Custom Memories
+////////////////////////////////////////////////////////////////////////
+
+
+// Reveal Timer Function
+// Use; I.FUNC_STONETIMER 5 (seconds)
+[FUNCTION FUNC_REVEALTIMER]
+IF !(<ISEMPTY <ARGS>>)
+	CONSUME 999999 I_REVEALTIMER_MEM
+	SERV.NEWITEM I_REVEALTIMER_MEM
+	NEW.TIMER=<ARGS>
+	EQUIP <NEW>
+	SYSMESSAGE Gizliliginiz <KalanSure <ARGS>> saniye sonra otomatik olarak bozulacaktir.	
+ENDIF
+
+
+[ITEMDEF I_REVEALTIMER_MEM]
+DEFNAME=I_REVEALTIMER_MEM
+ID=I_MEMORY
+TYPE=T_EQ_SCRIPT
+VALUE=0
+WEIGHT=0
+LAYER=30
+NAME=Char Reveal Timer
+
+ON=@CREATE
+ATTR=ATTR_INVIS|ATTR_NEWBIE
+
+ON=@EQUIP
+SRC.EVENTS +e_memory_revealtimer_equiped
+
+ON=@UNEQUIP
+IF (<SRC.FLAGS>&STATF_HIDDEN)
+	// SRC.REVEAL STATF_HIDDEN // bunu koyma crash edebilir.
+	SRC.FLAGSIL STATF_HIDDEN
+	// src.update
+ENDIF
+SRC.EVENTS -e_memory_revealtimer_equiped
+
+ON=@TIMER
+REMOVE
+RETURN 1
+
+[EVENTS e_memory_revealtimer_equiped]
+ON=@Reveal
+IF (<FLAGS>&STATF_HIDDEN)
+	CONSUME 999999 I_REVEALTIMER_MEM // burayi degistirmeyin.
+ENDIF
+
+
+
+
+
+
+// Disconnect Timer Function
+// Use; FUNC_DISCONNECTIMER 5 (seconds)
+[FUNCTION FUNC_DISCONNECTIMER]
+IF (<ISCHAR>)
+	CONSUME 999999 I_DISCONNECTIMER_MEM
+	SERV.NEWITEM I_DISCONNECTIMER_MEM,1,<UID>,1
+	NEW.TIMER=<ARGN1>
+	SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, <KalanSure <ARGN1>> sonra baglantiniz kesilecektir.
+ENDIF
+
+[ITEMDEF I_DISCONNECTIMER_MEM]
+DEFNAME=I_DISCONNECTIMER_MEM
+ID=I_MEMORY
+TYPE=T_EQ_SCRIPT
+VALUE=0
+WEIGHT=0
+LAYER=30
+NAME=Disconnect Timer
+
+ON=@CREATE
+ATTR=ATTR_INVIS|ATTR_NEWBIE|ATTR_DECAY
+
+ON=@EQUIP
+SRC.EVENTS +e_memory_disconnecttimer_equiped
+
+ON=@UNEQUIP
+SRC.EVENTS -e_memory_disconnecttimer_equiped
+
+ON=@Timer
+IF (<TOPOBJ.ISONLINE>)
+	TOPOBJ.UOSOFT_CLIENT_LOGOUT
+ENDIF
+REMOVE
+RETURN 1
+
+
+[events e_memory_disconnecttimer_equiped]
+
+
+
+
+
+
+// Resurrection Timer Function
+// Use; FUNC_RESTIMER 5 (seconds)
+[FUNCTION FUNC_RESTIMER]
+IF (<ISCHAR>)
+	CONSUME 999999 I_RESTIMER_MEM
+	SERV.NEWITEM I_RESTIMER_MEM
+	NEW.MORE1=<ARGN1>
+	EQUIP <NEW>
+ENDIF
+
+[ITEMDEF I_RESTIMER_MEM]
+DEFNAME=I_RESTIMER_MEM
+ID=I_MEMORY
+TYPE=T_EQ_SCRIPT
+VALUE=0
+WEIGHT=0
+LAYER=30
+NAME=Res Timer
+
+ON=@CREATE
+ATTR=ATTR_INVIS|ATTR_NEWBIE|ATTR_DECAY
+TIMER=<MORE1>
+
+ON=@EQUIP
+TIMER=<MORE1>
+SRC.SAYU <DMORE1> saniye sonra hayata döneceksiniz.
+SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, <KalanSure <DMORE1>> sonra hayata döneceksiniz.
+SRC.EVENTS +e_memory_resurrecttimer_equiped
+
+on=@UNEQUIP
+IF (<src.FLAGS>&STATF_FREEZE)
+	SRC.FlagSil STATF_FREEZE
+ENDIF
+IF (<src.FLAGS>&STATF_STONE)
+	SRC.STONE 0
+ENDIF
+SRC.EVENTS -e_memory_resurrecttimer_equiped
+
+ON=@Timer
+IF !(<TOPOBJ.FLAGS>&STATF_DEAD)
+	TOPOBJ.SYSMESSAGELOC <def.tcolor_red>,600110 // "Zaten hayattasınız."
+	REMOVE
+	RETURN 1
+ENDIF
+TOPOBJ.RESURRECT 2
+REMOVE
+RETURN 1
+
+
+[events e_memory_resurrecttimer_equiped]
+
+
+
+
+
+
+
+// Stone Timer Function
+// Use; I.FUNC_STONETIMER 5 (seconds)
+[FUNCTION FUNC_STONETIMER]
+IF (<ISCHAR>) && !(<FLAGS>&STATF_STONE)
+   IF !(<FINDID.I_STONETIMER_MEM>)
+      // STONE 1
+      SERV.NEWITEM I_STONETIMER_MEM
+      NEW.TIMER=<ARGS>
+      EQUIP <NEW>
+	  SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, <KalanSure <ARGS>> saniye stone stoneliğiniz kalkacaktır.
+   ENDIF
+ENDIF
+
+
+
+[ITEMDEF I_STONETIMER_MEM]
+DEFNAME=I_STONETIMER_MEM
+ID=I_MEMORY
+TYPE=T_EQ_SCRIPT
+VALUE=0
+WEIGHT=0
+LAYER=30
+NAME=Char Stone Timer
+
+ON=@CREATE
+ATTR=ATTR_INVIS|ATTR_NEWBIE
+
+ON=@UNEQUIP
+SRC.STONE 0
+SRC.EVENTS -e_memory_stonetimer_equiped
+
+ON=@EQUIP
+SRC.STONE 1
+SRC.EVENTS +e_memory_stonetimer_equiped
+
+ON=@TIMER
+REMOVE
+RETURN 1
+
+
+[events e_memory_stonetimer_equiped]
+
+
+
+
+
+
+// Remove Item/Char Timer Function
+// Use; FUNC_REMOVETIMER 5 (seconds)
+[FUNCTION FUNC_REMOVETIMER]
+IF (<ISCHAR>)
+	CONSUME 999999 I_REMOVETIMER_MEM
+	SERV.NEWITEM I_REMOVETIMER_MEM,1,<UID>,1
+	NEW.TIMER=1
+	NEW.MORE1=<ARGS>
+ENDIF
+
+[ITEMDEF I_REMOVETIMER_MEM]
+DEFNAME=I_REMOVETIMER_MEM
+ID=I_MEMORY
+TYPE=T_EQ_SCRIPT
+VALUE=0
+WEIGHT=0
+LAYER=30
+NAME=Remove Timer
+
+ON=@CREATE
+ATTR=ATTR_INVIS|ATTR_NEWBIE|ATTR_DECAY
+TIMER=1
+
+ON=@EQUIP
+TIMER=1
+SRC.EVENTS +e_memory_removetimer_equiped
+	
+ON=@UNEQUIP
+SRC.EVENTS -e_memory_removetimer_equiped
+
+ON=@Timer
+IF !(<DMORE1>)
+	TOPOBJ.REMOVE
+ELSE
+	IF (<DMORE1> == 3)
+		TOPOBJ.SAYU * 3 saniye sonra silinecektir *
+	ENDIF
+	MORE1 --
+	TIMER=1
+	TOPOBJ.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, <DMORE1>
+ENDIF
+RETURN 1
+
+[events e_memory_removetimer_equiped]
+
+
+
+
+
+// Death Item/Char Timer Function
+// Use; FUNC_DeathTIMER 5 (seconds)
+[FUNCTION FUNC_DEATHTIMER]
+IF (<ISCHAR>)
+	CONSUME 999999 I_DEATHTIMER_MEM
+	SERV.NEWITEM I_DEATHTIMER_MEM,1,<UID>,1
+	NEW.TIMER=1
+	NEW.MORE1=<ARGS>
+ENDIF
+
+[ITEMDEF I_DEATHTIMER_MEM]
+DEFNAME=I_DEATHTIMER_MEM
+ID=I_MEMORY
+TYPE=T_EQ_SCRIPT
+VALUE=0
+WEIGHT=0
+LAYER=30
+NAME=Death Timer
+
+ON=@CREATE
+ATTR=ATTR_INVIS|ATTR_NEWBIE|ATTR_DECAY
+TIMER=1
+
+ON=@EQUIP
+TIMER=1
+SRC.EVENTS +e_memory_deathtimer_equiped
+
+ON=@UNEQUIP
+SRC.EVENTS -e_memory_deathtimer_equiped
+
+ON=@Timer
+IF !(<DMORE1>)
+	TOPOBJ.HITS=0
+ELSE
+	IF (<DMORE1> == 3)
+		TOPOBJ.SAYU * 3 saniye sonra ölecek *
+	ENDIF
+	MORE1 --
+	TIMER=1
+	TOPOBJ.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, <DMORE1>
+ENDIF
+RETURN 1
+
+// Otomatik ölen npcnin cesetini sil, ortalik ceset doluyor.
+[EVENTS e_memory_deathtimer_equiped]
+ON=@DEATHCORPSE
+IF (<NPC>)
+	ARGO.REMOVE
+	// ARGO.TIMER={3 5}
+ENDIF
+
+
+
+
+
+// Remove Char Timer Function
+// Kullanım; REMOVETIMER 5 (seconds)
+[FUNCTION REMOVETIMER_NPC]
+IF (<ISCHAR>)
+	SERV.NEWITEM I_REMOVETIMER_NPC,1,<UID>,1
+	NEW.MORE1=<ARGS>
+	NEW.TIMER=1
+ENDIF
+
+[ITEMDEF I_REMOVETIMER_NPC]
+DEFNAME=I_REMOVETIMER_NPC
+ID=I_MEMORY
+TYPE=T_EQ_SCRIPT
+VALUE=0
+WEIGHT=0
+LAYER=30
+//CAN=CAN_O_NOSLEEP
+NAME=Remove Timer
+
+ON=@CREATE
+ATTR=ATTR_INVIS|ATTR_NEWBIE|ATTR_DECAY
+TIMER=1
+
+ON=@EQUIP
+TIMER=1
+SRC.EVENTS +e_removetimer_npc
+
+ON=@UNEQUIP
+SRC.EVENTS -e_removetimer_npc
+
+ON=@Timer
+IF !(<DMORE1>)
+	TOPOBJ.REMOVE
+ELSE
+	IF (<DMORE1> == 3)
+		TOPOBJ.SAYU * 3 saniye sonra silinecektir *
+	ENDIF
+	MORE1 --
+	TIMER=1
+ENDIF
+RETURN 1
+
+[events e_removetimer_npc]
+ON=@CLICK
+IF (<FINDID.I_REMOVETIMER_NPC>)
+	message @<DEF.SMSG_ERROR_COLOR>,,1,1 (<DFindid.I_REMOVETIMER_NPC.MORE1> sn sonra silinecektir.)
+ENDIF
+
+
+
+
+
+
+[FUNCTION FOLLOW]
+SERV.NEWITEM I_EQ_FOLLOWSRC
+NEW.LINK=<QVAL (<DARGS>)? <ARGS>:<UID>>
+NEW.TIMER=2
+NEW.EQUIP
+SRC.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Following: <NEW.LINK.NAME> - Use war mode to stop following
+
+[ITEMDEF I_EQ_FOLLOWSRC]
+ID=I_HANDR_1
+NAME=Follower
+TYPE=T_EQ_SCRIPT
+LAYER=LAYER_SPECIAL
+
+ON=@TargOn_Char
+LINK=<ARGO>
+
+ON=@TargOn_Item
+LINK=<ARGO>
+
+ON=@Timer
+IF !(<LINK.UID>) || (<CONT.FLAGS> & statf_war)
+ CONT.SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, Follow: off
+ REMOVE
+ return 0
+ELIF STRCMP("'<CONT.P>'","'<LINK.P>'")
+ CONT.FACE <LINK>
+ CONT.P=<LINK.P>
+ CONT.UPDATE
+ENDIF
+TIMER=2
+return 1
+
+
+
+
+
+[eof]
