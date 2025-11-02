@@ -3,9 +3,7 @@ VERSION=0.56T
 [events e_generic_chars]
 
 ON=@LOGIN
-
 ARGN1=1 // Girişteki sphereden gelen default mesajları yazmaz. 
-
 IF (<EVAL <SERV.CLIENTS>> > <DVAR.MAXPLAYERS>)
 	VAR0.MAXPLAYERS <EVAL <SERV.CLIENTS>>
 ENDIF
@@ -84,6 +82,18 @@ IF (<SRC.UID> == <UID>)
 ENDIF
 
 
+ON=@SKILLMENU
+IF (<SERV.SKILL.<dlocal.Skill>.FLAGS>&SKF_CRAFT)
+	CTAG.Craft_Menu.Skill=<SERV.SKILL.<dlocal.Skill>.NAME>
+	
+	CTAG.Craft_Menu.Cat_WHERE="id"
+	CTAG.Craft_Menu.Cat_INDEX=0
+	CTAG.Craft_Menu.Cat_Order="category ASC"
+		
+	CTAG.Craft_Menu.Item_WHERE="id"
+	CTAG.Craft_Menu.Item_INDEX=0
+	CTAG.Craft_Menu.Item_ORDER="name ASC"
+ENDIF
 
 // ARGO = MEMORY
 // SRC = BINEK

@@ -1,30 +1,18 @@
 
 
 
-[FUNCTION DUMMYARMORSET]
+[FUNCTION StaffDummyArmorSet]
 LOCAL.ARMORINCREMENT = 2
 LOCAL.COUNT = 0
 FORINSTANCES C_DUMMY_STAFF
 	MODAR=0
     LOCAL.COUNT ++
     LOCAL.ARMORVALUE = <EVAL <LOCAL.COUNT> * <LOCAL.ARMORINCREMENT>>
-	// SERV.B <DLOCAL.COUNT>: <DLOCAL.ARMORVALUE>
 	COLOR= <EVAL <DLOCAL.ARMORVALUE>+60>
     MODAR = <LOCAL.ARMORVALUE>
 ENDFOR
 SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, <DLOCAL.COUNT> DUMMY
 
-
-[FUNCTION DUMMYSIFIRLA]
-DUMMYARMORSET
-IF (<SERV.MYSQL>)
-	DB.CONNECT
-	 IF (<DB.CONNECTED>)
-		DB.EXECUTE CREATE TABLE IF NOT EXISTS sphere_istatistik_hitdamages (id INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL, uid VARCHAR(100), name VARCHAR(100), baseid VARCHAR(100), armorlo INT, armorhi INT, damlo INT, damhi INT, weapon_baseid VARCHAR(100), weapon_damlo INT, weapon_damhi INT, src_uid VARCHAR(100), src_name VARCHAR(100), src_baseid VARCHAR(100), src_armorlo INT, src_armorhi INT, src_damlo INT, src_damhi INT, src_weapon_baseid VARCHAR(100),src_weapon_damlo INT, src_weapon_damhi INT, argument VARCHAR(100), triggername VARCHAR(100), dam_types VARCHAR(100), dam_result INT, created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP, updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP)
-		DB.EXECUTE "DELETE FROM sphere_istatistik_hitdamages WHERE baseid='c_dummy_staff'"
-	 ENDIF
-	DB.CLOSE
-ENDIF
 
 [CHARDEF C_DUMMY_STAFF]
 DEFNAME=C_DUMMY_STAFF
@@ -33,6 +21,7 @@ NAME=#NAMES_HUMANMALE the Trainer
 CAN=MT_EQUIP|MT_USEHANDS|MT_NONMOVER
 DAM=0
 ARMOR=0
+TEVENTS=e_damage_counter
 CATEGORY=Vendors
 BLOODCOLOR=-1
 SUBSECTION=Others
@@ -40,7 +29,7 @@ DESCRIPTION=Trainer Dummy
 RESDISPDNHUE=0
 
 ON=@Create
-DUMMYARMORSET
+StaffDummyArmorSet
 COLOR=colors_skin
 KARMA=-100
 NPC=brain_animal
@@ -50,24 +39,13 @@ INT=0
 WRESTLING=100.0
 TACTICS=100.0
 MAGERY=0.0
-// ITEMNEWBIE=i_robe
-// ARMOR=0
-// COLOR=colors_red
-// HITPOINTS=10000
 
-on=@clienttooltip
-ADDCLILOC <DEF.EMPTY_CLILOC2>,<DEF.BIG><DEF.BFONT_CYAN>ARMOR: <AR><DEF.BIGE><DEF.BFONTE>
 
 ON=@GETHIT
-// IF !(<SRC.ISPLAYER>)
-	// RETURN 1
-// ENDIF
 IF (<FINDID.I_RUNE_POISON>)
 	FINDID.I_RUNE_POISON.REMOVE
 ENDIF
 HITS=<STR>
-DIALOGCLOSE D_DAMAGE_SHOW
-DIALOG D_DAMAGE_SHOW
 DIR=3
 UPDATE
 
@@ -85,8 +63,9 @@ HITS=<STR>
 RETURN 1
 
 ON=@DCLICK
-DIALOGCLOSE D_DAMAGE_SHOW
-DIALOG D_DAMAGE_SHOW
+DIALOGCLOSE d_dummy_damage_show
+DIALOG d_dummy_damage_show
+
 HITS=<STR>
 DIR=3
 UPDATE
@@ -107,12 +86,10 @@ ON=@DESTROY
 
 
 
-
-[events e_damage_counter]
+[EVENTS e_damage_counter]
 ON=@HitMiss
 REF1=<SRC.WEAPON>
 REF2=<WEAPON>
-
 IF (<ARGN2>&02)
 	IF (<REF1.ISVALIDE>)
 		LOCAL.ARGUMENT=<REF1.NAME>
@@ -122,20 +99,17 @@ IF (<ARGN2>&02)
 ELSE
 	LOCAL.ARGUMENT=<DamTypesOfString <ARGN2>>
 ENDIF
-
-IF (<SERV.MYSQL>)
-	DB.CONNECT
-	 IF (<DB.CONNECTED>)
-		DB.EXECUTE INSERT INTO sphere_istatistik_hitdamages (uid, name, baseid, armorlo, armorhi, damlo, damhi, weapon_baseid, weapon_damlo, weapon_damhi, src_uid, src_name, src_baseid, src_armorlo, src_armorhi, src_damlo, src_damhi, src_weapon_baseid, src_weapon_damlo, src_weapon_damhi, argument, triggername, dam_types, dam_result) VALUES ('<UID>', '<NAME>', '<BASEID>', <ARMOR.LO>, <ARMOR.HI>, <DAM.LO>, <DAM.HI>, <QVAL (<REF2.ISVALIDE>)?'<REF2.BASEID>': NULL>, <QVAL (<REF2.ISVALIDE>)?<REF2.DAM.LO>:0>, <QVAL (<REF2.ISVALIDE>)?<REF2.DAM.HI>:0>, '<SRC>', '<SRC.NAME>', '<SRC.BASEID>', <SRC.ARMOR.LO>, <SRC.ARMOR.HI>, <SRC.DAM.LO>, <SRC.DAM.HI>, <QVAL (<REF1.ISVALIDE>)?'<REF1.BASEID>':NULL>, <QVAL (<REF1.ISVALIDE>)?<REF1.DAM.LO>:NULL>, <QVAL (<REF1.ISVALIDE>)?<REF1.DAM.HI>:NULL>, '<LOCAL.ARGUMENT>', '@HitMiss', '<DamTypesOfString <ARGN2>>', <ARGN1>);
-	
-	ENDIF
-	DB.CLOSE
+LDB.CONNECT "db/main.db"
+IF (<LDB.CONNECTED>)
+	LDB.EXECUTE INSERT INTO 'damages' ('dest_uid', 'dest_name', dest_baseid, dest_armorl, dest_armorh, dest_daml, dest_damh, dest_weapon_baseid, dest_weapon_daml, dest_weapon_damh, src_uid, src_name, src_baseid, src_armorl, src_armorh, src_daml, src_damh, src_weapon_baseid, src_weapon_daml, src_weapon_damh, argument, triggername, dam_types, dam_result) VALUES ('<UID>', '<NAME>', '<BASEID>', <ARMOR.LO>, <ARMOR.HI>, <DAM.LO>, <DAM.HI>, <QVAL (<REF2.ISVALIDE>)?'<REF2.BASEID>': NULL>, <QVAL (<REF2.ISVALIDE>)?<REF2.DAM.LO>:0>, <QVAL (<REF2.ISVALIDE>)?<REF2.DAM.HI>:0>, '<SRC>', '<SRC.NAME>', '<SRC.BASEID>', <SRC.ARMOR.LO>, <SRC.ARMOR.HI>, <SRC.DAM.LO>, <SRC.DAM.HI>, <QVAL (<REF1.ISVALIDE>)?'<REF1.BASEID>':NULL>, <QVAL (<REF1.ISVALIDE>)?<REF1.DAM.LO>:NULL>, <QVAL (<REF1.ISVALIDE>)?<REF1.DAM.HI>:NULL>, '<LOCAL.ARGUMENT>', '@GetHit', '<DamTypesOfString <ARGN2>>', <ARGN1>);
 ENDIF
+LDB.CLOSE
+
+
 
 ON=@Hit
 REF1=<SRC.WEAPON>
 REF2=<WEAPON>
-
 IF (<ARGN2>&02)
 	IF (<REF1.ISVALIDE>)
 		LOCAL.ARGUMENT=<REF1.NAME>
@@ -146,22 +120,18 @@ ELSE
 	LOCAL.ARGUMENT=<DamTypesOfString <ARGN2>>
 ENDIF
 
-IF (<SERV.MYSQL>)
-	DB.CONNECT
-	 IF (<DB.CONNECTED>)
-		DB.EXECUTE INSERT INTO sphere_istatistik_hitdamages (uid, name, baseid, armorlo, armorhi, damlo, damhi, weapon_baseid, weapon_damlo, weapon_damhi, src_uid, src_name, src_baseid, src_armorlo, src_armorhi, src_damlo, src_damhi, src_weapon_baseid, src_weapon_damlo, src_weapon_damhi, argument, triggername, dam_types, dam_result) VALUES ('<UID>', '<NAME>', '<BASEID>', <ARMOR.LO>, <ARMOR.HI>, <DAM.LO>, <DAM.HI>, <QVAL (<REF2.ISVALIDE>)?'<REF2.BASEID>': NULL>, <QVAL (<REF2.ISVALIDE>)?<REF2.DAM.LO>:0>, <QVAL (<REF2.ISVALIDE>)?<REF2.DAM.HI>:0>, '<SRC>', '<SRC.NAME>', '<SRC.BASEID>', <SRC.ARMOR.LO>, <SRC.ARMOR.HI>, <SRC.DAM.LO>, <SRC.DAM.HI>, <QVAL (<REF1.ISVALIDE>)?'<REF1.BASEID>':NULL>, <QVAL (<REF1.ISVALIDE>)?<REF1.DAM.LO>:NULL>, <QVAL (<REF1.ISVALIDE>)?<REF1.DAM.HI>:NULL>, '<LOCAL.ARGUMENT>','@Hit', '<DamTypesOfString <ARGN2>>', <ARGN1>);
-	
-	 ENDIF
-	DB.CLOSE
+LDB.CONNECT "db/main.db"
+IF (<LDB.CONNECTED>)
+	LDB.EXECUTE INSERT INTO 'damages' ('dest_uid', 'dest_name', dest_baseid, dest_armorl, dest_armorh, dest_daml, dest_damh, dest_weapon_baseid, dest_weapon_daml, dest_weapon_damh, src_uid, src_name, src_baseid, src_armorl, src_armorh, src_daml, src_damh, src_weapon_baseid, src_weapon_daml, src_weapon_damh, argument, triggername, dam_types, dam_result) VALUES ('<UID>', '<NAME>', '<BASEID>', <ARMOR.LO>, <ARMOR.HI>, <DAM.LO>, <DAM.HI>, <QVAL (<REF2.ISVALIDE>)?'<REF2.BASEID>': NULL>, <QVAL (<REF2.ISVALIDE>)?<REF2.DAM.LO>:0>, <QVAL (<REF2.ISVALIDE>)?<REF2.DAM.HI>:0>, '<SRC>', '<SRC.NAME>', '<SRC.BASEID>', <SRC.ARMOR.LO>, <SRC.ARMOR.HI>, <SRC.DAM.LO>, <SRC.DAM.HI>, <QVAL (<REF1.ISVALIDE>)?'<REF1.BASEID>':NULL>, <QVAL (<REF1.ISVALIDE>)?<REF1.DAM.LO>:NULL>, <QVAL (<REF1.ISVALIDE>)?<REF1.DAM.HI>:NULL>, '<LOCAL.ARGUMENT>', '@GetHit', '<DamTypesOfString <ARGN2>>', <ARGN1>);
 ENDIF
+LDB.CLOSE
+
 
 ON=@GetHit
 // SRC = VURAN
 // UID = HASAR ALAN
-REF1=<SRC.WEAPON>
-REF2=<WEAPON>
-
-// SAYU <HARGN2>
+REF1=<SRC.WEAPON> // vuranin silahi
+REF2=<WEAPON> // hasar alanin silahi
 
 IF (<ARGN2>&dam_physical|dam_slash|dam_pierce)
 	IF (<REF1.ISVALIDE>)
@@ -175,97 +145,93 @@ ELSE
 	LOCAL.ARGUMENT=<DamTypesOfString <ARGN2>>
 ENDIF
 
-	
-IF (<SERV.MYSQL>)
-	DB.CONNECT
-	 IF (<DB.CONNECTED>)
-		DB.EXECUTE INSERT INTO sphere_istatistik_hitdamages (uid, name, baseid, armorlo, armorhi, damlo, damhi, weapon_baseid, weapon_damlo, weapon_damhi, src_uid, src_name, src_baseid, src_armorlo, src_armorhi, src_damlo, src_damhi, src_weapon_baseid, src_weapon_damlo, src_weapon_damhi, argument, triggername, dam_types, dam_result) VALUES ('<UID>', '<NAME>', '<BASEID>', <ARMOR.LO>, <ARMOR.HI>, <DAM.LO>, <DAM.HI>, <QVAL (<REF2.ISVALIDE>)?'<REF2.BASEID>': NULL>, <QVAL (<REF2.ISVALIDE>)?<REF2.DAM.LO>:0>, <QVAL (<REF2.ISVALIDE>)?<REF2.DAM.HI>:0>, '<SRC>', '<SRC.NAME>', '<SRC.BASEID>', <SRC.ARMOR.LO>, <SRC.ARMOR.HI>, <SRC.DAM.LO>, <SRC.DAM.HI>, <QVAL (<REF1.ISVALIDE>)?'<REF1.BASEID>':NULL>, <QVAL (<REF1.ISVALIDE>)?<REF1.DAM.LO>:NULL>, <QVAL (<REF1.ISVALIDE>)?<REF1.DAM.HI>:NULL>, '<LOCAL.ARGUMENT>', '@GetHit', '<DamTypesOfString <ARGN2>>', <ARGN1>);
-	
+LDB.CONNECT "db/main.db"
+IF (<LDB.CONNECTED>)
+	LDB.EXECUTE INSERT INTO 'damages' ('dest_uid', 'dest_name', dest_baseid, dest_armorl, dest_armorh, dest_daml, dest_damh, dest_weapon_baseid, dest_weapon_daml, dest_weapon_damh, src_uid, src_name, src_baseid, src_armorl, src_armorh, src_daml, src_damh, src_weapon_baseid, src_weapon_daml, src_weapon_damh, argument, triggername, dam_types, dam_result) VALUES ('<UID>', '<NAME>', '<BASEID>', <ARMOR.LO>, <ARMOR.HI>, <DAM.LO>, <DAM.HI>, <QVAL (<REF2.ISVALIDE>)?'<REF2.BASEID>': NULL>, <QVAL (<REF2.ISVALIDE>)?<REF2.DAM.LO>:0>, <QVAL (<REF2.ISVALIDE>)?<REF2.DAM.HI>:0>, '<SRC>', '<SRC.NAME>', '<SRC.BASEID>', <SRC.ARMOR.LO>, <SRC.ARMOR.HI>, <SRC.DAM.LO>, <SRC.DAM.HI>, <QVAL (<REF1.ISVALIDE>)?'<REF1.BASEID>':NULL>, <QVAL (<REF1.ISVALIDE>)?<REF1.DAM.LO>:NULL>, <QVAL (<REF1.ISVALIDE>)?<REF1.DAM.HI>:NULL>, '<LOCAL.ARGUMENT>', '@GetHit', '<DamTypesOfString <ARGN2>>', <ARGN1>);
+	IF (<SRC.ISPLAYER>)
+		DIALOGCLOSE d_dummy_damage_show
+		DIALOG d_dummy_damage_show
 	ENDIF
-	DB.CLOSE
 ENDIF
+LDB.CLOSE
 
-IF (<SRC.ISPLAYER>)
-	SRC.DIALOGCLOSE d_damage_show
-	SRC.DIALOG d_damage_show
-ENDIF
 
-[dialog d_damage_show]
+
+
+[DIALOG d_dummy_damage_show]
 <DEF.dlgstartpos>
 
-RESIZEPIC 0 0 5120 240 340
-RESIZEPIC 10 10 3000 220 320
+RESIZE 0,0,220,340,Dummy Damage Counter
 
-DORIGIN 20 20
-DTEXT +0 +0 <def.noto.<src.notogetflag <uid>>> Char: <NAME>
+DORIGIN 20 50
+DTEXT +0 +0 <DEF.NOTO.<SRC.NOTOGETFLAG <UID>>> Char: <NAME> <- <SRC.NAME>
 DTEXT +0 +20 1000 Armor: <AR>
 
+
+LDB.CONNECT "db/main.db"
+IF (<LDB.CONNECTED>)
+
+	LDB.EXECUTE CREATE TABLE IF NOT EXISTS 'damages' (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, dest_uid TEXT, dest_name TEXT, dest_baseid TEXT, dest_armorl INT, dest_armorh INT, dest_daml INT, dest_damh INT, dest_weapon_baseid TEXT, dest_weapon_daml INT, dest_weapon_damh INT, src_uid TEXT, src_name TEXT, src_baseid TEXT, src_armorl INT, src_armorh INT, src_daml INT, src_damh INT, src_weapon_baseid TEXT, src_weapon_daml INT, src_weapon_damh INT, argument TEXT, triggername TEXT, dam_types TEXT, dam_result INT, created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP)
+	DORIGIN 20 90
+	
+	LDB.Query "SELECT COUNT(id) AS total_hits FROM 'damages' WHERE dest_uid='<uid>' AND src_uid='<src>'"
+	LOCAL.VerilenToplamDarbe = <ldb.row.0.total_hits>
+	DTEXT +0 +0 0 Toplam Darbe: <BOLUKAYIR <dLOCAL.VerilenToplamDarbe>>
+	
+	LDB.Query "SELECT SUM(dam_result) AS total_damage FROM 'damages' WHERE dest_uid='<uid>' AND src_uid='<src>'"
+	LOCAL.VerilenToplamHasar = <ldb.row.0.total_damage>
+	DTEXT +0 +20 0 Toplam Hasar: <BOLUKAYIR <dLOCAL.VerilenToplamHasar>>
+
+	LDB.Query "SELECT MIN(dam_result) AS min_damage FROM 'damages' WHERE dest_uid='<uid>' AND src_uid='<src>'"
+	LOCAL.VerilenEnAzHasar = <ldb.row.0.min_damage>
+	DTEXT +0 +40 0 En Düşük Hasar: <BOLUKAYIR <dLOCAL.VerilenEnAzHasar>>
+
+	LDB.Query "SELECT MIN(dam_result) AS min_damage FROM 'damages' WHERE dest_uid='<uid>' AND src_uid='<src>'"
+	LOCAL.VerilenEnAzHasar = <ldb.row.0.min_damage>
+	DTEXT +0 +40 0 En Düşük Hasar: <BOLUKAYIR <dLOCAL.VerilenEnAzHasar>>
+	
+	LDB.Query "SELECT MAX(dam_result) AS max_damage FROM 'damages' WHERE dest_uid='<uid>' AND src_uid='<src>'"
+	LOCAL.VerilenEnFazlaHasar = <ldb.row.0.max_damage>
+	DTEXT +0 +60 0 En Yüksek Hasar: <BOLUKAYIR <dLOCAL.VerilenEnFazlaHasar>>
+
+	LDB.Query "SELECT dam_result AS last_damage FROM 'damages' WHERE dest_uid='<uid>' AND src_uid='<src>' ORDER BY created_at DESC LIMIT 1"
+	LOCAL.SonVerilenHasar = <ldb.row.0.last_damage>
+	DTEXT +0 +80 0 Son Verilen Hasar: <BOLUKAYIR <dLOCAL.SonVerilenHasar>>
+
+	LDB.Query "SELECT CAST((julianday('now') - julianday(MIN(created_at))) * 24 * 60 AS INTEGER) AS elapsed_time FROM 'damages' WHERE dest_uid='<uid>' AND src_uid='<src>'"
+	LOCAL.GecenSureDakika = <ldb.row.0.elapsed_time>
+	DTEXT +0 +100 0 Geçen Süre: <dLOCAL.GecenSureDakika> dk
+
+	BUTTON +0 +120 0fb5 0fb4 1 0 1
+	DTEXT +30 +120 38 Sıfırla
+
+ENDIF
+
+
+LDB.CLOSE
+	
 IF (<SRC.WEAPON>)
-	ref1=<src.weapon>
-	DORIGIN 20 180
-	DTEXT +0 +20 0 Silah: <ref1.name>
-	DTEXT +0 +40 0 Hasarı: <ref1.dam.lo>/<ref1.dam.hi>
-	DTEXT +0 +60 0 Hızı: <SERV.ITEMDEF.<REF1.ID>.SPEED.LO>/<SERV.ITEMDEF.<REF1.ID>.SPEED.HI> <QVAL (<REF1.dTAG0.OVERRIDE.SPEED>)?[+<REF1.dTAG0.OVERRIDE.SPEED>]:>
-	DTEXT +0 +80 0 Range: <dref1.rangel>/<dref1.rangeh>
-	// DTEXT +0 +100 0 Durability: <ref1.hits>/<ref1.maxhits> (<REF1.ShowDurability>)
-	DTEXT +0 +100 0 Durability: <ref1.hits>/<ref1.maxhits>
+	REF1=<SRC.WEAPON>
+	DORIGIN 20 210
+	DTEXT +0 +20 0 Silah Adı: <REF1.NAME>
+	DTEXT +0 +40 0 Silah Hasarı: <REF1.DAM.LO>/<REF1.DAM.HI>
+	DTEXT +0 +60 0 Silah Hızı: <SERV.ITEMDEF.<REF1.ID>.SPEED.LO>/<SERV.ITEMDEF.<REF1.ID>.SPEED.HI> <QVAL (<REF1.dTAG0.OVERRIDE.SPEED>)?[+<REF1.dTAG0.OVERRIDE.SPEED>]:>
+	DTEXT +0 +80 0 Silah Range: <DREF1.RANGEL>/<DREF1.RANGEH>
+	DTEXT +0 +100 0 Silah Sağlamlığı: <REF1.HITS>/<REF1.MAXHITS>
 ENDIF
 
-DORIGIN 20 280
-BUTTON +0 +20 0fb5 0fb4 1 0 1
-DTEXT +30 +20 38 Sıfırla
-
-IF (<SERV.MYSQL>)
-	DB.CONNECT
-	 IF (<DB.CONNECTED>)
-	 	DB.EXECUTE CREATE TABLE IF NOT EXISTS sphere_istatistik_hitdamages (id INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL, uid VARCHAR(100), name VARCHAR(100), baseid VARCHAR(100), armorlo INT, armorhi INT, damlo INT, damhi INT, weapon_baseid VARCHAR(100), weapon_damlo INT, weapon_damhi INT, src_uid VARCHAR(100), src_name VARCHAR(100), src_baseid VARCHAR(100), src_armorlo INT, src_armorhi INT, src_damlo INT, src_damhi INT, src_weapon_baseid VARCHAR(100),src_weapon_damlo INT, src_weapon_damhi INT, argument VARCHAR(100), triggername VARCHAR(100), dam_types VARCHAR(100), dam_result INT, created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP, updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP)
-			
-		DORIGIN 20 60
-		DB.Query "SELECT COUNT(id) AS total_hits FROM sphere_istatistik_hitdamages WHERE uid='<uid>' AND src_uid='<src>'"
-		LOCAL.VerilenToplamDarbe = <db.row.0.total_hits>
-		DTEXT +0 +0 0 Toplam Darbe: <BOLUKAYIR <dLOCAL.VerilenToplamDarbe>>
-
-				
-		DB.Query "SELECT SUM(dam_result) AS total_damage FROM sphere_istatistik_hitdamages WHERE uid='<uid>' AND src_uid='<src>'"
-		LOCAL.VerilenToplamHasar = <db.row.0.total_damage>
-		DTEXT +0 +20 0 Toplam Hasar: <BOLUKAYIR <dLOCAL.VerilenToplamHasar>>
-
-		
-		DB.Query "SELECT MIN(dam_result) AS min_damage FROM sphere_istatistik_hitdamages WHERE uid='<uid>' AND src_uid='<src>'"
-		LOCAL.VerilenEnAzHasar = <db.row.0.min_damage>
-		DTEXT +0 +40 0 En Düşük Hasar: <BOLUKAYIR <dLOCAL.VerilenEnAzHasar>>
-
-		DB.Query "SELECT MIN(dam_result) AS min_damage FROM sphere_istatistik_hitdamages WHERE uid='<uid>' AND src_uid='<src>'"
-		LOCAL.VerilenEnAzHasar = <db.row.0.min_damage>
-		DTEXT +0 +40 0 En Düşük Hasar: <BOLUKAYIR <dLOCAL.VerilenEnAzHasar>>
-		
-		DB.Query "SELECT MAX(dam_result) AS max_damage FROM sphere_istatistik_hitdamages WHERE uid='<uid>' AND src_uid='<src>'"
-		LOCAL.VerilenEnFazlaHasar = <db.row.0.max_damage>
-		DTEXT +0 +60 0 En Yüksek Hasar: <BOLUKAYIR <dLOCAL.VerilenEnFazlaHasar>>
-
-		DB.Query "SELECT dam_result AS last_damage FROM sphere_istatistik_hitdamages WHERE uid='<uid>' AND src_uid='<src>' ORDER BY created_at DESC LIMIT 1"
-		LOCAL.SonVerilenHasar = <db.row.0.last_damage>
-		DTEXT +0 +80 0 Son Verilen Hasar: <BOLUKAYIR <dLOCAL.SonVerilenHasar>>
-
-		DB.Query "SELECT TIMESTAMPDIFF(MINUTE, MIN(created_at), NOW()) AS elapsed_time FROM sphere_istatistik_hitdamages WHERE uid='<uid>' AND src_uid='<src>'"
-		LOCAL.GecenSureDakika = <db.row.0.elapsed_time>
-		DTEXT +0 +100 0 Geçen Süre: <dLOCAL.GecenSureDakika> dk
-
-	 ENDIF
-	DB.CLOSE
-ENDIF
-
-[dialog d_damage_show button]
+[dialog d_dummy_damage_show button]
 on=1
-IF (<SERV.MYSQL>)
-	DB.CONNECT
-	 IF (<DB.CONNECTED>)
-		DB.EXECUTE "DELETE FROM sphere_istatistik_hitdamages WHERE uid='<UID>'"
-		DIALOGCLOSE d_damage_show
-		DIALOG d_damage_show
-	 ENDIF
-	DB.CLOSE
+LDB.CONNECT "db/main.db"
+IF (<LDB.CONNECTED>)
+	LDB.EXECUTE "DELETE FROM 'damages' WHERE dest_uid='<UID>'"
+	DIALOGCLOSE d_dummy_damage_show
+	DIALOG d_dummy_damage_show
 ENDIF
+DB.CLOSE
+
+
+
 
 
 // Kullanim <DamTypesOfString <damtype>>
@@ -316,10 +282,6 @@ IF (<ARGV0>&dam_pierce)
 	LOCAL.DAMTYPE_NAME .=Pierce,
 ENDIF
 	
-// IF (<ARGV0>&dam_nodisturb)
-	// LOCAL.DAMTYPE_NAME .=NoDisturb,
-// ENDIF
-	
 IF (<ARGV0>&dam_noreveal)
 	LOCAL.DAMTYPE_NAME .=NoReveal,
 ENDIF
@@ -328,21 +290,6 @@ IF (<ARGV0>&dam_nounparalyze)
 	LOCAL.DAMTYPE_NAME .=NoUnParalyze,
 ENDIF
 
-IF (<ARGV0>&dam_fixed)
-	LOCAL.DAMTYPE_NAME .=Fixed,
-ENDIF
-
-IF (<ARGV0>&dam_breath)
-	LOCAL.DAMTYPE_NAME .=Breath,
-ENDIF
-
-IF (<ARGV0>&dam_thrown)
-	LOCAL.DAMTYPE_NAME .=Throw,
-ENDIF
-	
-IF (<ARGV0>&dam_reactive)
-	LOCAL.DAMTYPE_NAME .=Reactive,
-ENDIF
 ARGS <LOCAL.DAMTYPE_NAME>
 FOR 1 <EVAL <ARGV>-1>
 	IF (STRMATCH('0','<LOCAL.RESULT>'))

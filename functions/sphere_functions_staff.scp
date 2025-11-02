@@ -228,5 +228,85 @@ ENDIF
 
 
 
+[PLEVEL 2]
+GOTUR
+
+[FUNCTION GOTUR]
+SRC.TARGETF FUNC_GOTUR_SELECT_OBJ
+SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, Başka yere götürmek istediğiniz varlığı veya eşyayı seçiniz.
+RETURN 1
+
+[FUNCTION FUNC_GOTUR_SELECT_OBJ]
+REF1=<ARGO>
+
+IF !(<ARGO>)
+SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bir eşya veya varlık seçiniz.
+SRC.TARGETFG FUNC_GOTUR_SELECT_OBJ
+RETURN 1
+ENDIF
+
+SRC.CTAG0.GOTUR_OBJ <REF1>
+SRC.TARGETFG FUNC_GOTUR_SELECT_P
+SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, Götürmek istediğiniz <qval (<ref1.isitem>)?eşya:varlık> seçildi. Şimdi götürmek istediğiniz yeri seçiniz.
+ 
+
+[FUNCTION FUNC_GOTUR_SELECT_P]
+REF1=<SRC.CTAG0.GOTUR_OBJ>
+
+IF !(<REF1>)
+	SRC.SYSMESSAGELOC <def.tcolor_red>,SYSMESSAGELOC <def.tcolor_red>,600022 // Bir hata oluştu!
+	SRC.SYSMESSAGELOC <def.tcolor_red>,SYSMESSAGELOC <def.tcolor_red>,600052 // Nesne sunucuda kayıtlı değil/bulunamadı!
+	SRC.TARGETFG FUNC_GOTUR_SELECT_OBJ
+RETURN 1
+ENDIF
+
+IF (<REF1>)
+
+	IF (<REF1.ISITEM>)
+		REF1.P <SRC.TARGP>
+	ELSE
+		REF1.GO <SRC.TARGP>
+	ENDIF
+
+	SRC.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, <REF1.NAME>: <SRC.TARGP.X>-<SRC.TARGP.Y>-<SRC.TARGP.Z>-<SRC.TARGP.M> yerine götürüldü!
+	SRC.CTAG0.GOTUR_OBJ=
+	SRC.TARGETFG FUNC_GOTUR_SELECT_OBJ
+ELSE
+SRC.SYSMESSAGELOC <def.tcolor_red>,600021 // Hatalı seçim/hedef.
+ENDIF
+
+
+
+[PLEVEL 2]
+GETIR
+
+[FUNCTION GETIR]
+SRC.TARGETF F_SUMMONTO
+src.SYSMESSAGELOC <def.tcolor_grey>,<def.empty_cliloc2>, Yanınıza getirmek istediğiniz varlığı veya eşyayı seçiniz.
+
+[FUNCTION F_SUMMONTO]
+IF (<ARGO>)
+	IF (<ARGO.UID> == <SRC.UID>)
+		SRC.SYSMESSAGELOC <def.tcolor_red>,600088 // "Kendinizi seçemezsiniz."
+		SRC.TARGETF F_SUMMONTO
+	ENDIF
+
+	IF (<ARGO.ISITEM>)
+		ARGO.P <SRC.P>
+		SRC.TARGETF F_SUMMONTO
+		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, <argo.name> isimli esya yaniniza geldi.
+	ENDIF
+
+	IF (<ARGO.ISCHAR>)
+		ARGO.GO <SRC.P>
+		SRC.TARGETF F_SUMMONTO
+		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, <argo.name> isimli varlik yaniniza geldi.
+	ENDIF
+ENDIF
+
+
+
+
+
 
 [eof]

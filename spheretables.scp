@@ -18,12 +18,9 @@ As a general rule:
 [RESOURCES]
 // sphere.ini and spheretable.scp are automatic.
 // All the other scripts we want to load.
-
 //*****************************************
 // defnames
 //*****************************************
-
-
 defnames/sphere_defs.scp
 defnames/backwards/
 defnames/sphere_defs_height.scp
@@ -33,23 +30,21 @@ defnames/sphere_defs_mounts.scp
 defnames/sphere_defs_sounds.scp
 defnames/sphere_defs_template.scp
 
-
 //*****************************************
 // functions
 //*****************************************
 functions/
 // packets
 functions/packets/
+
 //*****************************************
 // dialogs
 //*****************************************
-
 dialogs/
 
 //*****************************************
 // Core
 //*****************************************
-
 sphere_functions.scp
 sphere_issets.scp
 sphere_msgs.scp
@@ -57,14 +52,12 @@ sphere_name.scp
 sphere_serv_triggers.scp
 sphere_skills.scp
 sphere_skillmenu.scp
-sphere_spellmenu.scp
 sphere_newb.scp
 sphere_types.scp
 
 //*****************************************
 // itemdefs
 //*****************************************
-
 // itemdefs/
 itemdefs/artifact/
 itemdefs/building/
@@ -84,16 +77,13 @@ itemdefs/typedefs/
 //*****************************************
 // speechs
 //*****************************************
-
 speechs/chars/
-
 speechs/npcs/
 speechs/multis/
 
 //*****************************************
 // chardefs
 //*****************************************
-
 chardefs/chars/
 chardefs/npcs/
 chardefs/npcs/monsters/
@@ -106,14 +96,10 @@ chardefs/npcs/vendors/
 spawns/
 spawns/monsters/
 
-
-
 //*****************************************
 // systems
 //*****************************************
-
 systems/
-
 systems/stones/
 systems/stones/guilds/
 systems/stones/guilds/dialogs/
@@ -123,7 +109,6 @@ systems/stones/towns/dialogs/
 //*****************************************
 // core
 //*****************************************
-
 sphere_spawns.scp
 sphere_spells.scp
 sphere_region.scp
@@ -132,15 +117,12 @@ sphere_region.scp
 //*****************************************
 // events
 //*****************************************
-
 events/chars/
 events/chars/bonuses/
 events/chars/classes/
-
 events/items/
 events/npcs/
 events/regions/
-
 
 //*****************************************
 // staffs
@@ -207,8 +189,6 @@ templates/sphere_template_magic.scp
 templates/sphere_template_misc.scp
 templates/sphere_template_vend.scp
 templates/sphere_template_weapons.scp
-
-
 
 /////////////////
 // sql Klasoru

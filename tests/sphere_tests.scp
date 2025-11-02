@@ -1,6 +1,26 @@
 
 
 
+[ITEMDEF iTimerTest]
+DEFNAME=iTimerTest
+ID=i_deed
+TYPE=t_deed
+VALUE=0
+WEIGHT=0
+LAYER=30
+NAME=Char Reveal Timer
+
+ON=@CREATE
+ATTR=attr_decay
+TIMER=300 // 18:17:00 de eklendi. 18:22:00 de silinmesi lazım
+
+ON=@TIMER
+serv.b timer expired
+REMOVE
+RETURN 1
+
+
+
 [FUNCTION SPELLBOOK]
 DIALOGCLOSE D_SPELLBOOK
 DIALOG D_SPELLBOOK

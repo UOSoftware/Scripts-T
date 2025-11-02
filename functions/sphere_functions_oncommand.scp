@@ -78,10 +78,6 @@ IF (<ARGO.ISCHAR>)
 		ARGO.REMOVE
 	ENDIF
 ELSEIF (<ARGO.ISITEM>)
-	IF ((<ARGO.TAG0.MULTICOMPONENT>) || (<ARGO.ISEVENT.ei_house_door>) || (<ARGO.ISEVENT.ei_house_component>))
-		SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Ev komponentleri silinemez.
-		RETURN 1
-	ENDIF
 	SRC.Logger [Item Removed]: <QVAL (<ARGO.TOPOBJ>)?:Sahibi=<ARGO.TOPOBJ.NAME>>, Topobj Serial=<ARGO.TOPOBJ.UID>, Name=<ARGO.NAME> Serial=<ARGO.UID>
 	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Item: <NAME> removed.
 	ARGO.REMOVE
