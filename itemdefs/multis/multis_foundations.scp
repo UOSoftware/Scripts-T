@@ -1,18 +1,18 @@
 VERSION=0.56d
 
-[TYPEDEF t_multi_custom]
+[TYPEDEF T_MULTI_CUSTOM]
 ON=@Create
-   // Add external stairs
-   IF (<ID> >= 010000|013ec) && (<ID> <= 010000|0147d)
-      ARGS=<MULTIREGION>
-      FOR <eval <ARGV0>+1> <ARGV2>
-         ADDITEM 0751,<LOCAL._FOR>,<ARGV3>,0
-      ENDFOR
-      COMMIT
-   ENDIF
+// Add external stairs
+IF (<ID> >= 010000|013ec) && (<ID> <= 010000|0147d)
+   ARGS=<MULTIREGION>
+   FOR <eval <ARGV0>+1> <ARGV2>
+      ADDITEM 0751,<LOCAL._FOR>,<ARGV3>,0
+   ENDFOR
+   COMMIT
+ENDIF
+
 
 // 7x* foundations
-
 [MULTIDEF 013ec]
 DEFNAME=m_foundation_7x7
 TYPE=t_multi_custom

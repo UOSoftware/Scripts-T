@@ -6,7 +6,7 @@
 
 
 
-[typedef t_forge]
+[TYPEDEF T_FORGE]
 ON=@TARGON_ITEM
 IF !(<SRC.TARG.TYPE> == T_ORE)
 	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Sadece maden eritebilirsiniz.
@@ -69,7 +69,7 @@ RETURN 1
 
 
 
-[TYPEDEF t_corpse]
+[TYPEDEF T_CORPSE]
 ON=@CLICK
 // IF (<RESCOUNT>)
 	// MESSAGE (Items:<RESCOUNT>)
