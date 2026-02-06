@@ -19,6 +19,7 @@ DESCRIPTION=Dragon
 ON=@Create
 // TAG0.NAME.SUFFIX " the <JOB>"
 NPC=brain_monster
+// NPC=brain_dragon
 FAME={5000 5999}
 KARMA={-5000 -5999}
 STR={450 625}
