@@ -883,6 +883,7 @@ IMSG_DEF_FONT	3
 //spell_poison_2		"very ill"
 //spell_poison_3		"extremely sick"
 //spell_poison_4		"deathly sick"
+//spell_poison_5		"lethally sick"
 //spell_recall_blank		"The recall rune is blank."
 //spell_recall_fadec		"The recall rune fades completely."
 //spell_recall_faded		"The recall rune's magic has faded"
