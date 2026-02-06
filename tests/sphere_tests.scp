@@ -1,5 +1,16 @@
 
 
+// [function dialogdene]
+// dialog dialogdene
+// if (<isdialogopen dialogdene>
+
+
+
+
+// [dialog d_dene]
+// 0,0
+// resizepic 0 0 3000 100 100
+
 
 [ITEMDEF iTimerTest]
 DEFNAME=iTimerTest
@@ -60,6 +71,82 @@ CAST <DARGN>
 SYSMESSAGELOC <def.tcolor_text>,<def.empty_cliloc2>, ID=<ARGN>, NAME=<SERV.SPELL.<DARGN>.NAME>, WORD=<SERV.SPELL.<DARGN>.RUNES>
 DIALOGCLOSE D_SPELLBOOK
 DIALOG D_SPELLBOOK
+
+
+
+
+[FUNCTION dialoglarilistelex]
+IF (<ISONLINE>)
+	IF (<DIALOGLIST.COUNT>)
+	src.sysmessage dialoglist count: <DIALOGLIST.COUNT>
+		FOR 0 <EVAL <DIALOGLIST.COUNT>-1>
+			src.sysmessage dialog id: <DIALOGLIST.<dLOCAL._FOR>.ID>
+		ENDFOR
+	ENDIF
+ENDIF
+
+
+[itemdef i_book_farming]
+id 0fbd
+value 44000
+type t_script
+name Farmer's HandBook
+
+on=@create
+attr=attr_newbie
+
+on=@dclick
+
+	// ref1 <src.findid.i_memory>
+	// if <ref1.tagcount> == 0
+		// src.sysmessage @39,,1,1 Aktif olarak büyüyen tohumunuz bulunmamakta
+		// return 1
+	// else
+		trysrc <src> dialogclose d_farm_book
+		src.dialog d_farm_book
+	// endif
+
+return 1
+
+[DIALOG d_farm_book]
+0,0
+
+page 0
+resizepic 137 138 3000 430 430
+
+// ref1 <src.findid.i_memory>
+// if <ref1.tagcount> == 0
+	// src.sys_red Aktif olarak büyüyen tohumunuz bulunmamakta
+	// return 1
+// endif
+
+dhtmlgump 137 150 430 20 0 0 <def.center><def.Bfont_HARD>Farmer's HandBook
+gumppic 200 170 353	
+gumppic 480 125 339				//Yaprak	 
+//dtext 510 155 0481 Tohum sayınız : <ref1.tagcount>
+
+[DIALOG d_farm_book Button]
+ON=0
+src.ctag0.farm_page 
+src.ctag0.farm_pager
+dialogclose d_farm_book
+
+ON=8
+src.ctag0.farm_pager += 5
+src.ctag0.farm_page ++
+src.dialog d_farm_book
+
+ON=9
+src.ctag0.farm_pager -= 5
+src.ctag0.page --
+if <src.dctag0.farm_pager> < 0
+	src.ctag0.farm_pager 0
+	src.ctag0.farm_page 0
+endif
+src.dialog d_farm_book
+
+
+
 
 
 
