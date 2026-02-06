@@ -277,7 +277,7 @@ ADV_RATE=2.5,50.0,200.0
 VALUES=1,20,80
 
 ON=@Fail
-	SRC.SYSMESSAGE You fail to create the item
+	SRC.SYSMESSAGE You fail to create the item.
 
 ON=@Abort
 	SRC.SYSMESSAGE You fail to complete the item.
@@ -310,7 +310,7 @@ KEY=Cooking
 TITLE=Chef
 PROMPT_MSG=What would you like to cook?
 FLAGS=skf_craft
-DELAY=1.2//Old value=1.5
+DELAY=0.1 //Old value=1.5
 STAT_STR=25
 STAT_DEX=20
 STAT_INT=45
@@ -318,7 +318,8 @@ BONUS_STR=0
 BONUS_DEX=40
 BONUS_INT=60
 BONUS_STATS=50
-ADV_RATE=2.5,50.0,200.0
+//ADV_RATE=2.5,50.0,200.0
+ADV_RATE=0.1,0.1,0.1
 VALUES=1,20,80
 RANGE=3 // campfire dist
 
