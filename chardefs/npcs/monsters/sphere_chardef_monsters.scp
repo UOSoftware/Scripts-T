@@ -1277,6 +1277,7 @@ WRESTLING={90.0 100.0}
 ITEMNEWBIE=i_light_source
 ITEMNEWBIE=i_spellbook
 
+
 ADDSPELL=s_magic_arrow
 ADDSPELL=s_fireball
 ADDSPELL=s_fire_field
@@ -1286,6 +1287,8 @@ ADDSPELL=s_meteor_swarm
 ADDSPELL=s_summon_elem_fire
 ADDSPELL=s_fire_bolt
 
+ON=@NPCRESTOCK
+ITEM=i_gold,100
 
 
 [CHARDEF 010]

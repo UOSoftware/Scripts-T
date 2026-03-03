@@ -18,7 +18,7 @@ DESCRIPTION=Human (male)
 ON=@Create
 COLOR=colors_skin
 NPC=brain_human
-
+STR=1
 
 
 
@@ -40,7 +40,7 @@ DESCRIPTION=Human (female)
 ON=@Create
 COLOR=colors_skin
 NPC=brain_human
-
+STR=1
 
 //////////////////////////
 // Ghosts
