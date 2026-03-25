@@ -33,7 +33,11 @@ ELSE
 	ENDIF
 ENDIF
 
-
+ON=@USEREXTCMD
+IF (<ARGN1> == 88)
+LOCAL.DoorAutoDist=2
+LOCAL.Advanced=1
+ENDIF
 
 ON=@USERGUILDBUTTON
 f_guildsys_event_speech_fix
