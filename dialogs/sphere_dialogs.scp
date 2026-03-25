@@ -45,6 +45,33 @@ radio x,y,unchecked_gump,checked_gump,ispressed,id                              
 checkbox x,y,unchecked_gump,checked_gump,ispressed,checkid                                        // Add checkbox button
 group id                                                                                          // Group a bunch of radios/checkboxes
 
+// Dünya Haritası (7168 x 4096 piksel - map0)
+// ┌─────────────────────────────────┐
+// │                                 │
+// │      areaX,areaY                │
+// │         ┌──────────┐            │
+// │         │ gösterilen│           │
+// │         │  bölge   │           │
+// │         └──────────┘            │
+// │              areaEndX,areaEndY  │
+// └─────────────────────────────────┘
+// Yani:
+// areaX, areaY → gösterilecek bölgenin sol-üst köşesi (tile koordinatı)
+// areaEndX, areaEndY → sağ-alt köşesi
+// Oyuncuyu ortaya almak için:
+// 400x300 boyutlu bir pencerede oyuncuyu ortaya almak:
+// maparea 0 0 400 300 <src.p.m> <eval <src.p.x>-200> <eval <src.p.y>-150> <eval <src.p.x>+200> <eval <src.p.y>+150>
+// Parametre	Değer	Açıklama
+// <src.p.x>-200	örn. 1300	400 genişliğin yarısı sola
+// <src.p.y>-150	örn. 1550	300 yüksekliğin yarısı yukarı
+// <src.p.x>+200	örn. 1700	sağa
+// <src.p.y>+150	örn. 1850	aşağıya
+// Örnek — oyuncu 1500,1700 koordinatındaysa:
+// maparea 0 0 400 300 0 1300 1550 1700 1850
+// 400x300 piksellik pencere, haritanın 1300-1700 X / 1550-1850 Y aralığını gösterir ve oyuncu tam ortada olur.
+maparea x y w h mapIndex haritaX haritaY haritaBitiX haritaBitiY // sadece uosoft son surum clientlerde gecerli.
+
+
 
 [FUNCTION RESIZE]
 RESIZEPIC <EVAL <argv[0]>> <EVAL <argv[1]>> 9200 <argv[2]> <argv[3]>

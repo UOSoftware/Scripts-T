@@ -7,8 +7,13 @@
 
 
 
-// [dialog d_dene]
-// 0,0
+[dialog d_mapareatest]
+
+0,0
+
+resizepic 0 0 3000 500 500
+
+maparea 20 20 400 300 <src.p.m> <eval <src.p.x>-200> <eval <src.p.y>-150> <eval <src.p.x>+200> <eval <src.p.y>+150>
 // resizepic 0 0 3000 100 100
 
 
