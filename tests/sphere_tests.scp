@@ -37,6 +37,26 @@ RETURN 1
 
 
 
+// Cliente bazi bilgileri gonderir.
+// Kullanım: .UOSoft_SendInfo
+// Tum sunucu. serv.allclients UOSoft_SendInfo
+[FUNCTION UOSoft_Client_SendInfo_All]
+// UOSoft_Client_SendInfo Maxfood
+// UOSoft_Client_SendInfo Food
+// UOSoft_Client_SendInfo Age
+// UOSoft_Client_SendInfo Account.Plevel
+// UOSoft_Client_SendInfo ISGM
+UOSoft_Client_SendInfo Region.Name
+UOSoft_Client_SendInfo Region.Flags
+
+[FUNCTION UOSoft_Client_SendInfo]
+LOCAL.KEY <args>
+//SERV.LOG <NAME>= <LOCAL.KEY> : <I.<LOCAL.KEY>>
+SENDPACKET 0BF W65 W02719 <ASCPAD 30, <LOCAL.KEY>> <ASCPAD 30, <I.<LOCAL.KEY>>>
+
+
+
+
 [FUNCTION SPELLBOOK]
 DIALOGCLOSE D_SPELLBOOK
 DIALOG D_SPELLBOOK
