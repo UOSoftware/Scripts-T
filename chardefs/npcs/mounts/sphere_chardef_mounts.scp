@@ -162,7 +162,7 @@ NPC=brain_animal
 FAME=10
 KARMA=1500
 
-DEX={336 455}
+STR={336 455}
 DEX=50
 INT={16 30}
 
