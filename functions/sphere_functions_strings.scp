@@ -34,21 +34,27 @@ ENDIF
 
 [FUNCTION StrReplace]
 local.str=<asc <args>>
-local.string=s
-for i 0 strlen(<local.str>)
-    local.check=<strarg <local.str>>
-    local.last=<local.check>
-    if (<local.check> == 00)
-        return <strsub 1 <eval strlen(<local.string>)-2> <local.string>>
-    endif
-    if (<local.check>=<asc '>)
-        local.string <strsub 0 <eval strlen(<local.string>)-1> <local.string>>\s
-    else
-        local.string <strsub 0 <eval strlen(<local.string>)-1> <local.string>><chr <local.check>>s
-    endif
-    local.str=<streat <local.str>>
-endfor
+local.len=<EVAL STRLEN(<local.str>)>
+IF (<dlocal.len> > 0)
+	local.string=s
+	FOR i 0 strlen(<local.str>)
+		local.check=<strarg <local.str>>
+		local.last=<local.check>
+		IF (<dlocal.len> > 2)
+			IF (<local.check> == 00)
+				return <strsub 1 <eval strlen(<local.string>)-2> <local.string>>
+			ENDIF
+		ENDIF
+		IF (<local.check>=<asc '>)
+			local.string <strsub 0 <eval strlen(<local.string>)-1> <local.string>>s
+		ELSE
+			local.string <strsub 0 <eval strlen(<local.string>)-1> <local.string>><chr <local.check>>s
+		ENDIF
+		local.str=<streat <local.str>>
+	ENDFOR
 return <strsub 1 <eval strlen(<local.string>)-2> <local.string>>
+ENDIF
+
 
 
 [FUNCTION StrTitle]
