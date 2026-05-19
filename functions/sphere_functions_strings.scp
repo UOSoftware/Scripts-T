@@ -31,42 +31,6 @@ ELSE
 ENDIF
 
 
-[FUNCTION StrReplace]
-local.str=<asc <args>>
-local.string=s
-for i 0 strlen(<local.str>)
-    local.check=<strarg <local.str>>
-    local.last=<local.check>
-    if (<local.check> == 00)
-        return <strsub 1 <eval strlen(<local.string>)-2> <local.string>>
-    endif
-    if (<local.check>=<asc '>)
-        local.string <strsub 0 <eval strlen(<local.string>)-1> <local.string>>\s
-    else
-        local.string <strsub 0 <eval strlen(<local.string>)-1> <local.string>><chr <local.check>>s
-    endif
-    local.str=<streat <local.str>>
-endfor
-return <strsub 1 <eval strlen(<local.string>)-2> <local.string>>
-
-
-
-[FUNCTION StrTitle]
-//in: yo bro
-//out: Yo Bro
-// serv.log <args>
-LOCAL.WORD=<STRARG <ARGS>>
-LOCAL.RES = <STRTOUPPER <STRSUB 0 1 <LOCAL.WORD>>><STRSUB 1 STRLEN(<LOCAL.WORD>)-1 <LOCAL.WORD>>
-ARGS=<STREAT <ARGS>>
-WHILE !(<ISEMPTY <ARGS>>)
-	LOCAL.WORD=<STRARG <ARGS>>
-	LOCAL.RES=<LOCAL.RES> <STRTOUPPER <STRSUB 0 1 <LOCAL.WORD>>><STRSUB 1 STRLEN(<LOCAL.WORD>)-1 <LOCAL.WORD>>
-	ARGS=<STREAT <ARGS>>
-ENDWHILE
-RETURN <LOCAL.RES>
-
-
-
 
 [FUNCTION StrReplace]
 local.str=<asc <args>>
