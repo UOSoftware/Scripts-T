@@ -7,7 +7,7 @@ ARGN1=1 // Girişteki sphereden gelen default mesajları yazmaz.
 IF (<EVAL <SERV.CLIENTS>> > <DVAR.MAXPLAYERS>)
 	VAR0.MAXPLAYERS <EVAL <SERV.CLIENTS>>
 ENDIF
-SRC.SKILLCLASS <QVAL (<SRC.ACCOUNT.PLEVEL> > 1)?Class_Staff:Class_Player>
+SRC.SKILLCLASS <QVAL (<SRC.ACCOUNT.PLEVEL> <= 1)?Class_Player:Class_Staff>
 SRC.ACCOUNT.RESDISP=<SERV.AutoResDisp>
 
 
