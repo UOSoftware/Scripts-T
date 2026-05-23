@@ -291,7 +291,7 @@ IF (<LINK.ISVALIDE>)
 			LINK.KARMA=0
 			LINK.HOME=0,0
 			LINK.TAG0.TAMER <CONT.UID>	
-			IF (<LINK.NPC> == brain_animal) && !(<LINK.ISTEVENT.e_generic_npc_mounts>)
+			IF (<LINK.NPC> == brain_animal) && !(<LINK.IsMountables>)
 				LOCAL.REMOVETIME = <R15,30>
 				// LINK.FUNC_REMOVETIMER <LOCAL.REMOVETIME>
 				LINK.FUNC_DeathTIMER <LOCAL.REMOVETIME>
