@@ -5,6 +5,88 @@
 // if (<isdialogopen dialogdene>
 
 
+// Default = Player to Update
+// Arguments:
+// Show Buff:  ID,ClilocName,ClilocDesc,ClilocArgs1(XX),ClilocArgs2(X),Duration
+// Remove Buff: ID
+// Example :
+// SRC.f_buffupdate 03F4,1200000,1200001,0,0,<TIMER>
+
+
+// ============================================================
+// fBuffIconRebuild
+// Kullanım : SRC.fBuffIconRebuild <Name>,<IsBuff>
+// argv0    : Icon/Cliloc suffix adı (DEF ile eşleşmeli)
+//            Örn: Agility, Clumsy, Poison, MagicReflection
+// argv1    : 1 = buff göster, 0 = debuff göster
+//            (opsiyonel: verilmezse buff varsayılır)
+// Nasıl çalışır:
+//   - İlgili i_rune_<lowercase> öğesini karakterde arar
+//   - Timer > 0 ise ikonu gösterir, değilse kaldırır
+// ============================================================
+
+[FUNCTION fBuffIconRebuild]
+LOCAL.name    = <ARGV[0]>
+LOCAL.isbuff  = <ARGV[1]>
+
+IF (<LOCAL.isbuff>)
+    LOCAL.iconkey = bufficon_<LOCAL.name>
+ELSE
+    LOCAL.iconkey = debufficon_<LOCAL.name>
+ENDIF
+
+LOCAL.clilockey1 = buffcliloc_<LOCAL.name>_1
+LOCAL.clilockey2 = buffcliloc_<LOCAL.name>_2
+
+LOCAL.icon     = <DEF.<LOCAL.iconkey>>
+LOCAL.cliloc1  = <DEF.<LOCAL.clilockey1>>
+LOCAL.cliloc2  = <DEF.<LOCAL.clilockey2>>
+
+// Cliloc tanımsızsa fallback: Empty
+IF (<isblank <LOCAL.cliloc1>>)
+    LOCAL.cliloc1 = <DEF.buffcliloc_Empty>
+ENDIF
+IF (<isblank <LOCAL.cliloc2>>)
+    LOCAL.cliloc2 = <DEF.buffcliloc_Empty>
+ENDIF
+
+// --- Rune timer'ını oku ---
+LOCAL.duration = 0
+LOCAL.runekey  = i_rune_<strtolower <LOCAL.name>>
+LOCAL.rune     = <findid.<LOCAL.runekey>>
+
+IF (<findid.<LOCAL.rune>>)
+    LOCAL.duration = <findid.<LOCAL.rune>.TIMER>
+ENDIF
+
+// Güncelle 
+IF (<LOCAL.duration> > 0)
+    SRC.f_buffupdate <LOCAL.icon>,<LOCAL.cliloc1>,<LOCAL.cliloc2>,0,0,<LOCAL.duration>
+ELSE
+    // Icon kaldır
+    SRC.f_buffupdate <LOCAL.icon>
+ENDIF
+
+
+[FUNCTION bufficonrest]
+f_buffupdate <def.debufficon_Clumsy>,<def.buffcliloc_Empty>,<def.buffcliloc_Empty>,0,0,10
+
+
+[FUNCTION f_buffupdate]
+IF (<ISPLAYER>)&&(<ISONLINE>)
+    IF (<ARGV> > 5)
+        //packet,len,uid,Icon,Flags,D00,Icon,Flags,D00,duration,w0,0,cliloc1,cliloc2,D0,W1​,numlen,num1,num2,4 bytes
+        SENDPACKET 0DF W03c D<UID> W<ARGV[0]> W01 D00 W<ARGV[0]> W01 D00 W<ARGV[5]> W00 00 D<ARGV[1]> D<ARGV[2]> D00 W01 D06 B<EVAL 48+(<ARGV[3]>/10)> 0 B<EVAL 48+(<ARGV[3]>%10)> 0 09 00 B(48+<ARGV[4]>) 00 00 00 00 00 00 00
+    ELSE
+        SENDPACKET 0DF W00b D<UID> W<ARGN1> W00
+    endif
+endif
+RETURN 0
+
+
+
+
+
 
 
 [dialog d_mapareatest]
