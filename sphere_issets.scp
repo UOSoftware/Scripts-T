@@ -806,6 +806,14 @@ RETURN 0
 
 
 
+[FUNCTION IsImpassableItemFlag]
+IF (<ISITEM>)
+	IF (<SERV.TILEDATA.ITEM(<DISPIDDEC>).FLAGS>&<DEF.tilef_impassable>)
+		return 1
+	ENDIF
+ENDIF
+RETURN 0
+
 [FUNCTION IsImpassableItem]
 IF !((<ATTR>&ATTR_MOVE_NEVER) || (<CAN>&can_i_door) || (<CAN>&can_i_blocklos) || (<BASEID> == I_BACKPACK) || (<BASEID> == I_BAG)) && ((STRMATCH(*sticks*,'<BASEID>')) || (<BASEID> == I_HAY_SHEAF) || (<TYPE> == T_CONTAINER) || (<TYPE> == T_SAND))
 	 RETURN 1
