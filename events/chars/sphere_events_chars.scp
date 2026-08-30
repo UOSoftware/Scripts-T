@@ -162,6 +162,19 @@ IF !(<SRC.HouseDesign>)
 	ENDIF
 ENDIF
 
+// ARGN1 = stat tipi (0=HITS, 1=MANA, 2=STAM)
+// ARGN2 = eski değer (okuma amaçlı)
+// ARGN3 = yeni değer (scriptte değiştirilebilir)
+// SRC = kaynak karakter (UID verilmişse o karakter, verilmemişse kendi kendine — this)
+// Trigger 1 döndürürse değişiklik iptal edilir
+ON=@StatValChange
+serv.log StatValChange
+SERV.B @,,1,1 StatValChange
+SERV.B @,,1,1 src = <SRC>, <src.name>
+SERV.B @,,1,1 ARGN1 = <ARGN1>
+SERV.B @,,1,1 ARGN2 = <ARGN2>
+SERV.B @,,1,1 ARGN3 = <ARGN3>
+SERV.B @,,1,1 argo = <argo>, <argo.name>
 
 
 

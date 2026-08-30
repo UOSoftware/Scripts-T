@@ -86,7 +86,22 @@ RETURN 0
 
 
 
+[function ftest]
+FORTYPES t_door 999
+  SERV.LOG <UID> <name>
+ENDFOR
 
+// FORALLTYPES t_door
+  // SERV.LOG <UID> <name>
+// ENDFOR
+
+
+
+FORALLITEMS
+  IF (<TYPE> == t_door)
+    // SERV.LOG <UID>
+  ENDIF
+ENDFOR
 
 
 [dialog d_mapareatest]
