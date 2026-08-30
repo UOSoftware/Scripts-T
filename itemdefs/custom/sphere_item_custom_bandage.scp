@@ -27,7 +27,7 @@ ELSEIF (<SRC.FINDID.I_HEALING_MEMORY>)
 ELSEIF (<SRC.FLAGS>&STATF_DEAD|STATF_STONE|STATF_FREEZE)
 	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>,  Şu anki durumunuzda kullanamazsınız.
 	RETURN 1
-ELSEIF (<SRC.TAG0.HEALDELAY> > <SERV.TIME>)
+ELSEIF (<SRC.dTAG0.HEALDELAY> > <SERV.TIME>)
 	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>,  Bandajları şu an kullanamazsınız.
 	RETURN 1
 ENDIF
@@ -67,7 +67,7 @@ ELSEIF (<SRC.FLAGS>&STATF_DEAD|STATF_STONE|STATF_FREEZE)
 	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Şu anki durumunuzda kullanamazsınız.
 	RETURN 1
 	
-ELSEIF (<SRC.TAG0.HEALDELAY> > <SERV.TIME>)
+ELSEIF (<SRC.dTAG0.HEALDELAY> > <SERV.TIME>)
 	SRC.SYSMESSAGELOC <def.tcolor_red>,<def.empty_cliloc2>, Bandajlari su an kullanamazsiniz.
 	RETURN 1
 	
@@ -266,10 +266,11 @@ ELSE // TEDAVİ ET
 
 	 LOCAL.OLDHITS = <CONT.HITS>
 	 LOCAL.HEAL1 <EVAL (1000 / <R20,50>) + (1000 / 50)>
-	 LOCAL.HEAL2 <EVAL (<LOCAL.HEAL1> + <R3,10>)>	
+	 LOCAL.HEAL2 <EVAL (<dLOCAL.HEAL1> + <R3,10>)>	
+	 LOCAL.HEAL3 <EVAL (<LINK.HITS> + <dLOCAL.HEAL2>)>	
 	//LOCAL.HEAL2 <R35,40>
 	
-	LINK.HITS +=<LOCAL.HEAL2>
+	LINK.HITS <DLOCAL.HEAL3> , <CONT>
 	IF (<LINK.HITS> > <LINK.STR>)
 		LINK.HITS = <LINK.STR>
 	ENDIF
